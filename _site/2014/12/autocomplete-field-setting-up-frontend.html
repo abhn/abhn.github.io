@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Creating an autocomplete field | Setting up frontend | Part 2</title>
+    
+    <meta name="author" content="Abhishek Nagekar">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap styles -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional theme -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Sticky Footer -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bs-sticky-footer.css" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <link href="/assets/themes/bootstrap-3/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!-- Update these with your own images
+      <link rel="shortcut icon" href="images/favicon.ico">
+      <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div id="wrap">
+      <nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#jb-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Abhishek Nagekar's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="jb-navbar-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+          <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div><!-- /.navbar-collapse -->
+      </nav>
+
+      <div class="container">
+        
+<div class="page-header">
+  <h1>Creating an autocomplete field | Setting up frontend | Part 2 </h1>
+</div>
+
+<div class="row post-full">
+  <div class="col-xs-12">
+    <div class="date">
+      <span>20 December 2014</span>
+    </div>
+    <div class="content">
+      <div dir="ltr" style="text-align: left;" trbidi="on"><div dir="ltr" style="text-align: left;" trbidi="on"><div dir="ltr" style="text-align: left;" trbidi="on"><div dir="ltr" style="text-align: left;" trbidi="on">In the <a href="http://www.nagekar.com/2014/12/creating-autocomplete-field-with-ajax.html">first part of this article</a>, we had set up the backend MySQL database. Now we can write the code necessary to get information from the server and convert it to a format we can parse, JSON in my case here. So lets begin.<br /><br /><h4 style="text-align: left;">Step 4 - Writing script to get data from MySQL database</h4><div style="text-align: left;">As always, we can write it in any language we are comfortable with. PHP happens to be mine. The script is straight forward, accept the pincode via a GET request, 'pincode' parameter. Query the database for its existence, add it to an array and using <a href="http://php.net/manual/en/function.json-encode.php" target="_blank">json_encode()</a> function in PHP, display the output. If value does not exist, it will return null, and it is not our concern here about what happens after that, as it will be taken care by the application using this API.</div><div style="text-align: left;"><br /></div><div style="text-align: left;"><i>Code: retrieve.php</i></div></div><pre class="brush: php">&lt;?php<br /> $pincode = $_GET['pincode'];<br /> $conn = mysql_connect("localhost", "root", "password");<br /> mysql_select_db("turnouts") or die();<br /> <br /> $pincode = (string)mysql_real_escape_string($pincode);<br /> <br /> $sql = "SELECT taluka, district, state FROM pincode WHERE pincode = '$pincode'";<br /> $data = mysql_query($sql);<br /> if(!$data) {<br />  die(mysql_error());<br /> }<br /> $row = mysql_fetch_row($data);<br /> $taluka = $row[0];<br /> $district = $row[1];<br /> $state = $row[2];<br /> $state = str_replace("\r\n", "", $state);<br /> $taluka = strtolower($taluka);<br /> $district = strtolower($district);<br /> $state = strtolower($state);<br /> header('Content-type: application/json');<br /> $array = array('taluka'=&gt;$taluka, 'district'=&gt;$district, 'state'=&gt;$state);<br /> echo json_encode($array);<br />?&gt;&nbsp; </pre></div><br />The URL will follow the pattern, /retrieve.php?pincode=000000 and return data. As an example, the following image,<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://4.bp.blogspot.com/-9FzaGvkA4nk/VJU8QZCIc0I/AAAAAAAAHvM/uiSEJCWN2gA/s1600/json.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://4.bp.blogspot.com/-9FzaGvkA4nk/VJU8QZCIc0I/AAAAAAAAHvM/uiSEJCWN2gA/s1600/json.png" height="172" width="400" /></a></div><br />If you have come successfully to this step, then bingo! We now have a working API.<br /><br /><h4 style="text-align: left;">Step 5 - Writing an AJAX form using jQuery</h4><div style="text-align: left;">&nbsp;We will now write a simple form with 4 fields in HTML. Include jQuery in that page, and then write the script at the bottom which will query our API asynchronously.</div><div style="text-align: left;"><br /></div><div style="text-align: left;">Code: pincodes.html</div></div><pre class="brush: jscript">&lt;html&gt;<br />&lt;head&gt;<br /> &lt;title&gt;Pincodes&lt;/title&gt;<br /> &lt;script src="js/jquery-1.10.2.min.js"&gt;&lt;/script&gt;<br />&lt;/head&gt;<br />&lt;body&gt;<br />&lt;div id="form"&gt;<br /> &lt;label for="pincode"&gt;Pincode:&lt;/label&gt;<br /> &lt;input type="text" name="pincode" id="pincode" required /&gt;&lt;br /&gt;<br /><br /> &lt;label for="taluka"&gt;Taluka:&lt;/label&gt;<br /> &lt;input type="text" name="taluka" id="taluka" /&gt;&lt;br /&gt;<br /> &lt;label for="district"&gt;District: &lt;/label&gt;<br /> &lt;input type="text" name="district" id="district"&gt;&lt;br /&gt;<br /> &lt;label for="state"&gt;State:&lt;/label&gt;<br /> &lt;input type="text" name="state" id="state"&gt;&lt;br /&gt;<br />&lt;/div&gt;<br />&lt;script&gt;<br />$(document).ready(function() {<br /> $('#pincode').keyup(function(e) {<br />  var pincode = $(this).val();<br />  <br />  if(pincode.length == 6 &amp;&amp; $.isNumeric(pincode)) {<br />   var req = 'retrive.php?pincode=' + pincode;<br />   $.getJSON(req, null, function(data) {</pre><pre class="brush: jscript">                 <br />    $('#taluka').val(data.taluka);<br />    $('#district').val(data.district);<br />    $('#state').val(data.state);<br />   });<br />  };<br /> });<br />});<br />&lt;/script&gt;<br />&lt;/body&gt;<br />&lt;/html&gt;<br /></pre><br />Some explanation goes here.<br />The <i>.keyup()</i> event fires when a key is pressed in that field. We could have use <i>onFocus()</i> or <i>onBlur()</i> in javascript but that only fires when a field is focused or blurred, so this is much better. Since we have pincodes of length 6 digits here in India, to prevent script from querying for the first five digits, we have added a <i>if(pincode.length == 6) </i>to our code.<br /><br />As I said, the even fires as soon as one enters the 6th digit and populates the remaining three fields with the data it retrieves. <br /><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-CwczhZADQbA/VJVAJLLBbwI/AAAAAAAAHvY/9ZHX-eim0_Y/s1600/form.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-CwczhZADQbA/VJVAJLLBbwI/AAAAAAAAHvY/9ZHX-eim0_Y/s1600/form.png" height="212" width="400" /></a></div>It is hard to show it in a still image, but having just entered the pin, rest of the fields get populated.<br /><br /><h4 style="text-align: left;">Finally</h4><div style="text-align: left;">So this was it. I hope you enjoyed it. Any corrections or suggesting, mail them to me or just comment down below. Thank you for reading.</div></div>
+    </div>
+
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="glyphicon glyphicon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#javascript-ref">javascript <span>3</span></a></li>
+     
+    	<li><a href="/tags.html#mysql-ref">mysql <span>3</span></a></li>
+     
+    	<li><a href="/tags.html#jquery-ref">jquery <span>3</span></a></li>
+     
+    	<li><a href="/tags.html#json-ref">json <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#php-ref">php <span>4</span></a></li>
+     
+    	<li><a href="/tags.html#html-ref">html <span>3</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+  
+    <hr>
+    <ul class="pagination">
+    
+      <li class="prev"><a href="/2014/12/creating-autocomplete-field-with-ajax.html" title="Creating an autocomplete field | Setting up the backend | Part 1">&laquo; Previous</a></li>
+    
+      <li><a href="/archive.html">Archive</a></li>
+    
+      <li class="next"><a href="/2014/12/on-why-php-removed-magic-quotes-nice.html" title="On why PHP removed magic quotes - Nice explanation">Next &raquo;</a></li>
+    
+    </ul>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    
+    var disqus_developer = 1;
+    var disqus_shortname = 'nagekar'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <p>&copy; 2015 Abhishek Nagekar
+          | <a href="http://jekyllbootstrap.com" target="_blank">Jekyll Bootstrap</a>
+          | <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>
+        </p>
+      </div>
+    </div>
+
+    
+
+
+
+
+
+    <!-- Latest compiled and minified JavaScript, requires jQuery 1.x (2.x not supported in IE8) -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/assets/themes/bootstrap-3/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
+
