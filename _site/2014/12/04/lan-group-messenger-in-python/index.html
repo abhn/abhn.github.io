@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>Simple group messenger/chat in Python</title>
+    
+    <meta name="author" content="Abhishek Nagekar">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap styles -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Optional theme -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Sticky Footer -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bs-sticky-footer.css" rel="stylesheet">
+    
+    <!-- Custom styles -->
+    <link href="/assets/themes/bootstrap-3/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <!-- Update these with your own images
+      <link rel="shortcut icon" href="images/favicon.ico">
+      <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+      <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+      <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+    -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div id="wrap">
+      <nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#jb-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Abhishek Nagekar's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="jb-navbar-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+          <form class="navbar-form navbar-right" role="search">
+            <div class="form-group">
+              <input type="text" class="form-control" placeholder="Search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+          </form>
+        </div><!-- /.navbar-collapse -->
+      </nav>
+
+      <div class="container">
+        
+<div class="page-header">
+  <h1>Simple group messenger/chat in Python </h1>
+</div>
+
+<div class="row post-full">
+  <div class="col-xs-12">
+    <div class="date">
+      <span>04 December 2014</span>
+    </div>
+    <div class="content">
+      <div dir="ltr" style="text-align: left;" trbidi="on"><div dir="ltr" style="text-align: left;" trbidi="on">Aaaaannd here is another post of mine on sockets, client/server models and stuff. I suppose you have started to get bored by the same stuff everyday right? Seems like I just can't get enough of this thing. But trust me, I had no intention of doing this today, a friend of mine instigated me write a messenger for a project we were working on, and it turned out, writing this simple messaging program was more interesting than I thought.<br /><br />So, instead of creating a straight forward chat program that was 'actually' required by my friend, I created this 'one-server-multiple-clients' program, which is more like the real world chat apps we use everyday.<br /><br />To run the program, execute the 'server.py' (after changing the <b>bind() </b>address to the address of the server on which it is supposed to run). Then, execute the 'client.py' (guess what? same thing here. But you will have to add the <i>server address</i> in the <b>connect()</b> function here). Of course, you can have all of them running on the same system, but there ain't any fun in it, right?<br /><br />Last but not the least, I have commented as much as I could, unlike my last article, so I expect everyone reading this, with a bit of programming knowledge, will understand this straight forward code.<br /><br /><h4 style="text-align: left;">server.py</h4><div style="text-align: left;"><pre class="brush: python"># Import the necessary libraries<br />import socket<br />import sys<br />import select<br /><br /># Take message from an host and send it to all others<br />def shout(sock, message):<br />&nbsp;&nbsp;&nbsp; for socket in LIST:<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; try:<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; # Don't send it back to server and yourself!<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; if socket != serv and socket != sock:<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; socket.send(message)<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; except:<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; # Assume client has got disconnected and remove it.<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; socket.close<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; LIST.remove(socket)<br /><br /># Declare variables required later.<br /><br /># To store list of sockets of clients as well as server itself.<br />LIST = []&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br /><br /># Common buffer for all purposes<br />buff = 1024<br /><br /># Declaration of Server socket.<br />serv = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br />serv.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)<br />serv.bind(("192.168.1.10", 1356))<br /><br /># Listen for upto 6 clients. Increase if you need more.<br />serv.listen(6)<br /><br /># Add server socket to the LIST<br />LIST.append(serv)<br /><br />while 1:<br />&nbsp;&nbsp;&nbsp; # Moniter clients all simultaneously<br />&nbsp;&nbsp;&nbsp; reads, writes, err = select.select(LIST, [], [])<br />&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; for sock in reads:<br />&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; # A new client connected?<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; if sock == serv:<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; sockfd, addr = serv.accept()<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; LIST.append(sockfd)<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; # Naah, just a new message!<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; else:<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;try:<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; # Get his shitty message.<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; data = sock.recv(buff)<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; if data:<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; # If he wrote something, send it to shout() function for broadcast.<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; shout(sock, data)<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;except:<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; # Shit just got real. Client kicked by server :3<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; sock.close()<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; LIST.remove(sock)<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; # Do this till the end of time.<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp; continue<br />serv.close()</pre></div><div style="text-align: left;"><br /></div><h4 style="text-align: left;">client.py </h4><div style="text-align: left;"><pre class="brush: python"># Import the nessary libraries<br />import socket<br />import string<br />import select<br />import sys<br /><br /># Socket variable declaration<br />s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)<br />s.settimeout(2)<br /><br /># Connect to server. Change this for remote servers.<br />s.connect(("192.168.1.10", 1356))<br /><br /># A prompt asking client to enter something.<br />sys.stdout.write("&gt;")<br />sys.stdout.flush()<br /><br />while 1:<br />&nbsp;&nbsp;&nbsp; # These are the possible events.<br />&nbsp;&nbsp;&nbsp; # sys.stdin --&gt; Client has typed something through keyboard.<br />&nbsp;&nbsp;&nbsp; # s --&gt; Server has send a new message by some other client you.<br />&nbsp;&nbsp;&nbsp; streams = [sys.stdin, s]<br />&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; # Moniter both the streams simultaneously for inputs.<br />&nbsp;&nbsp;&nbsp; readable, writable, err = select.select(streams, [], [])<br />&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; # If server has sent something, readable will fill up.<br />&nbsp;&nbsp;&nbsp; for sock in readable:<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; if sock == s:<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; # Receive data in our variable. Check if it is empty.<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; data = sock.recv(1024)<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; if not data:<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; sys.exit()<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; else:<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; # Write data to stdout and give client prompt back.<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; sys.stdout.write(data)<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; sys.stdout.write("&gt;")<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; sys.stdout.flush()<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; # No, its not the server. Our client has typed something in.<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; else:<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; # Read message. Send it to server. Give prompt back to client.<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; msg = sys.stdin.readline()<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; s.send(msg)<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; sys.stdout.write("&gt;")<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; sys.stdout.flush()</pre></div></div><br />So that was the code. Here is a glimpse of the output. The server is running off my 'raspberrypi' and all clients are running on my computer. Looks cool right?<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-e7nPLz8ILWs/VIB4S6l4S6I/AAAAAAAAHuM/LTlZkmqdYX8/s1600/python_server.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-e7nPLz8ILWs/VIB4S6l4S6I/AAAAAAAAHuM/LTlZkmqdYX8/s1600/python_server.png" height="387" width="640" /></a></div>If you look closely, one of the clients missed a message sent by another client, LOL, so that is normal. Any suggestions or edits or corrections, drop them in the comments below. :)</div>
+    </div>
+
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="glyphicon glyphicon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#socket-ref">socket <span>3</span></a></li>
+     
+    	<li><a href="/tags.html#python-ref">python <span>5</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+  
+    <hr>
+    <ul class="pagination">
+    
+      <li class="prev"><a href="/2014/12/03/top-reasons-why-you-should-start-using" title="Top reasons why you should start using Mozilla Firefox right now">&laquo; Previous</a></li>
+    
+      <li><a href="/archive.html">Archive</a></li>
+    
+      <li class="next"><a href="/2014/12/20/creating-autocomplete-field-with-ajax" title="Creating an autocomplete field | Setting up the backend | Part 1">Next &raquo;</a></li>
+    
+    </ul>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    
+    var disqus_developer = 1;
+    var disqus_shortname = 'nagekar'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <p>&copy; 2015 Abhishek Nagekar
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>
+        </p>
+      </div>
+    </div>
+
+    
+
+
+
+
+
+    <!-- Latest compiled and minified JavaScript, requires jQuery 1.x (2.x not supported in IE8) -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/assets/themes/bootstrap-3/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
+
