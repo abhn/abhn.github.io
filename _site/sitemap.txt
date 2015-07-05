@@ -2,7 +2,7 @@
 http://www.nagekar.com/archive.html
 http://www.nagekar.com/atom.xml
 http://www.nagekar.com/index.html
-http://www.nagekar.com/pages.html
+http://www.nagekar.com/meta.html
 http://www.nagekar.com/rss.xml
 http://www.nagekar.com/sitemap.txt
 http://www.nagekar.com/tags.html
