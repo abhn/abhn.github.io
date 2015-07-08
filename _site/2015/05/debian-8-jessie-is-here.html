@@ -125,7 +125,7 @@
 <div class="row post-full">
   <div class="col-xs-12">
     <div class="date">
-      <span>01 May 2015</span>
+      <span>1 May, 2015. It was a Friday</span>
     </div>
     <div class="content">
       The <a href="https://www.debian.org/releases/stable/" target="_blank">next major stable release</a> of the Debian lineup, the 8th one, codename Jessie was launched on 25th of april, last month. And like every Debian release, this one was packed with an awfully large package repo, meaning more free stuff to choose from, one of the fundamental reason I use Debian.<br /><br />The total package base, with this release, is over 43,000, which is a lot. The <a href="https://www.debian.org/News/2015/20150426" target="_blank">key features added</a> to this release, make it one of the best Linux distros till date, imo. Not to mention, rock solid.<br /><br />All the major desktop environments like GNOME, KDE, XFCE, LXDE are supported (No Unity, sad ;), just select the preferred one during installation and it will download it for you. Alternatively, some iso are marked which desktop environment it ships, and if not specified explicitly, assume GNOME3.<br /><br />If you are already on Debian 7, to get Jessie, fully update the system:<br /><pre>sudo apt-get update<br /><br />sudo apt-get upgrade<br /><br />sudo apt-get dist-upgrade.</pre>Then just head to /etc/apt/sources.list and replace every occurrence of <i>wheezy</i> with <i>jessie</i> and then again:<br /><pre>sudo apt-get update<br /><br />sudo apt-get upgrade<br /></pre>That would be it. I noticed that Jessie is super fast, and I intentionally did a minimal install. The bootup and shutdown speeds are very impressive. Here is an amature video of me filming the shutdown time, LOL.<br /><br /><center><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/EpOLUyRvkU8" width="560"></iframe></center><br />A note, if you go to the downloads page, there are multiple DVDs, like for example, the amd64 complete comes in around 10 DVDs, but you only need the first one. It contains all the installation stuff and most of the packages you'll ever use, including the desktop environments.<br /><br />Downloads page: <a href="https://www.debian.org/CD/">https://www.debian.org/CD/</a><br /><br />A tip, you can add the DVD contents to your hard drive and set up an offline repository. Mount the contents of the DVD or copy it to a local folder.<br /><pre># in case of mounting the iso<br /><br />mount -t iso9660 -o loop /home/abhishek/Debian/debian-8.0.0-amd64-DVD-1.iso /mount_point</pre>Or just plain copy iso contents into the folder. Then add the following line on top of the /etc/apt/sources.list<br /><pre>deb file:///mount_point/ jessie main contrib</pre>so that it will check for a local copy of the package first for offline package installation.<br /><br />That was it for this promotional article [ ;) ] on Debian 8. Hope you like the new release and use it.<br /><br />Thank you developers.
@@ -164,6 +164,17 @@
     
     </ul>
     <hr>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- adresp -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2314128584981990"
+         data-ad-slot="1513670662"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <br />
     
 
 
@@ -185,18 +196,7 @@
 
 
 
-
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- adresp -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-2314128584981990"
-         data-ad-slot="1513670662"
-         data-ad-format="auto"></ins>
-    <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    <br />
+  
   </div>
 </div>
 

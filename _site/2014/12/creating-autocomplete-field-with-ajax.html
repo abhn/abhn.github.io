@@ -125,7 +125,7 @@
 <div class="row post-full">
   <div class="col-xs-12">
     <div class="date">
-      <span>20 December 2014</span>
+      <span>20 December, 2014. It was a Saturday</span>
     </div>
     <div class="content">
       <div dir="ltr" style="text-align: left;" trbidi="on"><div dir="ltr" style="text-align: left;" trbidi="on"><div style="text-align: left;">Hello folks, so my exams are over and its time to roll. LOL pretty excited here. I am creating this series of two articles in which we will download all the pincodes (or zipcodes), add them to a MySQL database, write an API in PHP to retrieve the data in JSON, and finally we will write our form, in which, when we enter a pincode, we automatically get the 'taluka', 'district' and 'state' fields filled. So lets begin.</div><div style="text-align: left;"><br /></div><div style="text-align: left;">(and if you are from outside India, a '<i>taluka</i>' is a small region, like a city)</div><div style="text-align: left;"><br /></div><h4 style="text-align: left;">Step 1 - Getting the Pincode list</h4><div style="text-align: left;">This was my biggest concern. Where do I get a list of all the pincodes in India. I could write a script and iterate through all the possible pincodes from 100000 to 999999, but, of course, there had to be a better way (and by the way, I would have got banned by the site if I sent around a million requests in a short period of time).</div><div style="text-align: left;"><br /></div><div style="text-align: left;">Fortunately, after some googling, I found a list here, at <a href="http://data.gov.in/">data.gov.in</a>, to directly download the list, click <a href="http://data.gov.in/resources/all-india-pincode-directory/download"><b>here</b></a>. The data is in .csv format, which is essentially a text document with some proper ordering (LOL).</div><div style="text-align: left;"><br /></div><div class="separator" style="clear: both; text-align: center;"><a href="http://2.bp.blogspot.com/-9_6Lozc5JVU/VJUpvpkq57I/AAAAAAAAHug/b0Q7NZyk0Nc/s1600/pincodes.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://2.bp.blogspot.com/-9_6Lozc5JVU/VJUpvpkq57I/AAAAAAAAHug/b0Q7NZyk0Nc/s1600/pincodes.png" height="264" width="640" /></a></div><div style="text-align: left;"><br /></div><h4 style="text-align: left;">Step 2 - Setting up MySQL database</h4><div style="text-align: left;">We will now add the values to a database with will serve as our source to retrieve data in the form. I am selecting MySQL because, well, that is the only SQL I currently know (wink!). I assume you know the basics of how to create a database, and even if you don't, you can do it easily by using the&nbsp; <a href="http://sourceforge.net/projects/phpmyadmin/">phpmyadmin</a>. It is graphical, and will get the work done.<br /><br />The columns available for inserting data are:<br />officename,pincode,officeType,Deliverystatus,divisionname,regionname,circlename,Taluk,Districtname,statename </div><div style="text-align: left;"><br />I will be using only 'pincode', 'Taluk', 'Districtname', 'Statename' here to avoid any unnecessary cluttering.<br /><br /></div><div style="text-align: left;">Create a database: <i>'turnouts'</i></div><div style="text-align: left;">Create a table: <i>'pincode'</i></div><div style="text-align: left;">Create 4 columns: <i>'pincode', 'taluka', 'district', 'state' </i></div><div style="text-align: left;"><br /></div><div style="text-align: left;">Needless to say, these are just names and you can have what you want, but just don't go insane over them. This is how it should look, or similar.</div><div style="text-align: left;"><br /></div><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-jl4Y6ZvtI-Y/VJUsJ4mn0tI/AAAAAAAAHus/3gTbOhrUckQ/s1600/mysql.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-jl4Y6ZvtI-Y/VJUsJ4mn0tI/AAAAAAAAHus/3gTbOhrUckQ/s1600/mysql.png" height="275" width="640" /></a></div><div style="text-align: left;"></div><div style="text-align: left;"><br /></div><div style="text-align: left;">Having done that, move to step 3.</div><div style="text-align: left;"><br /></div><h4 style="text-align: left;">Step 3 - Writing the PHP script to enumerate database</h4><div style="text-align: left;">So now we need to fill those database fields with data. If you take a look, the .csv file that we downloaded has around 152,000 lines. We can insert them manually, but that would take two and a half month, so we are better off writing a script. Language is on you. Python would work, but I preferred PHP, no good reason, I just choose it.</div><div style="text-align: left;"><br /></div><div style="text-align: left;">Basically we read a line in the file, select the data that we are concerned about, generate a MySQL query dynamically in a loop, and execute the query. Then move to the next line till<i> feof </i>or end of file.</div><div style="text-align: left;"><br /></div><div style="text-align: left;">Here is the php code.</div></div><pre class="brush: php">&lt;?php<br />	$file = fopen("pincodes.csv", "r") or die("Open file");<br />	$server = "localhost";<br />	$username = "root";<br />	$password = "password";<br />	$db = "turnouts";<br />	$conn = mysql_connect($server, $username, $password);<br />	mysql_select_db("turnouts") or die();<br />	if(!$conn) {<br />		die("Connection failed: " . mysqli_connect_error());<br />	}<br />	while(!feof($file)) {<br />		$line = fgets($file);<br />		$words = explode(",", $line);<br />		$pincode = $words[1];<br />		$taluka = $words[7];<br />		$district = $words[8];<br />		$state = $words[9];<br />		$sql = "INSERT INTO pincode (pincode, taluka, district, state) VALUES ('$pincode', '$taluka', '$district', '$state')";<br />		mysql_query($sql, $conn);<br />		mysql_error($conn);<br />	}<br />	fclose($file);<br />	mysql_close($conn);<br />?&gt;<br /></pre><br />This code will take some time to execute. On my low end box, it took 90 minutes approx. After having executed, you should have a database with some real data. Here's the row count, a whooping 154,797.<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-y7dl5-fjXP0/VJU2rl5X1tI/AAAAAAAAHu8/Reg6ppEsjQI/s1600/count.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-y7dl5-fjXP0/VJU2rl5X1tI/AAAAAAAAHu8/Reg6ppEsjQI/s1600/count.png" height="230" width="640" /></a></div><br />Now that we have our database setup, we are all set to write the front end. To make it easy to follow, I will write it in the second part of this series.<br /><br />Edit: <a href="http://www.nagekar.com/2014/12/autocomplete-field-setting-up-frontend.html" target="_blank">Here is the Part 2 </a>Enjoy!</div>
@@ -172,6 +172,17 @@
     
     </ul>
     <hr>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <!-- adresp -->
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2314128584981990"
+         data-ad-slot="1513670662"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <br />
     
 
 
@@ -193,18 +204,7 @@
 
 
 
-
-    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- adresp -->
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-2314128584981990"
-         data-ad-slot="1513670662"
-         data-ad-format="auto"></ins>
-    <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-    </script>
-    <br />
+  
   </div>
 </div>
 
