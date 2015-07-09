@@ -32,6 +32,7 @@
   </head>
 
   <body>
+
     <div id="wrap">
 
       <nav class="navbar navbar-default" role="navigation">
@@ -119,7 +120,7 @@
 <div class="row post-full">
   <div class="col-xs-12">
     <div class="date">
-      <span>28 December, 2014. It was a Sunday</span>
+      <span>28 December, 2014. It was a Sunday.</span>
     </div>
     <div class="content">
       <div dir="ltr" style="text-align: left;" trbidi="on"><div dir="ltr" style="text-align: left;" trbidi="on">I have created this simple registration form which makes user registration using asynchronous requests in the background, checking if a duplicate username or email exists, and presenting the user with status of registration on the same page without have to reload the page even once.<br /><br />It is simple, but with some prerequisites for my particular example. They are<br /><ol style="text-align: left;"><li>MySQL database for saving registrations</li><li>PHP registration page for connecting to database</li><li>Some basic javascript knowledge</li></ol>&nbsp;So having set up the above stuff, we shall get started. If you don't want to code all yourself, use my code from <a href="https://github.com/abhn/turnouts/tree/master" target="_blank">Github</a>.<br /><br />First of all, create for yourself a nice form. It doesn't take much right? Just make sure you attach an 'id' attribute to each input field for convenience later. Here is my version.<br /><br /><br /><script src="https://gist.github.com/abhn/a737ff8f28f2259b11c2.js"></script> <br />If you see, after the form I have left an empty div. It is for displaying the response we get from our ajax request. You can, of course, add nice styling to this div. Having our form set, we can concentrate on the jQuery part.<br /><br />Start with making sure our DOM is loaded with $(document).ready() function. Grab hold of the click event of the form submit button. Then we get the values in the username, email and password fields.<br /><br />Here, we can have some basic checks to make sure form is filled up. We could have used the <i>required</i> attribute to make sure all fields are filled, but that does not give us full control, so use Javascript or jQuery and display some custom messages. I clubbed them together in a single if.<br /><br /><script src="https://gist.github.com/abhn/6e060043c13d3dbf03f2.js"></script> Next, using the simple $.ajax() function, make a request and get the response code. My action page is register.php, and I have make simple error codes to detect what response the backend gave. Here are the codes, for some reference.<br /><br />// Code returns 101 for "username already exists"<br />// Code returns 102 for "email already exists"<br />// Code returns 104 for "internal server error"<br />// Code returns 202 for "user created successfully"<br /><br />Refer <a href="https://github.com/abhn/turnouts/blob/master/register.php">register.php</a> for complete code.<br /><br />If the query succeeds, we capture the response in responseText variable. We can then do any response based manipulation we need for our specific needs. Just make sure to <i>return false</i> at the end to prevent default submit behavior. Here is my final jQuery snippet.</div><br /><script src="https://gist.github.com/abhn/18f450bb299214d0c68f.js"></script><br />Finally, the entire HTML code has nothing more, just the standard doctype and stuff. Here is what to expect, or similar. LOL I was trying some CSS so ignore all that ;)<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-fz6kduaRLyc/VKBFf0eMnQI/AAAAAAAAHvs/yfIxoTQws1I/s1600/form.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-fz6kduaRLyc/VKBFf0eMnQI/AAAAAAAAHvs/yfIxoTQws1I/s1600/form.png" height="258" width="400" /></a></div>Also, I wanted to tell you, I switched from the classy syntax highlighter to this new (for me!) gist. It is cool, only a little more effort. Loved it. If you own a blog and post code frequently, give it a try. Thank you for reading.</div>
@@ -149,7 +150,6 @@
 
 
     </ul>
-    
   
     <hr>
     <ul class="pagination">
@@ -163,7 +163,6 @@
     </ul>
     <hr>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- adresp -->
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-2314128584981990"
@@ -172,7 +171,7 @@
     <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
-    <br />
+    <hr>
     
 
 
@@ -194,7 +193,7 @@
 
 
 
-  
+
   </div>
 </div>
 

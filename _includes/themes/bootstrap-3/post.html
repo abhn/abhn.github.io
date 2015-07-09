@@ -5,7 +5,7 @@
 <div class="row post-full">
   <div class="col-xs-12">
     <div class="date">
-      <span>{{ page.date | date: "%-d %B, %Y. It was a %A" }}</span>
+      <span>{{ page.date | date: "%-d %B, %Y. It was a %A." }}</span>
     </div>
     <div class="content">
       {{ content }}
@@ -25,8 +25,7 @@
       {% assign tags_list = page.tags %}
       {% include JB/tags_list %}
     </ul>
-  {% endunless %}  
-  
+  {% endunless %}
     <hr>
     <ul class="pagination">
     {% if page.previous %}
@@ -43,7 +42,6 @@
     </ul>
     <hr>
     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-    <!-- adresp -->
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-2314128584981990"
@@ -52,7 +50,7 @@
     <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
     </script>
-    <br />
-    {% include JB/comments %}  
+    <hr>
+    {% include JB/comments %}
   </div>
 </div>
