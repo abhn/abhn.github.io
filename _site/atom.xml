@@ -4,13 +4,110 @@
  <title>Abhishek Nagekar&#39;s Blog</title>
  <link href="http://www.nagekar.com/atom.xml" rel="self"/>
  <link href="http://www.nagekar.com"/>
- <updated>2015-07-09T23:38:20+05:30</updated>
+ <updated>2015-07-11T23:30:16+05:30</updated>
  <id>http://www.nagekar.com</id>
  <author>
    <name>Abhishek Nagekar</name>
    <email>abhishek@nagekar.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Social Share Counts Python Implementation</title>
+   <link href="http://www.nagekar.com/2015/07/Social-Share-Counts-Python-Implementation.html"/>
+   <updated>2015-07-11T00:00:00+05:30</updated>
+   <id>http://www.nagekar.com/2015/07/Social-Share-Counts-Python-Implementation</id>
+   <content type="html">&lt;p&gt;I wrote this little script that grabs the count of shares on popular social networks, using their APIs. I have listed the documentation on the project page on &lt;a href=&quot;https://github.com/abhn/Social-Share-Counts&quot; target=&quot;_blank&quot;&gt;Github&lt;/a&gt;. I will copy the relevant pieces of readme here.&lt;/p&gt;
+
+&lt;h2 id=&quot;social-network-apis&quot;&gt;Social Network APIs&lt;/h2&gt;
+
+&lt;h3 id=&quot;facebook&quot;&gt;Facebook&lt;/h3&gt;
+
+&lt;p&gt;Request:
+&lt;code&gt;https://graph.facebook.com/?id=https://www.github.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Response:
+&lt;code&gt;json
+{
+   &quot;id&quot;: &quot;http://www.github.com&quot;,
+   &quot;shares&quot;: 31684
+}
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;twitter&quot;&gt;Twitter&lt;/h3&gt;
+
+&lt;p&gt;Request:
+&lt;code&gt;http://cdn.api.twitter.com/1/urls/count.json?url=https://github.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Response:
+&lt;code&gt;json
+{&quot;count&quot;:14,&quot;url&quot;:&quot;http:\/\/github.com\/&quot;}
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;google-plus&quot;&gt;Google Plus&lt;/h3&gt;
+
+&lt;p&gt;Request:
+&lt;code&gt;https://plusone.google.com/_/+1/fastbutton?url=https://github.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This returns the +1 button. I extracted the counts using regex &lt;code&gt;window.__SSR = {c: ([\d]+)&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;linkedin&quot;&gt;LinkedIn&lt;/h3&gt;
+
+&lt;p&gt;Request:
+&lt;code&gt;http://www.linkedin.com/countserv/count/share?url=https://github.com&amp;amp;format=json&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Response:
+&lt;code&gt;json
+{&quot;count&quot;:0,&quot;fCnt&quot;:&quot;0&quot;,&quot;fCntPlusOne&quot;:&quot;1&quot;,&quot;url&quot;:&quot;https:\/\/github.com&quot;}
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;stumbleupon&quot;&gt;StumbleUpon&lt;/h3&gt;
+
+&lt;p&gt;Request:
+&lt;code&gt;http://www.stumbleupon.com/services/1.01/badge.getinfo?url=https://github.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Response too large.&lt;/p&gt;
+
+&lt;h3 id=&quot;pinterest&quot;&gt;Pinterest&lt;/h3&gt;
+
+&lt;p&gt;Request:
+&lt;code&gt;http://api.pinterest.com/v1/urls/count.json?url=https://github.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Response:
+&lt;code&gt;json
+receiveCount({&quot;url&quot;:&quot;https://github.com&quot;,&quot;count&quot;:0}) 
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;reddit&quot;&gt;Reddit&lt;/h3&gt;
+
+&lt;p&gt;Request:
+&lt;code&gt;http://www.reddit.com/api/info.json?url=https://github.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This returns a lot of data, which can be easily used to extracted counts. 
+&lt;strong&gt;Note&lt;/strong&gt; that the Reddit guys don’t really like automated requests and may cause the call to return HTTP 429.&lt;/p&gt;
+
+&lt;h3 id=&quot;vkontakte&quot;&gt;Vkontakte&lt;/h3&gt;
+
+&lt;p&gt;Request:
+&lt;code&gt;https://vk.com/share.php?act=count&amp;amp;index=1&amp;amp;url=https://github.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Response:
+&lt;code&gt;json
+VK.Share.count(1, 419);
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This marks the end of the documentation. I hope that serves some purpose. The reason I wrote this was that I wanted social sharing buttons on this blog. I could not afford any of the mainstream buttons like Addthis and Sharethis. They kill the load time, and I’m already struggling with Disqus and Adsense overload. More on that soon. I hope to create a ‘dynamic looking’ static set of buttons for this blog, and I’ll update you if I get time to complete it. The python code is hidden, and can be viewed by toggling the button.&lt;/p&gt;
+
+&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;Show Me The Code&quot; onclick=&quot;showDiv()&quot; /&gt;&lt;/p&gt;
+&lt;div id=&quot;mysrc&quot; style=&quot;display:none;&quot;&gt;&lt;script src=&quot;http://gist-it.appspot.com/https://github.com/abhn/Social-Share-Counts/blob/master/socialShareCount.py&quot;&gt;&lt;/script&gt;&lt;/div&gt;
+&lt;script&gt;
+function showDiv() {
+   document.getElementById(&#39;mysrc&#39;).style.display = &quot;block&quot;;
+}
+&lt;/script&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>First Anniversary Of My Blog</title>
@@ -180,14 +277,6 @@
    <updated>2014-12-28T23:34:00+05:30</updated>
    <id>http://www.nagekar.com/2014/12/ajax-registration-form-using-jquery</id>
    <content type="html">&lt;div dir=&quot;ltr&quot; style=&quot;text-align: left;&quot; trbidi=&quot;on&quot;&gt;&lt;div dir=&quot;ltr&quot; style=&quot;text-align: left;&quot; trbidi=&quot;on&quot;&gt;I have created this simple registration form which makes user registration using asynchronous requests in the background, checking if a duplicate username or email exists, and presenting the user with status of registration on the same page without have to reload the page even once.&lt;br /&gt;&lt;br /&gt;It is simple, but with some prerequisites for my particular example. They are&lt;br /&gt;&lt;ol style=&quot;text-align: left;&quot;&gt;&lt;li&gt;MySQL database for saving registrations&lt;/li&gt;&lt;li&gt;PHP registration page for connecting to database&lt;/li&gt;&lt;li&gt;Some basic javascript knowledge&lt;/li&gt;&lt;/ol&gt;&amp;nbsp;So having set up the above stuff, we shall get started. If you don&#39;t want to code all yourself, use my code from &lt;a href=&quot;https://github.com/abhn/turnouts/tree/master&quot; target=&quot;_blank&quot;&gt;Github&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;First of all, create for yourself a nice form. It doesn&#39;t take much right? Just make sure you attach an &#39;id&#39; attribute to each input field for convenience later. Here is my version.&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;script src=&quot;https://gist.github.com/abhn/a737ff8f28f2259b11c2.js&quot;&gt;&lt;/script&gt; &lt;br /&gt;If you see, after the form I have left an empty div. It is for displaying the response we get from our ajax request. You can, of course, add nice styling to this div. Having our form set, we can concentrate on the jQuery part.&lt;br /&gt;&lt;br /&gt;Start with making sure our DOM is loaded with $(document).ready() function. Grab hold of the click event of the form submit button. Then we get the values in the username, email and password fields.&lt;br /&gt;&lt;br /&gt;Here, we can have some basic checks to make sure form is filled up. We could have used the &lt;i&gt;required&lt;/i&gt; attribute to make sure all fields are filled, but that does not give us full control, so use Javascript or jQuery and display some custom messages. I clubbed them together in a single if.&lt;br /&gt;&lt;br /&gt;&lt;script src=&quot;https://gist.github.com/abhn/6e060043c13d3dbf03f2.js&quot;&gt;&lt;/script&gt; Next, using the simple $.ajax() function, make a request and get the response code. My action page is register.php, and I have make simple error codes to detect what response the backend gave. Here are the codes, for some reference.&lt;br /&gt;&lt;br /&gt;// Code returns 101 for &quot;username already exists&quot;&lt;br /&gt;// Code returns 102 for &quot;email already exists&quot;&lt;br /&gt;// Code returns 104 for &quot;internal server error&quot;&lt;br /&gt;// Code returns 202 for &quot;user created successfully&quot;&lt;br /&gt;&lt;br /&gt;Refer &lt;a href=&quot;https://github.com/abhn/turnouts/blob/master/register.php&quot;&gt;register.php&lt;/a&gt; for complete code.&lt;br /&gt;&lt;br /&gt;If the query succeeds, we capture the response in responseText variable. We can then do any response based manipulation we need for our specific needs. Just make sure to &lt;i&gt;return false&lt;/i&gt; at the end to prevent default submit behavior. Here is my final jQuery snippet.&lt;/div&gt;&lt;br /&gt;&lt;script src=&quot;https://gist.github.com/abhn/18f450bb299214d0c68f.js&quot;&gt;&lt;/script&gt;&lt;br /&gt;Finally, the entire HTML code has nothing more, just the standard doctype and stuff. Here is what to expect, or similar. LOL I was trying some CSS so ignore all that ;)&lt;br /&gt;&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;&lt;a href=&quot;http://1.bp.blogspot.com/-fz6kduaRLyc/VKBFf0eMnQI/AAAAAAAAHvs/yfIxoTQws1I/s1600/form.png&quot; imageanchor=&quot;1&quot; style=&quot;margin-left: 1em; margin-right: 1em;&quot;&gt;&lt;img border=&quot;0&quot; src=&quot;http://1.bp.blogspot.com/-fz6kduaRLyc/VKBFf0eMnQI/AAAAAAAAHvs/yfIxoTQws1I/s1600/form.png&quot; height=&quot;258&quot; width=&quot;400&quot; /&gt;&lt;/a&gt;&lt;/div&gt;Also, I wanted to tell you, I switched from the classy syntax highlighter to this new (for me!) gist. It is cool, only a little more effort. Loved it. If you own a blog and post code frequently, give it a try. Thank you for reading.&lt;/div&gt;</content>
- </entry>
- 
- <entry>
-   <title>On why PHP removed magic quotes - Nice explanation</title>
-   <link href="http://www.nagekar.com/2014/12/on-why-php-removed-magic-quotes-nice.html"/>
-   <updated>2014-12-24T21:47:00+05:30</updated>
-   <id>http://www.nagekar.com/2014/12/on-why-php-removed-magic-quotes-nice</id>
-   <content type="html">&lt;div dir=&quot;ltr&quot; style=&quot;text-align: left;&quot; trbidi=&quot;on&quot;&gt;&lt;div dir=&quot;ltr&quot;&gt;I am a newbie in PHP, or at least not as good to call myself mature. Recently, PHP announced deprecation for magic_quotes in version 5.3 and complete removal in version 5.4. So there are official docs on why it was removed, but this is what I found written by a contributor and it was perfectly explained. Do check out.&lt;/div&gt;&lt;div dir=&quot;ltr&quot;&gt;Link: &lt;a href=&quot;http://php.net/manual/en/security.magicquotes.php&quot;&gt;http://php.net/manual/en/security.magicquotes.php&lt;/a&gt;&lt;/div&gt;&lt;div dir=&quot;ltr&quot;&gt;Here goes the comment: --&amp;gt;&lt;/div&gt;&lt;div dir=&quot;ltr&quot;&gt;&lt;i&gt;The very reason magic quotes are deprecated is that a one-size-fits-all approach to escaping/quoting is wrongheaded and downright dangerous.&amp;nbsp; Different types of content have different special chars and different ways of escaping them, and what works in one tends to have side effects elsewhere.&amp;nbsp; Any sample code, here or anywhere else, that pretends to work like magic quotes --or does a similar conversion for HTML, SQL, or anything else for that matter -- is similarly wrongheaded and similarly dangerous.&lt;/i&gt;&lt;/div&gt;&lt;div dir=&quot;ltr&quot;&gt;&lt;i&gt;Magic quotes are not for security.&amp;nbsp; They never have been.&amp;nbsp; It&#39;s a convenience thing -- they exist so a PHP noob can fumble along and eventually write some mysql queries that kinda work, without having to learn about escaping/quoting data properly.&amp;nbsp; They prevent a few accidental syntax errors, as is their job.&amp;nbsp; But they won&#39;t stop a malicious and semi-knowledgeable attacker from trashing the PHP noob&#39;s database.&amp;nbsp; And that poor noob may never even know how or why his database is now gone, because magic quotes (or his spiffy &quot;i&#39;m gonna escape everything&quot; function) gave him a false sense of security.&amp;nbsp; He never had to learn how to really handle untrusted input.&lt;/i&gt;&lt;/div&gt;&lt;div dir=&quot;ltr&quot;&gt;&lt;i&gt;Data should be escaped where you need it escaped, and for the domain in which it will be used.&amp;nbsp; (mysql_real_escape_string -- NOT addslashes! -- for MySQL (and that&#39;s only unless you have a clue and use prepared statements), htmlentities or htmlspecialchars for HTML, etc.)&amp;nbsp; Anything else is doomed to failure.&lt;/i&gt;&lt;/div&gt;&lt;/div&gt;</content>
  </entry>
  
  

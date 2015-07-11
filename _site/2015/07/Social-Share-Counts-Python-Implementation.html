@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>A Day Of Struggle With Python IDEs</title>
+    <title>Social Share Counts Python Implementation</title>
     
     <meta name="author" content="Abhishek Nagekar">
 
@@ -114,16 +114,105 @@
       <div class="container">
         
 <div class="page-header">
-  <h1>A Day Of Struggle With Python IDEs </h1>
+  <h1>Social Share Counts Python Implementation </h1>
 </div>
 
 <div class="row post-full">
   <div class="col-xs-12">
     <div class="date">
-      <span>4 June, 2015. It was a Thursday.</span>
+      <span>11 July, 2015. It was a Saturday.</span>
     </div>
     <div class="content">
-      Yesterday, I gave up on doing my next web application project with QT. I knew C++ was never meant to be a language of the web, but I really had some hopes with QT. It actually is good, and apparently it would have ran faster than any other platform or language for the web. The problem is, it is a lot time consuming to develop anything in it, especially web apps. I really don't have all that time. So I decided to do it in Python or Ruby. After reading some articles, it became clear, they are not much different, where python is a more general programming language, ruby is more towards the web, with it's rails framework.<br /><br />I choose Python, just because I know how to write code in python, beforehand. It was time to go shopping for some good frameworks to develop this thing. No doubt, finally I had to decide between <a href="https://wakatime.com/django-vs-flask-worksheet" target="_blank">Django and Flask</a>. I choose flask. It was damn too simple, or at least it seemed like that. I tried the simple hello.py script which displays <i>"hello world"</i> on the localhost port 5000.<br /><br />I tried that in emacs, but immediately felt the need for an IDE in this foreign land. I looked in my 'Downloads' folder, and luckily there was Aptana Studio 3 still sitting there. I used to have it installed when I was into PHP last year. Since then, it got removed and thrown into a corner. I installed it. I really loved Aptana back then, for it's usability. But now, it started to act like a stubborn child, refusing to detect Flask. I googled and googled, but alas, no way. Many people seemed to be having the same problem, and the only solution I saw didn't work.<br /><br />Seeing no way, I uninstalled Aptana, and <a href="http://stackoverflow.com/questions/81584/what-ide-to-use-for-python" target="_blank">googled for other good IDEs</a>. PyCharm was what most were recommending. I decided to give it a try. Turned out, it was a memory hogger. Both my CPUs were doing a constant 100% and other windows turned sluggish too. About half a tonne of RAM was what it was utilizing, with a single .py file open with 4 lines of text in it. No way, again. Removed it, and went to eat some food. Damn.<br /><br />I was not ready to go to the sluggish Eclipse again, nor Netbeans for the same reason. Finally I settled for Komodo Edit, free lite version of the commercial Komodo IDE. It lacks many things that you will ask for in an IDE, and it is a little better than using bare emacs or vim. Still, for now, I am using it. Configured it to execute python script right inside the window following this tutorial, <a href="http://stackoverflow.com/questions/21686395/how-to-run-the-first-python-program-in-komodo-edit-8-5">http://stackoverflow.com/questions/21686395/how-to-run-the-first-python-program-in-komodo-edit-8-5</a><br /><br />Life's good, but just hoping to learn flask for my next project as fast as I can.
+      <p>I wrote this little script that grabs the count of shares on popular social networks, using their APIs. I have listed the documentation on the project page on <a href="https://github.com/abhn/Social-Share-Counts" target="_blank">Github</a>. I will copy the relevant pieces of readme here.</p>
+
+<h2 id="social-network-apis">Social Network APIs</h2>
+
+<h3 id="facebook">Facebook</h3>
+
+<p>Request:
+<code>https://graph.facebook.com/?id=https://www.github.com</code></p>
+
+<p>Response:
+<code>json
+{
+   "id": "http://www.github.com",
+   "shares": 31684
+}
+</code></p>
+
+<h3 id="twitter">Twitter</h3>
+
+<p>Request:
+<code>http://cdn.api.twitter.com/1/urls/count.json?url=https://github.com</code></p>
+
+<p>Response:
+<code>json
+{"count":14,"url":"http:\/\/github.com\/"}
+</code></p>
+
+<h3 id="google-plus">Google Plus</h3>
+
+<p>Request:
+<code>https://plusone.google.com/_/+1/fastbutton?url=https://github.com</code></p>
+
+<p>This returns the +1 button. I extracted the counts using regex <code>window.__SSR = {c: ([\d]+)</code></p>
+
+<h3 id="linkedin">LinkedIn</h3>
+
+<p>Request:
+<code>http://www.linkedin.com/countserv/count/share?url=https://github.com&amp;format=json</code></p>
+
+<p>Response:
+<code>json
+{"count":0,"fCnt":"0","fCntPlusOne":"1","url":"https:\/\/github.com"}
+</code></p>
+
+<h3 id="stumbleupon">StumbleUpon</h3>
+
+<p>Request:
+<code>http://www.stumbleupon.com/services/1.01/badge.getinfo?url=https://github.com</code></p>
+
+<p>Response too large.</p>
+
+<h3 id="pinterest">Pinterest</h3>
+
+<p>Request:
+<code>http://api.pinterest.com/v1/urls/count.json?url=https://github.com</code></p>
+
+<p>Response:
+<code>json
+receiveCount({"url":"https://github.com","count":0}) 
+</code></p>
+
+<h3 id="reddit">Reddit</h3>
+
+<p>Request:
+<code>http://www.reddit.com/api/info.json?url=https://github.com</code></p>
+
+<p>This returns a lot of data, which can be easily used to extracted counts. 
+<strong>Note</strong> that the Reddit guys don’t really like automated requests and may cause the call to return HTTP 429.</p>
+
+<h3 id="vkontakte">Vkontakte</h3>
+
+<p>Request:
+<code>https://vk.com/share.php?act=count&amp;index=1&amp;url=https://github.com</code></p>
+
+<p>Response:
+<code>json
+VK.Share.count(1, 419);
+</code></p>
+
+<p>This marks the end of the documentation. I hope that serves some purpose. The reason I wrote this was that I wanted social sharing buttons on this blog. I could not afford any of the mainstream buttons like Addthis and Sharethis. They kill the load time, and I’m already struggling with Disqus and Adsense overload. More on that soon. I hope to create a ‘dynamic looking’ static set of buttons for this blog, and I’ll update you if I get time to complete it. The python code is hidden, and can be viewed by toggling the button.</p>
+
+<p><input type="button" value="Show Me The Code" onclick="showDiv()" /></p>
+<div id="mysrc" style="display:none;"><script src="http://gist-it.appspot.com/https://github.com/abhn/Social-Share-Counts/blob/master/socialShareCount.py"></script></div>
+<script>
+function showDiv() {
+   document.getElementById('mysrc').style.display = "block";
+}
+</script>
+
+
     </div>
 
     
@@ -148,11 +237,11 @@
     <hr>
     <ul class="pagination">
     
-      <li class="prev"><a href="/2015/06/grammar-nazi.html" title="Grammar Nazi">&laquo; Previous</a></li>
+      <li class="prev"><a href="/2015/07/First-Anniversary-Of-My-Blog.html" title="First Anniversary Of My Blog">&laquo; Previous</a></li>
     
       <li><a href="">Archive</a></li>
     
-      <li class="next"><a href="/2015/06/techmax-publications-plagiarism-check.html" title="TechMax Publications - Plagiarism Check">Next &raquo;</a></li>
+      <li class="next disabled"><a>Next &rarr;</a>
     
     </ul>
     <hr>

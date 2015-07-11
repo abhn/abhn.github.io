@@ -5,10 +5,107 @@
         <description>Abhishek Nagekar&#39;s Blog - Abhishek Nagekar</description>
         <link>http://www.nagekar.com</link>
         <atom:link href="http://www.nagekar.com/rss.xml" rel="self" type="application/rss+xml" />
-        <lastBuildDate>Thu, 09 Jul 2015 23:38:20 +0530</lastBuildDate>
-        <pubDate>Thu, 09 Jul 2015 23:38:20 +0530</pubDate>
+        <lastBuildDate>Sat, 11 Jul 2015 23:30:16 +0530</lastBuildDate>
+        <pubDate>Sat, 11 Jul 2015 23:30:16 +0530</pubDate>
         <ttl>60</ttl>
 
+
+        <item>
+                <title>Social Share Counts Python Implementation</title>
+                <description>&lt;p&gt;I wrote this little script that grabs the count of shares on popular social networks, using their APIs. I have listed the documentation on the project page on &lt;a href=&quot;https://github.com/abhn/Social-Share-Counts&quot; target=&quot;_blank&quot;&gt;Github&lt;/a&gt;. I will copy the relevant pieces of readme here.&lt;/p&gt;
+
+&lt;h2 id=&quot;social-network-apis&quot;&gt;Social Network APIs&lt;/h2&gt;
+
+&lt;h3 id=&quot;facebook&quot;&gt;Facebook&lt;/h3&gt;
+
+&lt;p&gt;Request:
+&lt;code&gt;https://graph.facebook.com/?id=https://www.github.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Response:
+&lt;code&gt;json
+{
+   &quot;id&quot;: &quot;http://www.github.com&quot;,
+   &quot;shares&quot;: 31684
+}
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;twitter&quot;&gt;Twitter&lt;/h3&gt;
+
+&lt;p&gt;Request:
+&lt;code&gt;http://cdn.api.twitter.com/1/urls/count.json?url=https://github.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Response:
+&lt;code&gt;json
+{&quot;count&quot;:14,&quot;url&quot;:&quot;http:\/\/github.com\/&quot;}
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;google-plus&quot;&gt;Google Plus&lt;/h3&gt;
+
+&lt;p&gt;Request:
+&lt;code&gt;https://plusone.google.com/_/+1/fastbutton?url=https://github.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This returns the +1 button. I extracted the counts using regex &lt;code&gt;window.__SSR = {c: ([\d]+)&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;linkedin&quot;&gt;LinkedIn&lt;/h3&gt;
+
+&lt;p&gt;Request:
+&lt;code&gt;http://www.linkedin.com/countserv/count/share?url=https://github.com&amp;amp;format=json&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Response:
+&lt;code&gt;json
+{&quot;count&quot;:0,&quot;fCnt&quot;:&quot;0&quot;,&quot;fCntPlusOne&quot;:&quot;1&quot;,&quot;url&quot;:&quot;https:\/\/github.com&quot;}
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;stumbleupon&quot;&gt;StumbleUpon&lt;/h3&gt;
+
+&lt;p&gt;Request:
+&lt;code&gt;http://www.stumbleupon.com/services/1.01/badge.getinfo?url=https://github.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Response too large.&lt;/p&gt;
+
+&lt;h3 id=&quot;pinterest&quot;&gt;Pinterest&lt;/h3&gt;
+
+&lt;p&gt;Request:
+&lt;code&gt;http://api.pinterest.com/v1/urls/count.json?url=https://github.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Response:
+&lt;code&gt;json
+receiveCount({&quot;url&quot;:&quot;https://github.com&quot;,&quot;count&quot;:0}) 
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;reddit&quot;&gt;Reddit&lt;/h3&gt;
+
+&lt;p&gt;Request:
+&lt;code&gt;http://www.reddit.com/api/info.json?url=https://github.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This returns a lot of data, which can be easily used to extracted counts. 
+&lt;strong&gt;Note&lt;/strong&gt; that the Reddit guys don’t really like automated requests and may cause the call to return HTTP 429.&lt;/p&gt;
+
+&lt;h3 id=&quot;vkontakte&quot;&gt;Vkontakte&lt;/h3&gt;
+
+&lt;p&gt;Request:
+&lt;code&gt;https://vk.com/share.php?act=count&amp;amp;index=1&amp;amp;url=https://github.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Response:
+&lt;code&gt;json
+VK.Share.count(1, 419);
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This marks the end of the documentation. I hope that serves some purpose. The reason I wrote this was that I wanted social sharing buttons on this blog. I could not afford any of the mainstream buttons like Addthis and Sharethis. They kill the load time, and I’m already struggling with Disqus and Adsense overload. More on that soon. I hope to create a ‘dynamic looking’ static set of buttons for this blog, and I’ll update you if I get time to complete it. The python code is hidden, and can be viewed by toggling the button.&lt;/p&gt;
+
+&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;Show Me The Code&quot; onclick=&quot;showDiv()&quot; /&gt;&lt;/p&gt;
+&lt;div id=&quot;mysrc&quot; style=&quot;display:none;&quot;&gt;&lt;script src=&quot;http://gist-it.appspot.com/https://github.com/abhn/Social-Share-Counts/blob/master/socialShareCount.py&quot;&gt;&lt;/script&gt;&lt;/div&gt;
+&lt;script&gt;
+function showDiv() {
+   document.getElementById(&#39;mysrc&#39;).style.display = &quot;block&quot;;
+}
+&lt;/script&gt;
+
+</description>
+                <link>http://www.nagekar.com/2015/07/Social-Share-Counts-Python-Implementation.html</link>
+                <guid>http://www.nagekar.com/2015/07/Social-Share-Counts-Python-Implementation</guid>
+                <pubDate>Sat, 11 Jul 2015 00:00:00 +0530</pubDate>
+        </item>
 
         <item>
                 <title>First Anniversary Of My Blog</title>
@@ -178,14 +275,6 @@
                 <link>http://www.nagekar.com/2014/12/ajax-registration-form-using-jquery.html</link>
                 <guid>http://www.nagekar.com/2014/12/ajax-registration-form-using-jquery</guid>
                 <pubDate>Sun, 28 Dec 2014 23:34:00 +0530</pubDate>
-        </item>
-
-        <item>
-                <title>On why PHP removed magic quotes - Nice explanation</title>
-                <description>&lt;div dir=&quot;ltr&quot; style=&quot;text-align: left;&quot; trbidi=&quot;on&quot;&gt;&lt;div dir=&quot;ltr&quot;&gt;I am a newbie in PHP, or at least not as good to call myself mature. Recently, PHP announced deprecation for magic_quotes in version 5.3 and complete removal in version 5.4. So there are official docs on why it was removed, but this is what I found written by a contributor and it was perfectly explained. Do check out.&lt;/div&gt;&lt;div dir=&quot;ltr&quot;&gt;Link: &lt;a href=&quot;http://php.net/manual/en/security.magicquotes.php&quot;&gt;http://php.net/manual/en/security.magicquotes.php&lt;/a&gt;&lt;/div&gt;&lt;div dir=&quot;ltr&quot;&gt;Here goes the comment: --&amp;gt;&lt;/div&gt;&lt;div dir=&quot;ltr&quot;&gt;&lt;i&gt;The very reason magic quotes are deprecated is that a one-size-fits-all approach to escaping/quoting is wrongheaded and downright dangerous.&amp;nbsp; Different types of content have different special chars and different ways of escaping them, and what works in one tends to have side effects elsewhere.&amp;nbsp; Any sample code, here or anywhere else, that pretends to work like magic quotes --or does a similar conversion for HTML, SQL, or anything else for that matter -- is similarly wrongheaded and similarly dangerous.&lt;/i&gt;&lt;/div&gt;&lt;div dir=&quot;ltr&quot;&gt;&lt;i&gt;Magic quotes are not for security.&amp;nbsp; They never have been.&amp;nbsp; It&#39;s a convenience thing -- they exist so a PHP noob can fumble along and eventually write some mysql queries that kinda work, without having to learn about escaping/quoting data properly.&amp;nbsp; They prevent a few accidental syntax errors, as is their job.&amp;nbsp; But they won&#39;t stop a malicious and semi-knowledgeable attacker from trashing the PHP noob&#39;s database.&amp;nbsp; And that poor noob may never even know how or why his database is now gone, because magic quotes (or his spiffy &quot;i&#39;m gonna escape everything&quot; function) gave him a false sense of security.&amp;nbsp; He never had to learn how to really handle untrusted input.&lt;/i&gt;&lt;/div&gt;&lt;div dir=&quot;ltr&quot;&gt;&lt;i&gt;Data should be escaped where you need it escaped, and for the domain in which it will be used.&amp;nbsp; (mysql_real_escape_string -- NOT addslashes! -- for MySQL (and that&#39;s only unless you have a clue and use prepared statements), htmlentities or htmlspecialchars for HTML, etc.)&amp;nbsp; Anything else is doomed to failure.&lt;/i&gt;&lt;/div&gt;&lt;/div&gt;</description>
-                <link>http://www.nagekar.com/2014/12/on-why-php-removed-magic-quotes-nice.html</link>
-                <guid>http://www.nagekar.com/2014/12/on-why-php-removed-magic-quotes-nice</guid>
-                <pubDate>Wed, 24 Dec 2014 21:47:00 +0530</pubDate>
         </item>
 
 
