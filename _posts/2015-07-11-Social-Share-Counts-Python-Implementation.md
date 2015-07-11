@@ -85,13 +85,4 @@ Response:
 VK.Share.count(1, 419);
 ```
 
-This marks the end of the documentation. I hope that serves some purpose. The reason I wrote this was that I wanted social sharing buttons on this blog. I could not afford any of the mainstream buttons like Addthis and Sharethis. They kill the load time, and I'm already struggling with Disqus and Adsense overload. More on that soon. I hope to create a 'dynamic looking' static set of buttons for this blog, and I'll update you if I get time to complete it. The python code is hidden, and can be viewed by toggling the button.
-
-<input type="button" value="Show Me The Code" onclick="showDiv()">
-<div id='mysrc' style='display:none;'><script src="http://gist-it.appspot.com/https://github.com/abhn/Social-Share-Counts/blob/master/socialShareCount.py"></script></div>
-<script>
-function showDiv() {
-   document.getElementById('mysrc').style.display = "block";
-}
-</script>
-
+This marks the end of the documentation. I hope that serves some purpose. The reason I wrote this was that I wanted social sharing buttons on this blog. I could not afford any of the mainstream buttons like Addthis and Sharethis. They kill the load time, and I'm already struggling with Disqus and Adsense overload. More on that soon. I hope to create a 'dynamic looking' static set of buttons for this blog, and I'll update you if I get time to complete it.
