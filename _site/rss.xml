@@ -5,10 +5,23 @@
         <description>Abhishek Nagekar&#39;s Blog - Abhishek Nagekar</description>
         <link>http://www.nagekar.com</link>
         <atom:link href="http://www.nagekar.com/rss.xml" rel="self" type="application/rss+xml" />
-        <lastBuildDate>Sat, 11 Jul 2015 23:54:36 +0530</lastBuildDate>
-        <pubDate>Sat, 11 Jul 2015 23:54:36 +0530</pubDate>
+        <lastBuildDate>Tue, 04 Aug 2015 23:18:09 +0530</lastBuildDate>
+        <pubDate>Tue, 04 Aug 2015 23:18:09 +0530</pubDate>
         <ttl>60</ttl>
 
+
+        <item>
+                <title>4th Semester And Then</title>
+                <description>&lt;p&gt;It was in June that I appeared for my 4th semester exam (we have 8 in all, 2 each year). That makes me one half of an engineer, as far as the certification thing is concerned. Apart from that, I would not consider myself anywhere near to what standards I have for an &lt;a href=&quot;http://www.nagekar.com/2015/03/engineering.html&quot;&gt;Engineer&lt;/a&gt; in my mind. Nevertheless, the results were displayed late last month, and I managed to clear all the subjects, proudly entering the 3rd year of the course.&lt;/p&gt;
+
+&lt;p&gt;But since the exams, I did a few interesting things that I would like to let you know. Just after the exams, I took to &lt;a href=&quot;http://qt.io/&quot;&gt;Qt framework&lt;/a&gt; in C++ which I did for the next one month or so. Not much, but I did the QWidget class well enough to have coded some &lt;a href=&quot;https://github.com/abhn/Data-Destroyer-GUI&quot;&gt;simple GUIs&lt;/a&gt;. It was quite interesting, and a useful asset that I think I own now. Later the interest turned towards web [again! :]. I started working on a social network written in Python, Django. I will update you once I get the base ready, and since it is the largest of all the projects I have worked on, I am quite proud and happy for it. Lastly, something even more amazing happened. I found my lost interest in Physics and Astronomy back. It is quite interesting, as to how it happened, but I will save that for a separate post.&lt;/p&gt;
+
+&lt;p&gt;The past two months have been great, from my personal perspective. I have basically transformed into someone else, hopefully wiser than I was before. Hopefully. There is a strong reasoning I found for making that statement. I started reading a lot, doubting even more and I found that it opened doors to newer dimensions to living my life. Everything, everyone exists just because they do. That&#39;s it. Nobody, nothing, especially the universe, owes you an explanation to things that seem incomprehensible. Learn to accept it. Maybe it is a part of growing up, which I seem to have realized now. For what it&#39;s worth, I will still stay curious, for that is what drives me and most of the people. Good night.&lt;/p&gt;
+</description>
+                <link>http://www.nagekar.com/2015/08/4th-sem-exams-and-later.html</link>
+                <guid>http://www.nagekar.com/2015/08/4th-sem-exams-and-later</guid>
+                <pubDate>Tue, 04 Aug 2015 00:00:00 +0530</pubDate>
+        </item>
 
         <item>
                 <title>Social Share Counts Python Implementation</title>
@@ -91,16 +104,7 @@ receiveCount({&quot;url&quot;:&quot;https://github.com&quot;,&quot;count&quot;:0
 VK.Share.count(1, 419);
 &lt;/code&gt;&lt;/p&gt;
 
-&lt;p&gt;This marks the end of the documentation. I hope that serves some purpose. The reason I wrote this was that I wanted social sharing buttons on this blog. I could not afford any of the mainstream buttons like Addthis and Sharethis. They kill the load time, and I’m already struggling with Disqus and Adsense overload. More on that soon. I hope to create a ‘dynamic looking’ static set of buttons for this blog, and I’ll update you if I get time to complete it. The python code is hidden, and can be viewed by toggling the button.&lt;/p&gt;
-
-&lt;p&gt;&lt;input type=&quot;button&quot; value=&quot;Show Me The Code&quot; onclick=&quot;showDiv()&quot; /&gt;&lt;/p&gt;
-&lt;div id=&quot;mysrc&quot; style=&quot;display:none;&quot;&gt;&lt;script src=&quot;http://gist-it.appspot.com/https://github.com/abhn/Social-Share-Counts/blob/master/socialShareCount.py&quot;&gt;&lt;/script&gt;&lt;/div&gt;
-&lt;script&gt;
-function showDiv() {
-   document.getElementById(&#39;mysrc&#39;).style.display = &quot;block&quot;;
-}
-&lt;/script&gt;
-
+&lt;p&gt;This marks the end of the documentation. I hope that serves some purpose. The reason I wrote this was that I wanted social sharing buttons on this blog. I could not afford any of the mainstream buttons like Addthis and Sharethis. They kill the load time, and I’m already struggling with Disqus and Adsense overload. More on that soon. I hope to create a ‘dynamic looking’ static set of buttons for this blog, and I’ll update you if I get time to complete it.&lt;/p&gt;
 </description>
                 <link>http://www.nagekar.com/2015/07/Social-Share-Counts-Python-Implementation.html</link>
                 <guid>http://www.nagekar.com/2015/07/Social-Share-Counts-Python-Implementation</guid>
@@ -267,14 +271,6 @@ function showDiv() {
                 <link>http://www.nagekar.com/2015/01/jumping-over-multiple-programming.html</link>
                 <guid>http://www.nagekar.com/2015/01/jumping-over-multiple-programming</guid>
                 <pubDate>Fri, 09 Jan 2015 21:33:00 +0530</pubDate>
-        </item>
-
-        <item>
-                <title>AJAX registration form using jQuery</title>
-                <description>&lt;div dir=&quot;ltr&quot; style=&quot;text-align: left;&quot; trbidi=&quot;on&quot;&gt;&lt;div dir=&quot;ltr&quot; style=&quot;text-align: left;&quot; trbidi=&quot;on&quot;&gt;I have created this simple registration form which makes user registration using asynchronous requests in the background, checking if a duplicate username or email exists, and presenting the user with status of registration on the same page without have to reload the page even once.&lt;br /&gt;&lt;br /&gt;It is simple, but with some prerequisites for my particular example. They are&lt;br /&gt;&lt;ol style=&quot;text-align: left;&quot;&gt;&lt;li&gt;MySQL database for saving registrations&lt;/li&gt;&lt;li&gt;PHP registration page for connecting to database&lt;/li&gt;&lt;li&gt;Some basic javascript knowledge&lt;/li&gt;&lt;/ol&gt;&amp;nbsp;So having set up the above stuff, we shall get started. If you don&#39;t want to code all yourself, use my code from &lt;a href=&quot;https://github.com/abhn/turnouts/tree/master&quot; target=&quot;_blank&quot;&gt;Github&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;First of all, create for yourself a nice form. It doesn&#39;t take much right? Just make sure you attach an &#39;id&#39; attribute to each input field for convenience later. Here is my version.&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;script src=&quot;https://gist.github.com/abhn/a737ff8f28f2259b11c2.js&quot;&gt;&lt;/script&gt; &lt;br /&gt;If you see, after the form I have left an empty div. It is for displaying the response we get from our ajax request. You can, of course, add nice styling to this div. Having our form set, we can concentrate on the jQuery part.&lt;br /&gt;&lt;br /&gt;Start with making sure our DOM is loaded with $(document).ready() function. Grab hold of the click event of the form submit button. Then we get the values in the username, email and password fields.&lt;br /&gt;&lt;br /&gt;Here, we can have some basic checks to make sure form is filled up. We could have used the &lt;i&gt;required&lt;/i&gt; attribute to make sure all fields are filled, but that does not give us full control, so use Javascript or jQuery and display some custom messages. I clubbed them together in a single if.&lt;br /&gt;&lt;br /&gt;&lt;script src=&quot;https://gist.github.com/abhn/6e060043c13d3dbf03f2.js&quot;&gt;&lt;/script&gt; Next, using the simple $.ajax() function, make a request and get the response code. My action page is register.php, and I have make simple error codes to detect what response the backend gave. Here are the codes, for some reference.&lt;br /&gt;&lt;br /&gt;// Code returns 101 for &quot;username already exists&quot;&lt;br /&gt;// Code returns 102 for &quot;email already exists&quot;&lt;br /&gt;// Code returns 104 for &quot;internal server error&quot;&lt;br /&gt;// Code returns 202 for &quot;user created successfully&quot;&lt;br /&gt;&lt;br /&gt;Refer &lt;a href=&quot;https://github.com/abhn/turnouts/blob/master/register.php&quot;&gt;register.php&lt;/a&gt; for complete code.&lt;br /&gt;&lt;br /&gt;If the query succeeds, we capture the response in responseText variable. We can then do any response based manipulation we need for our specific needs. Just make sure to &lt;i&gt;return false&lt;/i&gt; at the end to prevent default submit behavior. Here is my final jQuery snippet.&lt;/div&gt;&lt;br /&gt;&lt;script src=&quot;https://gist.github.com/abhn/18f450bb299214d0c68f.js&quot;&gt;&lt;/script&gt;&lt;br /&gt;Finally, the entire HTML code has nothing more, just the standard doctype and stuff. Here is what to expect, or similar. LOL I was trying some CSS so ignore all that ;)&lt;br /&gt;&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;&lt;a href=&quot;http://1.bp.blogspot.com/-fz6kduaRLyc/VKBFf0eMnQI/AAAAAAAAHvs/yfIxoTQws1I/s1600/form.png&quot; imageanchor=&quot;1&quot; style=&quot;margin-left: 1em; margin-right: 1em;&quot;&gt;&lt;img border=&quot;0&quot; src=&quot;http://1.bp.blogspot.com/-fz6kduaRLyc/VKBFf0eMnQI/AAAAAAAAHvs/yfIxoTQws1I/s1600/form.png&quot; height=&quot;258&quot; width=&quot;400&quot; /&gt;&lt;/a&gt;&lt;/div&gt;Also, I wanted to tell you, I switched from the classy syntax highlighter to this new (for me!) gist. It is cool, only a little more effort. Loved it. If you own a blog and post code frequently, give it a try. Thank you for reading.&lt;/div&gt;</description>
-                <link>http://www.nagekar.com/2014/12/ajax-registration-form-using-jquery.html</link>
-                <guid>http://www.nagekar.com/2014/12/ajax-registration-form-using-jquery</guid>
-                <pubDate>Sun, 28 Dec 2014 23:34:00 +0530</pubDate>
         </item>
 
 
