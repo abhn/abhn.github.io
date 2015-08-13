@@ -7,6 +7,7 @@ http://www.nagekar.com/rss.xml
 http://www.nagekar.com/sitemap.txt
 http://www.nagekar.com/tags.html
 
+http://www.nagekar.com/2015/08/Need-For-An-Alternate-Social-Network.html
 http://www.nagekar.com/2015/08/4th-sem-exams-and-later.html
 http://www.nagekar.com/2015/07/Social-Share-Counts-Python-Implementation.html
 http://www.nagekar.com/2015/07/First-Anniversary-Of-My-Blog.html
