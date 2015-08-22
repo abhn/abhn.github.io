@@ -52,7 +52,7 @@
             {% assign pages_list = site.pages %}
             {% assign group = 'navigation' %}
             {% include JB/pages_list %}
-            <li><a href="https://cse.google.com/cse/publicurl?cx=003035258940616995769:m-fwfnrmgkw" target="_blank">Search</a></li>
+            <li><form class="navbar-form navbar-right" action="search.html" method="GET"><div class="form-group"><input name="q" class="form-control" placeholder="search" required></div><input class="btn btn-default" type="submit" value="Search"></form></li>
 	   <form class="navbar-form navbar-right" action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=AbhishekN', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
     <div class="form-group">
     <input type="email" value="" name="email" class="form-control" placeholder="email address" required>
