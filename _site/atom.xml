@@ -4,13 +4,240 @@
  <title>Abhishek Nagekar&#39;s Blog</title>
  <link href="http://www.nagekar.com/atom.xml" rel="self"/>
  <link href="http://www.nagekar.com"/>
- <updated>2015-09-29T21:41:11+05:30</updated>
+ <updated>2015-10-09T23:33:17+05:30</updated>
  <id>http://www.nagekar.com</id>
  <author>
    <name>Abhishek Nagekar</name>
    <email>abhishek@nagekar.com</email>
  </author>
 
+ 
+ <entry>
+   <title>CSS Crash Course</title>
+   <link href="http://www.nagekar.com/2015/10/CSS-Crash-Course.html"/>
+   <updated>2015-10-09T00:00:00+05:30</updated>
+   <id>http://www.nagekar.com/2015/10/CSS-Crash-Course</id>
+   <content type="html">&lt;p&gt;I have a friend, who happens to be a good C and assembly programmer, but simply hates anything related to web, then be it HTML, CSS or anything way too much abstracted for that matter. Since it was compulsory for us to make our own web application project for college, he struggled to learn it (CSS and HTML) from here and there, cursing it at the same time. Hence this little guide, for all those of you who hate it, but still want to get your work done.&lt;/p&gt;
+
+&lt;h3&gt;A thing or two about CSS&lt;/h3&gt;
+&lt;p&gt;CSS isn&#39;t a markup language. It is a styling language, and hence, it won&#39;t really work if you have no document in the first place. Creating a document simply means adding some data to HTML tags in a web page. Here onwards, document would mean the HTML page that we are working on. Let us create one as an example.&lt;/p&gt; 
+&lt;code&gt;
+  &amp;lt;!DOCTYPE html&amp;gt;&lt;br/&gt;
+  &amp;lt;head&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;title&amp;gt;Testing&amp;lt;/title&amp;gt;&lt;br/&gt;
+  &amp;lt;/head&amp;gt;&lt;br/&gt;
+  &amp;lt;body&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;h1&amp;gt;Awesome Site&amp;lt;/h1&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;h3&amp;gt;A little heading&amp;lt;/h3&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;p&amp;gt;A paragraph containing some text&amp;lt;/p&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;h3&amp;gt;Some information&amp;lt;/h3&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;p&amp;gt;More text...&amp;lt;/&amp;gt;&lt;br/&gt;
+  &amp;lt;/body&amp;gt;&lt;br/&gt;
+  &amp;lt;/html&amp;gt;&lt;br/&gt;
+&lt;/code&gt;
+&lt;p&gt;This is a very basic example that would display something like the following. You can guess what each tag stands for here, if not, &#39;h&#39; tag stands for heading, &#39;h1&#39; being the largest to &#39;h6&#39; being the smallest. &#39;p&#39; stands for paragraph, and there are many &lt;a href=&quot;http://www.w3schools.com/html/&quot; target=&quot;_blank&quot;&gt;such tags&lt;/a&gt;, which are used as and when required.&lt;/p&gt;
+&lt;iframe src=&quot;/assets/css_files/test1.html&quot; width=&quot;100%&quot; height=&quot;auto&quot;&gt;&lt;/iframe&gt;
+&lt;p&gt;Now it is time to style our document. I will place all the CSS styling in a &lt;code&gt;&amp;lt;style&amp;gt;&lt;/code&gt; tag, which I will be placing into the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; of the document. Now you must know that I could do the exact same thing by using an external CSS file and linking it, or by styling individual elements using inline CSS. We will see what those are later. I think the main heading should be red, the subordinate headings should be green and the paragraphs should be orange. I also think the background should be a little off white. Let&#39;s see how that translates into CSS.&lt;/p&gt;
+&lt;code&gt;
+ body {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;background-color: #eee;&lt;br/&gt;
+  }&lt;br/&gt;
+  h1 {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;color: red;&lt;br/&gt;
+  }&lt;br/&gt;
+  h3 {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;color: green;&lt;br/&gt;
+  }&lt;br/&gt;
+  p {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;color: orange;&lt;br/&gt;
+  }
+&lt;/code&gt;
+&lt;p&gt;Now that we have styled our page, let&#39;s take another look at it.&lt;p&gt;
+&lt;iframe src=&quot;/assets/css_files/test2.html&quot; width=&quot;100%&quot; height=&quot;auto&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Looks like it works, although it is looking ugly. Anyways, what we have used here is the &lt;i&gt;element selector&lt;/i&gt; of CSS which, not surprisingly, selects the elements matching the tag name and applies the properties defined for it.&lt;/p&gt;
+
+&lt;h3&gt;ID and Class selectors&lt;/h3&gt;
+
+&lt;p&gt;Now, there may be times when you have multiple elements with same tag names but you want to apply CSS properties to only specific element(s). That is where the &#39;id&#39; and the &#39;class&#39; selector comes in. Note that however, the class here does now refer to anything from your object oriented programming books. It only gives those elements with that class a particular grouping. You can use any one of &#39;id&#39; and &#39;class&#39; as per your liking for now, but conventionally, we use &#39;id&#39; for uniquely identifying elements and &#39;class&#39; for grouping similar elements. Technically, there is an additional difference of precedence here, with the &#39;id&#39; having more precedence than &#39;class&#39;. My personal rule is that, for custom CSS use &#39;id&#39;, since frameworks like Bootstrap (which we will check out later on) usually use &#39;class&#39;.&lt;/p&gt;
+
+&lt;p&gt;Now we shall rewrite the document adding an id attribute to each tag name.&lt;/p&gt;
+
+&lt;code&gt;
+&amp;lt;body&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;h1 id=&amp;quot;logo&amp;quot;&amp;gt;Awesome Site&amp;lt;/h1&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;h3 id=&amp;quot;heading&amp;quot;&amp;gt;A little heading&amp;lt;/h3&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;p id=&amp;quot;content&amp;quot;&amp;gt;A paragraph containing some text&amp;lt;/p&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;h3 id=&amp;quot;other-heading&amp;quot;&amp;gt;Some information&amp;lt;/h3&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;p id=&amp;quot;other-content&amp;quot;&amp;gt;More text...&amp;lt;/&amp;gt;&lt;br/&gt;
+&amp;lt;/body&amp;gt;&lt;br/&gt;
+&lt;/code&gt;
+
+&lt;p&gt;and we shall change the CSS accordingly&lt;/p&gt;
+
+&lt;code&gt;
+  #logo {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;color: red;&lt;br/&gt;
+  }&lt;br/&gt;
+  #heading {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;color: green;&lt;br/&gt;
+  }&lt;br/&gt;
+  #other-heading {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;color: olive;&lt;br/&gt;
+  }&lt;br/&gt;
+  #content {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;color: orange;&lt;br/&gt;
+  }&lt;br/&gt;
+  #other-content {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;color: purple;&lt;br/&gt;
+  }
+&lt;/code&gt;
+
+&lt;p&gt;The resulting page looks something like this, with each of the individual elements appearing in different color.&lt;/p&gt;
+
+&lt;iframe src=&quot;/assets/css_files/test3.html&quot; width=&quot;100%&quot; height=&quot;auto&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Note that we could have well written &#39;class&#39; instead of &#39;id&#39; in our document, but then instead of &lt;code&gt;#logo&lt;/code&gt; it would have been &lt;code&gt;.class&lt;/code&gt;, which is the class selector. Having learnt two selectors, we can now combine them to get the desired result. For example, &lt;code&gt;h3#heading { color: blue; }&lt;/code&gt; would turn &lt;span style=&quot;color: blue;&quot;&gt;blue&lt;/span&gt; all the h3 tags that have a &lt;i&gt;&lt;b&gt;id=&quot;heading&quot;&lt;/b&gt;&lt;/i&gt; attribute declared. Similarly, &lt;code&gt;h3.heading { color: blue; }&lt;/code&gt; would result in the same thing to all the h3 tags with &lt;i&gt;&lt;b&gt;class=&quot;heading&quot;&lt;/b&gt;&lt;/i&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Group selectors&lt;/h3&gt;
+
+&lt;p&gt;Group selectors are used to apply properties to multiple elements at once. Multiple elements are separated by commas.&lt;/p&gt;
+
+&lt;code&gt;
+  #logo {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;color: red;&lt;br/&gt;
+  }&lt;br/&gt;
+  #heading {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;color: green;&lt;br/&gt;
+  }&lt;br/&gt;
+  #other-heading {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;color: olive;&lt;br/&gt;
+  }&lt;br/&gt;
+  #content {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;color: orange;&lt;br/&gt;
+  }&lt;br/&gt;
+  #other-content {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;color: purple;&lt;br/&gt;
+  }&lt;br/&gt;
+  /* Selecting all three tag names at once. */&lt;br/&gt;
+  h1, h3, p {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;background-color: yellow;&lt;br/&gt;
+  }&lt;br/&gt;
+&lt;/code&gt;
+
+&lt;p&gt;Which will look like&lt;/p&gt;
+
+&lt;iframe src=&quot;/assets/css_files/test4.html&quot; width=&quot;100%&quot; height=&quot;auto&quot;&gt;&lt;/iframe&gt;
+
+&lt;h3&gt;Descendant selectors&lt;/h3&gt;
+
+&lt;p&gt;Sometimes, CSS properties needs to be applied only to tags within a specific tag or id. In such situations, the descendant selector comes in handy.&lt;/p&gt;
+
+&lt;code&gt;
+&amp;lt;!DOCTYPE html&amp;gt;&lt;br/&gt;
+&amp;lt;head&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;title&amp;gt;Testing&amp;lt;/title&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;style&amp;gt;&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ul em {&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;font-size: 1.25em;&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;/style&amp;gt;&lt;br/&gt;
+&amp;lt;/head&amp;gt;&lt;br/&gt;
+&amp;lt;body&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;p&amp;gt;Look what I&amp;apos;ve &amp;lt;em&amp;gt;got for ya!&amp;lt;/em&amp;gt;&amp;lt;/p&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;p&amp;gt;&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;ul&amp;gt;&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;li&amp;gt;item 1&amp;lt;/li&amp;gt;&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;li&amp;gt;item 2&amp;lt;/li&amp;gt;&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;li&amp;gt;item 3&amp;lt;/li&amp;gt;&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;li&amp;gt;&amp;lt;em&amp;gt;this looks abnormal&amp;lt;/em&amp;gt;&amp;lt;/li&amp;gt;&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;li&amp;gt;item 5&amp;lt;/li&amp;gt;&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;/ul&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;p&amp;gt;&lt;br/&gt;
+&amp;lt;/body&amp;gt;&lt;br/&gt;
+&amp;lt;/html&amp;gt;&lt;br/&gt;
+&lt;/code&gt;
+
+&lt;p&gt;And this will render&lt;/p&gt;
+
+&lt;iframe src=&quot;/assets/css_files/test5.html&quot; width=&quot;100%&quot; height=&quot;auto&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Look how the &lt;em&gt;emphasis&lt;/em&gt; at the top is normal but the one in the &#39;ul&#39; is enlarged. There is another similar selector called the child selector. It works similar to descendant selector but demands the child to be DIRECT descendant of the parent. For example, &lt;code&gt;p &gt; a { color: green; }&lt;/code&gt; will cause only the anchors directly children to any paragraph to look &lt;span style=&quot;color: green;&quot;&gt;green&lt;/span&gt;. These are the various selectors that you would see and probably use when dealing with web applications. Simple enough, aren&#39;t they?&lt;/p&gt;
+
+&lt;h3&gt;&amp;lt;div&amp;gt; and &amp;lt;span&amp;gt;&lt;/h3&gt;
+
+&lt;p&gt;Although div and span are html tags, any modern web application that you will write will heavily make use of these to group sections of the web page together. You might be familiar with the layouts of most websites these days, with a header on top, one or two column in the center with content and other options, and a footer at the bottom. Even on my blog, you&#39;ll notice these three things. How are they made, and how to make them look so distinct that on the first glance, your visitors know what their purpose is. The answer lies in making proper divs and adding appropriate CSS to it. Div is a block element, which means that it is used to style multiple elements at once. Span, on the other hand, is inline, that is, it is used to style little chunks of content.&lt;/p&gt;
+
+&lt;p&gt;I will write the 4 sections of a website I mentioned earlier, using divs. Read the code and you would understand what is happening.&lt;/p&gt;
+
+&lt;code&gt;
+
+&amp;lt;!DOCTYPE html&amp;gt;&lt;br/&gt;
+&amp;lt;head&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;title&amp;gt;Testing&amp;lt;/title&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;style&amp;gt;&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;* {&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;text-align: center; &lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#header {&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;background-color: red;&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;height: 50px;&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#container {&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;width: auto;&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;margin: 0 auto;&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#body {&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;width: 75%;&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;float: left;&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;background-color: grey;&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#side {&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;width: 25%;&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;float: right;&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;background-color: blue;&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#footer {&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;background-color: green;&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;/style&amp;gt;&lt;br/&gt;
+&amp;lt;/head&amp;gt;&lt;br/&gt;
+&amp;lt;body&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;div id=&amp;quot;header&amp;quot;&amp;gt;&amp;lt;h3&amp;gt;Header Text&amp;lt;/h3&amp;gt;&amp;lt;/div&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;div id=&amp;quot;container&amp;quot;&amp;gt;&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;div id=&amp;quot;body&amp;quot;&amp;gt;&amp;lt;p&amp;gt;Content goes here&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;div id=&amp;quot;side&amp;quot;&amp;gt;&amp;lt;p&amp;gt;Sidebar&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;/div&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;div id=&amp;quot;footer&amp;quot;&amp;gt;&amp;lt;p&amp;gt;Copyrights&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;br/&gt;
+&amp;lt;/body&amp;gt;&lt;br/&gt;
+&amp;lt;/html&amp;gt;&lt;br/&gt;
+
+&lt;/code&gt;
+
+&lt;p&gt;This sure looks beautiful, doesn&#39;t it?&lt;/p&gt;
+
+&lt;iframe src=&quot;/assets/css_files/test6.html&quot; width=&quot;100%&quot; height=&quot;auto&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;This completes the CSS syntax part. I did mention that you can write all your CSS in a file.css and include them in your document head with &lt;code&gt;&amp;lt;link href=&quot;/assets/style.css&quot; rel=&quot;stylesheet&quot;&amp;gt;&lt;/code&gt; so that it is easier to maintain the code. There is yet another way to add CSS, which makes use of @import syntax. It is better avoided for the &lt;a href=&quot;http://stackoverflow.com/questions/10036977/best-way-to-include-css-why-use-import&quot; target=&quot;_blank&quot;&gt;linked reasons&lt;/a&gt;.
+
+&lt;p&gt;Now that you are well equipped with the necessary things to learn some actual and practical CSS, you must be really excited to read from w3schools. It is a great site to begin, and since it comes on top each time you search for anything related to CSS (or web programming, for that matter), you may use it as your sole reference guide. Nothing bad, but keep in mind that after leaving your nutshell, you should &lt;a href=&quot;http://www.w3fools.com/&quot; target=&quot;_blank&quot;&gt;avoid that site&lt;/a&gt;, and start using some reputed docs instead, like the ones from &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS&quot; target=&quot;_blank&quot;&gt;Mozilla&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3&gt;CSS Frameworks&lt;/h3&gt;
+
+&lt;p&gt;To speed up the development process, you might want to check out some libraries out there that would ease your life. One of the best is &lt;a href=&quot;http://getbootstrap.com/&quot;&gt;Bootstrap&lt;/a&gt;. It would enable you to do rapid development, with minimal typing. Bootstrap comes with jQuery, a Javascript library which also helps a lot dealing with web application stuff you are about to deal with. There is not much point reading the official docs if you only want to get the work done. Instead, I would suggest you to Google out things, pick up code on the way, keep going. That is exactly how I used to do stuff back then, when I hated to write CSS and HTML. Bad advice, but gets the job done most of the times.&lt;/p&gt;
+
+&lt;h3&gt;Outro&lt;/h3&gt;
+
+&lt;p&gt;CSS is amazing. Web is amazing. Today is a time when you either have to love the web, or keep fighting a losing battle convincing yourself that you don&#39;t need it. Either way, knowing a thing or two about how the web pages that you spend more than half of your time on, are styled, is always a plus. As always, for anything, the comment box is always there. Corrections, please. Liked the article? Suggest it to your friends! Thank you for reading.&lt;p&gt;
+
+
+
+
+
+
+
+</content>
+ </entry>
  
  <entry>
    <title>Birthday Week</title>
@@ -291,14 +518,6 @@ VK.Share.count(1, 419);
    <updated>2015-02-11T23:01:00+05:30</updated>
    <id>http://www.nagekar.com/2015/02/aib-knockout</id>
    <content type="html">If you happen to be from India, you must have most probably heard of the &lt;a href=&quot;http://en.wikipedia.org/wiki/All_India_Bakchod_Knockout&quot; target=&quot;_blank&quot;&gt;AIB Knockout&lt;/a&gt; thing, a &lt;a href=&quot;http://en.wikipedia.org/wiki/Roast_%28comedy%29&quot; target=&quot;_blank&quot;&gt;Roast&lt;/a&gt; (an event in which a celebrity is subject to insults and rest of the audience is well, entertained by it.) hosted by Karan Johar in Mumbai. It was uploaded on youtube in late jan, and removed in around 5-6 days due to controversies brewing, with &lt;a href=&quot;http://timesofindia.indiatimes.com/entertainment/hindi/bollywood/news/AIB-Knockout-FIR-lodged-against-Ranveer-Karan-Arjun-Deepika-Sonakshi-and-11-others/articleshow/46140025.cms&quot; target=&quot;_blank&quot;&gt;FIR lodged against the host&lt;/a&gt; and some other members for &#39;filthy language&#39; and stuff.&lt;br /&gt;&lt;br /&gt;Now, things like that happen. For some it was entertainment and business, while for others, a quick shot to get some attention. Whatever the reason is, the question was, is it right to host such events here in India, and also was it right to force the content&#39;s removal from youtube?&lt;br /&gt;&lt;br /&gt;I don&#39;t know. I did watch that video (for about the first 10 minutes), and it WAS filthy, but was it the only thing filthy on the Indian media or around here? Of course not. We have &lt;a href=&quot;http://timesofindia.indiatimes.com/city/bengaluru/Two-Karnataka-ministers-caught-watching-porn-film-in-assembly/articleshow/11794727.cms&quot; target=&quot;_blank&quot;&gt;politicians watching porn in the assembly&lt;/a&gt;, waving money to &#39;buy&#39; seats (and these &lt;a href=&quot;http://www.ndtv.com/india-news/cash-for-vote-scam-amar-singh-three-bjp-leaders-who-waved-cash-in-parliament-let-off-542036&quot; target=&quot;_blank&quot;&gt;politicians are now roaming free&lt;/a&gt;, by the way) and well, all porn sites work fine here, no bans on them.&lt;br /&gt;&lt;br /&gt;So do I advocate more such roasts? No. Am I happy with it getting off youtube? No, again. So what is the reason of this boring post?&lt;br /&gt;&lt;br /&gt;Well, see. I don&#39;t mind such things on the media because much filthier things already exist, and we don&#39;t seem to give a damn. Although things like this roast bore me, I do advocate freedom of expression. What I care about much more is the influence it has on our youth. The problem with Indian youth is that they crave for westernization. After watching that roast, many of my friends, including the ladies, started to feel an amazing pride in prefixing any adjective they used, with &#39;fucking&#39;. Why? I don&#39;t know. Maybe to sound bad ass, or retarded, whatever. Swearing isn&#39;t bad, and we do it to express strong emotions, but doing it just for the sake of looking cool is bullshit with warm urine. You seriously don&#39;t want to sound like that, do you? Also, these celebrities happen to get paid for their popularity, which increases with such shit talks. Unless you are in a similar field where your popularity gets you pay cheques, you should seriously avoid following them, at least in the way they talk and dress. &lt;br /&gt;&lt;br /&gt;So, watch everything, even porn. Doesn&#39;t matter. What matters is how much you let it influence you. You can&#39;t ban the internet. Off youtube and it shows up on multiple torrent and file uploading sites. You just cannot hide information. The most you can do is educate the people.</content>
- </entry>
- 
- <entry>
-   <title>Time</title>
-   <link href="http://www.nagekar.com/2015/02/time.html"/>
-   <updated>2015-02-02T00:04:00+05:30</updated>
-   <id>http://www.nagekar.com/2015/02/time</id>
-   <content type="html">Time is one of my favorite subjects. The reason being it&#39;s highly mysterious and absolute nature. It give everything a reference frame. How else on earth would have you said when a thing actually occurred. It actually gives even the rest of the three dimensions a reference frame. Newton put forth the theory that nothing in the Universe is absolutely stationary, no not you standing still, because the earth is spinning, and not the earth since it is revolving around the sun. The sun goes round the Milky Way (our home galaxy) once in every &lt;a href=&quot;http://en.wikipedia.org/wiki/Galactic_year&quot; target=&quot;_blank&quot;&gt;225 million years&lt;/a&gt;. Not surprising now, the Milky Way is not stationary itself, but &lt;a href=&quot;http://en.wikipedia.org/wiki/Andromeda%E2%80%93Milky_Way_collision&quot; target=&quot;_blank&quot;&gt;moving towards Andromeda&lt;/a&gt; (our neighboring galaxy) at about 400,000 km/h. Point here is that, you cannot determine the absolute position of an object anywhere in the Universe by just giving the three physical dimensions. It simple doesn&#39;t work where there is no frame of reference. Then how do you tell your position? You tell it in terms of space-time. The fourth dimension, that is of the time can be in any unit of time. We can actually convert the first three coordinates&amp;nbsp; in terms of light-seconds which is distance in terms of time taken by the light to travel the same distance.&lt;br /&gt;&lt;br /&gt;But well, time is in fact, only absolute to a person at a particular position. Time is well &lt;a href=&quot;http://physics.stackexchange.com/questions/8940/how-can-gravitational-forces-influence-time&quot; target=&quot;_blank&quot;&gt;affected by gravity&lt;/a&gt;, the same way light is. This is to simply say the time seems somewhat slower near a body of high mass, like the earth, or a black hole for some serious observations. We don&#39;t actually see these differences in our routine life since they are too small in case of the Earth (Earth is not as dense as it should be for practical effects of delay in time to be observed by us). But there are applications on Earth that require precise measurement of time, and one such application is the Global Positioning System, the GPS in almost every phone these days. It relies on three geostationary satellites that measure the exact time taken for the receiver to reach them, creating a triangular plot, estimating the position of the receiver on the surface on the planet within a couple of meters accurately. These satellites are feed with the &lt;a href=&quot;http://en.wikipedia.org/wiki/Error_analysis_for_the_Global_Positioning_System#Special_and_general_relativity&quot; target=&quot;_blank&quot;&gt;slightly wrong time&lt;/a&gt; after some unspecified interval, just so that it can adjust with the &#39;slower&#39; time on the Earth&#39;s surface (on account of the larger mass of Earth affecting the bodies near to it to a larger extent and also due to the relatively faster time on these satellites on account of their speeds due to special relativity).&lt;br /&gt;&lt;br /&gt;There is another interesting thing to note here. How can you say if you are experiencing a slower version of time than you did some time in the past? You can&#39;t. The reason is, &#39;slower&#39; and &#39;faster&#39; time are for the observers that are experiencing a relatively &#39;faster&#39; or &#39;slower&#39; time. So it is all relative. Talking about time in the context of speed of light, we come to an amazing theory by Einstein. Einstein proposed that the speed at which light travels is absolute and does not depend on the relative speed and position of the observer. To put it simply, imagine you are traveling on a highway at 60km/h. Another vehicle traveling at 70 overtakes you. For you, the relative speed of the other vehicle is 10km/h (which is, 70-60=10). This is how we expect things to behave right? Of course. But things change as one approaches the speed of light. See that light doesn&#39;t behave the same way our highway example cars did. However fast you&#39;re traveling, light will still be 300,000km/s faster than you, even if you are actually doing 290,000km/s (which is just about impossible for a body of large mass like us, but certain elementary particles can achieve those speeds). This can be considered the universal speed limits. So what happens when some particle tries to break this barrier?&lt;br /&gt;&lt;br /&gt;For understanding this, let us consider the cone of light. When a particular event occurs, it sends out light (or radiations) in all possible directions. This is like throwing a pebble in a pond of water. It spreads in all possible directions and it&#39;s size increases every instant. The outermost wave is the wave initially created by the pebble itself. Now think of this as light. An event occurs and light from that event spreads in all possible direction. Considering time on y axis and space on x, we can imagine a cone getting created.&lt;br /&gt;&lt;br /&gt;&lt;table align=&quot;center&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; class=&quot;tr-caption-container&quot; style=&quot;margin-left: auto; margin-right: auto; text-align: center;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style=&quot;text-align: center;&quot;&gt;&lt;a href=&quot;http://1.bp.blogspot.com/-_mZiPPW6N7g/VM5QfToCGSI/AAAAAAAAHwc/8dHN0Jt5A_s/s1600/World_line.png&quot; imageanchor=&quot;1&quot; style=&quot;margin-left: auto; margin-right: auto;&quot;&gt;&lt;img border=&quot;0&quot; src=&quot;http://1.bp.blogspot.com/-_mZiPPW6N7g/VM5QfToCGSI/AAAAAAAAHwc/8dHN0Jt5A_s/s1600/World_line.png&quot; height=&quot;311&quot; width=&quot;320&quot; /&gt;&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=&quot;tr-caption&quot; style=&quot;text-align: center;&quot;&gt;http://upload.wikimedia.org/wikipedia/commons/9/9a/World_line.png&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;br /&gt;Now when something occurs, you don&#39;t see it immediately, until the light from that event hits your retina. Consider the sun, for example. It is at a distance of about 149 million kilometers from the earth. Light takes about 8 minutes and 20 seconds to travel this distance. This is the reason the sunlight you&#39;re seeing now is about 8 minutes and 20 seconds old. Which means that it takes the cone of light from sun, 8 minutes and 20 seconds to reach us, and make us aware of it. Still, considering the distances of other planetary objects, sun is quite close to us. Our nearest star, Alpha Centauri is at a distance of 4.3 light years from us, that is, the cone of light takes 4.3 years from Alpha Centauri to reach us. Since it is the cone of light, not surprisingly, it travels outwards at the speed of light.&lt;br /&gt;&lt;br /&gt;Back to our original question, what if some particle tries to break the barrier of speed of light? If that happens, it will move from inside the cone of light of one event to outside of it, effectively seeing the time from the past, hence &#39;traveling in the past&#39;. But is that possible? No, according to the special theory of relativity. Since speed of light is absolute to the reference frame it is measured in, nothing can reach it (the mass of an object goes on increasing with increasing velocity. Close to the speed of light, the mass of the object is infinity and pushing an object of mass infinity is not possible). This was even proved by an experiment (&lt;a href=&quot;http://en.wikipedia.org/wiki/Michelson%E2%80%93Morley_experiment&quot; target=&quot;_blank&quot;&gt;Michelson-Morley&lt;/a&gt; experiment). This theory was consistent with the observations and most other theories, but Newton&#39;s gravitation theory. If everything travels at speeds less than or equal to the speed of light, how do we explain the effects of gravitation on distant planets and stars instantaneously. Does &lt;a href=&quot;http://math.ucr.edu/home/baez/physics/Relativity/GR/grav_speed.html&quot; target=&quot;_blank&quot;&gt;gravity travel at infinite speeds&lt;/a&gt;, as opposed to relativity, which states that gravity travels at speed of light, which is again, not in accordance with solar system observations? Maybe.&lt;br /&gt;&lt;br /&gt;Einstein spent a great deal of time trying to find a theory that would be consistent with both, the theory of relativity and the theory of gravitation. Finally he came up with something called the general theory of relativity. This theory suggested that the force of gravity doesn&#39;t act like normal forces but it acts on the &#39;space-time&#39; fabric, bending it in proportion with the relative energy and mass of the body. This suggested that the bodies revolving other bodies like the moon and earth are not traveling round the other body, but actually taking a straight path in the space time fabric which is 4 dimensional, and they only &#39;appear&#39; to travel in elliptical orbits as we see them in 3 dimensions. This was a revolutionary suggestion. It implied that time, light all traveled curved path near objects of high mass or energy. That did, infact explained why time appeared slow near the surface of earth and faster from space, and also, how are we able to see stars that are just behind the sun even if a straight path to them would not be possible for light to take.&lt;br /&gt;&lt;br /&gt;Now as we look at where this article started, yes, I was all wrong. I knew there was nothing as absolute space, but as it turned out, there is nothing as absolute time as well. Interesting though, isn&#39;t it?&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;&lt;h4&gt;Time in the world of computers!&lt;/h4&gt;&lt;h4&gt;&amp;nbsp;&lt;/h4&gt;Computers happen to be my most favorite subject after astrophysics, so how can I let this special opportunity go without playing around with time functions in C++. To be honest, I had been on this time thing from about 2 weeks. I needed to calculate time precisely for looking at the efficiency of sorting algorithms. Not surprisingly, computers are way too fast for calculating time in seconds or milliseconds. To see the difference in time taken by two algorithms for sorting a set of 50 random numbers, you need to measure time in nanoseconds, at the least microseconds. Although I had trouble (a lot of trouble, in fact) in getting the time functions to work for me, I finally succeeded in getting nanosecond level precision without any extra props, just my PC and g++ compiler.&lt;br /&gt;&lt;br /&gt;Starting from the first thought that came to my mind, get some C++ reference for built in functions. time() from &amp;lt;ctime&amp;gt; does a great job to fetch the number of seconds since 1st Jan, 1970, &lt;br /&gt;&lt;br /&gt;&lt;script src=&quot;https://gist.github.com/abhn/45da0ea982ab68adaa2c.js&quot;&gt;&lt;/script&gt; &lt;br /&gt;but not good enough for me here. I knew that the bash command &#39;date&#39; can be used for my purpose, but I couldn&#39;t see a way to get the output of the command to my program back. I did some over smartness here. I executed the &lt;span style=&quot;color: #674ea7;&quot;&gt;system(&quot;date +%s%N &amp;gt; text&quot;)&lt;/span&gt; which wrote the current timestamp upto the nanosecond to &#39;text&#39; file. Then copy that time by reading the file into an unsigned long long int (since it is 19 digits long). Then after the calculations, repeat it again and subtract the initial time from the final one. A bit long cut, but I hoped it to work.&lt;br /&gt;&lt;script src=&quot;https://gist.github.com/abhn/1c9dbbf003b74a730a1e.js&quot;&gt;&lt;/script&gt; &lt;br /&gt;When I ran this code, it took, surprisingly 18+ milliseconds, or in particular 18649390 nanoseconds. And to be clear, I haven&#39;t even included any code whose performance benchmarks I had to measure. This is the base time, LOL. Thinking about it for a second, algorithms store variables in cache, because RAM is not fast enough and I tried to write and read from the hard drive. That is so damn clever of me!&lt;br /&gt;&lt;br /&gt;Pun aside, Now it was time to get help. Many stackoverflow posts and a good guy&#39;s guidance later, I finally got the &lt;span style=&quot;color: #674ea7;&quot;&gt;clock_gettime()&lt;/span&gt; from &amp;lt;sys/time.h&amp;gt; to work. Yes, now I was getting some pretty good numbers and I could see the difference when I added more stuff to the code.&lt;br /&gt;&lt;script src=&quot;https://gist.github.com/abhn/e7e41567d518c22b4f38.js&quot;&gt;&lt;/script&gt; &lt;br /&gt;Executing the raw code without any load gave some results I was hoping to see.&lt;br /&gt;&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;&lt;a href=&quot;http://4.bp.blogspot.com/-1ZfWwXFoJtc/VM5lOjVHmlI/AAAAAAAAHws/uN9sQyLAWug/s1600/Screenshot%2Bfrom%2B2015-02-01%2B23%3A09%3A47.png&quot; imageanchor=&quot;1&quot; style=&quot;margin-left: 1em; margin-right: 1em;&quot;&gt;&lt;img border=&quot;0&quot; src=&quot;http://4.bp.blogspot.com/-1ZfWwXFoJtc/VM5lOjVHmlI/AAAAAAAAHws/uN9sQyLAWug/s1600/Screenshot%2Bfrom%2B2015-02-01%2B23%3A09%3A47.png&quot; height=&quot;432&quot; width=&quot;640&quot; /&gt;&lt;/a&gt;&lt;/div&gt;&lt;br /&gt;210 nanoseconds which is fine for a code that does nothing. This will serve all of my purposes, and should do most of anyone&#39;s who is up with sorting algorithms.&lt;br /&gt;&lt;br /&gt;PS - I tried hard to find good sources for information on the first part of this article, still if there is any mistake, don&#39;t hesitate to notify me. </content>
  </entry>
  
  

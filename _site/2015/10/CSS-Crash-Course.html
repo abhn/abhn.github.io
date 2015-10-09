@@ -1,0 +1,423 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>CSS Crash Course</title>
+    
+    <meta name="author" content="Abhishek Nagekar">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap styles -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bootstrap_bundled.min.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="http://www.nagekar.com/assets/images/favicon.ico" type="image/x-icon" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+
+    <div id="wrap">
+
+      <nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#jb-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Abhishek Nagekar's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="jb-navbar-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/meta.html">Meta</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+            <li><form class="navbar-form navbar-right" action="http://www.nagekar.com/search.html" method="GET"><div class="form-group"><input name="q" class="form-control" placeholder="search" required></div><input class="btn btn-default" type="submit" value="Search"></form></li>
+	   <form class="navbar-form navbar-right" action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=AbhishekN', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+    <div class="form-group">
+    <input type="email" value="" name="email" class="form-control" placeholder="email address" required>
+    <input type="hidden" value="AbhishekN" name="uri"><input type="hidden" name="loc" value="en_US">
+    </div>
+    <input type="submit" value="Subscribe" name="subscribe" class="btn btn-default" class="button">
+</form>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </nav>
+
+      <div class="container">
+        
+<div class="page-header">
+  <h1>CSS Crash Course </h1>
+</div>
+
+<div class="row post-full">
+  <div class="col-xs-12">
+    <div class="date">
+      <span>9 October, 2015. It was a Friday.</span>
+    </div>
+    <div class="content">
+      <p>I have a friend, who happens to be a good C and assembly programmer, but simply hates anything related to web, then be it HTML, CSS or anything way too much abstracted for that matter. Since it was compulsory for us to make our own web application project for college, he struggled to learn it (CSS and HTML) from here and there, cursing it at the same time. Hence this little guide, for all those of you who hate it, but still want to get your work done.</p>
+
+<h3>A thing or two about CSS</h3>
+<p>CSS isn't a markup language. It is a styling language, and hence, it won't really work if you have no document in the first place. Creating a document simply means adding some data to HTML tags in a web page. Here onwards, document would mean the HTML page that we are working on. Let us create one as an example.</p> 
+<code>
+  &lt;!DOCTYPE html&gt;<br/>
+  &lt;head&gt;<br/>
+  &nbsp;&nbsp;&lt;title&gt;Testing&lt;/title&gt;<br/>
+  &lt;/head&gt;<br/>
+  &lt;body&gt;<br/>
+  &nbsp;&nbsp;&lt;h1&gt;Awesome Site&lt;/h1&gt;<br/>
+  &nbsp;&nbsp;&lt;h3&gt;A little heading&lt;/h3&gt;<br/>
+  &nbsp;&nbsp;&lt;p&gt;A paragraph containing some text&lt;/p&gt;<br/>
+  &nbsp;&nbsp;&lt;h3&gt;Some information&lt;/h3&gt;<br/>
+  &nbsp;&nbsp;&lt;p&gt;More text...&lt;/&gt;<br/>
+  &lt;/body&gt;<br/>
+  &lt;/html&gt;<br/>
+</code>
+<p>This is a very basic example that would display something like the following. You can guess what each tag stands for here, if not, 'h' tag stands for heading, 'h1' being the largest to 'h6' being the smallest. 'p' stands for paragraph, and there are many <a href="http://www.w3schools.com/html/" target="_blank">such tags</a>, which are used as and when required.</p>
+<iframe src="/assets/css_files/test1.html" width="100%" height="auto"></iframe>
+<p>Now it is time to style our document. I will place all the CSS styling in a <code>&lt;style&gt;</code> tag, which I will be placing into the <code>&lt;head&gt;</code> of the document. Now you must know that I could do the exact same thing by using an external CSS file and linking it, or by styling individual elements using inline CSS. We will see what those are later. I think the main heading should be red, the subordinate headings should be green and the paragraphs should be orange. I also think the background should be a little off white. Let's see how that translates into CSS.</p>
+<code>
+ body {<br/>
+    &nbsp;&nbsp;background-color: #eee;<br/>
+  }<br/>
+  h1 {<br/>
+    &nbsp;&nbsp;color: red;<br/>
+  }<br/>
+  h3 {<br/>
+    &nbsp;&nbsp;color: green;<br/>
+  }<br/>
+  p {<br/>
+    &nbsp;&nbsp;color: orange;<br/>
+  }
+</code>
+<p>Now that we have styled our page, let's take another look at it.<p>
+<iframe src="/assets/css_files/test2.html" width="100%" height="auto"></iframe>
+
+<p>Looks like it works, although it is looking ugly. Anyways, what we have used here is the <i>element selector</i> of CSS which, not surprisingly, selects the elements matching the tag name and applies the properties defined for it.</p>
+
+<h3>ID and Class selectors</h3>
+
+<p>Now, there may be times when you have multiple elements with same tag names but you want to apply CSS properties to only specific element(s). That is where the 'id' and the 'class' selector comes in. Note that however, the class here does now refer to anything from your object oriented programming books. It only gives those elements with that class a particular grouping. You can use any one of 'id' and 'class' as per your liking for now, but conventionally, we use 'id' for uniquely identifying elements and 'class' for grouping similar elements. Technically, there is an additional difference of precedence here, with the 'id' having more precedence than 'class'. My personal rule is that, for custom CSS use 'id', since frameworks like Bootstrap (which we will check out later on) usually use 'class'.</p>
+
+<p>Now we shall rewrite the document adding an id attribute to each tag name.</p>
+
+<code>
+&lt;body&gt;<br/>
+  &nbsp;&nbsp;&lt;h1 id=&quot;logo&quot;&gt;Awesome Site&lt;/h1&gt;<br/>
+  &nbsp;&nbsp;&lt;h3 id=&quot;heading&quot;&gt;A little heading&lt;/h3&gt;<br/>
+  &nbsp;&nbsp;&lt;p id=&quot;content&quot;&gt;A paragraph containing some text&lt;/p&gt;<br/>
+  &nbsp;&nbsp;&lt;h3 id=&quot;other-heading&quot;&gt;Some information&lt;/h3&gt;<br/>
+  &nbsp;&nbsp;&lt;p id=&quot;other-content&quot;&gt;More text...&lt;/&gt;<br/>
+&lt;/body&gt;<br/>
+</code>
+
+<p>and we shall change the CSS accordingly</p>
+
+<code>
+  #logo {<br/>
+    &nbsp;&nbsp;color: red;<br/>
+  }<br/>
+  #heading {<br/>
+    &nbsp;&nbsp;color: green;<br/>
+  }<br/>
+  #other-heading {<br/>
+    &nbsp;&nbsp;color: olive;<br/>
+  }<br/>
+  #content {<br/>
+    &nbsp;&nbsp;color: orange;<br/>
+  }<br/>
+  #other-content {<br/>
+    &nbsp;&nbsp;color: purple;<br/>
+  }
+</code>
+
+<p>The resulting page looks something like this, with each of the individual elements appearing in different color.</p>
+
+<iframe src="/assets/css_files/test3.html" width="100%" height="auto"></iframe>
+
+<p>Note that we could have well written 'class' instead of 'id' in our document, but then instead of <code>#logo</code> it would have been <code>.class</code>, which is the class selector. Having learnt two selectors, we can now combine them to get the desired result. For example, <code>h3#heading { color: blue; }</code> would turn <span style="color: blue;">blue</span> all the h3 tags that have a <i><b>id="heading"</b></i> attribute declared. Similarly, <code>h3.heading { color: blue; }</code> would result in the same thing to all the h3 tags with <i><b>class="heading"</b></i>.</p>
+
+<h3>Group selectors</h3>
+
+<p>Group selectors are used to apply properties to multiple elements at once. Multiple elements are separated by commas.</p>
+
+<code>
+  #logo {<br/>
+    &nbsp;&nbsp;color: red;<br/>
+  }<br/>
+  #heading {<br/>
+    &nbsp;&nbsp;color: green;<br/>
+  }<br/>
+  #other-heading {<br/>
+    &nbsp;&nbsp;color: olive;<br/>
+  }<br/>
+  #content {<br/>
+    &nbsp;&nbsp;color: orange;<br/>
+  }<br/>
+  #other-content {<br/>
+    &nbsp;&nbsp;color: purple;<br/>
+  }<br/>
+  /* Selecting all three tag names at once. */<br/>
+  h1, h3, p {<br/>
+    &nbsp;&nbsp;background-color: yellow;<br/>
+  }<br/>
+</code>
+
+<p>Which will look like</p>
+
+<iframe src="/assets/css_files/test4.html" width="100%" height="auto"></iframe>
+
+<h3>Descendant selectors</h3>
+
+<p>Sometimes, CSS properties needs to be applied only to tags within a specific tag or id. In such situations, the descendant selector comes in handy.</p>
+
+<code>
+&lt;!DOCTYPE html&gt;<br/>
+&lt;head&gt;<br/>
+  &nbsp;&nbsp;&lt;title&gt;Testing&lt;/title&gt;<br/>
+  &nbsp;&nbsp;&lt;style&gt;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;ul em {<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;font-size: 1.25em;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+  &nbsp;&nbsp;&lt;/style&gt;<br/>
+&lt;/head&gt;<br/>
+&lt;body&gt;<br/>
+  &nbsp;&nbsp;&lt;p&gt;Look what I&apos;ve &lt;em&gt;got for ya!&lt;/em&gt;&lt;/p&gt;<br/>
+  &nbsp;&nbsp;&lt;p&gt;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&gt;<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;item 1&lt;/li&gt;<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;item 2&lt;/li&gt;<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;item 3&lt;/li&gt;<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;em&gt;this looks abnormal&lt;/em&gt;&lt;/li&gt;<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;item 5&lt;/li&gt;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br/>
+  &nbsp;&nbsp;&lt;p&gt;<br/>
+&lt;/body&gt;<br/>
+&lt;/html&gt;<br/>
+</code>
+
+<p>And this will render</p>
+
+<iframe src="/assets/css_files/test5.html" width="100%" height="auto"></iframe>
+
+<p>Look how the <em>emphasis</em> at the top is normal but the one in the 'ul' is enlarged. There is another similar selector called the child selector. It works similar to descendant selector but demands the child to be DIRECT descendant of the parent. For example, <code>p > a { color: green; }</code> will cause only the anchors directly children to any paragraph to look <span style="color: green;">green</span>. These are the various selectors that you would see and probably use when dealing with web applications. Simple enough, aren't they?</p>
+
+<h3>&lt;div&gt; and &lt;span&gt;</h3>
+
+<p>Although div and span are html tags, any modern web application that you will write will heavily make use of these to group sections of the web page together. You might be familiar with the layouts of most websites these days, with a header on top, one or two column in the center with content and other options, and a footer at the bottom. Even on my blog, you'll notice these three things. How are they made, and how to make them look so distinct that on the first glance, your visitors know what their purpose is. The answer lies in making proper divs and adding appropriate CSS to it. Div is a block element, which means that it is used to style multiple elements at once. Span, on the other hand, is inline, that is, it is used to style little chunks of content.</p>
+
+<p>I will write the 4 sections of a website I mentioned earlier, using divs. Read the code and you would understand what is happening.</p>
+
+<code>
+
+&lt;!DOCTYPE html&gt;<br/>
+&lt;head&gt;<br/>
+  &nbsp;&nbsp;&lt;title&gt;Testing&lt;/title&gt;<br/>
+  &nbsp;&nbsp;&lt;style&gt;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;* {<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text-align: center; <br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;#header {<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background-color: red;<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: 50px;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;#container {<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: auto;<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin: 0 auto;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;#body {<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: 75%;<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float: left;<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background-color: grey;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;#side {<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: 25%;<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float: right;<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background-color: blue;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;#footer {<br/>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background-color: green;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+  &nbsp;&nbsp;&lt;/style&gt;<br/>
+&lt;/head&gt;<br/>
+&lt;body&gt;<br/>
+  &nbsp;&nbsp;&lt;div id=&quot;header&quot;&gt;&lt;h3&gt;Header Text&lt;/h3&gt;&lt;/div&gt;<br/>
+  &nbsp;&nbsp;&lt;div id=&quot;container&quot;&gt;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div id=&quot;body&quot;&gt;&lt;p&gt;Content goes here&lt;/p&gt;&lt;/div&gt;<br/>
+    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div id=&quot;side&quot;&gt;&lt;p&gt;Sidebar&lt;/p&gt;&lt;/div&gt;<br/>
+  &nbsp;&nbsp;&lt;/div&gt;<br/>
+  &nbsp;&nbsp;&lt;div id=&quot;footer&quot;&gt;&lt;p&gt;Copyrights&lt;/p&gt;&lt;/div&gt;<br/>
+&lt;/body&gt;<br/>
+&lt;/html&gt;<br/>
+
+</code>
+
+<p>This sure looks beautiful, doesn't it?</p>
+
+<iframe src="/assets/css_files/test6.html" width="100%" height="auto"></iframe>
+
+<p>This completes the CSS syntax part. I did mention that you can write all your CSS in a file.css and include them in your document head with <code>&lt;link href="/assets/style.css" rel="stylesheet"&gt;</code> so that it is easier to maintain the code. There is yet another way to add CSS, which makes use of @import syntax. It is better avoided for the <a href="http://stackoverflow.com/questions/10036977/best-way-to-include-css-why-use-import" target="_blank">linked reasons</a>.
+
+<p>Now that you are well equipped with the necessary things to learn some actual and practical CSS, you must be really excited to read from w3schools. It is a great site to begin, and since it comes on top each time you search for anything related to CSS (or web programming, for that matter), you may use it as your sole reference guide. Nothing bad, but keep in mind that after leaving your nutshell, you should <a href="http://www.w3fools.com/" target="_blank">avoid that site</a>, and start using some reputed docs instead, like the ones from <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">Mozilla</a>.</p>
+
+<h3>CSS Frameworks</h3>
+
+<p>To speed up the development process, you might want to check out some libraries out there that would ease your life. One of the best is <a href="http://getbootstrap.com/">Bootstrap</a>. It would enable you to do rapid development, with minimal typing. Bootstrap comes with jQuery, a Javascript library which also helps a lot dealing with web application stuff you are about to deal with. There is not much point reading the official docs if you only want to get the work done. Instead, I would suggest you to Google out things, pick up code on the way, keep going. That is exactly how I used to do stuff back then, when I hated to write CSS and HTML. Bad advice, but gets the job done most of the times.</p>
+
+<h3>Outro</h3>
+
+<p>CSS is amazing. Web is amazing. Today is a time when you either have to love the web, or keep fighting a losing battle convincing yourself that you don't need it. Either way, knowing a thing or two about how the web pages that you spend more than half of your time on, are styled, is always a plus. As always, for anything, the comment box is always there. Corrections, please. Liked the article? Suggest it to your friends! Thank you for reading.<p>
+
+
+
+
+
+
+
+
+    </div>
+
+    
+
+  
+    <hr>
+    <ul class="pagination">
+    
+      <li class="prev"><a href="/2015/09/Birthday-Week.html" title="Birthday Week">&laquo; Previous</a></li>
+    
+      <li><a href="">Archive</a></li>
+    
+      <li class="next disabled"><a>Next &rarr;</a>
+    
+    </ul>
+    <hr>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2314128584981990"
+         data-ad-slot="1513670662"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    
+    var disqus_developer = 1;
+    var disqus_shortname = 'nagekar'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <p>&copy; 2015 Abhishek Nagekar
+          | <a href="http://jekyllbootstrap.com" target="_blank">Jekyll</a>
+          | <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>
+        </p>
+      </div>
+    </div>
+
+    
+
+
+
+
+
+    <!-- Latest compiled and minified JavaScript, requires jQuery 1.x (2.x not supported in IE8) -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/assets/themes/bootstrap-3/bootstrap/js/jquery-1.10.2.min.js"></script>
+    <script src="/assets/themes/bootstrap-3/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
+
