@@ -8,7 +8,27 @@
     <title>Tags</title>
     
     <meta name="author" content="Abhishek Nagekar">
+   
+    <meta name="title" content="Tags">
+    
 
+   
+    <meta name="description" content="{% include JB/setup %}
+
+
+  {% assign tags_list = site.tags %}  
+  {% include JB/tags_list %}
+
+
+
+{% for tag in site.tags %} 
+  {{ tag[0] }}
+  
+    {% assign pages_list = tag[1] %}  
+    {% include JB/pages_list %}
+  
+{% endfor %}
+">
     <!-- Enable responsive viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
