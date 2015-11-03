@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <title>{{ page.title }}</title>
-    {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
     <meta name="author" content="{{ site.author.name }}">
    
-    {% if page.title %}<meta name="title" content="{{ page.title }}">
+    {% if page.title %}
+    <meta name="title" content="{{ page.title }}">
     {% else %}
     <meta name="description" content="I just keep doing stuff I love. I write about what I do, and sometimes, about people who annoy me. My name is Abhishek Nagekar, but people call me Abhi">
     {% endif %}
