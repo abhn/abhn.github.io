@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <title>CSS Crash Course - The Essentials</title>
+    <meta name="author" content="Abhishek Nagekar">
+   
+    
+    <meta name="title" content="CSS Crash Course - The Essentials">
+    
+
+   
+    <meta name="description" content="Hello again, and this post is in continuation of the previous post, CSS Crash Course. If you are wondering what the next stuff mean, you should probably check out the previous article. Anyways, in this post, I will list the most common use cases that you are likely to encounter...">
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap styles -->
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bootstrap_bundled.min.css" rel="stylesheet">
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="http://www.nagekar.com/assets/images/favicon.ico" type="image/x-icon" />
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+
+    <div id="wrap">
+
+      <nav class="navbar navbar-default" role="navigation">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#jb-navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Abhishek Nagekar's Blog</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="jb-navbar-collapse">
+          <ul class="nav navbar-nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/meta.html">Meta</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+	   <form class="navbar-form navbar-right" action="https://feedburner.google.com/fb/a/mailverify" method="post" target="popupwindow" onsubmit="window.open('https://feedburner.google.com/fb/a/mailverify?uri=AbhishekN', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true">
+    <div class="form-group">
+    <input type="email" value="" name="email" class="form-control" placeholder="email address" required>
+    <input type="hidden" value="AbhishekN" name="uri"><input type="hidden" name="loc" value="en_US">
+    </div>
+    <input type="submit" value="Subscribe" name="subscribe" class="btn btn-default" class="button">
+</form>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </nav>
+
+      <div class="container">
+        
+<div class="page-header">
+  <h1>CSS Crash Course - The Essentials </h1>
+</div>
+
+<div class="row post-full">
+  <div class="col-xs-12">
+    <div class="date">
+      <span>2 November, 2015. It was a Monday.</span>
+    </div>
+    <div class="content">
+      <p>Hello again, and this post is in continuation of the previous post, <a href="http://www.nagekar.com/2015/10/CSS-Crash-Course.html">CSS Crash Course</a>. If you are wondering what the next stuff mean, you should probably check out the previous article. Anyways, in this post, I will list the most common use cases that you are likely to encounter in lighweight frontend designing. Writing this article more like a cheatsheet, so there is no particular order to the sections.</p>
+
+<h3>Centering a DIV</h3>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nf">#div</span> <span class="p">{</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span> <span class="k">auto</span><span class="p">;</span>
+  <span class="k">max-width</span><span class="o">:</span> <span class="m">980px</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
+
+
+    </div>
+
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="glyphicon glyphicon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#html-ref">html <span>5</span></a></li>
+     
+    	<li><a href="/tags.html#css-ref">css <span>2</span></a></li>
+    
+  
+
+
+
+    </ul>
+  
+    <hr>
+    <div class="panel panel-default">
+      <div class="panel-heading">Know someone who might be interested in this story? Share!</div>
+      <div class="panel-body"><a href="https://www.facebook.com/sharer/sharer.php?u=http://www.nagekar.com/2015/11/CSS-Crash-Course-The-Essentials.html" target="_blank">Facebook</a> | <a href="https://twitter.com/share?url=http://www.nagekar.com/2015/11/CSS-Crash-Course-The-Essentials.html&text=CSS Crash Course - The Essentials&via=abhisheknagekar" target="_blank">Twitter</a> | <a href="https://plus.google.com/share?url=http://www.nagekar.com/2015/11/CSS-Crash-Course-The-Essentials.html" target="_blank">Google Plus</a> | <a href="http://www.linkedin.com/shareArticle?url=http://www.nagekar.com/2015/11/CSS-Crash-Course-The-Essentials.html&title=CSS Crash Course - The Essentials" target="_blank">Linkedin</a> | <a href="http://reddit.com/submit?url=http://www.nagekar.com/2015/11/CSS-Crash-Course-The-Essentials.html&title=CSS Crash Course - The Essentials" target="_blank">Reddit</a></div>
+    </div>
+    <hr>    
+    <ul class="pagination">
+    
+      <li class="prev"><a href="/2015/10/CSS-Crash-Course.html" title="CSS Crash Course">&laquo; Previous</a></li>
+    
+      <li><a href="">Archive</a></li>
+    
+      <li class="next"><a href="/2015/11/Passport-Office.html" title="Passport Office">Next &raquo;</a></li>
+    
+    </ul>
+    <hr>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2314128584981990"
+         data-ad-slot="1513670662"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    
+    var disqus_developer = 1;
+    var disqus_shortname = 'nagekar'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+
+    </div>
+
+    <div id="footer">
+      <div class="container">
+        <p>&copy; 2015 Abhishek Nagekar
+          | <a href="http://jekyllbootstrap.com" target="_blank">Jekyll</a>
+          | <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>
+        </p>
+      </div>
+    </div>
+
+    
+
+
+
+
+
+    <!-- Latest compiled and minified JavaScript, requires jQuery 1.x (2.x not supported in IE8) -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="/assets/themes/bootstrap-3/bootstrap/js/jquery-1.10.2.min.js"></script>
+    <script src="/assets/themes/bootstrap-3/bootstrap/js/bootstrap.min.js"></script>
+  </body>
+</html>
+
