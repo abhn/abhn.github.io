@@ -7,9 +7,9 @@ http://www.nagekar.com/rss.xml
 http://www.nagekar.com/sitemap.txt
 http://www.nagekar.com/tags.html
 
+http://www.nagekar.com/2015/11/Fujitsu-Lifebook-A514-Review.html
 http://www.nagekar.com/2015/11/Guide-Passport-Application-India.html
 http://www.nagekar.com/2015/11/Passport-Office.html
-http://www.nagekar.com/2015/11/CSS-Crash-Course-The-Essentials.html
 http://www.nagekar.com/2015/10/CSS-Crash-Course.html
 http://www.nagekar.com/2015/09/Birthday-Week.html
 http://www.nagekar.com/2015/09/You-Are-Insignificant.html

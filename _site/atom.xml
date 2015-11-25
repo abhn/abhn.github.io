@@ -4,7 +4,7 @@
  <title>Abhishek Nagekar&#39;s Blog</title>
  <link href="http://www.nagekar.com/atom.xml" rel="self"/>
  <link href="http://www.nagekar.com"/>
- <updated>2015-11-07T23:21:42+05:30</updated>
+ <updated>2015-11-25T21:54:12+05:30</updated>
  <id>http://www.nagekar.com</id>
  <author>
    <name>Abhishek Nagekar</name>
@@ -13,13 +13,73 @@
 
  
  <entry>
+   <title>Fujitsu Lifebook A514 Review</title>
+   <link href="http://www.nagekar.com/2015/11/Fujitsu-Lifebook-A514-Review.html"/>
+   <updated>2015-11-25T00:00:00+05:30</updated>
+   <id>http://www.nagekar.com/2015/11/Fujitsu-Lifebook-A514-Review</id>
+   <content type="html">&lt;style&gt;
+img {
+  padding: 5px;
+}
+&lt;/style&gt;
+&lt;p&gt;Hey guys, I bought the &lt;a href=&quot;http://www.amazon.in/gp/product/B012Z67QTE/ref=as_li_tl?ie=UTF8&amp;camp=3626&amp;creative=24790&amp;creativeASIN=B012Z67QTE&amp;linkCode=as2&amp;tag=abhisnagek-21&quot; target=&quot;_blank&quot;&gt;Fujitsu Lifebook A514&lt;/a&gt;. I had a strict low budget of INR 20k and I had to squeeze the most out of that. I don&#39;t play games, nor do I watch movies and hence I could cut on the graphics card and hard disk space. A powerful processor was also not much necessary. All I needed was lots of RAM and a speedy disk. I got that.&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h3&gt;Main Highlights&lt;/h3&gt;
+&lt;p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Intel i3 4005U 3rd Generation 1.7Ghz Dual Core (4 threads)&lt;/li&gt;
+  &lt;li&gt;8GB DDR3 1600Mhz RAM&lt;/li&gt;
+  &lt;li&gt;500GB HDD 5400rpm SATA III (Which I upgraded to a &lt;a href=&quot;http://www.amazon.in/gp/search/ref=as_li_qf_sp_sr_tl?ie=UTF8&amp;camp=3626&amp;creative=24790&amp;index=aps&amp;keywords=kingston%20120&amp;linkCode=ur2&amp;tag=abhisnagek-21&quot; target=&quot;_blank&quot;&gt;120GB Kingston SSD&lt;/a&gt; worth INR 3,400)&lt;/li&gt;
+  &lt;li&gt;15.6in anti-glare display 1366x768&lt;/li&gt;
+  &lt;li&gt;Comes with no OS, clean&lt;/li&gt;
+  &lt;li&gt;VGA, HDMI, 3 USB 3.0s and 1 USB 2.0, SDHC, Mic, 3.5mm, DVD-RW, Gigabit Ethernet, Wifi a/b/g/n, Bluetooth&lt;/li&gt;
+  &lt;li&gt;Looks great, feels sturdy&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a href=&quot;http://sp.ts.fujitsu.com/dmsp/Publications/public/ds-LIFEBOOK-A514.pdf&quot; target=&quot;_blank&quot;&gt;Complete spec list on fujitsu.com&lt;/a&gt;
+&lt;/p&gt;
+&lt;h3&gt;The Design&lt;/h3&gt;
+&lt;img src=&quot;/assets/images/fujitsuA514/20151125_204434.jpg&quot; /&gt;
+&lt;figcaption&gt;Top view&lt;/figcaption&gt;
+&lt;img src=&quot;/assets/images/fujitsuA514/20151125_204448.jpg&quot; /&gt;
+&lt;figcaption&gt;Security lock, ethernet, exhaust, VGA, HDMI, 3 USB 3.0s&lt;/figcaption&gt;
+&lt;img src=&quot;/assets/images/fujitsuA514/20151125_204459.jpg&quot; /&gt;
+&lt;figcaption&gt;Earpiece, mic, USB 2.0, DVD, power&lt;/figcaption&gt;
+&lt;img src=&quot;/assets/images/fujitsuA514/20151125_204522.jpg&quot; /&gt;
+&lt;figcaption&gt;Indicator LEDs, SSHD slot&lt;/figcaption&gt;
+&lt;br/&gt;
+&lt;p&gt;The laptop looks beautiful on the outside. The plastic feels premium, not glossy. It has a brushed metal finish, with a sparkling Fujitsu logo right at the back which looks fantastic. On the right, you have a DVD drive, earphone and mic jacks and a USB 2.0. On the front, there are some usual indicator LEDs and a SDHC reader. On the left there is a physical lock, ethernet, VGA, HDMI and 3 USB 3.0s. One of the 3.0s is an always on anytime charge USB, meaning that you can connect your phone to it and it will get charged even if the laptop is switched off. Overall the notebook is just like any other notebook, with most of the default functionalities and you won&#39;t miss on that.&lt;/p&gt;
+
+&lt;img src=&quot;/assets/images/fujitsuA514/20151125_204547.jpg&quot; /&gt;
+&lt;img src=&quot;/assets/images/fujitsuA514/20151125_204651.jpg&quot; /&gt;
+&lt;img src=&quot;/assets/images/fujitsuA514/20151125_210705.jpg&quot; /&gt;
+&lt;img src=&quot;/assets/images/fujitsuA514/20151125_210713.jpg&quot; /&gt;
+&lt;p&gt;On opening the lid, you&#39;ll notice a somewhat odd placement of keys. For example, the right Shift key is smaller that usual, and a double pipe (&#39;|&#39;) key is present in that place. The Enter key is a little odd shaped too. Apart from these little changes, everything is pretty standard. A power button, web cam, trackpad (larger than average). The screen is not that awesome, but pretty common for something at that price. Viewing angles are average, and it becomes hard to see beyond about 30 degrees on either side. Brightness is, too, average. The anti-glare thing works, but don&#39;t expect it to perform extremely good under the sun. The overall built quality is above average, and can easily match the slightly higher ended models from HP, Lenovo and Dell.&lt;/p&gt;
+
+&lt;h3&gt;About Performance&lt;/h3&gt;
+&lt;img src=&quot;/assets/images/fujitsuA514/overall.png&quot; /&gt;
+&lt;p&gt;Turning the device on for the first time, you will be greeted with a message to install an operating system. I went with Debian Jessie. Boot up times were good, and the laptop felt snappy. The performace is good if you are not much into graphics and animated stuff. I haven&#39;t tested it but GNOME felt smooth and XFCE is, of course, lagless. There was no problem finding drivers for Wifi (you can actually just apt-get them), and sound was smooth too. Pulse ran without a problem, and though the sound of the notebook speakers is not an awful lot, it just works.&lt;/p&gt;
+
+&lt;h3&gt;Getting SSD&lt;/h3&gt;
+&lt;img src=&quot;/assets/images/fujitsuA514/bench.png&quot; /&gt;
+&lt;p&gt;As I mentioned, I replaced the stock 500GB hard disk that came with it with a Kingston 120GB solid state drive. My needs were not a lot of disk space, but a fast disk. The benefits can be seen right from the time you install the OS. It takes about a third of the time to get the OS installed and I was done with Debian stable in under 15 minutes. The boot up time went down from 15-20 seconds to 3-4 seconds. Is it worth to go for an SSD and sacrifice on disk space? Well, it depends. Do you do a lot of compiling, I/O and work with Intellij IDEs, Android Studio and stuff? Do you not care about backing up important data like photos, songs and movies or have a secondary storage device for it? Your productivity increases on a fast system (which is pretty obvious)?. You are not planning to dual boot it? If all or most of your answers to the previous questions are yes, then you can say it is time to invest in an SSD.&lt;/p&gt;
+
+&lt;h3&gt;Lastly..&lt;/h3&gt;
+&lt;p&gt;The battery life is good. I had it running for about 3 hours and the battery has gone down from 100% to 64%, doing all kinds of stuff like installing softwares off the internet and the like. The laptop is producing very little heat, probably due to the low clock of the CPU.&lt;/p&gt; 
+
+&lt;p&gt;Finally, I think Fujitsu is a great brand which I realized after getting my hands over it. Maybe like most of you reading this, I was quite skeptic about putting 20 grands on a company which I had not heard much about. I would have well settled for a &#39;reputed&#39; brand like HP or Dell with half the features, but I risked it a bit, and in the end, I am extremely happy about me choice. If you are at a stage where you are not able to decide whether or not to go for this brand, I hope to have given you an answer. This review is for those like me, who buy smartly, decide which product to buy, read reviews and stuff online, before handing over their hard earned money to someone else.&lt;/p&gt;
+
+&lt;p&gt;Have a thought? Drop it in the comments below. Peace&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>Guide To Online Passport Application In India</title>
    <link href="http://www.nagekar.com/2015/11/Guide-Passport-Application-India.html"/>
    <updated>2015-11-07T00:00:00+05:30</updated>
    <id>http://www.nagekar.com/2015/11/Guide-Passport-Application-India</id>
    <content type="html">&lt;p&gt;If you read my recent posts, you know I went to the &lt;a href=&quot;http://www.nagekar.com/2015/11/Passport-Office.html&quot;&gt;passport office&lt;/a&gt; for the purpose of document verification. It went as smooth as it could, but before all this, before submitting the form, I didn&#39;t have the slightest clue what all I had to do, and I learnt most of the technicalities from various sources on the Internet. So here I am, writing this guide.&lt;/p&gt;
 
-&lt;p&gt;There are three parts to this guide, as well as the entire process. Firstly, there is the online &lt;i&gt;form filling&lt;/i&gt; part, followed by the &lt;i&gt;onsite documents verification&lt;/i&gt; and lastly the &lt;i&gt;police verification&lt;/i&gt;. Before you get into the process, make sure you have some documents. Documents that are required vary person to person according to your details (you can use the &lt;a href=&quot;http://passportindia.gov.in/AppOnlineProject/docAdvisor/attachmentAdvFresh&quot;&gt;document advisor&lt;/a&gt; on their official website), but you&#39;ll basically need one proof of date of birth, one residential proof and a &lt;a href=&quot;http://passportindia.gov.in/AppOnlineProject/onlineHtml/NonEcrDocuments.html&quot; target=&quot;_blank&quot;&gt;Non ECR&lt;/a&gt; catagory proof. Ideally, you should keep at least 2 of the former two proofs handy (You&#39;ll know why in a moment). For most of you reading this, the Non ECR would mean SSC (matriculation) certificate. Yes, that is all. In my case, I had my birth certificate as the proof of date of birth, BSNL landline bill as the residential proof and matriculation certificate as the proof of non ECR.&lt;/p&gt;
+&lt;p&gt;There are three parts to this guide, as well as the entire process. Firstly, there is the online &lt;i&gt;form filling&lt;/i&gt; part, followed by the &lt;i&gt;onsite documents verification&lt;/i&gt; and lastly the &lt;i&gt;police verification&lt;/i&gt;. Before you get into the process, make sure you have some documents. Documents that are required vary person to person according to your details (you can use the &lt;a href=&quot;http://passportindia.gov.in/AppOnlineProject/docAdvisor/attachmentAdvFresh&quot;&gt;document advisor&lt;/a&gt; on their official website), but you&#39;ll basically need one proof of date of birth, one residential proof and a &lt;a href=&quot;http://passportindia.gov.in/AppOnlineProject/onlineHtml/NonEcrDocuments.html&quot; target=&quot;_blank&quot;&gt;Non ECR&lt;/a&gt; category proof. Ideally, you should keep at least 2 of the former two proofs handy (You&#39;ll know why in a moment). For most of you reading this, the Non ECR would mean SSC (matriculation) certificate. Yes, that is all. In my case, I had my birth certificate as the proof of date of birth, BSNL landline bill as the residential proof and matriculation certificate as the proof of non ECR.&lt;/p&gt;
 
 &lt;h3&gt;Form Filling&lt;/h3&gt;
 &lt;p&gt;&lt;ul&gt;
@@ -29,12 +89,12 @@
   &lt;li&gt;&lt;b&gt;Passport Type:&lt;/b&gt; You should select the &#39;fresh passport&#39; radio button, since this is your first application. Otherwise, accordingly. The type of application can be any one of &#39;normal&#39; or &#39;tatkal&#39; depending on your need, and so is the option for passport booklet size. It will increase the total cost of the application, if you go for them. I kept it to normal and 36 pages.&lt;/li&gt;
   &lt;li&gt;&lt;b&gt;Applicant Details:&lt;/b&gt; Add your personal details here. Triple check everything for spellings and numbers. It will save you a lot of headache. Try to enter as much information as possible, and also cross check if the same details are present on your document proofs. Give special attention to spellings in your name.&lt;/li&gt;
   &lt;li&gt;&lt;b&gt;Family Details:&lt;/b&gt; Fill in your family details. Same instructions as that for applicant details.&lt;/li&gt;
-  &lt;li&gt;&lt;b&gt;Present Residential Address:&lt;/b&gt; Fill in your address, and make sure it matches to the one on your bills and other documents that you are planning to submit at the passport office. You&#39;ll need to provide previous address proof if your current address is newer than 1 year (i.e. you are living in your current residence from less than 1 year)&lt;/li&gt;
+  &lt;li&gt;&lt;b&gt;Present Residential Address:&lt;/b&gt; Fill in your address, and make sure it matches with the one on your bills and other documents that you are planning to submit at the passport office. You&#39;ll need to provide previous address proof if your current address is newer than 1 year (i.e. you are living in your current residence for less than 1 year)&lt;/li&gt;
   &lt;li&gt;&lt;b&gt;Emergency Contact:&lt;/b&gt; Person to contact in any case of emergency.&lt;/li&gt;
   &lt;li&gt;&lt;b&gt;References:&lt;/b&gt;People in your neighbourhood who can confirm your identity and address, like friends, relatives or any neighbours.&lt;/li&gt;
-  &lt;li&gt;The next few pages should be usual form filling, and doesn&#39;t carry must information weightage, compared to the previous sections. Once done, verify the details of your passport. Verify it again, and ask someone else to do it too.&lt;/li&gt;
+  &lt;li&gt;The next few pages should be usual form filling, and doesn&#39;t carry much information weightage, compared to the previous sections. Once done, verify the details of your passport. Verify it again, and ask someone else to do it too.&lt;/li&gt;
   &lt;li&gt;Verify the self declaration, and when sure everything is all right, submit the application.&lt;/li&gt;
-  &lt;li&gt;This will do for now. Your application is filled and ready. Now you can browse to the &#39;View Saved/Submitted&#39; applications and your application should be there. There are somethings that you can do from here. First of all, you will have to &#39;pay and schedule the appointment&#39;. If you had been following as per the normal procedure, you should have an invoice of INR1500 here. You can either pay online or as a chalan from SBI. I would, of course, recommend you to pay it online, and save yourself the hassle.&lt;/li&gt;
+  &lt;li&gt;This will do for now. Your application is filled and ready. Now you can browse to the &#39;View Saved/Submitted&#39; applications and your application should be there. There are some things that you can do from here. First of all, you will have to &#39;pay and schedule the appointment&#39;. If you had been following as per the normal procedure, you should have an invoice of INR1500 here. You can either pay online or as a chalan from SBI. I would, of course, recommend you to pay it online, and save yourself the hassle.&lt;/li&gt;
   &lt;li&gt;The payment process is similar to any online transaction. No surprises here.&lt;/li&gt;
   &lt;li&gt;After the payment, the system will show you available appointment dates and their locations. Select one from those, or you can schedule it later. Select the nearest one and note the exact time. They don&#39;t tolerate latecomers and you would have to reschedule the appointment if you miss it, even by 10 minutes.&lt;/li&gt;
   &lt;li&gt;After confirming the appointment date, take a printout of the application, get your documents attested with 2 copies of each.&lt;/li&gt;
@@ -45,23 +105,23 @@
 &lt;h3&gt;Passport Seva Kendra&lt;/h3&gt;
 &lt;p&gt;&lt;ul&gt;
   &lt;li&gt;Depending upon how far you stay from the PSK, try to reach the place at least 30 minutes ahead of reporting time. PSK will have an ATM machine, snacks counter, zerox machine, PCs with Internet access and washroom, in case you were wondering. Make sure you carry the application letter&#39;s copy, document proofs (original and attested zerox), extra documents that you have.&lt;/li&gt;
-  &lt;li&gt;Keep the documents handy. When it is time, you will first be checked by the security for valid documents and application letter, along with other security stuff. Only the applicant is allowed inside the PSK, unless there is an special exception or your applicant is a minor.&lt;/li&gt;
+  &lt;li&gt;Keep the documents handy. When it is time, you will first be checked by the security for valid documents and application letter, along with other security stuff. Only the applicant is allowed inside the PSK, unless there is a special exception or your applicant is a minor.&lt;/li&gt;
   &lt;li&gt;After you get inside the PSK, you should notice queues, with some marked &#39;tatkal&#39;. Get into the non-tatkal queue (of course, if applicable). You will be asked to show your originals and zeroxed documents. The person at the counter should inspect them and put them into a folder marked &#39;confidential&#39;. Along with it, you will receive a token slip. Keep it infront of you and note the token number.&lt;/li&gt;
   &lt;li&gt;Next up, you will be waiting for your token number to appear on the screen. When it appears, note the associated counter number (like &#39;A13&#39;) carefully.&lt;/li&gt;
   &lt;li&gt;&lt;b&gt;Counter A:&lt;/b&gt; Here, you will have to show your documents. The person at the counter will assess them, ask you to add something if something is missing and point out other errors. It is likely that you will get stuck at this stage if there are any problems with your documents. If not, then you&#39;ll be asked to smile for a photo, and give away your finger and thumb prints. You&#39;ll also be asked if you would like to have SMS alerts for further notifications at INR35. Get it if you need, although not necessary. If all goes well, they&#39;ll ask you to move to the next counter.&lt;/li&gt;
   &lt;li&gt;&lt;b&gt;Counter B:&lt;/b&gt; Same procedure goes here, only the document verification is done strictly at this stage. Every detail is cross checked line by line, and errors are noted. You&#39;ll be told if you have any errors that need to be taken care of. Otherwise, you are good to go.&lt;/li&gt;
   &lt;li&gt;&lt;b&gt;Counter C:&lt;/b&gt; Here, the person will check the originals lightly, question you a thing or two if there were any errors at the B or A counter, and if everything goes right, the person will keep your zeroxed documents&#39; folder and ask you to submit the token slip.&lt;/li&gt;
-  &lt;li&gt;Submit the token slip and the next counter, and you will receive an acknowledgement stating the status of your application, and the token slip back. Fill in the feedback form on the back of the token slip, and submit it to the exit security.&lt;/li&gt;
+  &lt;li&gt;Submit the token slip at the next counter, and you will receive an acknowledgement stating the status of your application, and the token slip back. Fill in the feedback form on the back of the token slip, and submit it to the exit security.&lt;/li&gt;
   &lt;li&gt;If your acknowledgement form reads &#39;&lt;font style=&quot;color:green&quot;&gt;status: granted&lt;/font&gt;&#39; then it means all went well. You can return home and wait for the call from your local police station for police verification. In case it doesn&#39;t, then the exact error will be written. Rectify those and visit the PSK on the given appointment date, and get your application granted.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/p&gt;
 &lt;hr&gt;
 &lt;h3&gt;Police Verification&lt;/h3&gt;
-&lt;p&gt;Now that you are done with things from your side, you can wait for a call from the police department of your area. Meanwhile, you can visit your profile and click &#39;track application status&#39; to check at what stage your application currently is. During this time, authorities will inspect your civil/criminal records and stuff like that to make sure you&#39;re a good citizen. It should not be a problem to most of us.&lt;/p&gt;
+&lt;p&gt;Now that you are done with things from your side, you can wait for a call from the police department of your area. Meanwhile, you can visit your profile and click &#39;track application status&#39; to check on what stage your application currently is. During this time, authorities will inspect your civil/criminal records and stuff like that to make sure you&#39;re a good citizen. It should not be a problem for most of us.&lt;/p&gt;
 &lt;i&gt;This section will be updated with more details as soon as I go through this phase.&lt;/i&gt;
 &lt;hr&gt;
 &lt;h3&gt;Next&lt;/h3&gt;
-&lt;p&gt;Assuming that you are done with the police verification, the police will send the recommendations back to the passport office. It would contain details and depending on those, they&#39;ll further enquire and review your application or they will send the passport for print. If later is the case, then you can expect your passport within a month via speed post.&lt;/p&gt;
+&lt;p&gt;Assuming that you are done with the police verification, the police will send the recommendations back to the passport office. It would contain details and depending on those, they&#39;ll further enquire and review your application or they will send the passport to print. If the latter is the case, then you can expect your passport within a month via speed post.&lt;/p&gt;
 
 </content>
  </entry>
@@ -85,22 +145,6 @@
 
 &lt;p&gt;Lastly, a big thank you on behalf of me and the thousands others who visit these Passport Seva Kendra all over the nation with dreams in their minds. While I was sitting in the initial hall, I noticed a quote from Mahatma Gandhi, that hung down a large poster. I couldn&#39;t photograph it since it was prohibited, but this was the exact quote. I am happy that they didn&#39;t just put it, but were following it on every step. Thank you!&lt;/p&gt;
 &lt;center&gt;&lt;blockquote&gt;“A customer is the most important visitor on our premises. He is not dependent on us. We are dependent on him. He is not an interruption in our work. He is the purpose of it. He is not an outsider in our business. He is part of it. We are not doing him a favor by serving him. He is doing us a favor by giving us an opportunity to do so.”&lt;/blockquote&gt;&lt;/center&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>CSS Crash Course - The Essentials</title>
-   <link href="http://www.nagekar.com/2015/11/CSS-Crash-Course-The-Essentials.html"/>
-   <updated>2015-11-02T00:00:00+05:30</updated>
-   <id>http://www.nagekar.com/2015/11/CSS-Crash-Course-The-Essentials</id>
-   <content type="html">&lt;p&gt;Hello again, and this post is in continuation of the previous post, &lt;a href=&quot;http://www.nagekar.com/2015/10/CSS-Crash-Course.html&quot;&gt;CSS Crash Course&lt;/a&gt;. If you are wondering what the next stuff mean, you should probably check out the previous article. Anyways, in this post, I will list the most common use cases that you are likely to encounter in lighweight frontend designing. Writing this article more like a cheatsheet, so there is no particular order to the sections.&lt;/p&gt;
-
-&lt;h3&gt;Centering a DIV&lt;/h3&gt;
-&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nf&quot;&gt;#div&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;margin&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;0&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-  &lt;span class=&quot;k&quot;&gt;max-width&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;980px&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
-&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
 </content>
  </entry>
  
