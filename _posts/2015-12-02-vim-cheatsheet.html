@@ -1,0 +1,112 @@
+---
+layout: post
+title: Vim Cheatsheet
+---
+
+<p>Started using vi, although the only reason is it being light weight [I am taking a leap of faith, hoping that it will increase my speed after some practice, as most vi gurus say]. Let me first admit it. Vi feels awful in the beginning. It is really intimidating, and I am having a hard time to remember the commands and stuff. Hence I started writing the commands I learn from google and stackoverflow in a file. Thought to post it here, for everyone.</p>
+
+<p>I will keep the list updated as I learn more and more commands and tricks. It serves me as a reference, and hopefully will do the same for some of you. And of course, these are not the only ways or even the correct ways to do these operations. These are just what I learnt through the Internet.</p>
+
+<h4>Open file</h4> 
+<code>vim file.js</code>
+
+<h4>Swtich to insert mode</h4>
+<code>i</code>
+
+<h4>Switch to append mode</h4>
+<code>a</code>
+
+<h4>Switch to command mode</h4>
+<code>[ESC]</code>
+
+<h4>Save file</h4>
+<code>:w</code>
+
+<h4>Save and exit</h4>
+<code>:wq</code>
+
+<h4>Exit [if no changes were made]</h4>
+<code>:q</code>
+
+<h4>Exit, discarding changes</h4>
+<code>:q!</code>
+
+<h4>Moving through text</h4>
+<code>h - left</code><br/>
+<code>j - down</code><br/>
+<code>k - up</code><br/>
+<code>l - right</code><br/>
+
+<h4>Undo last operation</h4>
+<code>u</code>
+
+<h4>Copy current line</h4>
+<code>yy</code>
+
+<h4>Cut current line</h4>
+<code>dd</code>
+
+<h4>Paste last copied line</h4>
+<code>p</code>
+
+<h4>Search through text</h4>
+<code>:s/pattern</code>
+
+<h4>Search and replace</h4>
+<code>:s/pattern/replacementString</code>
+
+<h4>Working with multiple files</h4>
+<code>vim file1.c file2.c file2.c</code>
+
+<h4>Next file</h4>
+<code>:n</code>
+
+<h4>Previous file</h4>
+<code>:prev</code>
+
+<h4>Go to particular file</h4>
+<code>:b file3.c</code>
+
+<h4>Working with multiple files [tabs]</h4>
+<code>vim file1.c file2.c file3.c -p</code>
+
+<h4>Move to next tab</h4>
+<code>gt</code>
+
+<h4>Move to previous tab</h4>
+<code>gT</code>
+
+<h4>List all open files [or buffers]</h4>
+<code>:ls</code>
+
+<h4>Commenting multiple lines</h4>
+<code>[CTRL] + v ;to enter visual mode</code><br/>
+<code>j ;move down to select required lines</code><br/>
+<code>i ;enter insert mode</code><br/>
+<code>[ESC]</code>
+
+<h4>Uncommenting multiple lines</h4>
+<code>[CTRL] + v ;to enter visual mode</code><br/>
+<code>jjjl ;selecting multiple rows and columns</code><br/>
+<code>d</code>
+
+<h4>Auto-indenting</h4>
+<code>=</code>
+
+<h4>Move to the start of the file</h4>
+<code>gg</code>
+
+<h4>Move to the end of the file</h4>
+<code>G</code>
+
+<h4>Auto indent entire file</h4>
+<code>gg=G</code>
+
+<h4>Indenting a block [starting from a paranthesis]</h4>
+<code>=%</code>
+
+<h4>Indenting selected lines</h4>
+<code>V ;visual line mode</code><br/>
+<code>jj ;move down through required lines</code><br/>
+<code>></code>
+

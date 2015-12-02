@@ -4,13 +4,128 @@
  <title>Abhishek Nagekar&#39;s Blog</title>
  <link href="http://www.nagekar.com/atom.xml" rel="self"/>
  <link href="http://www.nagekar.com"/>
- <updated>2015-11-25T21:54:12+05:30</updated>
+ <updated>2015-12-02T12:54:07+05:30</updated>
  <id>http://www.nagekar.com</id>
  <author>
    <name>Abhishek Nagekar</name>
    <email>abhishek@nagekar.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Vim Cheatsheet</title>
+   <link href="http://www.nagekar.com/2015/12/vim-cheatsheet.html"/>
+   <updated>2015-12-02T00:00:00+05:30</updated>
+   <id>http://www.nagekar.com/2015/12/vim-cheatsheet</id>
+   <content type="html">&lt;p&gt;Started using vi, although the only reason is it being light weight [I am taking a leap of faith, hoping that it will increase my speed after some practice, as most vi gurus say]. Let me first admit it. Vi feels awful in the beginning. It is really intimidating, and I am having a hard time to remember the commands and stuff. Hence I started writing the commands I learn from google and stackoverflow in a file. Thought to post it here, for everyone.&lt;/p&gt;
+
+&lt;p&gt;I will keep the list updated as I learn more and more commands and tricks. It serves me as a reference, and hopefully will do the same for some of you. And of course, these are not the only ways or even the correct ways to do these operations. These are just what I learnt through the Internet.&lt;/p&gt;
+
+&lt;h4&gt;Open file&lt;/h4&gt; 
+&lt;code&gt;vim file.js&lt;/code&gt;
+
+&lt;h4&gt;Swtich to insert mode&lt;/h4&gt;
+&lt;code&gt;i&lt;/code&gt;
+
+&lt;h4&gt;Switch to append mode&lt;/h4&gt;
+&lt;code&gt;a&lt;/code&gt;
+
+&lt;h4&gt;Switch to command mode&lt;/h4&gt;
+&lt;code&gt;[ESC]&lt;/code&gt;
+
+&lt;h4&gt;Save file&lt;/h4&gt;
+&lt;code&gt;:w&lt;/code&gt;
+
+&lt;h4&gt;Save and exit&lt;/h4&gt;
+&lt;code&gt;:wq&lt;/code&gt;
+
+&lt;h4&gt;Exit [if no changes were made]&lt;/h4&gt;
+&lt;code&gt;:q&lt;/code&gt;
+
+&lt;h4&gt;Exit, discarding changes&lt;/h4&gt;
+&lt;code&gt;:q!&lt;/code&gt;
+
+&lt;h4&gt;Moving through text&lt;/h4&gt;
+&lt;code&gt;h - left&lt;/code&gt;&lt;br/&gt;
+&lt;code&gt;j - down&lt;/code&gt;&lt;br/&gt;
+&lt;code&gt;k - up&lt;/code&gt;&lt;br/&gt;
+&lt;code&gt;l - right&lt;/code&gt;&lt;br/&gt;
+
+&lt;h4&gt;Undo last operation&lt;/h4&gt;
+&lt;code&gt;u&lt;/code&gt;
+
+&lt;h4&gt;Copy current line&lt;/h4&gt;
+&lt;code&gt;yy&lt;/code&gt;
+
+&lt;h4&gt;Cut current line&lt;/h4&gt;
+&lt;code&gt;dd&lt;/code&gt;
+
+&lt;h4&gt;Paste last copied line&lt;/h4&gt;
+&lt;code&gt;p&lt;/code&gt;
+
+&lt;h4&gt;Search through text&lt;/h4&gt;
+&lt;code&gt;:s/pattern&lt;/code&gt;
+
+&lt;h4&gt;Search and replace&lt;/h4&gt;
+&lt;code&gt;:s/pattern/replacementString&lt;/code&gt;
+
+&lt;h4&gt;Working with multiple files&lt;/h4&gt;
+&lt;code&gt;vim file1.c file2.c file2.c&lt;/code&gt;
+
+&lt;h4&gt;Next file&lt;/h4&gt;
+&lt;code&gt;:n&lt;/code&gt;
+
+&lt;h4&gt;Previous file&lt;/h4&gt;
+&lt;code&gt;:prev&lt;/code&gt;
+
+&lt;h4&gt;Go to particular file&lt;/h4&gt;
+&lt;code&gt;:b file3.c&lt;/code&gt;
+
+&lt;h4&gt;Working with multiple files [tabs]&lt;/h4&gt;
+&lt;code&gt;vim file1.c file2.c file3.c -p&lt;/code&gt;
+
+&lt;h4&gt;Move to next tab&lt;/h4&gt;
+&lt;code&gt;gt&lt;/code&gt;
+
+&lt;h4&gt;Move to previous tab&lt;/h4&gt;
+&lt;code&gt;gT&lt;/code&gt;
+
+&lt;h4&gt;List all open files [or buffers]&lt;/h4&gt;
+&lt;code&gt;:ls&lt;/code&gt;
+
+&lt;h4&gt;Commenting multiple lines&lt;/h4&gt;
+&lt;code&gt;[CTRL] + v ;to enter visual mode&lt;/code&gt;&lt;br/&gt;
+&lt;code&gt;j ;move down to select required lines&lt;/code&gt;&lt;br/&gt;
+&lt;code&gt;i ;enter insert mode&lt;/code&gt;&lt;br/&gt;
+&lt;code&gt;[ESC]&lt;/code&gt;
+
+&lt;h4&gt;Uncommenting multiple lines&lt;/h4&gt;
+&lt;code&gt;[CTRL] + v ;to enter visual mode&lt;/code&gt;&lt;br/&gt;
+&lt;code&gt;jjjl ;selecting multiple rows and columns&lt;/code&gt;&lt;br/&gt;
+&lt;code&gt;d&lt;/code&gt;
+
+&lt;h4&gt;Auto-indenting&lt;/h4&gt;
+&lt;code&gt;=&lt;/code&gt;
+
+&lt;h4&gt;Move to the start of the file&lt;/h4&gt;
+&lt;code&gt;gg&lt;/code&gt;
+
+&lt;h4&gt;Move to the end of the file&lt;/h4&gt;
+&lt;code&gt;G&lt;/code&gt;
+
+&lt;h4&gt;Auto indent entire file&lt;/h4&gt;
+&lt;code&gt;gg=G&lt;/code&gt;
+
+&lt;h4&gt;Indenting a block [starting from a paranthesis]&lt;/h4&gt;
+&lt;code&gt;=%&lt;/code&gt;
+
+&lt;h4&gt;Indenting selected lines&lt;/h4&gt;
+&lt;code&gt;V ;visual line mode&lt;/code&gt;&lt;br/&gt;
+&lt;code&gt;jj ;move down through required lines&lt;/code&gt;&lt;br/&gt;
+&lt;code&gt;&gt;&lt;/code&gt;
+
+</content>
+ </entry>
  
  <entry>
    <title>Fujitsu Lifebook A514 Review</title>
@@ -22,14 +137,14 @@ img {
   padding: 5px;
 }
 &lt;/style&gt;
-&lt;p&gt;Hey guys, I bought the &lt;a href=&quot;http://www.amazon.in/gp/product/B012Z67QTE/ref=as_li_tl?ie=UTF8&amp;camp=3626&amp;creative=24790&amp;creativeASIN=B012Z67QTE&amp;linkCode=as2&amp;tag=abhisnagek-21&quot; target=&quot;_blank&quot;&gt;Fujitsu Lifebook A514&lt;/a&gt;. I had a strict low budget of INR 20k and I had to squeeze the most out of that. I don&#39;t play games, nor do I watch movies and hence I could cut on the graphics card and hard disk space. A powerful processor was also not much necessary. All I needed was lots of RAM and a speedy disk. I got that.&lt;/p&gt;
+&lt;p&gt;Hey guys, I bought the &lt;a href=&quot;http://www.amazon.in/gp/product/B012Z67QTE/ref=as_li_tl?ie=UTF8&amp;camp=3626&amp;creative=24790&amp;creativeASIN=B012Z67QTE&amp;linkCode=as2&amp;tag=abhisnagek-21&quot; target=&quot;_blank&quot;&gt;Fujitsu Lifebook A514*&lt;/a&gt;. I had a strict low budget of INR 20k and I had to squeeze the most out of that. I don&#39;t play games, nor do I watch movies and hence I could cut on the graphics card and hard disk space. A powerful processor was also not much necessary. All I needed was lots of RAM and a speedy disk. I got that.&lt;/p&gt;
 &lt;hr/&gt;
 &lt;h3&gt;Main Highlights&lt;/h3&gt;
 &lt;p&gt;
 &lt;ul&gt;
   &lt;li&gt;Intel i3 4005U 3rd Generation 1.7Ghz Dual Core (4 threads)&lt;/li&gt;
   &lt;li&gt;8GB DDR3 1600Mhz RAM&lt;/li&gt;
-  &lt;li&gt;500GB HDD 5400rpm SATA III (Which I upgraded to a &lt;a href=&quot;http://www.amazon.in/gp/search/ref=as_li_qf_sp_sr_tl?ie=UTF8&amp;camp=3626&amp;creative=24790&amp;index=aps&amp;keywords=kingston%20120&amp;linkCode=ur2&amp;tag=abhisnagek-21&quot; target=&quot;_blank&quot;&gt;120GB Kingston SSD&lt;/a&gt; worth INR 3,400)&lt;/li&gt;
+  &lt;li&gt;500GB HDD 5400rpm SATA III (Which I upgraded to a &lt;a href=&quot;http://www.amazon.in/gp/product/B00A1ZTZOG/ref=as_li_tl?ie=UTF8&amp;camp=3626&amp;creative=24790&amp;creativeASIN=B00A1ZTZOG&amp;linkCode=as2&amp;tag=abhisnagek-21&quot; target=&quot;_blank&quot;&gt;120GB Kingston SSD*&lt;/a&gt; worth INR 3,400)&lt;/li&gt;
   &lt;li&gt;15.6in anti-glare display 1366x768&lt;/li&gt;
   &lt;li&gt;Comes with no OS, clean&lt;/li&gt;
   &lt;li&gt;VGA, HDMI, 3 USB 3.0s and 1 USB 2.0, SDHC, Mic, 3.5mm, DVD-RW, Gigabit Ethernet, Wifi a/b/g/n, Bluetooth&lt;/li&gt;
@@ -69,6 +184,8 @@ img {
 &lt;p&gt;Finally, I think Fujitsu is a great brand which I realized after getting my hands over it. Maybe like most of you reading this, I was quite skeptic about putting 20 grands on a company which I had not heard much about. I would have well settled for a &#39;reputed&#39; brand like HP or Dell with half the features, but I risked it a bit, and in the end, I am extremely happy about me choice. If you are at a stage where you are not able to decide whether or not to go for this brand, I hope to have given you an answer. This review is for those like me, who buy smartly, decide which product to buy, read reviews and stuff online, before handing over their hard earned money to someone else.&lt;/p&gt;
 
 &lt;p&gt;Have a thought? Drop it in the comments below. Peace&lt;/p&gt;
+
+&lt;p&gt;&lt;i&gt;*links contain tracking code*&lt;/i&gt;&lt;/p&gt;
 </content>
  </entry>
  
@@ -622,14 +739,6 @@ VK.Share.count(1, 419);
    <updated>2015-04-19T21:44:00+05:30</updated>
    <id>http://www.nagekar.com/2015/04/i-feel-so-powerless-in-my-own-country</id>
    <content type="html">I am not feeling very good writing on such a topic, but yes, I have really convinced myself, if I am not rich, I am nothing in this country.&lt;br /&gt;&lt;br /&gt;It is a daily sight for me, how being rich makes all the difference there is, here. If something is bothering me, I don&#39;t go complaining about it, but instead, I wait for the same thing to bother some politician or hotshot, so that he will complain and get it fixed, because even if I do complain, no one is going to hear me anyway.&lt;br /&gt;&lt;br /&gt;It is funny how thousands of people get checked at the airport everyday and no one bats an eye but when a famous celebrity goes through the same, our media loses its mind, criticizing the airport officials for doing their duty. How wealthy people demand changes and get them, and the others have to just adjust to it.&lt;br /&gt;&lt;br /&gt;I always wonder, how politicians earn that much. I mean, they have fixed salaries when they are in power, and otherwise, they have to make a living doing something else. Instead, you&#39;ll find that every politician here has multiple houses in posh areas, farm houses, run their own colleges. Where does this lot of money come from? How come a guy, who has not worked a single hour, doesn&#39;t have a job nor any apparent legit business, roams around in a Jaguar, is respected by authority, is called upon as chief guest in functions and his orders are given more importance than the orders of law.&lt;br /&gt;&lt;br /&gt;I live in a country where the people from military, police and the farmers are amongst the lowest earning people. They are overlooked most of the times, hardly make a living to keep their families fulfilled. On the other hand, we have &lt;a href=&quot;http://www.forbes.com/pictures/emdm45hmgh/1-mahendra-singh-dhoni/&quot; target=&quot;_blank&quot;&gt;cricketers making billions of rupees&lt;/a&gt;, celebrities that are treated like deities and politicians and business people who get to take decisions on behalf of the entire nation. I have nothing against people who earn with their own efforts, but when some people keep all the money for themselves, it is the common people who suffer. And as money is synonymous to power and authority here in India, most of the people are robbed off their basic rights. Maybe I don&#39;t, but the people who sacrifice their lives for the nation deserve a better standard of living. When you see the kids of farmers not going to school because he can&#39;t even afford to feed them, let alone sending them to school, a part of you dies within. The guy who feeds the nation is unable to feed his own family, and the people who have put on the false mask of saving the culture and religion of this country, eat at international food joints and roam around in imported cars. &lt;br /&gt;&lt;br /&gt;Here, people don&#39;t help others to rise. Instead, when one is going down, he is pushed even harder. When people here find a source of income, they exploit it to the fullest, gathering as much as they can, until they can. See cricket for example. There is awful lot of money here. All other sports are ignored, only cricket. They give the excuse that cricket is a religion here, but the truth is, money is the religion here. Greed is, maybe, a human instinct. Here, people are not greedy, they are impaired by their brain, poor by their thoughts, disabled in terms of sensitivity. Check out the condition of sports that don&#39;t make money here. It is left to rot.&lt;br /&gt;&lt;br /&gt;People in India are highly religious. They stand by their religion and people no matter what. The common people at least. This fact is well exploited by the politicians these days. Drag any argument into this dirt and hurt the sentiments of the weak hearted. Then follows the riots and jams, the damaging to the public property and what not. All this, just so that some people can get into the good books of the majority of the people who follow a religion and hope they help those some people to win elections. Pretty foolish, you might say. No, it really works. Welcome to India.&lt;br /&gt;&lt;br /&gt;You visit a temple. First thing you notice is two separate queues, one for the commoners and the other for the VIPs. The commoners line can get really long at occasions, sometimes 4-5 hours in queue. The VIP line hardly reaches any long, most of the times 10 minutes tops. Now some &lt;i&gt;wise &lt;/i&gt;folks argue that at the end both get to see the same God. Yeah, good luck convincing yourself that. This is just an example of what happens everyday, at everyplace in the country.&lt;br /&gt;&lt;br /&gt;Do you know what bullies look like in India? No, they are not the fat ugly huge guys, but rather they are the ones who are friends with local politicians, who can get a gang standing by them on a mere call, who will beat you up along with half dozen of his friends even if you were right, and then even if you die, proving that he was the culprit in India will probably take the next 20 years in court who by then will have settled in some damn foreign country where our jurisdiction doesn&#39;t apply. This is what will happen. &lt;a href=&quot;http://timesofindia.indiatimes.com/india/Warren-Anderson-CEO-of-Union-Carbide-during-the-1984-Bhopal-gas-tragedy-dies/articleshow/44992106.cms&quot; target=&quot;_blank&quot;&gt;This is what has been happening&lt;/a&gt;.&lt;br /&gt;&lt;br /&gt;Do you see the pattern. You can get off with any crime here in India. If you are a celebrity, you can walk in and out of the jail during your term, just like you do in a park, with obvious BS excuses. You can do whatever the hell you want to in this country, provided that you are rich.&lt;i&gt; &lt;/i&gt;I am not. Now you know why I feel so powerless in my own country.</content>
- </entry>
- 
- <entry>
-   <title>Net Neutrality</title>
-   <link href="http://www.nagekar.com/2015/04/net-neutrality.html"/>
-   <updated>2015-04-13T22:50:00+05:30</updated>
-   <id>http://www.nagekar.com/2015/04/net-neutrality</id>
-   <content type="html">Do you know, here in India, at most of the public places like temples, we have two separate queues. One for the ordinary folks, and the other one for the rich folks. Sometimes the rich folks are charged, sometimes they are just judged from the car they get down from and are treated likewise. On the other hand, the ordinary people are treated like cattles, pulled and pushed by the authority, because we are not really benefiting them much.&lt;br /&gt;&lt;br /&gt;This is the reason I would almost always choose Internet over any other public institution, at least in India. I know that whatever my social status be, on the Internet, I am equal. I have just as much right to put forth by thoughts as any rich businessman or a politician. I know that I have got people behind me who would not tolerate anyone who curtails my rights on the Internet. Yes, Internet is my home, and I am Internet&#39;s child.&lt;br /&gt;&lt;br /&gt;But like always, there are people who cannot stand that the ordinary are getting this extra power. They want to bring all of this under control. They want to turn the Internet into their own playground where they will control the lines as in our temples, giving early and quick access to the one who pays extra and slow to the one who does not. They want to make sure only the ones who can pay get heard, and all the others are suppressed.&lt;br /&gt;&lt;br /&gt;&lt;h3&gt;Net Neutrality&lt;/h3&gt;You are out with your family, on a nice sunday picnic when on a toll booth, you are told that your Maruti car is no longer allowed on this flyover because Hyundai has paid the construction company to only allow their cars through the shortcut. What would be your reaction?&lt;br /&gt;&lt;table align=&quot;center&quot; cellpadding=&quot;0&quot; cellspacing=&quot;0&quot; class=&quot;tr-caption-container&quot; style=&quot;margin-left: auto; margin-right: auto; text-align: center;&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td style=&quot;text-align: center;&quot;&gt;&lt;img border=&quot;0&quot; height=&quot;320&quot; src=&quot;http://4.bp.blogspot.com/-lAAz-YJyr2k/VSt8xLCNxNI/AAAAAAAAH7g/wHM831EryY8/s1600/Black-Girl-Wat.jpg&quot; style=&quot;margin-left: auto; margin-right: auto;&quot; width=&quot;306&quot; /&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td class=&quot;tr-caption&quot; style=&quot;text-align: center;&quot;&gt;This, precisely! &lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;div class=&quot;separator&quot; style=&quot;clear: both; text-align: center;&quot;&gt;&lt;/div&gt;&lt;br /&gt;&lt;blockquote class=&quot;tr_bq&quot;&gt;&lt;a href=&quot;http://en.wikipedia.org/wiki/Tim_Berners-Lee&quot; target=&quot;_blank&quot;&gt;Tim Berners-Lee&lt;/a&gt; (&#39;Inventor&#39; or the world wide web, or more technically, original implementer of the HTTP protocol) defines &#39;Net Neutrality&#39; as the principle that each packet of data should be treated equally, and no discrimination should be made based on economic motivations.&lt;/blockquote&gt;&lt;br /&gt;The exact opposite is what some telecom companies in India are trying to do. It started with Airtel. All of a sudden, it struck Airtel that if websites and applications can make revenue by creating services like messaging (like Whatsapp and Facebook) and calling (like Skype and Viber) which in turn decrease the usage of Airtel&#39;s own services of SMS and calling, it is their right to start charging these Internet services separately. They even got out with their VOIP pack that a customer had to subscribe in addition to the existing &#39;base&#39; data pack, to use this service. &lt;a href=&quot;http://in.reuters.com/article/2014/12/29/bharti-airtel-rates-idINKBN0K70A920141229&quot; target=&quot;_blank&quot;&gt;Eventually it was dropped&lt;/a&gt; on account of the resistance.&lt;br /&gt;&lt;br /&gt;Now this time, telecom companies have convinced &lt;a href=&quot;http://www.trai.gov.in/&quot; target=&quot;_blank&quot;&gt;TRAI&lt;/a&gt; that they must be entitled with the authority to intercept the traffic, to decide what websites to let users access, and what not, and if yes, then at what speed. Ridiculous, right? Charging more for extra speed can be justified, but why on earth are those innocent data packets discriminated. TRAI has even released a consultation paper &lt;a href=&quot;http://www.trai.gov.in/Content/ConDis/10743_0.aspx&quot; target=&quot;_blank&quot;&gt;asking 20 questions here&lt;/a&gt;. If you take a look, you would immediately see that the paper is made extra complicated to not make sense to you, yes you, the customer. The &lt;a href=&quot;https://isocpp.org/std/the-standard&quot; target=&quot;_blank&quot;&gt;C++ standard&lt;/a&gt; looks simpler. LOL.&lt;br /&gt;&lt;br /&gt;&lt;h3&gt;So what does it change for you, for me?&lt;/h3&gt;&lt;i&gt;As a customer&lt;/i&gt;, it will change almost everything for us that has any connection with the Internet. Firstly, we will have to pay for the usual data plan we currently do. So far so good. Now, you can&#39;t use any messenger services from this pack, so no Whatsapp, Facebook, WeChat and all. Similarly, no Internet calling services would work, like Skype and Viber. Well, they would work if you pay an extra Rs100 or so a month for the &#39;Special-messenger-pack&#39; and the &#39;Special-VOIP-pack&#39;. Now who the heck are these telecom companies to tell me how and what sites and services should I use.&lt;br /&gt;&lt;br /&gt;Plus, it also gives the companies the power to control the speed of your connection on particular sites. For example, maybe Flipkart.com will load up instantly, but Amazon.in would take forever to load up just because Flipkart is affiliated with your service provider, and you are forced to buy from Flipkart. Disgusting, right?&lt;br /&gt;&lt;br /&gt;So, if you don&#39;t want to pay Rs250 for data, Rs50 for Whatsapp, Rs70 for Facebook and Rs80 for Youtube seperately, then you should instantly head to&lt;b&gt;&amp;nbsp;&lt;/b&gt;&lt;br /&gt;&lt;blockquote class=&quot;tr_bq&quot;&gt;&lt;b&gt;&lt;a href=&quot;http://www.savetheinternet.in/&quot; target=&quot;_blank&quot;&gt;http://www.savetheinternet.in/ &lt;/a&gt;&lt;/b&gt;&lt;/blockquote&gt;and send an email to TRAI, which can be done with 2 clicks, yes literally.&lt;br /&gt;&lt;br /&gt;&lt;i&gt;As a publisher&lt;/i&gt;, you might own a startup or maybe a modest blog like the one you are reading this article on. Now, large sites and enterprises with deep pockets can just call up these telecom companies and be like &quot;Make my site free on your network, I&#39;ll pay you the incentive.&quot; This will make all the traffic go on that particular site or use that particular service and not yours, which was equally good, or maybe better.&lt;br /&gt;&lt;br /&gt;The Internet is the only place guys, where everyone is still equal. We need to keep it this way, otherwise, we would be helpless. We know exactly how strong our law is, and how well behaved our politicians are. We know exactly how seriously we are taken by the mainstream media and the police. We, Indians, are like puppets for the rich filthy and greedy companies that rule here. And now, they are trying to close the only open source of information for us. Don&#39;t let that happen.&lt;br /&gt;&lt;br /&gt;A humble request to all my fellow netizens. Log on to the site and send an email to TRAI. Educate your fellow netizens. Together we can stop this.&lt;b&gt;&amp;nbsp;&lt;/b&gt;&lt;br /&gt;&lt;blockquote class=&quot;tr_bq&quot;&gt;&lt;b&gt;&lt;a href=&quot;http://www.savetheinternet.in/&quot; target=&quot;_blank&quot;&gt;http://www.savetheinternet.in/&lt;/a&gt;&lt;/b&gt;&lt;/blockquote&gt;&lt;br /&gt;&lt;blockquote class=&quot;tr_bq&quot;&gt;&lt;b&gt;For further reading, here is a short list.&lt;/b&gt;&lt;/blockquote&gt;&lt;ul&gt;&lt;li&gt;&lt;a href=&quot;http://www.netneutrality.in/&quot;&gt;http://www.netneutrality.in/&lt;/a&gt; - More information and compilation of articles.&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;https://www.facebook.com/netneutralityin&quot;&gt;https://www.facebook.com/netneutralityin&lt;/a&gt; &lt;a href=&quot;https://twitter.com/neutrality_in&quot;&gt;https://twitter.com/neutrality_in&lt;/a&gt; - Social handles to follow for latest updates.&lt;/li&gt;&lt;/ul&gt;&lt;ul&gt;&lt;li&gt;Awesome video by All India Bakchod to put it simply - &lt;a href=&quot;https://www.youtube.com/watch?v=mfY1NKrzqi0&quot;&gt;https://www.youtube.com/watch?v=mfY1NKrzqi0&lt;/a&gt;&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;http://www.reddit.com/r/india/comments/31lyxx/table_of_companies_which_support_net_neutrality/&quot; target=&quot;_blank&quot;&gt;List of violators and supporters of net neutrality,&lt;/a&gt; so the next time you have to choose between them, you know whose side to take and whose product to use.&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;https://medium.com/@chupchap/india-s-net-neutrality-debate-explained-in-memes-3a8f6febaccf&quot; target=&quot;_blank&quot;&gt;Post on Medium by NT Balanarayan&lt;/a&gt; explaining the intensity of this situation with memes.&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;http://www.trai.gov.in/WriteReaddata/ConsultationPaper/Document/OTT-CP-27032015.pdf&quot; target=&quot;_blank&quot;&gt;TRAI Consultation paper&lt;/a&gt; hot-link (PDF)&lt;/li&gt;&lt;li&gt;&lt;a href=&quot;https://www.change.org/p/telecom-regulatory-authority-of-india-call-to-protect-net-neutrality-in-india-and-block-airtel-other-telecoms-from-who-are-trying-to-break-it-for-personal-gains&quot; target=&quot;_blank&quot;&gt;Petition on Change.org&lt;/a&gt; - You should help here as well. The more you help, the better our chances.&lt;/li&gt;&lt;/ul&gt;</content>
  </entry>
  
  
