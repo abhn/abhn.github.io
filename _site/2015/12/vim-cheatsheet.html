@@ -12,8 +12,9 @@
     <meta name="title" content="Vim Cheatsheet">
     
 
-   
+    
     <meta name="description" content="Started using vi, although the only reason is it being light weight [I am taking a leap of faith, hoping that it will increase my speed after some practice, as most vi gurus say]. Let me first admit it. Vi feels awful in the beginning. It is really intimidating, and...">
+    
     <!-- Enable responsive viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -129,7 +130,7 @@
     <div class="content">
       <p>Started using vi, although the only reason is it being light weight [I am taking a leap of faith, hoping that it will increase my speed after some practice, as most vi gurus say]. Let me first admit it. Vi feels awful in the beginning. It is really intimidating, and I am having a hard time to remember the commands and stuff. Hence I started writing the commands I learn from google and stackoverflow in a file. Thought to post it here, for everyone.</p>
 
-<p>I will keep the list updated as I learn more and more commands and tricks. It serves me as a reference, and hopefully will do the same for some of you. And of course, these are not the only ways or even the correct ways to do these operations. These are just what I learnt through the Internet.</p>
+<p>I will keep the list updated as I learn more and more commands and tricks. It serves me as a reference, and hopefully will do the same for some of you.</p>
 
 <h4>Open file</h4> 
 <code>vim file.js</code>
@@ -172,6 +173,14 @@
 
 <h4>Paste last copied line</h4>
 <code>p</code>
+
+<h4>Select text</h4>
+<code>[CTRL] + v</code><br/>
+<code>h,j,k,l ;for moving and selecting</code>
+
+<h4>Selecting multiple lines</h4>
+<code>[SHIFT] + v</code><br/>
+<code>j,k ;selecting lines</code>
 
 <h4>Search through text</h4>
 <code>:s/pattern</code>
@@ -234,6 +243,11 @@
 <code>jj ;move down through required lines</code><br/>
 <code>></code>
 
+<h4>Starting a shell</h4>
+<code>:shell</code>
+
+<h4>Executing bash without shell</h4>
+<code>:command ;eg. :pwd</code>
 
     </div>
 

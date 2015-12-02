@@ -5,8 +5,8 @@
         <description>Abhishek Nagekar&#39;s Blog - Abhishek Nagekar</description>
         <link>http://www.nagekar.com</link>
         <atom:link href="http://www.nagekar.com/rss.xml" rel="self" type="application/rss+xml" />
-        <lastBuildDate>Wed, 02 Dec 2015 12:54:07 +0530</lastBuildDate>
-        <pubDate>Wed, 02 Dec 2015 12:54:07 +0530</pubDate>
+        <lastBuildDate>Wed, 02 Dec 2015 23:35:36 +0530</lastBuildDate>
+        <pubDate>Wed, 02 Dec 2015 23:35:36 +0530</pubDate>
         <ttl>60</ttl>
 
 
@@ -14,7 +14,7 @@
                 <title>Vim Cheatsheet</title>
                 <description>&lt;p&gt;Started using vi, although the only reason is it being light weight [I am taking a leap of faith, hoping that it will increase my speed after some practice, as most vi gurus say]. Let me first admit it. Vi feels awful in the beginning. It is really intimidating, and I am having a hard time to remember the commands and stuff. Hence I started writing the commands I learn from google and stackoverflow in a file. Thought to post it here, for everyone.&lt;/p&gt;
 
-&lt;p&gt;I will keep the list updated as I learn more and more commands and tricks. It serves me as a reference, and hopefully will do the same for some of you. And of course, these are not the only ways or even the correct ways to do these operations. These are just what I learnt through the Internet.&lt;/p&gt;
+&lt;p&gt;I will keep the list updated as I learn more and more commands and tricks. It serves me as a reference, and hopefully will do the same for some of you.&lt;/p&gt;
 
 &lt;h4&gt;Open file&lt;/h4&gt; 
 &lt;code&gt;vim file.js&lt;/code&gt;
@@ -57,6 +57,14 @@
 
 &lt;h4&gt;Paste last copied line&lt;/h4&gt;
 &lt;code&gt;p&lt;/code&gt;
+
+&lt;h4&gt;Select text&lt;/h4&gt;
+&lt;code&gt;[CTRL] + v&lt;/code&gt;&lt;br/&gt;
+&lt;code&gt;h,j,k,l ;for moving and selecting&lt;/code&gt;
+
+&lt;h4&gt;Selecting multiple lines&lt;/h4&gt;
+&lt;code&gt;[SHIFT] + v&lt;/code&gt;&lt;br/&gt;
+&lt;code&gt;j,k ;selecting lines&lt;/code&gt;
 
 &lt;h4&gt;Search through text&lt;/h4&gt;
 &lt;code&gt;:s/pattern&lt;/code&gt;
@@ -119,6 +127,11 @@
 &lt;code&gt;jj ;move down through required lines&lt;/code&gt;&lt;br/&gt;
 &lt;code&gt;&gt;&lt;/code&gt;
 
+&lt;h4&gt;Starting a shell&lt;/h4&gt;
+&lt;code&gt;:shell&lt;/code&gt;
+
+&lt;h4&gt;Executing bash without shell&lt;/h4&gt;
+&lt;code&gt;:command ;eg. :pwd&lt;/code&gt;
 </description>
                 <link>http://www.nagekar.com/2015/12/vim-cheatsheet.html</link>
                 <guid>http://www.nagekar.com/2015/12/vim-cheatsheet</guid>

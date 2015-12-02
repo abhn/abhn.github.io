@@ -13,8 +13,9 @@
     <meta name="description" content="I just keep doing stuff I love. I write about what I do, and sometimes, about people who annoy me. My name is Abhishek Nagekar, but people call me Abhi">
     {% endif %}
 
-   
+    {% if page.id %}
     <meta name="description" content="{{ page.content | strip_html | truncatewords: 50}}">
+    {% endif %}
     <!-- Enable responsive viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
