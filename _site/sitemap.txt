@@ -1,11 +1,11 @@
 
-http://www.nagekar.com/archive.html
+http://www.nagekar.com/archive
 http://www.nagekar.com/atom.xml
-http://www.nagekar.com/index.html
-http://www.nagekar.com/meta.html
+http://www.nagekar.com/
+http://www.nagekar.com/meta
 http://www.nagekar.com/rss.xml
 http://www.nagekar.com/sitemap.txt
-http://www.nagekar.com/tags.html
+http://www.nagekar.com/tags
 
 http://www.nagekar.com/2015/12/vim-cheatsheet.html
 http://www.nagekar.com/2015/11/Fujitsu-Lifebook-A514-Review.html

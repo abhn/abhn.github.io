@@ -5,21 +5,20 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Social Share Counts Python Implementation</title>
+    <title>CSS Crash Course - The Essentials</title>
     <meta name="author" content="Abhishek Nagekar">
    
     
-    <meta name="title" content="Social Share Counts Python Implementation">
+    <meta name="title" content="CSS Crash Course - The Essentials">
     
 
-    
-    <meta name="description" content="I wrote this little script that grabs the count of shares on popular social networks, using their APIs. I have listed the documentation on the project page on Github. I will copy the relevant pieces of readme here. Social Network APIs Facebook Request: https://graph.facebook.com/?id=https://www.github.com Response: json { "id": "http://www.github.com", "shares":...">
-    
+   
+    <meta name="description" content="Hello again, and this post is in continuation of the previous post, CSS Crash Course. If you are wondering what the next stuff mean, you should probably check out the previous article. Anyways, in this post, I will list the most common use cases that you are likely to encounter...">
     <!-- Enable responsive viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- Bootstrap styles -->
-    <link href="/assets/themes//bootstrap/css/bootstrap_bundled.min.css" rel="stylesheet">
+    <link href="/assets/themes/bootstrap-3/bootstrap/css/bootstrap_bundled.min.css" rel="stylesheet">
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="http://www.nagekar.com/assets/images/favicon.ico" type="image/x-icon" />
@@ -65,7 +64,7 @@
     
       
       	
-      	<li><a href="/archive">Archive</a></li>
+      	<li><a href="/archive.html">Archive</a></li>
       	
       
     
@@ -81,7 +80,7 @@
     
       
       	
-      	<li><a href="/meta">Meta</a></li>
+      	<li><a href="/meta.html">Meta</a></li>
       	
       
     
@@ -97,7 +96,7 @@
     
       
       	
-      	<li><a href="/tags">Tags</a></li>
+      	<li><a href="/tags.html">Tags</a></li>
       	
       
     
@@ -119,95 +118,23 @@
       <div class="container">
         
 <div class="page-header">
-  <h1>Social Share Counts Python Implementation </h1>
+  <h1>CSS Crash Course - The Essentials </h1>
 </div>
 
 <div class="row post-full">
   <div class="col-xs-12">
     <div class="date">
-      <span>11 July, 2015. It was a Saturday.</span>
+      <span>2 November, 2015. It was a Monday.</span>
     </div>
     <div class="content">
-      <p>I wrote this little script that grabs the count of shares on popular social networks, using their APIs. I have listed the documentation on the project page on <a href="https://github.com/abhn/Social-Share-Counts" target="_blank">Github</a>. I will copy the relevant pieces of readme here.</p>
+      <p>Hello again, and this post is in continuation of the previous post, <a href="http://www.nagekar.com/2015/10/CSS-Crash-Course.html">CSS Crash Course</a>. If you are wondering what the next stuff mean, you should probably check out the previous article. Anyways, in this post, I will list the most common use cases that you are likely to encounter in lighweight frontend designing. Writing this article more like a cheatsheet, so there is no particular order to the sections.</p>
 
-<h2 id="social-network-apis">Social Network APIs</h2>
+<h3>Centering a DIV</h3>
+<div class="highlight"><pre><code class="language-css" data-lang="css"><span class="nf">#div</span> <span class="p">{</span>
+  <span class="k">margin</span><span class="o">:</span> <span class="m">0</span> <span class="k">auto</span><span class="p">;</span>
+  <span class="k">max-width</span><span class="o">:</span> <span class="m">980px</span><span class="p">;</span>
+<span class="p">}</span></code></pre></div>
 
-<h3 id="facebook">Facebook</h3>
-
-<p>Request:
-<code>https://graph.facebook.com/?id=https://www.github.com</code></p>
-
-<p>Response:
-<code>json
-{
-   "id": "http://www.github.com",
-   "shares": 31684
-}
-</code></p>
-
-<h3 id="twitter">Twitter</h3>
-
-<p>Request:
-<code>http://cdn.api.twitter.com/1/urls/count.json?url=https://github.com</code></p>
-
-<p>Response:
-<code>json
-{"count":14,"url":"http:\/\/github.com\/"}
-</code></p>
-
-<h3 id="google-plus">Google Plus</h3>
-
-<p>Request:
-<code>https://plusone.google.com/_/+1/fastbutton?url=https://github.com</code></p>
-
-<p>This returns the +1 button. I extracted the counts using regex <code>window.__SSR = {c: ([\d]+)</code></p>
-
-<h3 id="linkedin">LinkedIn</h3>
-
-<p>Request:
-<code>http://www.linkedin.com/countserv/count/share?url=https://github.com&amp;format=json</code></p>
-
-<p>Response:
-<code>json
-{"count":0,"fCnt":"0","fCntPlusOne":"1","url":"https:\/\/github.com"}
-</code></p>
-
-<h3 id="stumbleupon">StumbleUpon</h3>
-
-<p>Request:
-<code>http://www.stumbleupon.com/services/1.01/badge.getinfo?url=https://github.com</code></p>
-
-<p>Response too large.</p>
-
-<h3 id="pinterest">Pinterest</h3>
-
-<p>Request:
-<code>http://api.pinterest.com/v1/urls/count.json?url=https://github.com</code></p>
-
-<p>Response:
-<code>json
-receiveCount({"url":"https://github.com","count":0}) 
-</code></p>
-
-<h3 id="reddit">Reddit</h3>
-
-<p>Request:
-<code>http://www.reddit.com/api/info.json?url=https://github.com</code></p>
-
-<p>This returns a lot of data, which can be easily used to extracted counts. 
-<strong>Note</strong> that the Reddit guys don’t really like automated requests and may cause the call to return HTTP 429.</p>
-
-<h3 id="vkontakte">Vkontakte</h3>
-
-<p>Request:
-<code>https://vk.com/share.php?act=count&amp;index=1&amp;url=https://github.com</code></p>
-
-<p>Response:
-<code>json
-VK.Share.count(1, 419);
-</code></p>
-
-<p>This marks the end of the documentation. I hope that serves some purpose. The reason I wrote this was that I wanted social sharing buttons on this blog. I could not afford any of the mainstream buttons like Addthis and Sharethis. They kill the load time, and I’m already struggling with Disqus and Adsense overload. More on that soon. I hope to create a ‘dynamic looking’ static set of buttons for this blog, and I’ll update you if I get time to complete it.</p>
 
     </div>
 
@@ -222,7 +149,9 @@ VK.Share.count(1, 419);
 
   
      
-    	<li><a href="/tags.html#python-ref">python <span>6</span></a></li>
+    	<li><a href="/tags.html#html-ref">html <span>5</span></a></li>
+     
+    	<li><a href="/tags.html#css-ref">css <span>2</span></a></li>
     
   
 
@@ -233,16 +162,16 @@ VK.Share.count(1, 419);
     <hr>
     <div class="panel panel-default">
       <div class="panel-heading">Know someone who might be interested in this story? Share!</div>
-      <div class="panel-body"><a href="https://www.facebook.com/sharer/sharer.php?u=http://www.nagekar.com/2015/07/Social-Share-Counts-Python-Implementation.html" target="_blank">Facebook</a> | <a href="https://twitter.com/share?url=http://www.nagekar.com/2015/07/Social-Share-Counts-Python-Implementation.html&text=Social Share Counts Python Implementation&via=abhisheknagekar" target="_blank">Twitter</a> | <a href="https://plus.google.com/share?url=http://www.nagekar.com/2015/07/Social-Share-Counts-Python-Implementation.html" target="_blank">Google Plus</a> | <a href="http://www.linkedin.com/shareArticle?url=http://www.nagekar.com/2015/07/Social-Share-Counts-Python-Implementation.html&title=Social Share Counts Python Implementation" target="_blank">Linkedin</a> | <a href="http://reddit.com/submit?url=http://www.nagekar.com/2015/07/Social-Share-Counts-Python-Implementation.html&title=Social Share Counts Python Implementation" target="_blank">Reddit</a></div>
+      <div class="panel-body"><a href="https://www.facebook.com/sharer/sharer.php?u=http://www.nagekar.com/2015/11/CSS-Crash-Course-The-Essentials.html" target="_blank">Facebook</a> | <a href="https://twitter.com/share?url=http://www.nagekar.com/2015/11/CSS-Crash-Course-The-Essentials.html&text=CSS Crash Course - The Essentials&via=abhisheknagekar" target="_blank">Twitter</a> | <a href="https://plus.google.com/share?url=http://www.nagekar.com/2015/11/CSS-Crash-Course-The-Essentials.html" target="_blank">Google Plus</a> | <a href="http://www.linkedin.com/shareArticle?url=http://www.nagekar.com/2015/11/CSS-Crash-Course-The-Essentials.html&title=CSS Crash Course - The Essentials" target="_blank">Linkedin</a> | <a href="http://reddit.com/submit?url=http://www.nagekar.com/2015/11/CSS-Crash-Course-The-Essentials.html&title=CSS Crash Course - The Essentials" target="_blank">Reddit</a></div>
     </div>
     <hr>    
     <ul class="pagination">
     
-      <li class="prev"><a href="/2015/07/First-Anniversary-Of-My-Blog.html" title="First Anniversary Of My Blog">&laquo; Previous</a></li>
+      <li class="prev"><a href="/2015/10/CSS-Crash-Course.html" title="CSS Crash Course">&laquo; Previous</a></li>
     
       <li><a href="">Archive</a></li>
     
-      <li class="next"><a href="/2015/08/4th-sem-exams-and-later.html" title="4th Semester And Then">Next &raquo;</a></li>
+      <li class="next"><a href="/2015/11/Passport-Office.html" title="Passport Office">Next &raquo;</a></li>
     
     </ul>
     <hr>
@@ -303,8 +232,8 @@ VK.Share.count(1, 419);
 
     <!-- Latest compiled and minified JavaScript, requires jQuery 1.x (2.x not supported in IE8) -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/assets/themes//bootstrap/js/jquery-1.10.2.min.js"></script>
-    <script src="/assets/themes//bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/themes/bootstrap-3/bootstrap/js/jquery-1.10.2.min.js"></script>
+    <script src="/assets/themes/bootstrap-3/bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
 
