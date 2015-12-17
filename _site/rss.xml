@@ -5,19 +5,14 @@
         <description>Abhishek Nagekar&#39;s Blog - Abhishek Nagekar</description>
         <link>http://www.nagekar.com</link>
         <atom:link href="http://www.nagekar.com/rss.xml" rel="self" type="application/rss+xml" />
-        <lastBuildDate>Thu, 17 Dec 2015 15:12:37 +0530</lastBuildDate>
-        <pubDate>Thu, 17 Dec 2015 15:12:37 +0530</pubDate>
+        <lastBuildDate>Thu, 17 Dec 2015 15:56:10 +0530</lastBuildDate>
+        <pubDate>Thu, 17 Dec 2015 15:56:10 +0530</pubDate>
         <ttl>60</ttl>
 
 
         <item>
-                <title>Bug Bounty Dance</title>
-                <description>﻿---
-layout: post
-title: The Bug Bounty Dance
----
-
-&lt;p&gt;Starting with the update, I finally made myself some money with my first ever bug bounty. It was a simple logical flaw that was rewarded. I was, of course, very happy. I had dinner with my parents in a good restaurant, bought a backpack for my &lt;a href=&quot;http://www.nagekar.com/2015/11/Fujitsu-Lifebook-A514-Review.html&quot;&gt;new laptop computer&lt;/a&gt;, kept some of the cash and gave rest to my mom and dad, equally.&lt;/p&gt;
+                <title>The Bug Bounty Dance</title>
+                <description>&lt;p&gt;Starting with the update, I finally made myself some money with my first ever bug bounty. It was a simple logical flaw that was rewarded. I was, of course, very happy. I had dinner with my parents in a good restaurant, bought a backpack for my &lt;a href=&quot;http://www.nagekar.com/2015/11/Fujitsu-Lifebook-A514-Review.html&quot;&gt;new laptop computer&lt;/a&gt;, kept some of the cash and gave rest to my mom and dad, equally.&lt;/p&gt;
 
 &lt;p&gt;Bug bounty isn&#39;t new to me. I have been living in a community where it was not uncommon to read some or the other friend getting rewarded a bounty, every other day. As far as I remember, things were not like this in my early days. I started interacting with people in cyber security in early 2011. At that time, there were no bug bounty hunters. Some of us were into defacing websites and getting root of web servers for the fun of it. Others were more into blogging about the same. Blogs written on hacking tutorials, news updates and tool guides were dime a dozen. In fact, that was the only way in which most of the pentesters could make some money out of their knowledge (see Adsense and link exchange).&lt;/p&gt;
 
@@ -34,8 +29,8 @@ title: The Bug Bounty Dance
 &lt;p&gt;The quote is still stuck on my mind. I miss those days badly.&lt;/p&gt;
 &lt;blockquote&gt;Don&#39;t be smart, be sincere. Then you&#39;ll become a hacker&lt;/blockquote&gt;
 </description>
-                <link>http://www.nagekar.com/2015/12/Bug-Bounty-Dance.html</link>
-                <guid>http://www.nagekar.com/2015/12/Bug-Bounty-Dance</guid>
+                <link>http://www.nagekar.com/2015/12/bug-bounty-dance.html</link>
+                <guid>http://www.nagekar.com/2015/12/bug-bounty-dance</guid>
                 <pubDate>Thu, 17 Dec 2015 00:00:00 +0530</pubDate>
         </item>
 
