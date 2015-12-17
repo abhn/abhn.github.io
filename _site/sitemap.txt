@@ -7,6 +7,7 @@ http://www.nagekar.com/rss.xml
 http://www.nagekar.com/sitemap.txt
 http://www.nagekar.com/tags
 
+http://www.nagekar.com/2015/12/Bug-Bounty-Dance.html
 http://www.nagekar.com/2015/12/vim-cheatsheet.html
 http://www.nagekar.com/2015/11/Fujitsu-Lifebook-A514-Review.html
 http://www.nagekar.com/2015/11/Guide-Passport-Application-India.html
