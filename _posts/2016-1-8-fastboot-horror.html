@@ -1,0 +1,13 @@
+---
+layout: post
+title: Fastboot Horror
+---
+
+<p>This was the second day entirely wasted to get my external hard drive to work with the USB 3 ports on my laptop. It just refused to get detected. It worked fine on the USB 2 port, but just didn't read on the 3. Initially thought it was a Thunar issue on XFCE, but there simply wasn't any drive in the output of fdisk -l. Read up dmesg multiple times and there was this line consistently,
+</p>
+
+<code>[sdb] Synchronize Cache(10) failed: Result: hostbyte=DID_ERROR driverbyte=DRIVER_OK</code>
+
+<p>Googled it and read every thread on the first page of the search results, literally. I had started to doubt the USB 3 ports on the notebook now. I am on Debian testing, and thought something has broken down at the kernel level. I immediately started to download openSUSE, to see if it really is a kernel bug, because I am not brave enough to switch kernels. Anyways, I thought, let me look if the BIOS is reading the drive, and boy, what do I see. The BIOS is just not recognizing the drive. Now I began to panic. It really looks like a hardware issue.</p>
+
+<p>In between my googling, I came across a page that provided some information. Some good guy had asked it for his Windows 8.1 laptop. There was an accepted answer. There were these simple steps, go to BIOS, find Fastboot, disable it. Aha! I said. How did I not think about that myself. Did it, and it was working again, like it should have. Fastboot does save a second each time I turn on my notebook, but this time, it costed my 2 full days. Lesson learnt. When the guys at elite forums say fastboot will prevent some hardware from being read and tested on boot, they aren't just putting a nominal warning on the door, that thing is real. "Want to make your PC boot faster? Enable fastboot". No thanks.</p>
