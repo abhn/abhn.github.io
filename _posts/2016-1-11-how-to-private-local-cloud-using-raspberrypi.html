@@ -1,0 +1,89 @@
+---
+layout: post
+title: Private Local Cloud Storage Using Raspberrypi - How To
+tags:
+-raspberrypi
+---
+
+<p>
+	Today we'll see how you can home brew a cloud (in the local sense) storage solution that would be free to use, quite faster than an Internet based one, secure enough from any outside the network intrusion and customizable.
+</p>
+<p>
+	But why do you need to go to such lengths when you can easily create an account on Google and get 15 gigs of free storage. Well, first of all, data that we generate is increasing significantly each day. We have multiple devices with us, most of them with ~16-64 GB storage, which is not at all good enough. Then while our notebooks are getting faster with solid state drives, they are still costly to use for all of our needs like storing tonnes of movies and music videos, that is, if you are still left with space after cramming up your disk with camera pictures. If you opt for a premium account at Dropbox or Google Drive, it will easily cost you ~$100 a year recurring, the cost which can get you a 2 TB WD external hard disk.
+</p>
+<p>
+	Then there is the speed issue. At least here in India, we are deprived Internet connection faster than 2-4 mbps. Most of the times even less than that. Even if we considered the option of backing to an online cloud storage, the bandwidth prevents us from efficiently using what already exists for free. When using an local cloud, the bandwidth is only throttled by your equipments, and most of the times you can easily get ~40-60 mbps, which is fine.
+</p>
+<p>
+	The last issue, depending on how you see it, is the most and the least important. Security. If the files are going to be random movies and music videos, you might not be much worried about some hacker breaking into your cloud storage provider and downloading them, but on the other hand, if the files contain any kind of sensitive personally identifiable information, then you would worry. But having said that, I would always choose a secure storage solution from insecure ones if given an option, even if the data was not at all sensitive.
+</p>
+<h3>Things you'll need</h3>
+<p>
+	Now that we've discussed some merits and demerits, lets talk about building the thing. The things you'll need are,
+	<ul>
+		<li>Raspberry Pi (with all it's setup accessories), with Ethernet port</li>
+		<li>Hard disk, any capacity, with SATA to USB converter</li>
+		<li>Wireless router</li>
+		<li>Ethernet cable or Wifi adapter</li>
+		<li>USB power hub [in some cases]</li>
+	</ul>
+</p>
+<h3>Setting up the hardware</h3>
+<p>
+	<ol>
+		<li>Connect the hard disk to the Raspberrypi</li>
+		<li>Boot it up and login via ssh</li>
+		<li>Run <i>sudo fdisk -l</i> and make sure the hard disk is shown. Note the device name (/dev/sdb or similar)</li>
+		<li>If not, try usb power adapter</li>
+		<li>If it is showing, we'll have to make sure it mounts to the same location each time we boot up.</li>
+		<li>Create a folder for the mount point. I'll be using <pre>/var/www</pre></li>
+		<li>It would be advisable to use a separate low privileged user for the process, since we will be changing the user home later on.</li>
+		<li><pre>sudo chmod 775 /var/www</pre> and <pre>sudo chown your_username /var/www</pre> to set the permissions for reading, writing and executing.</li>
+		<li><pre>sudo blkid</pre> and note the uuid for the external hard disk. Copy it.</li>
+		<li>Now we need to make the mounting occur each time we boot the pi up. Open the fstab file by <pre>sudo nano /etc/fstab</pre> and add the following line <pre>UUID="3b28d90f-8805-4ec4-978d-c53ee397a924" /var/www ext4 defaults,errors=remount-ro 0 1</pre> by editing the UUID, mount location and file system and keeping other things constant.</li>
+		<li>Reboot the pi, and your /var/www should now be pointing to the external hard disk. If so, you are done with this part of the tutorial. If not, check what did you miss. Also make sure you are able to read and write files to that directory from your user account. If not, recheck the steps, Google for solutions or comment for help.<pre></pre></li>
+	</ol>
+</p>
+<h3>Setting up the FTP server</h3>
+<p>
+	<ol>
+		<li><pre>sudo apt-get install vsftpd</pre> to install the vsFTP server.</li>
+		<li>Open the vsftp configuration file by <pre>sudo nano /etc/vsftpd.conf</pre></li>
+		<li>
+			The would be a lot of options. Just go through and make sure the following lines are there and not commented. If not, add them.
+			<pre>
+				anonymous_enable=NO
+				local_enable=YES
+				write_enable=YES
+				chroot_local_user=YES
+				force_dot_files=YES
+				local_root=/var/www
+				allow_writable_chroot=YES
+			</pre>
+		</li>
+		<li>After saving (Ctrl + x and then y) and exiting, restart vsftpd by <pre>sudo service vsftpd restart</pre></li>
+		<li>Lastly, change the user home to the FTP root, so that you'll directly get into the FTP server's root on logging into the FTP client. <pre>sudo usermod --home /var/www/ your_username</pre></li>
+	</ol>
+</p>
+<p>
+	If all went well, we have a 100% working local cloud storage running off our pi. Now, since not everyone would like to login with terminal each time they wish to access the cloud, I make some customizations to make it easy for even my Mom and Dad to use the cloud.
+</p>
+<p>
+	On the desktop, download and install filezilla. <pre>sudo apt-get install filezilla</pre> should do it on deb derivatives. Create a launcher icon that triggers the command <pre>filezilla sftp://myUsername:myPassword@myIP:myPort/my/root</pre> which in my case became <pre>filezilla sftp://abhishek:password@192.168.1.10:22/var/www</pre>.
+</p>
+<center><img src="/assets/images/desktop_icon.png" /></center>
+<center><img src="/assets/images/filezillapi.png" /></center>
+
+<p>
+	On the mobile phones (we have droids, three of us), I used the 'add ftp server' option in the <a href="https://play.google.com/store/apps/details?id=com.estrongs.android.pop&hl=en" target="_blank">ES File Explorer</a> and created a shortcut on the home screen with the widgets menu. Hence, accessing the cloud was nothing more troublesome than accessing a local folder on the phone.
+</p>
+<center><img src="/assets/images/es1.png"></center>
+<center><img src="/assets/images/es2.png"></center>
+<center><img src="/assets/images/es3.png"></center>
+<p>
+	Now I have my very own, secure, high speed cloud storage solution for all my devices and also for the family. It is really convenient and building a custom case for the thing, it looks pretty badass.
+</p>
+<center><img src="/assets/images/pisetup.png"></center>
+<p>
+	What do you think?
+</p>
