@@ -39,7 +39,7 @@ title: Private Local Cloud Storage Using Raspberrypi - How To
 		<li><pre>sudo chmod 775 /var/www</pre> and <pre>sudo chown your_username /var/www</pre> to set the permissions for reading, writing and executing.</li>
 		<li><pre>sudo blkid</pre> and note the uuid for the external hard disk. Copy it.</li>
 		<li>Now we need to make the mounting occur each time we boot the pi up. Open the fstab file by <pre>sudo nano /etc/fstab</pre> and add the following line <pre>UUID="3b28d90f-8805-4ec4-978d-c53ee397a924" /var/www ext4 defaults,errors=remount-ro 0 1</pre> by editing the UUID, mount location and file system and keeping other things constant.</li>
-		<li>Reboot the pi, and your /var/www should now be pointing to the external hard disk. If so, you are done with this part of the tutorial. If not, check what did you miss. Also make sure you are able to read and write files to that directory from your user account. If not, recheck the steps, Google for solutions or comment for help.<pre></pre></li>
+		<li>Reboot the pi, and your /var/www should now be pointing to the external hard disk. If so, you are done with this part of the tutorial. If not, check what did you miss. Also make sure you are able to read and write files to that directory from your user account. If not, recheck the steps, Google for solutions or comment for help.</li>
 	</ol>
 </p>
 <h3>Setting up the FTP server</h3>
@@ -69,19 +69,19 @@ title: Private Local Cloud Storage Using Raspberrypi - How To
 <p>
 	On the desktop, download and install filezilla. <pre>sudo apt-get install filezilla</pre> should do it on deb derivatives. Create a launcher icon that triggers the command <pre>filezilla sftp://myUsername:myPassword@myIP:myPort/my/root</pre> which in my case became <pre>filezilla sftp://abhishek:password@192.168.1.10:22/var/www</pre>.
 </p>
-<center><img src="/assets/images/desktop_icon.png" /></center>
-<center><img src="/assets/images/filezillapi.png" /></center>
+<center><img src="/assets/images/desktop_icon.png" width="800" height="600"/></center>
+<center><img src="/assets/images/filezillapi.png" width="800" height="600"/></center>
 
 <p>
 	On the mobile phones (we have droids, three of us), I used the 'add ftp server' option in the <a href="https://play.google.com/store/apps/details?id=com.estrongs.android.pop&hl=en" target="_blank">ES File Explorer</a> and created a shortcut on the home screen with the widgets menu. Hence, accessing the cloud was nothing more troublesome than accessing a local folder on the phone.
 </p>
-<center><img src="/assets/images/es1.png"></center>
-<center><img src="/assets/images/es2.png"></center>
-<center><img src="/assets/images/es3.png"></center>
+<center><img src="/assets/images/es1.png" width="960" height="540"></center>
+<center><img src="/assets/images/es2.png" width="960" height="540"></center>
+<center><img src="/assets/images/es3.png" width="960" height="540"></center>
 <p>
 	Now I have my very own, secure, high speed cloud storage solution for all my devices and also for the family. It is really convenient and building a custom case for the thing, it looks pretty badass.
 </p>
-<center><img src="/assets/images/pisetup.jpg"></center>
+<center><img src="/assets/images/pisetup.jpg" width="960" height="540"></center>
 <p>
 	What do you think?
 </p>
