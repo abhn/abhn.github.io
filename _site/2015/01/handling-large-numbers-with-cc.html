@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Handling large numbers with C/C++</title>
+    
+    <meta name="author" content="Abhishek Nagekar">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes//bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes//css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div class="navbar navbar-default" role="navigation">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">Abhishek Nagekar's Blog</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/meta">Meta</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Handling large numbers with C/C++ </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>19 January 2015</span>
+    </div>
+    <div class="content">
+      <div dir="ltr" style="text-align: left;" trbidi="on">I will tell you what this is about. I saw a simple looking problem on <a href="http://www.hackerearth.com/problem/algorithm/small-factorials/" target="_blank">HackerEarth</a> about finding factorial of given numbers. It looks easy, but another look at the constraints (1&lt;=N&lt;=100) changes everything. Well, not everything, especially if you are going to write it in languages like Python ("dynamically typed") which has built-in capabilities to handle big numbers, but it is really a trouble to do it in C or any such statically typed language.<br /><a href="https://www.blogger.com/null" name="more"></a><br />So first of all, what exactly is the difference between statically and dynamically typed languages. Dynamically typed languages require their interpreters to detect the type of the variable from the value that is assigned to it. On the other hand, in statically typed languages, the type of the variables must be known at compile time.<br /><br />Some believe the latter has advantages over the former. As we explicitly state the type, run time errors are reduced and run time performance increases. We won't get into that discussion here.<br /><br /><h4 style="text-align: left;">So our problem</h4><div style="text-align: left;"><br />Before getting into it, I will first write the Python code that worked flawlessly and gave answers to factorials of over 100.&nbsp;</div><div style="text-align: left;"></div><div style="text-align: left;"></div><script src="https://gist.github.com/abhn/a7a894bee916cf2910e2.js"></script>As you can see, it doesn't get any easier for anybody, no matter how novice he is with programming. But how does one solve the same problem with languages with no native support for big (of order &gt;10^100) numbers? Simple. We make use of algorithms. The first thing that pops in one's mind when dealing with numbers this large is the use of arrays. Yes, that is the right way to go, or at least the one that worked for me.<br /><br />So here is the plan. We create an array of integers which will hold a digit in each index, starting with the least significant bit. For example, if we were to store the number 12345 in the array, we would do it like this:<br /><style type="text/css">.tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;} .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 15px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;} .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 15px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;} .tg .tg-xueg{font-weight:bold;background-color:#ffffc7;color:#333333} .tg .tg-2ks1{font-weight:bold;font-size:100%;background-color:#ffffc7;color:#333333} </style> <br /><center><table class="tg">  <tbody><tr>    <th class="tg-xueg">5</th>    <th class="tg-xueg">4</th>    <th class="tg-xueg">3</th>    <th class="tg-xueg">2</th>    <th class="tg-2ks1">1</th>  </tr></tbody></table></center><br />That is,<span style="background-color: #fff2cc;"> <span style="background-color: #d9d2e9;"><i>array[0]</i></span></span> stores '5', <span style="background-color: #d9d2e9;"><i>array[1]</i></span> stores '4' and so on. We have reversed the number for a specific reason. For knowing that reason, you have to go back to your 2nd grade class where you were taught to multiply two two-digit numbers. How did you do that?<br /><style type="text/css">.tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;} .tg td{font-family:Arial, sans-serif;font-size:14px;padding:3px 11px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;} .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:3px 11px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;} .tg .tg-bsv2{background-color:#efefef} .tg .tg-cxkv{background-color:#ffffff} .tg .tg-c7d0{background-color:#bbdaff} .tg .tg-fqpo{background-color:#cbcefb} .tg .tg-8o5d{background-color:#34ff34} </style> <br /><center><table class="tg" style="table-layout: fixed; width: 86px;"><colgroup><col style="width: 21px;"></col><col style="width: 21px;"></col><col style="width: 22px;"></col><col style="width: 22px;"></col></colgroup>  <tbody><tr>    <th class="tg-031e"><br /></th>    <th class="tg-031e"><br /></th>    <th class="tg-bsv2">4</th>    <th class="tg-031e"><br /></th>  </tr><tr>    <td class="tg-031e"><br /></td>    <td class="tg-031e"><br /></td>    <td class="tg-bsv2">2</td>    <td class="tg-031e"><br /></td>  </tr><tr>    <td class="tg-031e"><br /></td>    <td class="tg-cxkv"><br /></td>    <td class="tg-c7d0">3</td>    <td class="tg-c7d0">7</td>  </tr><tr>    <td class="tg-031e"><br /></td>    <td class="tg-cxkv">x</td>    <td class="tg-c7d0">6</td>    <td class="tg-c7d0">3</td>  </tr><tr>    <td class="tg-fqpo"><br /></td>    <td class="tg-fqpo">1</td>    <td class="tg-fqpo">1</td>    <td class="tg-fqpo">1</td>  </tr><tr>    <td class="tg-fqpo">2</td>    <td class="tg-fqpo">2</td>    <td class="tg-fqpo">2</td>    <td class="tg-fqpo">0</td>  </tr><tr>    <td class="tg-8o5d">2</td>    <td class="tg-8o5d">3</td>    <td class="tg-8o5d">3</td>    <td class="tg-8o5d">1</td>  </tr></tbody></table></center><br />Got the memory back? Although it may seem a trivial thing now, notice that you never do a multiplication whose result is more than 81, that is, 9x9 which is the product of largest two single digit numbers. So can you somehow make the computer follow the same method to calculate the factorial, such that it never does a &gt;81 digit addition in the entire process, which is well inside the size of the shortest numeric data type in C <i>(unsigned short: 65,535)</i>? Yes, of course. We are coders, right? ;)<br /><br />To start off, we will need variables.<br />We will use <span style="background-color: #d9d2e9;"><i>num</i></span> to accept the input number whose factorial is to be found out.<br /><span style="background-color: #d9d2e9;"><i>cur</i></span> stores the result of the calculation<i> <span style="background-color: #d9d2e9;">i * arr[j] + temp</span></i>. The least significant digit from <span style="background-color: #d9d2e9;"><i>cur</i></span> (for example <i>3</i>, in case of <i>123</i>) goes into <span style="background-color: #d9d2e9;"><i>arr[j]</i></span> while the remaining digits get stored in the <span style="background-color: #d9d2e9;"><i>temp</i></span> variable. Follow the above step till the end of the array which we initially denote by <i><span style="background-color: #d9d2e9;">pos</span> </i>variable. <span style="background-color: #d9d2e9;"><i>pos</i></span> is initialized and assigned 1, as we initialize our <span style="background-color: #d9d2e9;"><i>arr[]</i></span> with <i><span style="background-color: #d9d2e9;">arr[0]=1</span> (since we will be using this value to multiply subsequent 2,3,4...<span style="background-color: #d9d2e9;">num</span>, we don't want our answer to evaluate to 0).</i><br /><i> </i><br />After this loop, we will need to empty out the carry forward integer in our <span style="background-color: #d9d2e9;"><i>temp</i></span> variable. It will be done in the reverse order as well, but here, we will increment <span style="background-color: #d9d2e9;"><i>pos</i></span> to make it always point to the number of digits in <span style="background-color: #d9d2e9;"><i>arr[]</i></span>.<br /><br />Finally you can print our the <span style="background-color: #d9d2e9;"><i>arr[]</i></span> in the reverse order to get the expected answer and this should not surprise you since we have been doing storing of the numbers in reverse order in our <span style="background-color: #d9d2e9;"><i>arr[]</i></span>. Here is the C++ code that I wrote. I didn't cross check the results for larger values of <span style="background-color: #d9d2e9;"><i>num</i></span>, so take care with that. <br /><script src="https://gist.github.com/abhn/34824e2918e86fcf2576.js"></script> So that was it for this short article. I am reading more on GMP (<a href="https://gmplib.org/" target="_blank"><i>GNU Multiple Precision Arithmetic Library</i></a>) that is written exactly for this purpose. Nevertheless, it is always good to know how to do it by hand. Thank you.<br /><br /><br /></div>
+    </div>
+
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#c++-ref">c++ <span>3</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/2015/01/what-is-gnulinux.html" title="What is GNU/Linux ">&larr; Previous</a></li>
+      
+        <li><a href="">Archive</a></li>
+      
+        <li class="next"><a href="/2015/02/time.html" title="Time">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    
+    var disqus_developer = 1;
+    var disqus_shortname = 'nagekar'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2016 Abhishek Nagekar
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+
+
+
+  </body>
+</html>
+

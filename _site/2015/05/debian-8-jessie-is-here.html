@@ -1,0 +1,191 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Debian 8 Jessie is here</title>
+    
+    <meta name="author" content="Abhishek Nagekar">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes//bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes//css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div class="navbar navbar-default" role="navigation">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">Abhishek Nagekar's Blog</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/meta">Meta</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Debian 8 Jessie is here </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>01 May 2015</span>
+    </div>
+    <div class="content">
+      The <a href="https://www.debian.org/releases/stable/" target="_blank">next major stable release</a> of the Debian lineup, the 8th one, codename Jessie was launched on 25th of april, last month. And like every Debian release, this one was packed with an awfully large package repo, meaning more free stuff to choose from, one of the fundamental reason I use Debian.<br /><br />The total package base, with this release, is over 43,000, which is a lot. The <a href="https://www.debian.org/News/2015/20150426" target="_blank">key features added</a> to this release, make it one of the best Linux distros till date, imo. Not to mention, rock solid.<br /><br />All the major desktop environments like GNOME, KDE, XFCE, LXDE are supported (No Unity, sad ;), just select the preferred one during installation and it will download it for you. Alternatively, some iso are marked which desktop environment it ships, and if not specified explicitly, assume GNOME3.<br /><br />If you are already on Debian 7, to get Jessie, fully update the system:<br /><pre>sudo apt-get update<br /><br />sudo apt-get upgrade<br /><br />sudo apt-get dist-upgrade.</pre>Then just head to /etc/apt/sources.list and replace every occurrence of <i>wheezy</i> with <i>jessie</i> and then again:<br /><pre>sudo apt-get update<br /><br />sudo apt-get upgrade<br /></pre>That would be it. I noticed that Jessie is super fast, and I intentionally did a minimal install. The bootup and shutdown speeds are very impressive. Here is an amature video of me filming the shutdown time, LOL.<br /><br /><center><iframe allowfullscreen="" frameborder="0" height="315" src="https://www.youtube.com/embed/EpOLUyRvkU8" width="560"></iframe></center><br />A note, if you go to the downloads page, there are multiple DVDs, like for example, the amd64 complete comes in around 10 DVDs, but you only need the first one. It contains all the installation stuff and most of the packages you'll ever use, including the desktop environments.<br /><br />Downloads page: <a href="https://www.debian.org/CD/">https://www.debian.org/CD/</a><br /><br />A tip, you can add the DVD contents to your hard drive and set up an offline repository. Mount the contents of the DVD or copy it to a local folder.<br /><pre># in case of mounting the iso<br /><br />mount -t iso9660 -o loop /home/abhishek/Debian/debian-8.0.0-amd64-DVD-1.iso /mount_point</pre>Or just plain copy iso contents into the folder. Then add the following line on top of the /etc/apt/sources.list<br /><pre>deb file:///mount_point/ jessie main contrib</pre>so that it will check for a local copy of the package first for offline package installation.<br /><br />That was it for this promotional article [ ;) ] on Debian 8. Hope you like the new release and use it.<br /><br />Thank you developers.
+    </div>
+
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#linux-ref">linux <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#debian-ref">debian <span>1</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/2015/04/i-feel-so-powerless-in-my-own-country.html" title="I feel so powerless in my own country">&larr; Previous</a></li>
+      
+        <li><a href="">Archive</a></li>
+      
+        <li class="next"><a href="/2015/05/wall-of-shame-salman-khans-verdict.html" title="Wall of shame - Salman Khan's verdict">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    
+    var disqus_developer = 1;
+    var disqus_shortname = 'nagekar'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2016 Abhishek Nagekar
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+
+
+
+  </body>
+</html>
+

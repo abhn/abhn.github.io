@@ -1,0 +1,955 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+        <title>Abhishek Nagekar&#39;s Blog</title>
+        <description>Abhishek Nagekar&#39;s Blog - Abhishek Nagekar</description>
+        <link>http://www.nagekar.com</link>
+        <atom:link href="http://www.nagekar.com/rss.xml" rel="self" type="application/rss+xml" />
+        <lastBuildDate>Wed, 03 Feb 2016 15:31:49 +0530</lastBuildDate>
+        <pubDate>Wed, 03 Feb 2016 15:31:49 +0530</pubDate>
+        <ttl>60</ttl>
+
+
+        <item>
+                <title>AJAX Loading - Part 1</title>
+                <description>&lt;p&gt;
+	I always admired the sites which did not reload upon clicking links here and there, but simple gave me whatever I requested for, with grace. Sites like Facebook, Twitter and Youtube extensively use it, and the application hardly reloads after the initial reload. Here&#39;s my attempt on making something similar.
+&lt;/p&gt;
+&lt;p&gt;
+	Firstly, I downloaded a free HTML template from &lt;a href=&quot;http://www.onlinecasinos.im/&quot; target=&quot;_blank&quot;&gt;Online Casinos&lt;/a&gt;. The links had to be edited. The pattern I used was to replace, for example, any (internal) link pointing to &lt;code&gt;example.html&lt;/code&gt; to &lt;code&gt;#/example.html&lt;/code&gt;. What it did was 1.) prevent the page from reloading, and 2.) putting the requested location to some place from where I can extract it with Javascript.
+&lt;/p&gt;
+&lt;p&gt;
+	Next, grab that location of the hash. The Javascript&#39;s built in method &lt;code&gt;window.location.hash&lt;/code&gt; provides the page&#39;s current hash. We drop the first char from the returned hash as it is the hash (#) character itself. The hash value is essentially the location to be navigated to, hence, we use some string manipulation to craft a new URL from it, and make an AJAX request to fetch the contents of the page requested, and insert it into the div specified through Javascript.
+&lt;/p&gt;
+&lt;p&gt;
+	For example, suppose we are on about.html page. Now if I click &#39;contact&#39; link, the link would change to /about.html#/contact.html, the hash value would be grabbed by the window.location.hash method, a GET request is fired to get that location with a XMLHttpRequest object, the response is inserted with innerHTML method on the div, and using the &lt;code&gt;window.history.pushState()&lt;/code&gt; method, we update the URL to /contact.html, to ease sharing. All this, in the blink of an eye. Cool.
+&lt;/p&gt;
+&lt;p&gt;
+	I could do it in two different ways. One was to just place the text in those files and inserting them into the template. The drawback of this was that if a user directly visits that page, he/she would just see plain text. For example, &lt;a href=&quot;/assets/ajaxreload/index.html&quot;&gt;check this link out&lt;/a&gt;. The Javascript code for that was,
+&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/abhn/e53b6d308f3620e7b9a2.js&quot;&gt;&lt;/script&gt;
+&lt;p&gt;
+	The separate callback function for getHash was necessary because onclick() event fires before the hash is changed, and it would result in the script grabbing the previous hash. As already mentioned, the navigation is smooth if one visits index.html and then other links, but try getting the about.html page first. All you&#39;ll see are a few lines of text.
+&lt;/p&gt;
+&lt;p&gt;
+	A sloppy solution to the above problem was to replicate the entire index page with varying content for each of the page, and then replace entire DOM on anchor click. You can imagine this is not at all smart, and would destroy the point of this site. Not to mention the extra bandwidth to reload the same resources on every request. &lt;a href=&quot;/assets/ajaxreload2/index.html&quot;&gt;Here is the implementation&lt;/a&gt; for this method.
+&lt;/p&gt;
+&lt;p&gt;
+	What would be the smarter way? Perhaps, making sure the first page to load always downloads the entire html every time, and subsequent requests to be made to download the changed content. I will be implementing this solution shortly. Drop in your ideas too, and share if you enjoyed reading this. 
+&lt;/p&gt;</description>
+                <link>http://www.nagekar.com/2016/01/Ajax-Loading.html</link>
+                <guid>http://www.nagekar.com/2016/01/Ajax-Loading</guid>
+                <pubDate>Sun, 31 Jan 2016 00:00:00 +0530</pubDate>
+        </item>
+
+        <item>
+                <title>Exchanging Chikoos For Friends</title>
+                <description>&lt;p&gt;
+    Traveling to college everyday, in a train compartment, sitting on the same seat for about an hour, your entire attention is on your phone of course. Yes, it was surely enjoyable in the early days, but after a while, you don&#39;t get to see anything unusual most of the times. That is the reason if you ever spot me in a train compartment, I would be drowned into some book or my mobile phone.
+&lt;/p&gt;
+&lt;p&gt;
+	It was a similar day today, morning 9 am. I was sitting by the window, enjoying the newest mix-tape I downloaded. I was into my phone screen when I noticed a &#39;Chikoo&#39; seller making his way through the boogie. I glanced at him through my peripheral sight and was soon back on the phone screen. I noticed the man sitting on the other side bought some 8 chickoo for Rs. 10, &lt;i&gt;&#39;Nice deal&#39;&lt;/i&gt;, I thought, &lt;i&gt;&#39;but cannot carry them to college&#39;&lt;/i&gt;. Just then, the man, who bought those Chikoos, started distributing those in between us, the people sitting next to him. I stared at him for a second, this time a bit carefully. He was a well groomed individual, in around his late 40s. He was the typical man you find in countryside India, and his preference for white outfit depicted that well.
+&lt;/p&gt;
+&lt;p&gt;
+	He offered me chikoo, and I took it without any hesitations. It was real sweet. He gave away 7 of the 8 he had to the people around him, relished the one he had left in his hand, and started talking to the people, total strangers. He said that he didn&#39;t have a native place, and that makes him feel every place like his own. He chuckled. The people around him started with their stories and it was fun to hear. There were some five to six of them who were chatting like they were some long lost friends, when in fact, they had just met a few minutes ago. The smiles and the laughter I witnessed were something unforgettable. They spoke for sometime after that, while I, finding no room to add anything in those elderly talks, decided to put the music back on.
+&lt;/p&gt;
+&lt;p&gt;
+	It did, however, teach me how important it is to give away, and how much joy it gives to the people who receive it. I learned that I need not have a bucket full of cash to bring a smile on someone&#39;s face. It can be done with some 10 bucks too. Plus what you get are some friends, who have a great first impression of yours in their minds. It is a small price to pay for those many returns.
+&lt;/p&gt;
+&lt;p&gt;
+	It is funny how a random incident changes your point of views to that extent. People like these exist in our World, who call the World their home, and the people their very own. The World and Mother Nature are really our very own. It is just that we often forget it in our fast paced lives. Have a great time ahead.
+&lt;/p&gt;</description>
+                <link>http://www.nagekar.com/2016/01/exchanging-chikoos-for-friends.html</link>
+                <guid>http://www.nagekar.com/2016/01/exchanging-chikoos-for-friends</guid>
+                <pubDate>Fri, 15 Jan 2016 00:00:00 +0530</pubDate>
+        </item>
+
+        <item>
+                <title>Private Local Cloud Storage Using Raspberrypi - How To</title>
+                <description>&lt;p&gt;
+	Today we&#39;ll see how you can home brew a cloud (in the local sense) storage solution that would be free to use, quite faster than an Internet based one, secure enough from any outside the network intrusion and customizable.
+&lt;/p&gt;
+&lt;p&gt;
+	But why do you need to go to such lengths when you can easily create an account on Google and get 15 gigs of free storage. Well, first of all, data that we generate is increasing significantly each day. We have multiple devices with us, most of them with ~16-64 GB storage, which is not at all good enough. Then while our notebooks are getting faster with solid state drives, they are still costly to use for all of our needs like storing tonnes of movies and music videos, that is, if you are still left with space after cramming up your disk with camera pictures. If you opt for a premium account at Dropbox or Google Drive, it will easily cost you ~$100 a year recurring, the cost which can get you a 2 TB WD external hard disk.
+&lt;/p&gt;
+&lt;p&gt;
+	Then there is the speed issue. At least here in India, we are deprived Internet connection faster than 2-4 mbps. Most of the times even less than that. Even if we considered the option of backing to an online cloud storage, the bandwidth prevents us from efficiently using what already exists for free. When using an local cloud, the bandwidth is only throttled by your equipments, and most of the times you can easily get ~40-60 mbps, which is fine.
+&lt;/p&gt;
+&lt;p&gt;
+	The last issue, depending on how you see it, is the most and the least important. Security. If the files are going to be random movies and music videos, you might not be much worried about some hacker breaking into your cloud storage provider and downloading them, but on the other hand, if the files contain any kind of sensitive personally identifiable information, then you would worry. But having said that, I would always choose a secure storage solution from insecure ones if given an option, even if the data was not at all sensitive.
+&lt;/p&gt;
+&lt;h3&gt;Things you&#39;ll need&lt;/h3&gt;
+&lt;p&gt;
+	Now that we&#39;ve discussed some merits and demerits, lets talk about building the thing. The things you&#39;ll need are,
+	&lt;ul&gt;
+		&lt;li&gt;Raspberry Pi (with all it&#39;s setup accessories), with Ethernet port&lt;/li&gt;
+		&lt;li&gt;Hard disk, any capacity, with SATA to USB converter&lt;/li&gt;
+		&lt;li&gt;Wireless router&lt;/li&gt;
+		&lt;li&gt;Ethernet cable or Wifi adapter&lt;/li&gt;
+		&lt;li&gt;USB power hub [in some cases]&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/p&gt;
+&lt;h3&gt;Setting up the hardware&lt;/h3&gt;
+&lt;p&gt;
+	&lt;ol&gt;
+		&lt;li&gt;Connect the hard disk to the Raspberrypi&lt;/li&gt;
+		&lt;li&gt;Boot it up and login via ssh&lt;/li&gt;
+		&lt;li&gt;Run &lt;i&gt;sudo fdisk -l&lt;/i&gt; and make sure the hard disk is shown. Note the device name (/dev/sdb or similar)&lt;/li&gt;
+		&lt;li&gt;If not, try usb power adapter&lt;/li&gt;
+		&lt;li&gt;If it is showing, we&#39;ll have to make sure it mounts to the same location each time we boot up.&lt;/li&gt;
+		&lt;li&gt;Create a folder for the mount point. I&#39;ll be using &lt;pre&gt;/var/www&lt;/pre&gt;&lt;/li&gt;
+		&lt;li&gt;It would be advisable to use a separate low privileged user for the process, since we will be changing the user home later on.&lt;/li&gt;
+		&lt;li&gt;&lt;pre&gt;sudo chmod 775 /var/www&lt;/pre&gt; and &lt;pre&gt;sudo chown your_username /var/www&lt;/pre&gt; to set the permissions for reading, writing and executing.&lt;/li&gt;
+		&lt;li&gt;&lt;pre&gt;sudo blkid&lt;/pre&gt; and note the uuid for the external hard disk. Copy it.&lt;/li&gt;
+		&lt;li&gt;Now we need to make the mounting occur each time we boot the pi up. Open the fstab file by &lt;pre&gt;sudo nano /etc/fstab&lt;/pre&gt; and add the following line &lt;pre&gt;UUID=&quot;3b28d90f-8805-4ec4-978d-c53ee397a924&quot; /var/www ext4 defaults,errors=remount-ro 0 1&lt;/pre&gt; by editing the UUID, mount location and file system and keeping other things constant.&lt;/li&gt;
+		&lt;li&gt;Reboot the pi, and your /var/www should now be pointing to the external hard disk. If so, you are done with this part of the tutorial. If not, check what did you miss. Also make sure you are able to read and write files to that directory from your user account. If not, recheck the steps, Google for solutions or comment for help.&lt;/li&gt;
+	&lt;/ol&gt;
+&lt;/p&gt;
+&lt;h3&gt;Setting up the FTP server&lt;/h3&gt;
+&lt;p&gt;
+	&lt;ol&gt;
+		&lt;li&gt;&lt;pre&gt;sudo apt-get install vsftpd&lt;/pre&gt; to install the vsFTP server.&lt;/li&gt;
+		&lt;li&gt;Open the vsftp configuration file by &lt;pre&gt;sudo nano /etc/vsftpd.conf&lt;/pre&gt;&lt;/li&gt;
+		&lt;li&gt;
+			The would be a lot of options. Just go through and make sure the following lines are there and not commented. If not, add them.
+			&lt;pre&gt;
+				anonymous_enable=NO
+				local_enable=YES
+				write_enable=YES
+				chroot_local_user=YES
+				force_dot_files=YES
+				local_root=/var/www
+				allow_writable_chroot=YES
+			&lt;/pre&gt;
+		&lt;/li&gt;
+		&lt;li&gt;After saving (Ctrl + x and then y) and exiting, restart vsftpd by &lt;pre&gt;sudo service vsftpd restart&lt;/pre&gt;&lt;/li&gt;
+		&lt;li&gt;Lastly, change the user home to the FTP root, so that you&#39;ll directly get into the FTP server&#39;s root on logging into the FTP client. &lt;pre&gt;sudo usermod --home /var/www/ your_username&lt;/pre&gt;&lt;/li&gt;
+	&lt;/ol&gt;
+&lt;/p&gt;
+&lt;p&gt;
+	If all went well, we have a 100% working local cloud storage running off our pi. Now, since not everyone would like to login with terminal each time they wish to access the cloud, I make some customizations to make it easy for even my Mom and Dad to use the cloud.
+&lt;/p&gt;
+&lt;p&gt;
+	On the desktop, download and install filezilla. &lt;pre&gt;sudo apt-get install filezilla&lt;/pre&gt; should do it on deb derivatives. Create a launcher icon that triggers the command &lt;pre&gt;filezilla sftp://myUsername:myPassword@myIP:myPort/my/root&lt;/pre&gt; which in my case became &lt;pre&gt;filezilla sftp://abhishek:password@192.168.1.10:22/var/www&lt;/pre&gt;.
+&lt;/p&gt;
+&lt;center&gt;&lt;img src=&quot;/assets/images/desktop_icon.png&quot; width=&quot;800&quot; height=&quot;600&quot;/&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src=&quot;/assets/images/filezillapi.png&quot; width=&quot;800&quot; height=&quot;600&quot;/&gt;&lt;/center&gt;
+
+&lt;p&gt;
+	On the mobile phones (we have droids, three of us), I used the &#39;add ftp server&#39; option in the &lt;a href=&quot;https://play.google.com/store/apps/details?id=com.estrongs.android.pop&amp;hl=en&quot; target=&quot;_blank&quot;&gt;ES File Explorer&lt;/a&gt; and created a shortcut on the home screen with the widgets menu. Hence, accessing the cloud was nothing more troublesome than accessing a local folder on the phone.
+&lt;/p&gt;
+&lt;center&gt;&lt;img src=&quot;/assets/images/es1.png&quot; width=&quot;480&quot; height=&quot;270&quot;&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src=&quot;/assets/images/es2.png&quot; width=&quot;480&quot; height=&quot;270&quot;&gt;&lt;/center&gt;
+&lt;center&gt;&lt;img src=&quot;/assets/images/es3.png&quot; width=&quot;480&quot; height=&quot;270&quot;&gt;&lt;/center&gt;
+&lt;p&gt;
+	Now I have my very own, secure, high speed cloud storage solution for all my devices and also for the family. It is really convenient and building a custom case for the thing, it looks pretty badass.
+&lt;/p&gt;
+&lt;center&gt;&lt;img src=&quot;/assets/images/pisetup.jpg&quot; width=&quot;480&quot; height=&quot;270&quot;&gt;&lt;/center&gt;
+&lt;p&gt;
+	What do you think?
+&lt;/p&gt;</description>
+                <link>http://www.nagekar.com/2016/01/how-to-private-local-cloud-using-raspberrypi.html</link>
+                <guid>http://www.nagekar.com/2016/01/how-to-private-local-cloud-using-raspberrypi</guid>
+                <pubDate>Mon, 11 Jan 2016 00:00:00 +0530</pubDate>
+        </item>
+
+        <item>
+                <title>Fastboot Horror</title>
+                <description>&lt;p&gt;This was the second day entirely wasted to get my external hard drive to work with the USB 3 ports on my laptop. It just refused to get detected. It worked fine on the USB 2 port, but just didn&#39;t read on the 3. Initially thought it was a Thunar issue on XFCE, but there simply wasn&#39;t any drive in the output of fdisk -l. Read up dmesg multiple times and there was this line consistently,
+&lt;/p&gt;
+
+&lt;code&gt;[sdb] Synchronize Cache(10) failed: Result: hostbyte=DID_ERROR driverbyte=DRIVER_OK&lt;/code&gt;
+
+&lt;p&gt;Googled it and read every thread on the first page of the search results, literally. I had started to doubt the USB 3 ports on the notebook now. I am on Debian testing, and thought something has broken down at the kernel level. I immediately started to download openSUSE, to see if it really is a kernel bug, because I am not brave enough to switch kernels. Anyways, I thought, let me look if the BIOS is reading the drive, and boy, what do I see. The BIOS is just not recognizing the drive. Now I began to panic. It really looks like a hardware issue.&lt;/p&gt;
+
+&lt;p&gt;In between my googling, I came across a page that provided some information. Some good guy had asked it for his Windows 8.1 laptop. There was an accepted answer. There were these simple steps, go to BIOS, find Fastboot, disable it. Aha! I said. How did I not think about that myself. Did it, and it was working again, like it should have. Fastboot does save a second each time I turn on my notebook, but this time, it costed me 2 full days. Lesson learnt. When the guys at elite forums say fastboot will prevent some hardware from being read and tested on boot, they aren&#39;t just putting a nominal warning on the door, that thing is real. &quot;Want to make your PC boot faster? Enable fastboot&quot;. No thanks.&lt;/p&gt;</description>
+                <link>http://www.nagekar.com/2016/01/fastboot-horror.html</link>
+                <guid>http://www.nagekar.com/2016/01/fastboot-horror</guid>
+                <pubDate>Fri, 08 Jan 2016 00:00:00 +0530</pubDate>
+        </item>
+
+        <item>
+                <title>The Midnight Symphony</title>
+                <description>&lt;p&gt;Its 4:07am of 2nd January on my watch and I have started to feel a little sleepy, to be honest. I have been awake this long once before, and coincidently, it was on the same platform, in the same conditions, but for a different reason. This time, it is my train back home that got late. A bit too late.&lt;/p&gt;
+
+&lt;p&gt;I am not a night owl, just so that you know. Staying awake beyond 1am is a real deal for me, unlike most of my friends and maybe, you. &quot;Hey, but all computer people work at night. That&#39;s the rule.&quot;. Well, sorry. I am that black sheep. Its been around 7 hours since I arrived on Karwar platform. I had my train at 1:28 am, which was already too late in the first place. I hardly thought I would be able to make it till 1:30, but then, here I am.&lt;/p&gt;
+
+&lt;p&gt;You know something amazing? The Earth rotates. And just because of that, you can sit at a place facing east, and have a large portion of the night sky pass slowly right in front of you. Super cool it feels, to watch Venus rise, followed by half Moon and then the red Mars, all surrounded by hundreds of stars, twinkling, right in front of you. The station is far off any junction, and the silence of the night is occassionally disturbed by an ongoing express train, whose whistle you can hear right from when it is kilometers away. Can you imagine the silence. The cold.&lt;/p&gt;
+
+&lt;p&gt;I am hardly able to type with my fingers. It is really very cold. My CPUs are at 24 and 26 degree celsius respectively, which pretty much sums up the surrounding temperature. I am wearing my napkin as a mask on my face with my hoodie on my head, to prevent my ears and nose from getting so cold that I fear touching them, seriously. In fact, when I wore the napkin on my face, my nose started to kinda defrost. Shit. That is bad. The soft breeze that comes in once in a while adds to the bone crackling cold. I had tea at 2, and the vapors that came out of the cup felt nice on my cheeks. Warm and real good.&lt;/p&gt;
+
+&lt;p&gt;I sometimes wonder, does every stomach makes dinosaur sounds when hungry? Mine does, and to avoid the public embarassment, I grabed some chips from a nearby 24/7 food stall on one side of the platform. Untill 12, I was constantly checking my phone for the live status of the train, covering myself with a sheet of cloth my mom caringly gave to me, trying to accommodate my back on the little wooden bench on the platform, but then I thought to use this rare moment on the platform to make a little note.&lt;/p&gt;
+
+&lt;p&gt;The Garibrath Express is just leaving the platform. I am a bit attracted to these fully airconditioned express trains. I want to travel in one too. Look at how magnificiant this one looks, damn! There are some 50 passengers with us on the platform, but what is really worth watching is the night station staff. They are functioning quietly, like an army of ants working without anybody  noticing. I just came to know some of their everyday post-mid-night tasks. The respect rose several folds. While we sleep peacefully in the midst of the night inside the cozy compartment of our couch in the Express train, these are the people who make sure the sleep isn&#39;t interrupted, and boy they are working real good.&lt;/p&gt;
+
+&lt;p&gt;I am glad I had Misty here with me this time. Last time on this platform, I didn&#39;t have her. I might have experienced an amazing night, but I don&#39;t have any record of that 3 year old event. The trees infront of me some 50 yards away are so quiet, you can actually see their eyes closed. It is a dense forest on the other side, with nothing for kilometers except these trees.&lt;/p&gt;
+
+&lt;p&gt;The clock on the platform is the one used by railways around a decade ago, those black and white analog ones. When I was a kid, I always asked Mom why didn&#39;t the platform watch have a seconds hand. I generally don&#39;t ask such questions these days, but I get reminded of them whenever I see those pretty objects. The amazing thing about night is that people become very easy to talk to. Everyone here is going through the same mindset, and exploiting that common linkage to explore the other uncommon corners of human nature is interesting. The station master here is friendly too. He lets me look at his console which has little LED indicator lights that show incoming and outgoing traffic. His alarm bell rings when any train is incoming and he clears the route for it on his console. Pretty neat. His dot matrix printer is making some sound, similar to the one we have in our college labs, but this one here sounds sweeter. Maybe it&#39;s just me. Master also flashes green lights to trains indicating everything is alright. It feels weird to see this human interaction, inspite of the rest of the stuff computerized. The smile that the guard of the passing train gives is yet another treat. Another train is arriving. Can you hear the tracks making that typical squeaking sound. I am yet to find out what that actually is. But that&#39;s the magic of it.&lt;/p&gt;
+
+&lt;p&gt;Its 4:52 and I am still writing. There are so many things that demand a mention. The Railway Police Guard standing confidently besides the still train is thinking about something. I wonder what that might be. The best thing about a railway platform is, it feels like a mini democracy. There are people from every section of the society, eating the same sandwich and drinking the same masala tea.&lt;/p&gt;
+
+&lt;p&gt;I think it is time for my second cup of tea as well. Thank you for being with me guys, have a great weekend. See you then.&lt;/p&gt;</description>
+                <link>http://www.nagekar.com/2016/01/The-Midnight-Symphony.html</link>
+                <guid>http://www.nagekar.com/2016/01/The-Midnight-Symphony</guid>
+                <pubDate>Sat, 02 Jan 2016 00:00:00 +0530</pubDate>
+        </item>
+
+        <item>
+                <title>Yet Another Happy Year Passed</title>
+                <description>&lt;p&gt;Howdy folks, first of all, wishing you a very happy new year. It has been a long year, in a purely poetic sense. Life went through some major ups and minor downs, but all in all, it was a great year. I would be summarizing few of the great moments that I remember in the following paragraphs.&lt;/p&gt;
+
+&lt;p&gt;The year started with a lot of confusion. I was going great with Python, but something felt missing. I missed C. I knew C was not the right thing for me, and C++ looked intimidating. I needed something that would back me well for the code competitions I participated in, so C++ or Java seemed to be the only way out. I choose C++, for it looked similar to things I already knew.&lt;/p&gt;
+
+&lt;p&gt;C++ was a great choice. I got going with it quite smoothly. I learnt the fairly advanced concepts in it, and implemented some algorithms and applications using it. But the results of the coding events I participated in didn&#39;t change much. I really sucked at them, sometimes unable to solve even 1 of the 8 problems given to be solved in the 8 to 24 hour time limit. Felt ashamed.&lt;/p&gt;
+
+&lt;p&gt;During march, we had our college technical festival, a.k.a. Technitude. All of a sudden, I and my mate Aditya found ourselves handling two of the technical events namely &#39;Code Wars&#39; and &#39;Debugging&#39;. The events were just what they sounded like and it went fairly well. I had never before been the responsible person for any such event in the past, and executing it successfully was something I was proud of. I even made great contacts with my seniors at the same time, who later became the people who guided my with many important decisions.&lt;/p&gt;
+
+&lt;p&gt;The Technitude was great, and tiresome. The committee members and we, the volunteers, worked hard to make it work. Things concluded with the afterparty, which sadly, I wasn&#39;t a part of. Anyways, things went pretty fast after the technitude. Fourth semester came and went in no time. I cleared it, marginally. C++ was still on, in the background. I bought &#39;The C++ Programming Language by Bjarne Stoustrop&#39; and started to read it.&lt;/p&gt;
+
+&lt;p&gt;In the post-semester holidays, there were a couple of other competitions, which I failed, yet again. The C++ learning wasn&#39;t helping me with the competitions as much as I expected. Probably because algorithms was what I lacked, and not a language.&lt;/p&gt;
+
+&lt;p&gt;Around in June, the startup fever took over. More than a startup, it was for refreshing my Python skills, learning a web framework called Django, and creating my first serious RESTful application. It took about a month for me to realize that a social networking backend was not really a one man business, at least not if I wanted to build it up in under a year. I deserted that ship, and started with another application along with my friend, this time entirely in Javascript. That was when the love for Javascript took over. I realized that after all these languages I have learnt, Javascript was something different. It required my to completely empty my brain of existing rules and guidelines, and start afresh. My love for Javascript will take up an &lt;a href=&quot;/2015/12/Love-For-Javascript.html&quot;&gt;entirely new article&lt;/a&gt;, so I am leaving it here.&lt;/p&gt;
+
+&lt;p&gt;In around late August or September, we had our committee elections. I was elected the Technical head, and then our committee went further to deliver an amazing Engineers&#39; day. Javascript and my new startup were in the making. Later, we got Rajashree in our team, who looked at the frontend and UI stuff. We got Nikhil, who joined the frontend team. Harshal, a budding lawyer, joined us later in November. We are five now, and while we don&#39;t work as consistently these days, we still call ourselves the Cherrylogs Dev Team, which is nice.&lt;/p&gt;
+
+&lt;p&gt;In the first week of October, I got the chance to develop the website of FabIndia&#39;s Cooltobeindian initiative. Although I and Rajashree did all that we could, they were not satisfied, and we did not get paid. Anyways, I will leave that for a &lt;a href=&quot;/2015/12/The-October-Dance-With-Cool-Indians.html&quot;&gt;separate article&lt;/a&gt; as well. That incident taught me a lot of things, especially to say &#39;No&#39;. Now, I am much comfortable in saying No to people and things that I know are not going to be worth the efforts. Result? I get much more time for things that actually make me happy, the ones that are worth it, the 20% that matters.&lt;/p&gt;
+
+&lt;p&gt;Then there were submissions, practicals and examinations. I got a Laptop in late October, which was generously given to me by Vijutai, my aunt and my mom. The post-semester holidays were spent on Javscript and Cherrylogs. I and Kunal did some work, but not a lot of it. On 23rd December, I left for Murdeshwar, Karnataka. An awesome place to spend a day or two. Then I came back to my native, Karwar, and now I am here writing this post, sitting in the hall room, thinking about the wonderful year that I have just passed.&lt;/p&gt;
+
+&lt;p&gt;Wish you all a very happy new year, yet again.&lt;/p&gt;
+</description>
+                <link>http://www.nagekar.com/2015/12/Yet-Another-Happy-Year-Passed.html</link>
+                <guid>http://www.nagekar.com/2015/12/Yet-Another-Happy-Year-Passed</guid>
+                <pubDate>Thu, 31 Dec 2015 00:00:00 +0530</pubDate>
+        </item>
+
+        <item>
+                <title>The October Dance With Some Cool Indians</title>
+                <description>&lt;p&gt;I really took long to write this story. I didn&#39;t feel like it was anything worth the time or the efforts to write one. But I really felt something recently. I got called up by a passed out senior from my college. He wanted me to work on a project he initiated. Although the project was fine, I didn&#39;t actually have the time to do it. I said &#39;No, I don&#39;t think I would be able to make it&#39;.&lt;/p&gt;
+
+&lt;p&gt;I never responded in negative with people who came to me with any tasks. That is the way I was. I just wanted to get all the experience I could, no matter how inconvenient it was for me. Mom always said, &#39;but you must see if you are free before accepting some work&#39;, I would be like, &#39;Chill, I am learning&#39;. I continued that way, because maybe, I never actually had to sacrifice anything for this &#39;extra work&#39;.&lt;/p&gt;
+
+&lt;p&gt;This was to change on 30th September this year. I got a call from a senior at night at around 10. He asked if I was willing to do web development for a company, and those guys were willing to pay too. I replied with a yes, after which I was asked to visit their office the next day, some 80KMs from my house. I even went there, to learn something about the task and quickly went on to make a rough skeleton. Pretty easy it was.&lt;/p&gt;
+
+&lt;p&gt;I came home and started working towards the final layouts as shown in the PSD file that I was given, extracting layers and cropping graphics, linking them in the one page application. Things were not as neat as it was expected from us, me and my design partner, Rajashree. The backend was finalized by 3rd October, my birthday. I didn&#39;t enjoy or celebrate a single second on that day, even though I had relatives arrived at my house. It was really stressful time. I was still trying to finish things up by 5th, working from 8am in the morning to 1-2am at night, constantly receiving calls from the guys to improvise, make changes and add features.&lt;/p&gt;
+
+&lt;p&gt;By 6th, I was done. Those were really stressful 5 days. I hadn&#39;t looked at myself in those days properly. I had submissions and exams coming up, and I wasn&#39;t a cent prepared. And it was not just about me, I had Rajashree taking up equal or in fact, even more efforts, facing similar situations. Finally, I gave up. Mailed them that I couldn&#39;t keep up any longer. We did not get paid, and that can either be justified or not depending on how you see it. Anyways, it was a great experience.&lt;/p&gt;
+
+&lt;p&gt;From a technical perspective, I didn&#39;t learn much. But somewhere I learnt what to value. Myself and my time. It is pointless to try to do everything. You just can&#39;t. No one can. A much better approach would be to give 100% to the few things that matter the most. This was a lesson for a lifetime. Now it is just me and the things that matter. Cheers!&lt;/p&gt;
+</description>
+                <link>http://www.nagekar.com/2015/12/The-October-Dance-With-Cool-Indians.html</link>
+                <guid>http://www.nagekar.com/2015/12/The-October-Dance-With-Cool-Indians</guid>
+                <pubDate>Wed, 30 Dec 2015 00:00:00 +0530</pubDate>
+        </item>
+
+        <item>
+                <title>Love For Javascript</title>
+                <description>&lt;p&gt;When it comes to choosing a programming language, I am an **. I have to admit that. Nevertheless, let&#39;s talk about my new love, Javascript.&lt;/p&gt;
+
+&lt;p&gt;When I first saw Javascript, it looked like a great language for client side scripting. Yes, a wonderful toy in the delicate hands of an UI designer. It seemed like a little language, with a small set of grammar and pretty straight forward. There wasn&#39;t much to look at, and I found myself using the language before even understanding anything about it. That is how intuitive it was, and easy to pick up.&lt;/p&gt;
+
+&lt;p&gt;Years later, I still thought I knew like 90% Javascript. What else could one think. Javascript was all but these basic loops, sloppy, forgiving syntax parser, coupled with those self explanatory event listeners that just worked. There wasn&#39;t much to think about here, so Javascript didn&#39;t even qualify as concern when working with web apps, being a backend guy.&lt;/p&gt;
+
+&lt;p&gt;This changed with my introduction to Node. The asynchronous behaviour of the APIs made me wow. Node was interesting, new and fun to write. It was everything that I never thought Javascript was, but then it was Javascript. Interestingly, as I went to write more and more code in Node and Express, I began to get stuck at even the tiniest problems. Suddenly, I was surrounded with words like callbacks, closures, event loop and prototype. Felt like I got a reintroduction to Javascript, but this time, it was not a toddler playing in it&#39;s cradle, it was something of a mysterious monster, challenging me on every other step for not having taken it seriously.&lt;/p&gt;
+
+&lt;p&gt;I spent around a month on learning Js throughly. As it turned out, understanding first class functions and object literals and many other concepts, Javascript was the most interesting thing I have touched in years. I can now see all the hustle over the Internet regarding Js. Javascript is powerful, only if you think and use it that way. The language is small, with little built in libraries that seem tiny when compared to the vast set of built in methods in Python or Ruby.&lt;/p&gt;
+
+&lt;p&gt;Having said that, I&#39;ll have to admit now, after having learnt most of the language features (finally..), that out of the many languages I have touched, Javascript is one of the most errornous language, with literally places where you shout, &#39;what on earth were they thinking&#39;, but then, language designers are humans as well, and I have learnt to ignore the bad parts. Things are going smoothly ever since.&lt;/p&gt;
+
+&lt;p&gt;I would really love to write more on Js, but maybe when I actually have something. Till then, assume I am on it, and I would encourage you to take up learning something wonderful too, in case you haven&#39;t. See you then.&lt;/p&gt;
+</description>
+                <link>http://www.nagekar.com/2015/12/Love-For-Javascript.html</link>
+                <guid>http://www.nagekar.com/2015/12/Love-For-Javascript</guid>
+                <pubDate>Wed, 30 Dec 2015 00:00:00 +0530</pubDate>
+        </item>
+
+        <item>
+                <title>The Bug Bounty Dance</title>
+                <description>&lt;p&gt;Starting with the update, I finally made myself some money with my first ever bug bounty. It was a simple logical flaw that was rewarded. I was, of course, very happy. I had dinner with my parents in a good restaurant, bought a backpack for my &lt;a href=&quot;http://www.nagekar.com/2015/11/Fujitsu-Lifebook-A514-Review.html&quot;&gt;new laptop computer&lt;/a&gt;, kept some of the cash and gave rest to my mom and dad, equally.&lt;/p&gt;
+
+&lt;p&gt;Bug bounty isn&#39;t new to me. I have been living in a community where it was not uncommon to read some or the other friend getting rewarded a bounty, every other day. As far as I remember, things were not like this in my early days. I started interacting with people in cyber security in early 2011. At that time, there were no bug bounty hunters. Some of us were into defacing websites and getting root of web servers for the fun of it. Others were more into blogging about the same. Blogs written on hacking tutorials, news updates and tool guides were dime a dozen. In fact, that was the only way in which most of the amateur pentesters could make some money out of their knowledge (see Adsense and link exchange).&lt;/p&gt;
+
+&lt;p&gt;I miss the old friends, the &#39;Killerz Hackerz Zone&#39; group we had on Facebook, where we had some helpful people, who used to guide everyone when needed, and were excellent people to talk to. A particular friend I remember had the handle &#39;Dexter India&#39;. He was virtually my brother. There were others too, teaching and learning from each other. After a while, I was made admin of that group, which was, for me, something extraordinary. I learnt a lot from people there, about what a &lt;a href=&quot;http://www.catb.org/esr/faqs/hacker-howto.html&quot; target=&quot;_blank&quot;&gt;hacker&lt;/a&gt; really is, and most important of all, how to keep digging to get what we want. There was this thing written in the group&#39;s description that read &quot;Don&#39;t be smart, be sincere. Then you&#39;ll become a hacker&quot;. A simple statement, but how true that was. It was from that time on, sincerity towards self that became a goal in my life. Learn, not for family, nor friends, nor in the least for society, but for yourself.&lt;/p&gt;
+
+&lt;p&gt;Then there were cyber wars, defacements of thousands of sites which included the top government ones. My group vanished. Friends, whom I knew by their handles, fell off the grid. I never got to hear from them again, till date. At some point in around late 2012, everyone realized at once that these cyberwars ain&#39;t helping anybody. It stopped, and the age of hunting bugs for bounty and hall of fame began. It was something new altogether. Spend your time and skills finding bugs and shortcomings in sites that offer to pay for the bugs you report them. The payouts are usually quite high, and if done consistently, much higher than what the average engineering and business school joe gets as a salary.&lt;/p&gt;
+
+&lt;p&gt;This triggered a race between researchers, which for most of them, somehow got converted from finding the deepest flaws to finding the hidden low hanging fruits that make a quick buck and take less time to find. Suddenly, it wasn&#39;t about the skills one had. It was all about who gets it first, that gets the bounty. And when a simple bug gets you around 500 in US$s, critical ones going well over few thousands, there was no reason to not invest time in this new business.&lt;/p&gt;
+
+&lt;p&gt;But I didn&#39;t. I simply lacked the guts and determination to test an application thoroughly. Maybe it was the skills that I didn&#39;t have. Whatever it was, I used to always get excited to read about bounties. It was raw money, for your time. I had, at times, tried to test an application, but never succeeded. Maybe that&#39;s why I moved from web security to web development. Right down my alley.&lt;/p&gt;
+
+&lt;p&gt;Then later in July this year, my mate &lt;a href=&quot;http://mhatre.org&quot; target=&quot;_blank&quot;&gt;Kunal&lt;/a&gt; got rewarded for a cross site scripting bug he found in a popular social network. It was a respectable sum of money, which he used to build his own PC. You know the thing with money? You don&#39;t fall for it&#39;s greed until you see the possibilities that arise from having good sum of money in your pocket. No one wants to just have loads of cash. It is the things that you can do with it, makes you want it. Similar was the case with me. I needed funds to fulfill some of my long term materialistic dreams. That was the sole motive behind &#39;researching&#39;. No, it wasn&#39;t to learn or anything, or test my skills (giggles), it was just the pure greed, that I have now tasted. Although not an awful lot, it was enough to get me a few things. Now I crave for more. Suddenly, the needs have increased. Branded bag, a prestigious phone, ultrabook. Damn.&lt;/p&gt;
+
+&lt;p&gt;The quote is still stuck on my mind. I miss those days badly.&lt;/p&gt;
+&lt;blockquote&gt;Don&#39;t be smart, be sincere. Then you&#39;ll become a hacker&lt;/blockquote&gt;
+</description>
+                <link>http://www.nagekar.com/2015/12/bug-bounty-dance.html</link>
+                <guid>http://www.nagekar.com/2015/12/bug-bounty-dance</guid>
+                <pubDate>Thu, 17 Dec 2015 00:00:00 +0530</pubDate>
+        </item>
+
+        <item>
+                <title>Vim Cheatsheet</title>
+                <description>&lt;p&gt;Started using vi, although the only reason is it being light weight [I am taking a leap of faith, hoping that it will increase my speed after some practice, as most vi gurus say]. Let me first admit it. Vi feels awful in the beginning. It is really intimidating, and I am having a hard time to remember the commands and stuff. Hence I started writing the commands I learn from google and stackoverflow in a file. Thought to post it here, for everyone.&lt;/p&gt;
+
+&lt;p&gt;I will keep the list updated as I learn more and more commands and tricks. It serves me as a reference, and hopefully will do the same for some of you.&lt;/p&gt;
+
+&lt;h4&gt;Open file&lt;/h4&gt; 
+&lt;code&gt;vim file.js&lt;/code&gt;
+
+&lt;h4&gt;Swtich to insert mode&lt;/h4&gt;
+&lt;code&gt;i&lt;/code&gt;
+
+&lt;h4&gt;Switch to append mode&lt;/h4&gt;
+&lt;code&gt;a&lt;/code&gt;
+
+&lt;h4&gt;Switch to command mode&lt;/h4&gt;
+&lt;code&gt;[ESC]&lt;/code&gt;
+
+&lt;h4&gt;Save file&lt;/h4&gt;
+&lt;code&gt;:w&lt;/code&gt;
+
+&lt;h4&gt;Save and exit&lt;/h4&gt;
+&lt;code&gt;:wq&lt;/code&gt;
+
+&lt;h4&gt;Exit [if no changes were made]&lt;/h4&gt;
+&lt;code&gt;:q&lt;/code&gt;
+
+&lt;h4&gt;Exit, discarding changes&lt;/h4&gt;
+&lt;code&gt;:q!&lt;/code&gt;
+
+&lt;h4&gt;Moving through text&lt;/h4&gt;
+&lt;code&gt;h - left&lt;/code&gt;&lt;br/&gt;
+&lt;code&gt;j - down&lt;/code&gt;&lt;br/&gt;
+&lt;code&gt;k - up&lt;/code&gt;&lt;br/&gt;
+&lt;code&gt;l - right&lt;/code&gt;&lt;br/&gt;
+
+&lt;h4&gt;Undo last operation&lt;/h4&gt;
+&lt;code&gt;u&lt;/code&gt;
+
+&lt;h4&gt;Copy current line&lt;/h4&gt;
+&lt;code&gt;yy&lt;/code&gt;
+
+&lt;h4&gt;Cut current line&lt;/h4&gt;
+&lt;code&gt;dd&lt;/code&gt;
+
+&lt;h4&gt;Paste last copied line&lt;/h4&gt;
+&lt;code&gt;p&lt;/code&gt;
+
+&lt;h4&gt;Select text&lt;/h4&gt;
+&lt;code&gt;[CTRL] + v&lt;/code&gt;&lt;br/&gt;
+&lt;code&gt;h,j,k,l ;for moving and selecting&lt;/code&gt;
+
+&lt;h4&gt;Selecting multiple lines&lt;/h4&gt;
+&lt;code&gt;[SHIFT] + v&lt;/code&gt;&lt;br/&gt;
+&lt;code&gt;j,k ;selecting lines&lt;/code&gt;
+
+&lt;h4&gt;Search through text&lt;/h4&gt;
+&lt;code&gt;:s/pattern&lt;/code&gt;
+
+&lt;h4&gt;Search and replace&lt;/h4&gt;
+&lt;code&gt;:s/pattern/replacementString&lt;/code&gt;
+
+&lt;h4&gt;Working with multiple files&lt;/h4&gt;
+&lt;code&gt;vim file1.c file2.c file2.c&lt;/code&gt;
+
+&lt;h4&gt;Next file&lt;/h4&gt;
+&lt;code&gt;:n&lt;/code&gt;
+
+&lt;h4&gt;Previous file&lt;/h4&gt;
+&lt;code&gt;:prev&lt;/code&gt;
+
+&lt;h4&gt;Go to particular file&lt;/h4&gt;
+&lt;code&gt;:b file3.c&lt;/code&gt;
+
+&lt;h4&gt;Working with multiple files [tabs]&lt;/h4&gt;
+&lt;code&gt;vim file1.c file2.c file3.c -p&lt;/code&gt;
+
+&lt;h4&gt;Move to next tab&lt;/h4&gt;
+&lt;code&gt;gt&lt;/code&gt;
+
+&lt;h4&gt;Move to previous tab&lt;/h4&gt;
+&lt;code&gt;gT&lt;/code&gt;
+
+&lt;h4&gt;List all open files [or buffers]&lt;/h4&gt;
+&lt;code&gt;:ls&lt;/code&gt;
+
+&lt;h4&gt;Commenting multiple lines&lt;/h4&gt;
+&lt;code&gt;[CTRL] + v ;to enter visual mode&lt;/code&gt;&lt;br/&gt;
+&lt;code&gt;j ;move down to select required lines&lt;/code&gt;&lt;br/&gt;
+&lt;code&gt;i ;enter insert mode&lt;/code&gt;&lt;br/&gt;
+&lt;code&gt;[ESC]&lt;/code&gt;
+
+&lt;h4&gt;Uncommenting multiple lines&lt;/h4&gt;
+&lt;code&gt;[CTRL] + v ;to enter visual mode&lt;/code&gt;&lt;br/&gt;
+&lt;code&gt;jjjl ;selecting multiple rows and columns&lt;/code&gt;&lt;br/&gt;
+&lt;code&gt;d&lt;/code&gt;
+
+&lt;h4&gt;Auto-indenting&lt;/h4&gt;
+&lt;code&gt;=&lt;/code&gt;
+
+&lt;h4&gt;Move to the start of the file&lt;/h4&gt;
+&lt;code&gt;gg&lt;/code&gt;
+
+&lt;h4&gt;Move to the end of the file&lt;/h4&gt;
+&lt;code&gt;G&lt;/code&gt;
+
+&lt;h4&gt;Auto indent entire file&lt;/h4&gt;
+&lt;code&gt;gg=G&lt;/code&gt;
+
+&lt;h4&gt;Indenting a block [starting from a paranthesis]&lt;/h4&gt;
+&lt;code&gt;=%&lt;/code&gt;
+
+&lt;h4&gt;Indenting selected lines&lt;/h4&gt;
+&lt;code&gt;V ;visual line mode&lt;/code&gt;&lt;br/&gt;
+&lt;code&gt;jj ;move down through required lines&lt;/code&gt;&lt;br/&gt;
+&lt;code&gt;&gt;&lt;/code&gt;
+
+&lt;h4&gt;Starting a shell&lt;/h4&gt;
+&lt;code&gt;:shell&lt;/code&gt;
+
+&lt;h4&gt;Executing bash without shell&lt;/h4&gt;
+&lt;code&gt;:command ;eg. :pwd&lt;/code&gt;
+</description>
+                <link>http://www.nagekar.com/2015/12/vim-cheatsheet.html</link>
+                <guid>http://www.nagekar.com/2015/12/vim-cheatsheet</guid>
+                <pubDate>Wed, 02 Dec 2015 00:00:00 +0530</pubDate>
+        </item>
+
+        <item>
+                <title>Fujitsu Lifebook A514 Review</title>
+                <description>&lt;style&gt;
+img {
+  padding: 5px;
+}
+&lt;/style&gt;
+&lt;p&gt;Hey guys, I bought the &lt;a href=&quot;http://www.amazon.in/gp/product/B012Z67QTE/ref=as_li_tl?ie=UTF8&amp;camp=3626&amp;creative=24790&amp;creativeASIN=B012Z67QTE&amp;linkCode=as2&amp;tag=abhisnagek-21&quot; target=&quot;_blank&quot;&gt;Fujitsu Lifebook A514*&lt;/a&gt;. I had a strict low budget of INR 20k and I had to squeeze the most out of that. I don&#39;t play games, nor do I watch movies and hence I could cut on the graphics card and hard disk space. A powerful processor was also not much necessary. All I needed was lots of RAM and a speedy disk. I got that.&lt;/p&gt;
+&lt;hr/&gt;
+&lt;h3&gt;Main Highlights&lt;/h3&gt;
+&lt;p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Intel i3 4005U 3rd Generation 1.7Ghz Dual Core (4 threads)&lt;/li&gt;
+  &lt;li&gt;8GB DDR3 1600Mhz RAM&lt;/li&gt;
+  &lt;li&gt;500GB HDD 5400rpm SATA III (Which I upgraded to a &lt;a href=&quot;http://www.amazon.in/gp/product/B00A1ZTZOG/ref=as_li_tl?ie=UTF8&amp;camp=3626&amp;creative=24790&amp;creativeASIN=B00A1ZTZOG&amp;linkCode=as2&amp;tag=abhisnagek-21&quot; target=&quot;_blank&quot;&gt;120GB Kingston SSD*&lt;/a&gt; worth INR 3,400)&lt;/li&gt;
+  &lt;li&gt;15.6in anti-glare display 1366x768&lt;/li&gt;
+  &lt;li&gt;Comes with no OS, clean&lt;/li&gt;
+  &lt;li&gt;VGA, HDMI, 3 USB 3.0s and 1 USB 2.0, SDHC, Mic, 3.5mm, DVD-RW, Gigabit Ethernet, Wifi a/b/g/n, Bluetooth&lt;/li&gt;
+  &lt;li&gt;Looks great, feels sturdy&lt;/li&gt;
+&lt;/ul&gt;
+&lt;a href=&quot;http://sp.ts.fujitsu.com/dmsp/Publications/public/ds-LIFEBOOK-A514.pdf&quot; target=&quot;_blank&quot;&gt;Complete spec list on fujitsu.com&lt;/a&gt;
+&lt;/p&gt;
+&lt;h3&gt;The Design&lt;/h3&gt;
+&lt;img src=&quot;/assets/images/fujitsuA514/20151125_204434.jpg&quot; /&gt;
+&lt;figcaption&gt;Top view&lt;/figcaption&gt;
+&lt;img src=&quot;/assets/images/fujitsuA514/20151125_204448.jpg&quot; /&gt;
+&lt;figcaption&gt;Security lock, ethernet, exhaust, VGA, HDMI, 3 USB 3.0s&lt;/figcaption&gt;
+&lt;img src=&quot;/assets/images/fujitsuA514/20151125_204459.jpg&quot; /&gt;
+&lt;figcaption&gt;Earpiece, mic, USB 2.0, DVD, power&lt;/figcaption&gt;
+&lt;img src=&quot;/assets/images/fujitsuA514/20151125_204522.jpg&quot; /&gt;
+&lt;figcaption&gt;Indicator LEDs, SSHD slot&lt;/figcaption&gt;
+&lt;br/&gt;
+&lt;p&gt;The laptop looks beautiful on the outside. The plastic feels premium, not glossy. It has a brushed metal finish, with a sparkling Fujitsu logo right at the back which looks fantastic. On the right, you have a DVD drive, earphone and mic jacks and a USB 2.0. On the front, there are some usual indicator LEDs and a SDHC reader. On the left there is a physical lock, ethernet, VGA, HDMI and 3 USB 3.0s. One of the 3.0s is an always on anytime charge USB, meaning that you can connect your phone to it and it will get charged even if the laptop is switched off. Overall the notebook is just like any other notebook, with most of the default functionalities and you won&#39;t miss on that.&lt;/p&gt;
+
+&lt;img src=&quot;/assets/images/fujitsuA514/20151125_204547.jpg&quot; /&gt;
+&lt;img src=&quot;/assets/images/fujitsuA514/20151125_204651.jpg&quot; /&gt;
+&lt;img src=&quot;/assets/images/fujitsuA514/20151125_210705.jpg&quot; /&gt;
+&lt;img src=&quot;/assets/images/fujitsuA514/20151125_210713.jpg&quot; /&gt;
+&lt;p&gt;On opening the lid, you&#39;ll notice a somewhat odd placement of keys. For example, the right Shift key is smaller that usual, and a double pipe (&#39;|&#39;) key is present in that place. The Enter key is a little odd shaped too. Apart from these little changes, everything is pretty standard. A power button, web cam, trackpad (larger than average). The screen is not that awesome, but pretty common for something at that price. Viewing angles are average, and it becomes hard to see beyond about 30 degrees on either side. Brightness is, too, average. The anti-glare thing works, but don&#39;t expect it to perform extremely good under the sun. The overall built quality is above average, and can easily match the slightly higher ended models from HP, Lenovo and Dell.&lt;/p&gt;
+
+&lt;h3&gt;About Performance&lt;/h3&gt;
+&lt;img src=&quot;/assets/images/fujitsuA514/overall.png&quot; /&gt;
+&lt;p&gt;Turning the device on for the first time, you will be greeted with a message to install an operating system. I went with Debian Jessie. Boot up times were good, and the laptop felt snappy. The performace is good if you are not much into graphics and animated stuff. I haven&#39;t tested it but GNOME felt smooth and XFCE is, of course, lagless. There was no problem finding drivers for Wifi (you can actually just apt-get them), and sound was smooth too. Pulse ran without a problem, and though the sound of the notebook speakers is not an awful lot, it just works.&lt;/p&gt;
+
+&lt;h3&gt;Getting SSD&lt;/h3&gt;
+&lt;img src=&quot;/assets/images/fujitsuA514/bench.png&quot; /&gt;
+&lt;p&gt;As I mentioned, I replaced the stock 500GB hard disk that came with it with a Kingston 120GB solid state drive. My needs were not a lot of disk space, but a fast disk. The benefits can be seen right from the time you install the OS. It takes about a third of the time to get the OS installed and I was done with Debian stable in under 15 minutes. The boot up time went down from 15-20 seconds to 3-4 seconds. Is it worth to go for an SSD and sacrifice on disk space? Well, it depends. Do you do a lot of compiling, I/O and work with Intellij IDEs, Android Studio and stuff? Do you not care about backing up important data like photos, songs and movies or have a secondary storage device for it? Your productivity increases on a fast system (which is pretty obvious)?. You are not planning to dual boot it? If all or most of your answers to the previous questions are yes, then you can say it is time to invest in an SSD.&lt;/p&gt;
+
+&lt;h3&gt;Lastly..&lt;/h3&gt;
+&lt;p&gt;The battery life is good. I had it running for about 3 hours and the battery has gone down from 100% to 64%, doing all kinds of stuff like installing softwares off the internet and the like. The laptop is producing very little heat, probably due to the low clock of the CPU.&lt;/p&gt; 
+
+&lt;p&gt;Finally, I think Fujitsu is a great brand which I realized after getting my hands over it. Maybe like most of you reading this, I was quite skeptic about putting 20 grands on a company which I had not heard much about. I would have well settled for a &#39;reputed&#39; brand like HP or Dell with half the features, but I risked it a bit, and in the end, I am extremely happy about me choice. If you are at a stage where you are not able to decide whether or not to go for this brand, I hope to have given you an answer. This review is for those like me, who buy smartly, decide which product to buy, read reviews and stuff online, before handing over their hard earned money to someone else.&lt;/p&gt;
+
+&lt;p&gt;Have a thought? Drop it in the comments below. Peace&lt;/p&gt;
+
+&lt;p&gt;&lt;i&gt;*links contain tracking code*&lt;/i&gt;&lt;/p&gt;
+</description>
+                <link>http://www.nagekar.com/2015/11/Fujitsu-Lifebook-A514-Review.html</link>
+                <guid>http://www.nagekar.com/2015/11/Fujitsu-Lifebook-A514-Review</guid>
+                <pubDate>Wed, 25 Nov 2015 00:00:00 +0530</pubDate>
+        </item>
+
+        <item>
+                <title>Guide To Online Passport Application In India</title>
+                <description>&lt;p&gt;If you read my recent posts, you know I went to the &lt;a href=&quot;http://www.nagekar.com/2015/11/Passport-Office.html&quot;&gt;passport office&lt;/a&gt; for the purpose of document verification. It went as smooth as it could, but before all this, before submitting the form, I didn&#39;t have the slightest clue what all I had to do, and I learnt most of the technicalities from various sources on the Internet. So here I am, writing this guide.&lt;/p&gt;
+
+&lt;p&gt;There are three parts to this guide, as well as the entire process. Firstly, there is the online &lt;i&gt;form filling&lt;/i&gt; part, followed by the &lt;i&gt;onsite documents verification&lt;/i&gt; and lastly the &lt;i&gt;police verification&lt;/i&gt;. Before you get into the process, make sure you have some documents. Documents that are required vary person to person according to your details (you can use the &lt;a href=&quot;http://passportindia.gov.in/AppOnlineProject/docAdvisor/attachmentAdvFresh&quot;&gt;document advisor&lt;/a&gt; on their official website), but you&#39;ll basically need one proof of date of birth, one residential proof and a &lt;a href=&quot;http://passportindia.gov.in/AppOnlineProject/onlineHtml/NonEcrDocuments.html&quot; target=&quot;_blank&quot;&gt;Non ECR&lt;/a&gt; category proof. Ideally, you should keep at least 2 of the former two proofs handy (You&#39;ll know why in a moment). For most of you reading this, the Non ECR would mean SSC (matriculation) certificate. Yes, that is all. In my case, I had my birth certificate as the proof of date of birth, BSNL landline bill as the residential proof and matriculation certificate as the proof of non ECR.&lt;/p&gt;
+
+&lt;h3&gt;Form Filling&lt;/h3&gt;
+&lt;p&gt;&lt;ul&gt;
+  &lt;li&gt;Handy tip; Since the form is quite large compared to other forms you might have filled and requires your attention, if you happen to take a break while filling in the form, you can click the &#39;Save my details&#39; link at the bottom of the page to save your progress in case of any failure.&lt;/li&gt;
+  &lt;li&gt;Go to &lt;a href=&quot;http://passportindia.gov.in/AppOnlineProject/welcomeLink&quot; target=&quot;_blank&quot;&gt;Passport India&#39;s website&lt;/a&gt; and click &quot;New User Registration&quot; link. Create an account on the following page. NOTE that this is just an account so the details here are of little value.&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;After setting up the account and verifying the email address, go to &#39;Applicant&#39;s Home&#39; and select apply for a fresh passport. You will be presented with options to either download the form or fill it up online. Since you are reading this article on the Internet, you can freely select the &#39;fill online&#39; option.&lt;/li&gt;
+  &lt;li&gt;&lt;b&gt;Passport Type:&lt;/b&gt; You should select the &#39;fresh passport&#39; radio button, since this is your first application. Otherwise, accordingly. The type of application can be any one of &#39;normal&#39; or &#39;tatkal&#39; depending on your need, and so is the option for passport booklet size. It will increase the total cost of the application, if you go for them. I kept it to normal and 36 pages.&lt;/li&gt;
+  &lt;li&gt;&lt;b&gt;Applicant Details:&lt;/b&gt; Add your personal details here. Triple check everything for spellings and numbers. It will save you a lot of headache. Try to enter as much information as possible, and also cross check if the same details are present on your document proofs. Give special attention to spellings in your name.&lt;/li&gt;
+  &lt;li&gt;&lt;b&gt;Family Details:&lt;/b&gt; Fill in your family details. Same instructions as that for applicant details.&lt;/li&gt;
+  &lt;li&gt;&lt;b&gt;Present Residential Address:&lt;/b&gt; Fill in your address, and make sure it matches with the one on your bills and other documents that you are planning to submit at the passport office. You&#39;ll need to provide previous address proof if your current address is newer than 1 year (i.e. you are living in your current residence for less than 1 year)&lt;/li&gt;
+  &lt;li&gt;&lt;b&gt;Emergency Contact:&lt;/b&gt; Person to contact in any case of emergency.&lt;/li&gt;
+  &lt;li&gt;&lt;b&gt;References:&lt;/b&gt;People in your neighbourhood who can confirm your identity and address, like friends, relatives or any neighbours.&lt;/li&gt;
+  &lt;li&gt;The next few pages should be usual form filling, and doesn&#39;t carry much information weightage, compared to the previous sections. Once done, verify the details of your passport. Verify it again, and ask someone else to do it too.&lt;/li&gt;
+  &lt;li&gt;Verify the self declaration, and when sure everything is all right, submit the application.&lt;/li&gt;
+  &lt;li&gt;This will do for now. Your application is filled and ready. Now you can browse to the &#39;View Saved/Submitted&#39; applications and your application should be there. There are some things that you can do from here. First of all, you will have to &#39;pay and schedule the appointment&#39;. If you had been following as per the normal procedure, you should have an invoice of INR1500 here. You can either pay online or as a chalan from SBI. I would, of course, recommend you to pay it online, and save yourself the hassle.&lt;/li&gt;
+  &lt;li&gt;The payment process is similar to any online transaction. No surprises here.&lt;/li&gt;
+  &lt;li&gt;After the payment, the system will show you available appointment dates and their locations. Select one from those, or you can schedule it later. Select the nearest one and note the exact time. They don&#39;t tolerate latecomers and you would have to reschedule the appointment if you miss it, even by 10 minutes.&lt;/li&gt;
+  &lt;li&gt;After confirming the appointment date, take a printout of the application, get your documents attested with 2 copies of each.&lt;/li&gt;
+  &lt;li&gt;You are now ready for the next step, visit to the PSK - Passport Seva Kendra&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Passport Seva Kendra&lt;/h3&gt;
+&lt;p&gt;&lt;ul&gt;
+  &lt;li&gt;Depending upon how far you stay from the PSK, try to reach the place at least 30 minutes ahead of reporting time. PSK will have an ATM machine, snacks counter, zerox machine, PCs with Internet access and washroom, in case you were wondering. Make sure you carry the application letter&#39;s copy, document proofs (original and attested zerox), extra documents that you have.&lt;/li&gt;
+  &lt;li&gt;Keep the documents handy. When it is time, you will first be checked by the security for valid documents and application letter, along with other security stuff. Only the applicant is allowed inside the PSK, unless there is a special exception or your applicant is a minor.&lt;/li&gt;
+  &lt;li&gt;After you get inside the PSK, you should notice queues, with some marked &#39;tatkal&#39;. Get into the non-tatkal queue (of course, if applicable). You will be asked to show your originals and zeroxed documents. The person at the counter should inspect them and put them into a folder marked &#39;confidential&#39;. Along with it, you will receive a token slip. Keep it infront of you and note the token number.&lt;/li&gt;
+  &lt;li&gt;Next up, you will be waiting for your token number to appear on the screen. When it appears, note the associated counter number (like &#39;A13&#39;) carefully.&lt;/li&gt;
+  &lt;li&gt;&lt;b&gt;Counter A:&lt;/b&gt; Here, you will have to show your documents. The person at the counter will assess them, ask you to add something if something is missing and point out other errors. It is likely that you will get stuck at this stage if there are any problems with your documents. If not, then you&#39;ll be asked to smile for a photo, and give away your finger and thumb prints. You&#39;ll also be asked if you would like to have SMS alerts for further notifications at INR35. Get it if you need, although not necessary. If all goes well, they&#39;ll ask you to move to the next counter.&lt;/li&gt;
+  &lt;li&gt;&lt;b&gt;Counter B:&lt;/b&gt; Same procedure goes here, only the document verification is done strictly at this stage. Every detail is cross checked line by line, and errors are noted. You&#39;ll be told if you have any errors that need to be taken care of. Otherwise, you are good to go.&lt;/li&gt;
+  &lt;li&gt;&lt;b&gt;Counter C:&lt;/b&gt; Here, the person will check the originals lightly, question you a thing or two if there were any errors at the B or A counter, and if everything goes right, the person will keep your zeroxed documents&#39; folder and ask you to submit the token slip.&lt;/li&gt;
+  &lt;li&gt;Submit the token slip at the next counter, and you will receive an acknowledgement stating the status of your application, and the token slip back. Fill in the feedback form on the back of the token slip, and submit it to the exit security.&lt;/li&gt;
+  &lt;li&gt;If your acknowledgement form reads &#39;&lt;font style=&quot;color:green&quot;&gt;status: granted&lt;/font&gt;&#39; then it means all went well. You can return home and wait for the call from your local police station for police verification. In case it doesn&#39;t, then the exact error will be written. Rectify those and visit the PSK on the given appointment date, and get your application granted.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Police Verification&lt;/h3&gt;
+&lt;p&gt;Now that you are done with things from your side, you can wait for a call from the police department of your area. Meanwhile, you can visit your profile and click &#39;track application status&#39; to check on what stage your application currently is. During this time, authorities will inspect your civil/criminal records and stuff like that to make sure you&#39;re a good citizen. It should not be a problem for most of us.&lt;/p&gt;
+&lt;i&gt;This section will be updated with more details as soon as I go through this phase.&lt;/i&gt;
+&lt;hr&gt;
+&lt;h3&gt;Next&lt;/h3&gt;
+&lt;p&gt;Assuming that you are done with the police verification, the police will send the recommendations back to the passport office. It would contain details and depending on those, they&#39;ll further enquire and review your application or they will send the passport to print. If the latter is the case, then you can expect your passport within a month via speed post.&lt;/p&gt;
+
+</description>
+                <link>http://www.nagekar.com/2015/11/Guide-Passport-Application-India.html</link>
+                <guid>http://www.nagekar.com/2015/11/Guide-Passport-Application-India</guid>
+                <pubDate>Sat, 07 Nov 2015 00:00:00 +0530</pubDate>
+        </item>
+
+        <item>
+                <title>Passport Office</title>
+                <description>&lt;p&gt;Today, I had an appointment at the passport office for document verification at 10.30 in the morning. To be honest, I was worried, not because I had any problem in any of the documents, but because the thought of visiting a government office makes me nauseatic.&lt;/p&gt;
+
+&lt;p&gt;Have you ever visited a Government office, where you spent hours rushing from one counter to other, facing people at every stage who don&#39;t give the tiniest bit of importance to your existence, and you felt like you are in a totally different hostile country altogether? If yes, then you know exactly what I&#39;m talking about here.&lt;/p&gt;
+
+&lt;p&gt;But today was something different. Although the reporting time was 10:30, I reached the place by 10, just in case. I was expecting hour long queues and chaos, but to my surprise, it was not that way. There was a queue, but there were hardly 10 people in it. After about 10 minutes of reaching, the security guard, who stood by the entry gate, called upon every one who had the reporting time of 10:30. He looked at our documents at a glance, did the physical security checks and we were in. It was still 10:20 on my watch. I went inside, where there were multiple counters. I stood in one of those. When my turn came, the lady at the counter took all my zeroxed documents and attached them to a file along with the application form. She gave me a form which had a token number on it. I was unsure about what to do next, but a helpful voice again called me and guided me towards the next room.&lt;/p&gt;
+
+&lt;p&gt;The next room was a large air conditioned hall, with a canteen, a zerox machine and many such convenience stuff. More importantly, it had three large LCD displays which displayed a table of token numbers and their corresponding counter locations. I sat there for around 10 minutes when I saw &quot;N150 - A7&quot; on the screen. I got up and went to the A7 counter. A lady there read all my documents and asked me to zerox a few more things. I did as she said. Then she captured my photograph, took my finger and thumb prints, and asked me to go ahead. All in all, the entire main hall and &#39;A&#39; section took 30 minutes.&lt;/p&gt;
+
+&lt;p&gt;Next up, I was in a waiting room with other people, where there were the same monitors. Here I had to wait around 15 minutes before I saw &quot;N150 - B3&quot;. On this &#39;B&#39; counter, a lady verified every detail line by line, going through each minor issue. After this, she returned my documents and told me to wait for the third counter. I went into the same room as that earlier and waited for the next call. Somewhere around 15 minutes later, I saw &quot;N150 - C7&quot; on the screen. Here, I was greeted by a very pleasant man, who smiled as I entered. He looked at the documents, doing some typing at the same time. After about 30 seconds, he kept the folder, returned me my originals, and said, &quot;You&#39;re done here. Submit the token, and then you may leave&quot;. I smiled and gathered my originals, giving way to the next guy standing behind me. I checked my watch. It was 11:15. I returned the token slip, and went towards the exit. A very polite guard asked me to fill the feedback form, which had all sorts of questions. It should not be surprising that they deserved an &#39;excellent&#39; in almost all questions. I then left the premises, got into a rickshaw and went home, with a totally changed mindset for Government offices. Oh boy, I wish all government offices were like that.&lt;/p&gt;
+
+&lt;p&gt;Summarizing my experiences, the entire process was smooth as silk. It was because of the excellent management of the people who worked there. They deserve the entire credits. Not a single person looked like he/she was forced to work there, something you often see in such places (My personal experience with SBI bank). Everyone made me feel good, and my work important. I was treated nicely, even though I didn&#39;t get down from a VIP car at their premises, or had a call from a bureaucrat beforehand. The entire process was way better then what I could have ever imagined.&lt;/p&gt;
+
+&lt;p&gt;Lastly, a big thank you on behalf of me and the thousands others who visit these Passport Seva Kendra all over the nation with dreams in their minds. While I was sitting in the initial hall, I noticed a quote from Mahatma Gandhi, that hung down a large poster. I couldn&#39;t photograph it since it was prohibited, but this was the exact quote. I am happy that they didn&#39;t just put it, but were following it on every step. Thank you!&lt;/p&gt;
+&lt;center&gt;&lt;blockquote&gt;“A customer is the most important visitor on our premises. He is not dependent on us. We are dependent on him. He is not an interruption in our work. He is the purpose of it. He is not an outsider in our business. He is part of it. We are not doing him a favor by serving him. He is doing us a favor by giving us an opportunity to do so.”&lt;/blockquote&gt;&lt;/center&gt;
+</description>
+                <link>http://www.nagekar.com/2015/11/Passport-Office.html</link>
+                <guid>http://www.nagekar.com/2015/11/Passport-Office</guid>
+                <pubDate>Tue, 03 Nov 2015 00:00:00 +0530</pubDate>
+        </item>
+
+        <item>
+                <title>CSS Crash Course</title>
+                <description>&lt;p&gt;I have a friend, who happens to be a good C and assembly programmer, but simply hates anything related to web, then be it HTML, CSS or anything way too much abstracted for that matter. Since it was compulsory for us to make our own web application project for college, he struggled to learn it (CSS and HTML) from here and there, cursing it at the same time. Hence this little guide, for all those of you who hate it, but still want to get your work done.&lt;/p&gt;
+
+&lt;h3&gt;A thing or two about CSS&lt;/h3&gt;
+&lt;p&gt;CSS isn&#39;t a markup language. It is a styling language, and hence, it won&#39;t really work if you have no document in the first place. Creating a document simply means adding some data to HTML tags in a web page. Here onwards, document would mean the HTML page that we are working on. Let us create one as an example.&lt;/p&gt; 
+&lt;code&gt;
+  &amp;lt;!DOCTYPE html&amp;gt;&lt;br/&gt;
+  &amp;lt;head&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;title&amp;gt;Testing&amp;lt;/title&amp;gt;&lt;br/&gt;
+  &amp;lt;/head&amp;gt;&lt;br/&gt;
+  &amp;lt;body&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;h1&amp;gt;Awesome Site&amp;lt;/h1&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;h3&amp;gt;A little heading&amp;lt;/h3&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;p&amp;gt;A paragraph containing some text&amp;lt;/p&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;h3&amp;gt;Some information&amp;lt;/h3&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;p&amp;gt;More text...&amp;lt;/&amp;gt;&lt;br/&gt;
+  &amp;lt;/body&amp;gt;&lt;br/&gt;
+  &amp;lt;/html&amp;gt;&lt;br/&gt;
+&lt;/code&gt;
+&lt;p&gt;This is a very basic example that would display something like the following. You can guess what each tag stands for here, if not, &#39;h&#39; tag stands for heading, &#39;h1&#39; being the largest to &#39;h6&#39; being the smallest. &#39;p&#39; stands for paragraph, and there are many &lt;a href=&quot;http://www.w3schools.com/html/&quot; target=&quot;_blank&quot;&gt;such tags&lt;/a&gt;, which are used as and when required.&lt;/p&gt;
+&lt;iframe src=&quot;/assets/css_files/test1.html&quot; width=&quot;100%&quot; height=&quot;auto&quot;&gt;&lt;/iframe&gt;
+&lt;p&gt;Now it is time to style our document. I will place all the CSS styling in a &lt;code&gt;&amp;lt;style&amp;gt;&lt;/code&gt; tag, which I will be placing into the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; of the document. Now you must know that I could do the exact same thing by using an external CSS file and linking it, or by styling individual elements using inline CSS. We will see what those are later. I think the main heading should be red, the subordinate headings should be green and the paragraphs should be orange. I also think the background should be a little off white. Let&#39;s see how that translates into CSS.&lt;/p&gt;
+&lt;code&gt;
+ body {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;background-color: #eee;&lt;br/&gt;
+  }&lt;br/&gt;
+  h1 {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;color: red;&lt;br/&gt;
+  }&lt;br/&gt;
+  h3 {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;color: green;&lt;br/&gt;
+  }&lt;br/&gt;
+  p {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;color: orange;&lt;br/&gt;
+  }
+&lt;/code&gt;
+&lt;p&gt;Now that we have styled our page, let&#39;s take another look at it.&lt;p&gt;
+&lt;iframe src=&quot;/assets/css_files/test2.html&quot; width=&quot;100%&quot; height=&quot;auto&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Looks like it works, although it is looking ugly. Anyways, what we have used here is the &lt;i&gt;element selector&lt;/i&gt; of CSS which, not surprisingly, selects the elements matching the tag name and applies the properties defined for it.&lt;/p&gt;
+
+&lt;h3&gt;ID and Class selectors&lt;/h3&gt;
+
+&lt;p&gt;Now, there may be times when you have multiple elements with same tag names but you want to apply CSS properties to only specific element(s). That is where the &#39;id&#39; and the &#39;class&#39; selector comes in. Note that however, the class here does now refer to anything from your object oriented programming books. It only gives those elements with that class a particular grouping. You can use any one of &#39;id&#39; and &#39;class&#39; as per your liking for now, but conventionally, we use &#39;id&#39; for uniquely identifying elements and &#39;class&#39; for grouping similar elements. Technically, there is an additional difference of precedence here, with the &#39;id&#39; having more precedence than &#39;class&#39;. My personal rule is that, for custom CSS use &#39;id&#39;, since frameworks like Bootstrap (which we will check out later on) usually use &#39;class&#39;.&lt;/p&gt;
+
+&lt;p&gt;Now we shall rewrite the document adding an id attribute to each tag name.&lt;/p&gt;
+
+&lt;code&gt;
+&amp;lt;body&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;h1 id=&amp;quot;logo&amp;quot;&amp;gt;Awesome Site&amp;lt;/h1&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;h3 id=&amp;quot;heading&amp;quot;&amp;gt;A little heading&amp;lt;/h3&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;p id=&amp;quot;content&amp;quot;&amp;gt;A paragraph containing some text&amp;lt;/p&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;h3 id=&amp;quot;other-heading&amp;quot;&amp;gt;Some information&amp;lt;/h3&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;p id=&amp;quot;other-content&amp;quot;&amp;gt;More text...&amp;lt;/&amp;gt;&lt;br/&gt;
+&amp;lt;/body&amp;gt;&lt;br/&gt;
+&lt;/code&gt;
+
+&lt;p&gt;and we shall change the CSS accordingly&lt;/p&gt;
+
+&lt;code&gt;
+  #logo {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;color: red;&lt;br/&gt;
+  }&lt;br/&gt;
+  #heading {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;color: green;&lt;br/&gt;
+  }&lt;br/&gt;
+  #other-heading {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;color: olive;&lt;br/&gt;
+  }&lt;br/&gt;
+  #content {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;color: orange;&lt;br/&gt;
+  }&lt;br/&gt;
+  #other-content {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;color: purple;&lt;br/&gt;
+  }
+&lt;/code&gt;
+
+&lt;p&gt;The resulting page looks something like this, with each of the individual elements appearing in different color.&lt;/p&gt;
+
+&lt;iframe src=&quot;/assets/css_files/test3.html&quot; width=&quot;100%&quot; height=&quot;auto&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Note that we could have well written &#39;class&#39; instead of &#39;id&#39; in our document, but then instead of &lt;code&gt;#logo&lt;/code&gt; it would have been &lt;code&gt;.class&lt;/code&gt;, which is the class selector. Having learnt two selectors, we can now combine them to get the desired result. For example, &lt;code&gt;h3#heading { color: blue; }&lt;/code&gt; would turn &lt;span style=&quot;color: blue;&quot;&gt;blue&lt;/span&gt; all the h3 tags that have a &lt;i&gt;&lt;b&gt;id=&quot;heading&quot;&lt;/b&gt;&lt;/i&gt; attribute declared. Similarly, &lt;code&gt;h3.heading { color: blue; }&lt;/code&gt; would result in the same thing to all the h3 tags with &lt;i&gt;&lt;b&gt;class=&quot;heading&quot;&lt;/b&gt;&lt;/i&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Group selectors&lt;/h3&gt;
+
+&lt;p&gt;Group selectors are used to apply properties to multiple elements at once. Multiple elements are separated by commas.&lt;/p&gt;
+
+&lt;code&gt;
+  #logo {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;color: red;&lt;br/&gt;
+  }&lt;br/&gt;
+  #heading {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;color: green;&lt;br/&gt;
+  }&lt;br/&gt;
+  #other-heading {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;color: olive;&lt;br/&gt;
+  }&lt;br/&gt;
+  #content {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;color: orange;&lt;br/&gt;
+  }&lt;br/&gt;
+  #other-content {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;color: purple;&lt;br/&gt;
+  }&lt;br/&gt;
+  /* Selecting all three tag names at once. */&lt;br/&gt;
+  h1, h3, p {&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;background-color: yellow;&lt;br/&gt;
+  }&lt;br/&gt;
+&lt;/code&gt;
+
+&lt;p&gt;Which will look like&lt;/p&gt;
+
+&lt;iframe src=&quot;/assets/css_files/test4.html&quot; width=&quot;100%&quot; height=&quot;auto&quot;&gt;&lt;/iframe&gt;
+
+&lt;h3&gt;Descendant selectors&lt;/h3&gt;
+
+&lt;p&gt;Sometimes, CSS properties needs to be applied only to tags within a specific tag or id. In such situations, the descendant selector comes in handy.&lt;/p&gt;
+
+&lt;code&gt;
+&amp;lt;!DOCTYPE html&amp;gt;&lt;br/&gt;
+&amp;lt;head&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;title&amp;gt;Testing&amp;lt;/title&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;style&amp;gt;&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ul em {&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;font-size: 1.25em;&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;/style&amp;gt;&lt;br/&gt;
+&amp;lt;/head&amp;gt;&lt;br/&gt;
+&amp;lt;body&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;p&amp;gt;Look what I&amp;apos;ve &amp;lt;em&amp;gt;got for ya!&amp;lt;/em&amp;gt;&amp;lt;/p&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;p&amp;gt;&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;ul&amp;gt;&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;li&amp;gt;item 1&amp;lt;/li&amp;gt;&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;li&amp;gt;item 2&amp;lt;/li&amp;gt;&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;li&amp;gt;item 3&amp;lt;/li&amp;gt;&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;li&amp;gt;&amp;lt;em&amp;gt;this looks abnormal&amp;lt;/em&amp;gt;&amp;lt;/li&amp;gt;&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;li&amp;gt;item 5&amp;lt;/li&amp;gt;&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;/ul&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;p&amp;gt;&lt;br/&gt;
+&amp;lt;/body&amp;gt;&lt;br/&gt;
+&amp;lt;/html&amp;gt;&lt;br/&gt;
+&lt;/code&gt;
+
+&lt;p&gt;And this will render&lt;/p&gt;
+
+&lt;iframe src=&quot;/assets/css_files/test5.html&quot; width=&quot;100%&quot; height=&quot;auto&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;Look how the &lt;em&gt;emphasis&lt;/em&gt; at the top is normal but the one in the &#39;ul&#39; is enlarged. There is another similar selector called the child selector. It works similar to descendant selector but demands the child to be DIRECT descendant of the parent. For example, &lt;code&gt;p &gt; a { color: green; }&lt;/code&gt; will cause only the anchors directly children to any paragraph to look &lt;span style=&quot;color: green;&quot;&gt;green&lt;/span&gt;. These are the various selectors that you would see and probably use when dealing with web applications. Simple enough, aren&#39;t they?&lt;/p&gt;
+
+&lt;h3&gt;&amp;lt;div&amp;gt; and &amp;lt;span&amp;gt;&lt;/h3&gt;
+
+&lt;p&gt;Although div and span are html tags, any modern web application that you will write will heavily make use of these to group sections of the web page together. You might be familiar with the layouts of most websites these days, with a header on top, one or two column in the center with content and other options, and a footer at the bottom. Even on my blog, you&#39;ll notice these three things. How are they made, and how to make them look so distinct that on the first glance, your visitors know what their purpose is. The answer lies in making proper divs and adding appropriate CSS to it. Div is a block element, which means that it is used to style multiple elements at once. Span, on the other hand, is inline, that is, it is used to style little chunks of content.&lt;/p&gt;
+
+&lt;p&gt;I will write the 4 sections of a website I mentioned earlier, using divs. Read the code and you would understand what is happening.&lt;/p&gt;
+
+&lt;code&gt;
+
+&amp;lt;!DOCTYPE html&amp;gt;&lt;br/&gt;
+&amp;lt;head&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;title&amp;gt;Testing&amp;lt;/title&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;style&amp;gt;&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;* {&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;text-align: center; &lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#header {&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;background-color: red;&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;height: 50px;&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#container {&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;width: auto;&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;margin: 0 auto;&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#body {&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;width: 75%;&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;float: left;&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;background-color: grey;&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#side {&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;width: 25%;&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;float: right;&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;background-color: blue;&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#footer {&lt;br/&gt;
+      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;background-color: green;&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;/style&amp;gt;&lt;br/&gt;
+&amp;lt;/head&amp;gt;&lt;br/&gt;
+&amp;lt;body&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;div id=&amp;quot;header&amp;quot;&amp;gt;&amp;lt;h3&amp;gt;Header Text&amp;lt;/h3&amp;gt;&amp;lt;/div&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;div id=&amp;quot;container&amp;quot;&amp;gt;&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;div id=&amp;quot;body&amp;quot;&amp;gt;&amp;lt;p&amp;gt;Content goes here&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;br/&gt;
+    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;div id=&amp;quot;side&amp;quot;&amp;gt;&amp;lt;p&amp;gt;Sidebar&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;/div&amp;gt;&lt;br/&gt;
+  &amp;nbsp;&amp;nbsp;&amp;lt;div id=&amp;quot;footer&amp;quot;&amp;gt;&amp;lt;p&amp;gt;Copyrights&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;br/&gt;
+&amp;lt;/body&amp;gt;&lt;br/&gt;
+&amp;lt;/html&amp;gt;&lt;br/&gt;
+
+&lt;/code&gt;
+
+&lt;p&gt;This sure looks beautiful, doesn&#39;t it?&lt;/p&gt;
+
+&lt;iframe src=&quot;/assets/css_files/test6.html&quot; width=&quot;100%&quot; height=&quot;auto&quot;&gt;&lt;/iframe&gt;
+
+&lt;p&gt;This completes the CSS syntax part. I did mention that you can write all your CSS in a file.css and include them in your document head with &lt;code&gt;&amp;lt;link href=&quot;/assets/style.css&quot; rel=&quot;stylesheet&quot;&amp;gt;&lt;/code&gt; so that it is easier to maintain the code. There is yet another way to add CSS, which makes use of @import syntax. It is better avoided for the &lt;a href=&quot;http://stackoverflow.com/questions/10036977/best-way-to-include-css-why-use-import&quot; target=&quot;_blank&quot;&gt;linked reasons&lt;/a&gt;.
+
+&lt;p&gt;Now that you are well equipped with the necessary things to learn some actual and practical CSS, you must be really excited to read from w3schools. It is a great site to begin, and since it comes on top each time you search for anything related to CSS (or web programming, for that matter), you may use it as your sole reference guide. Nothing bad, but keep in mind that after leaving your nutshell, you should &lt;a href=&quot;http://www.w3fools.com/&quot; target=&quot;_blank&quot;&gt;avoid that site&lt;/a&gt;, and start using some reputed docs instead, like the ones from &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS&quot; target=&quot;_blank&quot;&gt;Mozilla&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3&gt;CSS Frameworks&lt;/h3&gt;
+
+&lt;p&gt;To speed up the development process, you might want to check out some libraries out there that would ease your life. One of the best is &lt;a href=&quot;http://getbootstrap.com/&quot;&gt;Bootstrap&lt;/a&gt;. It would enable you to do rapid development, with minimal typing. Bootstrap comes with jQuery, a Javascript library which also helps a lot dealing with web application stuff you are about to deal with. There is not much point reading the official docs if you only want to get the work done. Instead, I would suggest you to Google out things, pick up code on the way, keep going. That is exactly how I used to do stuff back then, when I hated to write CSS and HTML. Bad advice, but gets the job done most of the times.&lt;/p&gt;
+
+&lt;h3&gt;Outro&lt;/h3&gt;
+
+&lt;p&gt;CSS is amazing. Web is amazing. Today is a time when you either have to love the web, or keep fighting a losing battle convincing yourself that you don&#39;t need it. Either way, knowing a thing or two about how the web pages that you spend more than half of your time on, are styled, is always a plus. As always, for anything, the comment box is always there. Corrections, please. Liked the article? Suggest it to your friends! Thank you for reading.&lt;p&gt;
+
+
+
+
+
+
+
+</description>
+                <link>http://www.nagekar.com/2015/10/CSS-Crash-Course.html</link>
+                <guid>http://www.nagekar.com/2015/10/CSS-Crash-Course</guid>
+                <pubDate>Fri, 09 Oct 2015 00:00:00 +0530</pubDate>
+        </item>
+
+        <item>
+                <title>Birthday Week</title>
+                <description>&lt;p&gt;Here it comes, finally, my birthday. Not that it is something new this time, but surely one of the special ones because I passed another decade here on Earth. Last time this happened, I didn&#39;t realize how important it was, maybe because I was just 10 back then. But this time, it would be different. I realized I have moved around the Sun 20 times now, which is amazing, because I have travelled around 18.8 trillion kilometers, since my birth, &lt;a href=&quot;https://en.wikipedia.org/wiki/Earth%27s_orbit&quot; target=&quot;_blank&quot;&gt;&lt;i&gt;relative to the sun&lt;/i&gt;&lt;/a&gt;. That is a lot.&lt;/p&gt;
+
+&lt;p&gt;On 3rd of October this year, I will have lived some 7305 days which comes to about 613 million seconds. Woah! Good going. I travel a lot, and almost all of it is from and to my college. My college is 61 kilometers from home, and I am into it for the last 2 and a half years. Considering a usual semester to be of 3 months (which is lower bound for most semesters) and a usual month to have 22 working days, in the last 5 semesters I have travelled around 40,260 kilometers; a little more than the circumference of the earth at the equator. I wish I had had the fortune to visit another country or even distant parts of my own, but that&#39;s all right.&lt;/p&gt;
+
+&lt;p&gt;20 years is a lot of time. From a pilot, to astronaut, to a star gazer and now a computer guy who talks code and science. My ambitions never ceased to motivate me. There have been some really nice moments, like getting into an engineering college, getting a personal computer and a mobile phone, good friends who love food and all. I was fortunate enough to be born in a family where I get all that I needed, to do things that I love, because what I am looking at is 20% of &lt;a href=&quot;https://en.wikipedia.org/wiki/Poverty_in_India&quot; target=&quot;_blank&quot;&gt;poverty in India&lt;/a&gt;; people who earn less than INR26 a day. Life has been really good, somehow. Hopefully I use it to the fullest, make some contribution to this world, earn money so that I can buy all those things I had wished for. Earn respect, value and more. I am a strong believer in Steve Job&#39;s &quot;Your time is limited, so don&#39;t waste it living someone else&#39;s dream&quot; quote. Our lives are too short for anything but these little materialistic dreams. Dreams in which we grow to be some mainstream professionals, to help people do their thing, which in turn earn us money which we use to do our thing, occasionally become millionares, buy fast cars and live in nice apartments, die. Some may not even see the Halley&#39;s comet in their lives, which is for me, something real. Whatever we have, is right here, right now. Future cannot be predicted, nor can past be changed. However, we still have our present in our hands. What we do with it is subjective.&lt;/p&gt;
+
+&lt;p&gt;Also, I am sharing my birthday with &lt;a href=&quot;http://www.fsf.org/&quot; target=&quot;_blank&quot;&gt;Free Software Foundation&lt;/a&gt; and GNU project. They have &lt;a href=&quot;https://www.gnu.org/gnu30/&quot; target=&quot;_blank&quot;&gt;turned 30&lt;/a&gt; this year, which is cool. RMS would be real proud at where his initiative has reached today. I would like all of the people reading this to hit the link once and read about GNU and it&#39;s philosophy. I feel they are amazing people, and their contributions to the community, especially.&lt;/p&gt;
+&lt;p&gt;&lt;center&gt;&lt;a href=&quot;https://gnu.org/gnu30&quot;&gt;&lt;img src=&quot;https://static.fsf.org/nosvn/misc/GNU_30th_badge.png&quot; alt=&quot;[ Celebrate 30 years of GNU! ]&quot; /&gt;&lt;/a&gt;&lt;/center&gt;&lt;/p&gt;
+</description>
+                <link>http://www.nagekar.com/2015/09/Birthday-Week.html</link>
+                <guid>http://www.nagekar.com/2015/09/Birthday-Week</guid>
+                <pubDate>Tue, 29 Sep 2015 00:00:00 +0530</pubDate>
+        </item>
+
+        <item>
+                <title>You Are Insignificant</title>
+                <description>&lt;p&gt;I have a lot to write at this point, so much that I am not even sure where to start. Humans are such wonderful creatures, we make things happen, world spin, or at least believe it to be that way. We have a self-imagined feeling of superiority. We are desperate to feel important, to feel blessed, to feel we have some purpose in life, and no one has to right to point at the way you walk on the face of this planet. We humans are so vulnerable.&lt;/p&gt;
+
+&lt;p&gt;Life goes up and down all the time, with just about everyone. We all have bad times, spend some days talking about it, and then everything gets back to normal. Now the interesting part comes when you have a logical mind. I judge myself and the decisions I take. It just turned out, when you&#39;re sad, it is not that the day is a little too gloomy, or that the trees are all looking down, or that the world is a little too quite. It is just that you&#39;re sad. That&#39;s it. Done. No one, other that your little brain in there, feels a damn thing. The world is a pretty large place. The Universe, a little larger. You, me, we are too small. No one cares about you, or your thoughts, let alone the Universe as a whole. You only matter if you can make money, and that is very temporary, only applicable on earth. So basically, you are worth a rock floating in space, even less.&lt;/p&gt;
+
+&lt;p&gt;I see people crying over little things, things so little that it almost feels a shame to cry over. You can&#39;t ask people to live according to you, of course not. What you can really ask is to show a little respect to the 3.5 billion years of evolution, that they are at the front of right now. Life wasn&#39;t easy. From the hot geysers, to the half dozen catastrophic disasters that shock everything on our little planet. Life made it through them, and for every specie that you see today, at least 1000 have perished, and then you tell me that this guy is trying to ignore you and you are feeling left out. Come on people, don&#39;t be that weak. We are a race that has been here from quite some time. The end might be near somewhere, in the next 100 or 1000 years, if we stop thinking about our individual existence and our special place in this Universe we might make it out to a few thousand years. And unless we move to some other world before that, there is not much probability that we can save us from ourselves. World would completely reset itself, and your current values would be deep buried inside some fossils down the surface. The sun would expand into a red super giant and eat up the earth&#39;s atmosphere. Our galaxy Milky Way would collide with it&#39;s sister galaxy Andromeda. Artistic fiery show of stars and nebulas it would be, for some other civilization far way just opening their eyes to the Universe. The sun would soon die, and there would only be darkness after that, for eternity. No one, yes, NO ONE, would ever know how much you struggled when you existed for those 60 years in that entire 11 billion years of solar system&#39;s history.&lt;/p&gt;
+
+&lt;p&gt;So shall we begin the discussion about your life&#39;s struggles now?&lt;/p&gt;
+</description>
+                <link>http://www.nagekar.com/2015/09/You-Are-Insignificant.html</link>
+                <guid>http://www.nagekar.com/2015/09/You-Are-Insignificant</guid>
+                <pubDate>Tue, 15 Sep 2015 00:00:00 +0530</pubDate>
+        </item>
+
+        <item>
+                <title>Need For An Alternate Social Network</title>
+                <description>&lt;p&gt;About a week or so ago, we were asked to choose our &#39;web-technologies&#39; project, that would be among a group of two or three, and to be completed within the course of the semester. After forming team with two of my buddies at the college, we started to discuss about the possible theme of the project. From the very beginning, I had this idea to create a social network. After discussing with the other two, or I would rather say after convincing them, we finally settled to create a &#39;social network&#39; model.&lt;/p&gt;
+
+&lt;p&gt;You can call me an avid social networker. I spend most of my free time staring at my computer&#39;s screen and most of the times, I am not actually working but surfing the social networks I have unnecessarily signed up with, which eat up most of my productive time. Well, at least that was the truth up to a few months ago. I have made some interesting, and more appropriately, disturbing observations about most of the people on these social networks. Social networks are not the online social places anymore. They have become more anti-social networks. How?&lt;/p&gt;
+
+&lt;p&gt;Well, when was the last time you saw an ugly or not-so-perfect photo of your friend on Facebook? Or when was it that you read his or her tweet that didn&#39;t have that touch of wit in it? Hard to remember, isn&#39;t it? Not all do it, but one thing you might admit, most do. We hate to feel inferior. We want ourselves to be perceived better than the rest, and in that struggle to keep our fake identity updated, we keep adding tiny bits of false facts to that image. We have image editing and filter apps more than ever. Sites that provide humorous one liners are now full time. There is a rivalry to stay on top of the popularity ladder. People consider themselves less of a user, and more of a brand. Everyone wants to have an identity online, start a vogue, get famous, all in the easiest possible way. Who want to take the effort to create or discover something? Scientists are fools. Better is to use what you got at your disposal. Make stupid statements about others to get those 5 seconds of fame. Expose your body to get followers, is what exactly happens on Instagram half of the times. Click-bait headlines are all over the place, no site to trust over it&#39;s content. News websites have started to look more like link exchange sites. The Internet is not the same good old place to share thoughts anymore, but a shameless self-promotion hub.&lt;/p&gt;
+
+&lt;p&gt;So what might be the possible solution to this? First culprit, in my opinion, is the followers thing. The problem lies in inequality in the distribution of followers. Some famous people get more followers, and in turn, get more &#39;likes&#39; and &#39;retweets&#39; even on their lamest posts. On the other hand, if some random guy posts a very interesting research, he doesn&#39;t have the audience, so maybe his research won&#39;t get that far. Now maybe he won&#39;t mind it this time, but in the long run, when he and countless others like him, don&#39;t get the appreciation they deserve but see crappy content making it to the trending news, maybe they will stop their research and get into making the content that makes it to the top. From experience, we know what content actually does. This is exactly how we are discouraging quality content on the Internet. Some sites have kept up very well (see Reddit) but for most, the future doesn&#39;t look as good. The only apparent solution to this is to keep the &#39;followers&#39; thing for topics, and not for people. That way, a celebrity and a commoner gets equal chance to be heard, and hence, reach out to the millions of other users typically found on any average sized social network today.&lt;/p&gt;
+
+&lt;p&gt;The second thing concerns me more, because it is not about the technology, but about the users of it. We are raising a generation which will never know the joy of meeting friends after a while, the joy of hanging out together and the joy in laughing over yourself. Because today fun is what is made of the poor and the powerless, and laughter is what you have when someone gets hurt. News is what the celebrities are up to, and sports is what the richest guys bet. The world has more of everything than ever, still life is more monotonos than ever. Let&#39;s be honest, how many birthdays would you actually remember if there had been no reminders on Facebook? Not many, but still we go to the extent of doing a formality of typing &#39;hbd&#39; on our friend&#39;s wall on his or her birthday. Interesting.&lt;/p&gt;
+
+&lt;p&gt;The online social universe is degrading each day, and we are not doing much to help it. Good sources of news and content are like one in a thousand, if not less. The things must be changed, or it may not be long before Internet loses it&#39;s meaning, and not stay worthy of spending time on, much like the television these days.&lt;/p&gt;
+</description>
+                <link>http://www.nagekar.com/2015/08/Need-For-An-Alternate-Social-Network.html</link>
+                <guid>http://www.nagekar.com/2015/08/Need-For-An-Alternate-Social-Network</guid>
+                <pubDate>Thu, 13 Aug 2015 00:00:00 +0530</pubDate>
+        </item>
+
+        <item>
+                <title>4th Semester And Then</title>
+                <description>&lt;p&gt;It was in June that I appeared for my 4th semester exam (we have 8 in all, 2 each year). That makes me one half of an engineer, as far as the certification thing is concerned. Apart from that, I would not consider myself anywhere near to what standards I have for an &lt;a href=&quot;http://www.nagekar.com/2015/03/engineering.html&quot;&gt;Engineer&lt;/a&gt; in my mind. Nevertheless, the results were displayed late last month, and I managed to clear all the subjects, proudly entering the 3rd year of the course.&lt;/p&gt;
+
+&lt;p&gt;But since the exams, I did a few interesting things that I would like to let you know. Just after the exams, I took to &lt;a href=&quot;http://qt.io/&quot;&gt;Qt framework&lt;/a&gt; in C++ which I did for the next one month or so. Not much, but I did the QWidget class well enough to have coded some &lt;a href=&quot;https://github.com/abhn/Data-Destroyer-GUI&quot;&gt;simple GUIs&lt;/a&gt;. It was quite interesting, and a useful asset that I think I own now. Later the interest turned towards web [again! :]. I started working on a social network written in Python, Django. I will update you once I get the base ready, and since it is the largest of all the projects I have worked on, I am quite proud and happy for it. Lastly, something even more amazing happened. I found my lost interest in Physics and Astronomy back. It is quite interesting, as to how it happened, but I will save that for a separate post.&lt;/p&gt;
+
+&lt;p&gt;The past two months have been great, from my personal perspective. I have basically transformed into someone else, hopefully wiser than I was before. Hopefully. There is a strong reasoning I found for making that statement. I started reading a lot, doubting even more and I found that it opened doors to newer dimensions to living my life. Everything, everyone exists just because they do. That&#39;s it. Nobody, nothing, especially the universe, owes you an explanation to things that seem incomprehensible. Learn to accept it. Maybe it is a part of growing up, which I seem to have realized now. For what it&#39;s worth, I will still stay curious, for that is what drives me and most of the people. Good night.&lt;/p&gt;
+</description>
+                <link>http://www.nagekar.com/2015/08/4th-sem-exams-and-later.html</link>
+                <guid>http://www.nagekar.com/2015/08/4th-sem-exams-and-later</guid>
+                <pubDate>Tue, 04 Aug 2015 00:00:00 +0530</pubDate>
+        </item>
+
+        <item>
+                <title>Social Share Counts Python Implementation</title>
+                <description>&lt;p&gt;I wrote this little script that grabs the count of shares on popular social networks, using their APIs. I have listed the documentation on the project page on &lt;a href=&quot;https://github.com/abhn/Social-Share-Counts&quot; target=&quot;_blank&quot;&gt;Github&lt;/a&gt;. I will copy the relevant pieces of readme here.&lt;/p&gt;
+
+&lt;h2 id=&quot;social-network-apis&quot;&gt;Social Network APIs&lt;/h2&gt;
+
+&lt;h3 id=&quot;facebook&quot;&gt;Facebook&lt;/h3&gt;
+
+&lt;p&gt;Request:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;https://graph.facebook.com/?id=https://www.github.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Response:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;json
+{
+   &quot;id&quot;: &quot;http://www.github.com&quot;,
+   &quot;shares&quot;: 31684
+}
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;twitter&quot;&gt;Twitter&lt;/h3&gt;
+
+&lt;p&gt;Request:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;http://cdn.api.twitter.com/1/urls/count.json?url=https://github.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Response:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;json
+{&quot;count&quot;:14,&quot;url&quot;:&quot;http:\/\/github.com\/&quot;}
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;google-plus&quot;&gt;Google Plus&lt;/h3&gt;
+
+&lt;p&gt;Request:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;https://plusone.google.com/_/+1/fastbutton?url=https://github.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This returns the +1 button. I extracted the counts using regex &lt;code class=&quot;highlighter-rouge&quot;&gt;window.__SSR = {c: ([\d]+)&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;linkedin&quot;&gt;LinkedIn&lt;/h3&gt;
+
+&lt;p&gt;Request:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;http://www.linkedin.com/countserv/count/share?url=https://github.com&amp;amp;format=json&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Response:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;json
+{&quot;count&quot;:0,&quot;fCnt&quot;:&quot;0&quot;,&quot;fCntPlusOne&quot;:&quot;1&quot;,&quot;url&quot;:&quot;https:\/\/github.com&quot;}
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;stumbleupon&quot;&gt;StumbleUpon&lt;/h3&gt;
+
+&lt;p&gt;Request:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;http://www.stumbleupon.com/services/1.01/badge.getinfo?url=https://github.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Response too large.&lt;/p&gt;
+
+&lt;h3 id=&quot;pinterest&quot;&gt;Pinterest&lt;/h3&gt;
+
+&lt;p&gt;Request:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;http://api.pinterest.com/v1/urls/count.json?url=https://github.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Response:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;json
+receiveCount({&quot;url&quot;:&quot;https://github.com&quot;,&quot;count&quot;:0}) 
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;reddit&quot;&gt;Reddit&lt;/h3&gt;
+
+&lt;p&gt;Request:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;http://www.reddit.com/api/info.json?url=https://github.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This returns a lot of data, which can be easily used to extracted counts. 
+&lt;strong&gt;Note&lt;/strong&gt; that the Reddit guys don’t really like automated requests and may cause the call to return HTTP 429.&lt;/p&gt;
+
+&lt;h3 id=&quot;vkontakte&quot;&gt;Vkontakte&lt;/h3&gt;
+
+&lt;p&gt;Request:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;https://vk.com/share.php?act=count&amp;amp;index=1&amp;amp;url=https://github.com&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Response:
+&lt;code class=&quot;highlighter-rouge&quot;&gt;json
+VK.Share.count(1, 419);
+&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This marks the end of the documentation. I hope that serves some purpose. The reason I wrote this was that I wanted social sharing buttons on this blog. I could not afford any of the mainstream buttons like Addthis and Sharethis. They kill the load time, and I’m already struggling with Disqus and Adsense overload. More on that soon. I hope to create a ‘dynamic looking’ static set of buttons for this blog, and I’ll update you if I get time to complete it.&lt;/p&gt;
+</description>
+                <link>http://www.nagekar.com/2015/07/Social-Share-Counts-Python-Implementation.html</link>
+                <guid>http://www.nagekar.com/2015/07/Social-Share-Counts-Python-Implementation</guid>
+                <pubDate>Sat, 11 Jul 2015 00:00:00 +0530</pubDate>
+        </item>
+
+        <item>
+                <title>First Anniversary Of My Blog</title>
+                <description>&lt;p&gt;Last month, I was reminded by Bigrock.in about the pending renewal of nagekar.com. It was through an email. I had completely forgotten the date of registering the site and it came in as a handy reminder. 6&lt;sup&gt;th&lt;/sup&gt; of June it was, in 2014.&lt;/p&gt;
+&lt;p&gt;I had an affinity towards blogs and blogging right from when I was 15. That was when I had seen the first blogs and shortly after that, it was when I created my first blog. It was in the morning, of 5&lt;sup&gt;th&lt;/sup&gt; March, 2011. I knew I was up to something awesome. 7 in the morning, I was home alone. I remember mom and dad had to go out early, to receive some guests. I spent an effort filled three hours and finally got the site up at around 10 am. The domain was &lt;a href=&quot;http://geekystuffforall.webs.com&quot; target=&quot;_blank&quot;&gt;geekystuffforall.webs.com&lt;/a&gt; (It reads, Geeky Stuff For All, if you had trouble). It felt good, to have an identity. I wrote a paragraph for the homepage, which was the first post for me, ever.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Hi everyone, if you are searching for someone who thinks spending 8 hours in front of a PC is normal, you are at the right place ;)&lt;br&gt;You will not find any amazing new hacks or such stuff here.Then why this site ? It is because I am not a computer expert but computer enthusiast just like you. I will try to share whatever new I come to know. I would be extremely pleased to hear from you.&lt;br&gt;By the way I am Abhishek Nagekar. You can meet me on Facebook(If you like to !!)&lt;/p&gt;
+&lt;footer&gt;March 5, 2011&lt;/footer&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;And that was also the last thing I wrote on that blog. It was not that I got bored or anything, but I was quick to realize more amazing platforms are available that gave more control to bloggers. I created something called cyber-outlaws.blogspot.com to post all the tricks and hacks I then knew. I worked pretty well. I had around 800 views in the first month, which is good number compared to even this blog. Then came many more blogs on numberous subdomains on almost every popular free hosting out there. My &#39;niche&#39; had changed from hacks and tricks to mobiles and gadgets, news and reviews alike. I though about moving on from something.somehost.com to something.com, mostly because of the fact that I could have a custom@something.com like email address. I registered my first top level domain, lulztec.com on Godaddy. It costed about INR 99, or USD 2, under a promo scheme. It was back in May or June, 2013. I was just out of junior college, and it was time to make some money. I blogged and blogged, but did not get the traffic I was expecting. After 2 or 3 failed attempts to signup for Google Adsense, I finally settled for Chitika and Infolinks. I didn&#39;t make anything for the next 6 months I kept them on my site (I did actually make $2.80, but I will call it nothing because the cashout was $100, so I never actually got anything in hand).&lt;/p&gt;
+&lt;p&gt;I thought there was more to blogging than just posting new stuff everyday. I moved everything to a paid hosting company called Visiba. They were charging around $2/month back then. I was really impressed by their service and kept my blog there for another three months. Later, not seeing any improvements, I had to think what next to do, that would work. I purchased a small VPS from DigitalOcean, where I moved the blog and started writing Linux tutorials. I was paying $5/month to DigitalOcean, which is considered low for a VPS. Still, there was no sign of revenue and I was spending a great deal of time on blogging. I knew I had to change things. I registered a new domain called tutshub.net, where I decided to post technical tutorials. It worked only a little better with this one. Meanwhile,  I was accompanied by my school friend, who used to be a blogger too. Together, we managed to get our blog under alexa 400k which was cool, I thought. Also, we tried our hands in the web development world, and registered nakshtra.org, which failed miserably. Tutshub.net was going good and it was mostly because of my partner Harshal, who worked harder than me. Here&#39;s a snapshot I found at &lt;a href=&quot;https://web.archive.org/web/20140403181109/http://www.tutshub.net/&quot; target=&quot;_blank&quot;&gt;archive.org&lt;/a&gt;&lt;/p&gt;
+&lt;center&gt;&lt;img src=&quot;https://www.dropbox.com/s/w7javylj8drmulm/tutshub.net.png?raw=1&quot;&gt;&lt;center&gt;
+&lt;p&gt;But we decided to stop that blog. The last post was made in February 2014, and then we orphaned it. Blogging helped me to realize there is much more I can do, than just write about other people&#39;s achievements. I got to be better than that, I thought. I still don&#39;t know if it was a good decision but it definitely helped me concentrate on myself. It was a few months later, in June, that I got this blog. It was not aimed to be a traffic scoring blog, because I know for sure now, I cannot blog for traffic. One year passed, 30 articles written, tried many new languages and frameworks, got accepted by Adsense, did average in academics, made some great friends in college and many great things happened in just this year. I am glad I decided to start this blog which, as I have always said, is a diary to me.&lt;/p&gt;
+&lt;p&gt;As it happened, many people have appreciated the things I write, and there have been a lot of feedbacks, positive and constructive alike. I share this one year with you&#39;ll, who took the time to read my thoughts. The past is history, quite a beautiful one. You, me, we grew wiser each day, and we&#39;ve no intention of changing that. Finally, happy birthday! to my blog. Here&#39;s to more good content in future.&lt;/p&gt;
+</description>
+                <link>http://www.nagekar.com/2015/07/First-Anniversary-Of-My-Blog.html</link>
+                <guid>http://www.nagekar.com/2015/07/First-Anniversary-Of-My-Blog</guid>
+                <pubDate>Wed, 08 Jul 2015 00:00:00 +0530</pubDate>
+        </item>
+
+
+</channel>
+</rss>

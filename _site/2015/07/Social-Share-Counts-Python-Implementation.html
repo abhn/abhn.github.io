@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Social Share Counts Python Implementation</title>
+    
+    <meta name="author" content="Abhishek Nagekar">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes//bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes//css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div class="navbar navbar-default" role="navigation">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">Abhishek Nagekar's Blog</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/meta">Meta</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Social Share Counts Python Implementation </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>11 July 2015</span>
+    </div>
+    <div class="content">
+      <p>I wrote this little script that grabs the count of shares on popular social networks, using their APIs. I have listed the documentation on the project page on <a href="https://github.com/abhn/Social-Share-Counts" target="_blank">Github</a>. I will copy the relevant pieces of readme here.</p>
+
+<h2 id="social-network-apis">Social Network APIs</h2>
+
+<h3 id="facebook">Facebook</h3>
+
+<p>Request:
+<code class="highlighter-rouge">https://graph.facebook.com/?id=https://www.github.com</code></p>
+
+<p>Response:
+<code class="highlighter-rouge">json
+{
+   "id": "http://www.github.com",
+   "shares": 31684
+}
+</code></p>
+
+<h3 id="twitter">Twitter</h3>
+
+<p>Request:
+<code class="highlighter-rouge">http://cdn.api.twitter.com/1/urls/count.json?url=https://github.com</code></p>
+
+<p>Response:
+<code class="highlighter-rouge">json
+{"count":14,"url":"http:\/\/github.com\/"}
+</code></p>
+
+<h3 id="google-plus">Google Plus</h3>
+
+<p>Request:
+<code class="highlighter-rouge">https://plusone.google.com/_/+1/fastbutton?url=https://github.com</code></p>
+
+<p>This returns the +1 button. I extracted the counts using regex <code class="highlighter-rouge">window.__SSR = {c: ([\d]+)</code></p>
+
+<h3 id="linkedin">LinkedIn</h3>
+
+<p>Request:
+<code class="highlighter-rouge">http://www.linkedin.com/countserv/count/share?url=https://github.com&amp;format=json</code></p>
+
+<p>Response:
+<code class="highlighter-rouge">json
+{"count":0,"fCnt":"0","fCntPlusOne":"1","url":"https:\/\/github.com"}
+</code></p>
+
+<h3 id="stumbleupon">StumbleUpon</h3>
+
+<p>Request:
+<code class="highlighter-rouge">http://www.stumbleupon.com/services/1.01/badge.getinfo?url=https://github.com</code></p>
+
+<p>Response too large.</p>
+
+<h3 id="pinterest">Pinterest</h3>
+
+<p>Request:
+<code class="highlighter-rouge">http://api.pinterest.com/v1/urls/count.json?url=https://github.com</code></p>
+
+<p>Response:
+<code class="highlighter-rouge">json
+receiveCount({"url":"https://github.com","count":0}) 
+</code></p>
+
+<h3 id="reddit">Reddit</h3>
+
+<p>Request:
+<code class="highlighter-rouge">http://www.reddit.com/api/info.json?url=https://github.com</code></p>
+
+<p>This returns a lot of data, which can be easily used to extracted counts. 
+<strong>Note</strong> that the Reddit guys don’t really like automated requests and may cause the call to return HTTP 429.</p>
+
+<h3 id="vkontakte">Vkontakte</h3>
+
+<p>Request:
+<code class="highlighter-rouge">https://vk.com/share.php?act=count&amp;index=1&amp;url=https://github.com</code></p>
+
+<p>Response:
+<code class="highlighter-rouge">json
+VK.Share.count(1, 419);
+</code></p>
+
+<p>This marks the end of the documentation. I hope that serves some purpose. The reason I wrote this was that I wanted social sharing buttons on this blog. I could not afford any of the mainstream buttons like Addthis and Sharethis. They kill the load time, and I’m already struggling with Disqus and Adsense overload. More on that soon. I hope to create a ‘dynamic looking’ static set of buttons for this blog, and I’ll update you if I get time to complete it.</p>
+
+    </div>
+
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#python-ref">python <span>6</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/2015/07/First-Anniversary-Of-My-Blog.html" title="First Anniversary Of My Blog">&larr; Previous</a></li>
+      
+        <li><a href="">Archive</a></li>
+      
+        <li class="next"><a href="/2015/08/4th-sem-exams-and-later.html" title="4th Semester And Then">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    
+    var disqus_developer = 1;
+    var disqus_shortname = 'nagekar'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2016 Abhishek Nagekar
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+
+
+
+  </body>
+</html>
+

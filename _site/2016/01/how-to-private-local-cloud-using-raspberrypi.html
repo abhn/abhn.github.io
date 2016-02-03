@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Private Local Cloud Storage Using Raspberrypi - How To</title>
+    
+    <meta name="author" content="Abhishek Nagekar">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes//bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes//css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div class="navbar navbar-default" role="navigation">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">Abhishek Nagekar's Blog</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/meta">Meta</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Private Local Cloud Storage Using Raspberrypi - How To </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>11 January 2016</span>
+    </div>
+    <div class="content">
+      <p>
+	Today we'll see how you can home brew a cloud (in the local sense) storage solution that would be free to use, quite faster than an Internet based one, secure enough from any outside the network intrusion and customizable.
+</p>
+<p>
+	But why do you need to go to such lengths when you can easily create an account on Google and get 15 gigs of free storage. Well, first of all, data that we generate is increasing significantly each day. We have multiple devices with us, most of them with ~16-64 GB storage, which is not at all good enough. Then while our notebooks are getting faster with solid state drives, they are still costly to use for all of our needs like storing tonnes of movies and music videos, that is, if you are still left with space after cramming up your disk with camera pictures. If you opt for a premium account at Dropbox or Google Drive, it will easily cost you ~$100 a year recurring, the cost which can get you a 2 TB WD external hard disk.
+</p>
+<p>
+	Then there is the speed issue. At least here in India, we are deprived Internet connection faster than 2-4 mbps. Most of the times even less than that. Even if we considered the option of backing to an online cloud storage, the bandwidth prevents us from efficiently using what already exists for free. When using an local cloud, the bandwidth is only throttled by your equipments, and most of the times you can easily get ~40-60 mbps, which is fine.
+</p>
+<p>
+	The last issue, depending on how you see it, is the most and the least important. Security. If the files are going to be random movies and music videos, you might not be much worried about some hacker breaking into your cloud storage provider and downloading them, but on the other hand, if the files contain any kind of sensitive personally identifiable information, then you would worry. But having said that, I would always choose a secure storage solution from insecure ones if given an option, even if the data was not at all sensitive.
+</p>
+<h3>Things you'll need</h3>
+<p>
+	Now that we've discussed some merits and demerits, lets talk about building the thing. The things you'll need are,
+	<ul>
+		<li>Raspberry Pi (with all it's setup accessories), with Ethernet port</li>
+		<li>Hard disk, any capacity, with SATA to USB converter</li>
+		<li>Wireless router</li>
+		<li>Ethernet cable or Wifi adapter</li>
+		<li>USB power hub [in some cases]</li>
+	</ul>
+</p>
+<h3>Setting up the hardware</h3>
+<p>
+	<ol>
+		<li>Connect the hard disk to the Raspberrypi</li>
+		<li>Boot it up and login via ssh</li>
+		<li>Run <i>sudo fdisk -l</i> and make sure the hard disk is shown. Note the device name (/dev/sdb or similar)</li>
+		<li>If not, try usb power adapter</li>
+		<li>If it is showing, we'll have to make sure it mounts to the same location each time we boot up.</li>
+		<li>Create a folder for the mount point. I'll be using <pre>/var/www</pre></li>
+		<li>It would be advisable to use a separate low privileged user for the process, since we will be changing the user home later on.</li>
+		<li><pre>sudo chmod 775 /var/www</pre> and <pre>sudo chown your_username /var/www</pre> to set the permissions for reading, writing and executing.</li>
+		<li><pre>sudo blkid</pre> and note the uuid for the external hard disk. Copy it.</li>
+		<li>Now we need to make the mounting occur each time we boot the pi up. Open the fstab file by <pre>sudo nano /etc/fstab</pre> and add the following line <pre>UUID="3b28d90f-8805-4ec4-978d-c53ee397a924" /var/www ext4 defaults,errors=remount-ro 0 1</pre> by editing the UUID, mount location and file system and keeping other things constant.</li>
+		<li>Reboot the pi, and your /var/www should now be pointing to the external hard disk. If so, you are done with this part of the tutorial. If not, check what did you miss. Also make sure you are able to read and write files to that directory from your user account. If not, recheck the steps, Google for solutions or comment for help.</li>
+	</ol>
+</p>
+<h3>Setting up the FTP server</h3>
+<p>
+	<ol>
+		<li><pre>sudo apt-get install vsftpd</pre> to install the vsFTP server.</li>
+		<li>Open the vsftp configuration file by <pre>sudo nano /etc/vsftpd.conf</pre></li>
+		<li>
+			The would be a lot of options. Just go through and make sure the following lines are there and not commented. If not, add them.
+			<pre>
+				anonymous_enable=NO
+				local_enable=YES
+				write_enable=YES
+				chroot_local_user=YES
+				force_dot_files=YES
+				local_root=/var/www
+				allow_writable_chroot=YES
+			</pre>
+		</li>
+		<li>After saving (Ctrl + x and then y) and exiting, restart vsftpd by <pre>sudo service vsftpd restart</pre></li>
+		<li>Lastly, change the user home to the FTP root, so that you'll directly get into the FTP server's root on logging into the FTP client. <pre>sudo usermod --home /var/www/ your_username</pre></li>
+	</ol>
+</p>
+<p>
+	If all went well, we have a 100% working local cloud storage running off our pi. Now, since not everyone would like to login with terminal each time they wish to access the cloud, I make some customizations to make it easy for even my Mom and Dad to use the cloud.
+</p>
+<p>
+	On the desktop, download and install filezilla. <pre>sudo apt-get install filezilla</pre> should do it on deb derivatives. Create a launcher icon that triggers the command <pre>filezilla sftp://myUsername:myPassword@myIP:myPort/my/root</pre> which in my case became <pre>filezilla sftp://abhishek:password@192.168.1.10:22/var/www</pre>.
+</p>
+<center><img src="/assets/images/desktop_icon.png" width="800" height="600"/></center>
+<center><img src="/assets/images/filezillapi.png" width="800" height="600"/></center>
+
+<p>
+	On the mobile phones (we have droids, three of us), I used the 'add ftp server' option in the <a href="https://play.google.com/store/apps/details?id=com.estrongs.android.pop&hl=en" target="_blank">ES File Explorer</a> and created a shortcut on the home screen with the widgets menu. Hence, accessing the cloud was nothing more troublesome than accessing a local folder on the phone.
+</p>
+<center><img src="/assets/images/es1.png" width="480" height="270"></center>
+<center><img src="/assets/images/es2.png" width="480" height="270"></center>
+<center><img src="/assets/images/es3.png" width="480" height="270"></center>
+<p>
+	Now I have my very own, secure, high speed cloud storage solution for all my devices and also for the family. It is really convenient and building a custom case for the thing, it looks pretty badass.
+</p>
+<center><img src="/assets/images/pisetup.jpg" width="480" height="270"></center>
+<p>
+	What do you think?
+</p>
+    </div>
+
+    
+
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/2016/01/fastboot-horror.html" title="Fastboot Horror">&larr; Previous</a></li>
+      
+        <li><a href="">Archive</a></li>
+      
+        <li class="next"><a href="/2016/01/exchanging-chikoos-for-friends.html" title="Exchanging Chikoos For Friends">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    
+    var disqus_developer = 1;
+    var disqus_shortname = 'nagekar'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2016 Abhishek Nagekar
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+
+
+
+  </body>
+</html>
+

@@ -1,0 +1,189 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>On why PHP removed magic quotes - Nice explanation</title>
+    
+    <meta name="author" content="Abhishek Nagekar">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes//bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes//css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div class="navbar navbar-default" role="navigation">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">Abhishek Nagekar's Blog</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/meta">Meta</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>On why PHP removed magic quotes - Nice explanation </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>24 December 2014</span>
+    </div>
+    <div class="content">
+      <div dir="ltr" style="text-align: left;" trbidi="on"><div dir="ltr">I am a newbie in PHP, or at least not as good to call myself mature. Recently, PHP announced deprecation for magic_quotes in version 5.3 and complete removal in version 5.4. So there are official docs on why it was removed, but this is what I found written by a contributor and it was perfectly explained. Do check out.</div><div dir="ltr">Link: <a href="http://php.net/manual/en/security.magicquotes.php">http://php.net/manual/en/security.magicquotes.php</a></div><div dir="ltr">Here goes the comment: --&gt;</div><div dir="ltr"><i>The very reason magic quotes are deprecated is that a one-size-fits-all approach to escaping/quoting is wrongheaded and downright dangerous.&nbsp; Different types of content have different special chars and different ways of escaping them, and what works in one tends to have side effects elsewhere.&nbsp; Any sample code, here or anywhere else, that pretends to work like magic quotes --or does a similar conversion for HTML, SQL, or anything else for that matter -- is similarly wrongheaded and similarly dangerous.</i></div><div dir="ltr"><i>Magic quotes are not for security.&nbsp; They never have been.&nbsp; It's a convenience thing -- they exist so a PHP noob can fumble along and eventually write some mysql queries that kinda work, without having to learn about escaping/quoting data properly.&nbsp; They prevent a few accidental syntax errors, as is their job.&nbsp; But they won't stop a malicious and semi-knowledgeable attacker from trashing the PHP noob's database.&nbsp; And that poor noob may never even know how or why his database is now gone, because magic quotes (or his spiffy "i'm gonna escape everything" function) gave him a false sense of security.&nbsp; He never had to learn how to really handle untrusted input.</i></div><div dir="ltr"><i>Data should be escaped where you need it escaped, and for the domain in which it will be used.&nbsp; (mysql_real_escape_string -- NOT addslashes! -- for MySQL (and that's only unless you have a clue and use prepared statements), htmlentities or htmlspecialchars for HTML, etc.)&nbsp; Anything else is doomed to failure.</i></div></div>
+    </div>
+
+    
+
+  
+    <ul class="tag_box inline">
+      <li><i class="icon-tags"></i></li>
+      
+      
+
+
+  
+     
+    	<li><a href="/tags.html#php-ref">php <span>4</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/2014/12/autocomplete-field-setting-up-frontend.html" title="Creating an autocomplete field | Setting up frontend | Part 2">&larr; Previous</a></li>
+      
+        <li><a href="">Archive</a></li>
+      
+        <li class="next"><a href="/2014/12/ajax-registration-form-using-jquery.html" title="AJAX registration form using jQuery">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    
+    var disqus_developer = 1;
+    var disqus_shortname = 'nagekar'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2016 Abhishek Nagekar
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+
+
+
+  </body>
+</html>
+

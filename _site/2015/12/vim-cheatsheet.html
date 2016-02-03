@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Vim Cheatsheet</title>
+    
+    <meta name="author" content="Abhishek Nagekar">
+
+    <!-- Enable responsive viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes//bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
+    <link href="/assets/themes//css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+
+    <!-- atom & rss feed -->
+    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
+    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
+
+  </head>
+
+  <body>
+    <div class="navbar navbar-default" role="navigation">
+      <div class="navbar-inner">
+        <div class="container-narrow">
+          <a class="brand" href="/">Abhishek Nagekar's Blog</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+      	
+      	<li><a href="/archive">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/meta">Meta</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-narrow">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>Vim Cheatsheet </h1>
+</div>
+
+<div class="row-fluid post-full">
+  <div class="span12">
+    <div class="date">
+      <span>02 December 2015</span>
+    </div>
+    <div class="content">
+      <p>Started using vi, although the only reason is it being light weight [I am taking a leap of faith, hoping that it will increase my speed after some practice, as most vi gurus say]. Let me first admit it. Vi feels awful in the beginning. It is really intimidating, and I am having a hard time to remember the commands and stuff. Hence I started writing the commands I learn from google and stackoverflow in a file. Thought to post it here, for everyone.</p>
+
+<p>I will keep the list updated as I learn more and more commands and tricks. It serves me as a reference, and hopefully will do the same for some of you.</p>
+
+<h4>Open file</h4> 
+<code>vim file.js</code>
+
+<h4>Swtich to insert mode</h4>
+<code>i</code>
+
+<h4>Switch to append mode</h4>
+<code>a</code>
+
+<h4>Switch to command mode</h4>
+<code>[ESC]</code>
+
+<h4>Save file</h4>
+<code>:w</code>
+
+<h4>Save and exit</h4>
+<code>:wq</code>
+
+<h4>Exit [if no changes were made]</h4>
+<code>:q</code>
+
+<h4>Exit, discarding changes</h4>
+<code>:q!</code>
+
+<h4>Moving through text</h4>
+<code>h - left</code><br/>
+<code>j - down</code><br/>
+<code>k - up</code><br/>
+<code>l - right</code><br/>
+
+<h4>Undo last operation</h4>
+<code>u</code>
+
+<h4>Copy current line</h4>
+<code>yy</code>
+
+<h4>Cut current line</h4>
+<code>dd</code>
+
+<h4>Paste last copied line</h4>
+<code>p</code>
+
+<h4>Select text</h4>
+<code>[CTRL] + v</code><br/>
+<code>h,j,k,l ;for moving and selecting</code>
+
+<h4>Selecting multiple lines</h4>
+<code>[SHIFT] + v</code><br/>
+<code>j,k ;selecting lines</code>
+
+<h4>Search through text</h4>
+<code>:s/pattern</code>
+
+<h4>Search and replace</h4>
+<code>:s/pattern/replacementString</code>
+
+<h4>Working with multiple files</h4>
+<code>vim file1.c file2.c file2.c</code>
+
+<h4>Next file</h4>
+<code>:n</code>
+
+<h4>Previous file</h4>
+<code>:prev</code>
+
+<h4>Go to particular file</h4>
+<code>:b file3.c</code>
+
+<h4>Working with multiple files [tabs]</h4>
+<code>vim file1.c file2.c file3.c -p</code>
+
+<h4>Move to next tab</h4>
+<code>gt</code>
+
+<h4>Move to previous tab</h4>
+<code>gT</code>
+
+<h4>List all open files [or buffers]</h4>
+<code>:ls</code>
+
+<h4>Commenting multiple lines</h4>
+<code>[CTRL] + v ;to enter visual mode</code><br/>
+<code>j ;move down to select required lines</code><br/>
+<code>i ;enter insert mode</code><br/>
+<code>[ESC]</code>
+
+<h4>Uncommenting multiple lines</h4>
+<code>[CTRL] + v ;to enter visual mode</code><br/>
+<code>jjjl ;selecting multiple rows and columns</code><br/>
+<code>d</code>
+
+<h4>Auto-indenting</h4>
+<code>=</code>
+
+<h4>Move to the start of the file</h4>
+<code>gg</code>
+
+<h4>Move to the end of the file</h4>
+<code>G</code>
+
+<h4>Auto indent entire file</h4>
+<code>gg=G</code>
+
+<h4>Indenting a block [starting from a paranthesis]</h4>
+<code>=%</code>
+
+<h4>Indenting selected lines</h4>
+<code>V ;visual line mode</code><br/>
+<code>jj ;move down through required lines</code><br/>
+<code>></code>
+
+<h4>Starting a shell</h4>
+<code>:shell</code>
+
+<h4>Executing bash without shell</h4>
+<code>:command ;eg. :pwd</code>
+
+    </div>
+
+    
+
+    
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/2015/11/Fujitsu-Lifebook-A514-Review.html" title="Fujitsu Lifebook A514 Review">&larr; Previous</a></li>
+      
+        <li><a href="">Archive</a></li>
+      
+        <li class="next"><a href="/2015/12/bug-bounty-dance.html" title="The Bug Bounty Dance">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    
+    var disqus_developer = 1;
+    var disqus_shortname = 'nagekar'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+</div>
+
+
+      </div>
+      <hr>
+      <footer>
+        <p>&copy; 2016 Abhishek Nagekar
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>
+        </p>
+      </footer>
+
+    </div>
+
+    
+
+
+
+  </body>
+</html>
+
