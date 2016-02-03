@@ -18,39 +18,7 @@ title: AJAX Loading - Part 1
 <p>
 	I could do it in two different ways. One was to just place the text in those files and inserting them into the template. The drawback of this was that if a user directly visits that page, he/she would just see plain text. For example, <a href="/assets/ajaxreload/index.html">check this link out</a>. The Javascript code for that was,
 </p>
-<pre>
-var elements = document.getElementsByTagName('a'); // grab all hyperlinks
-
-for(var i = 0, len = elements.length; i < len; i++) { // for every hyperlink
-    elements[i].onclick = function () {
-        var xmlObj = new XMLHttpRequest();
-        xmlObj.addEventListener('load', function() {
-            var res = this.responseText;
-            var main = document.getElementById('main');
-            main.innerHTML = res;
-        });
-
-        getHash(function(hash) {
-            var url = 'template2' + hash; // hack for Webstorm IDE, sorry I don't regex
-            url = 'http://' + window.location.host + '/' + url;
-            console.log(url);
-            xmlObj.open('GET', url);
-            xmlObj.send();
-            window.history.pushState('', '', url); // update the address bar for ease of url sharing (optional)
-        });
-
-    }
-}
-
-function getHash(callback) {
-    window.onhashchange = function() {
-        if(window.location.hash == '') { // in case the page clicked is index
-            window.location = 'http://' + window.location.host + '/template2';
-        }
-        callback(window.location.hash.substr(1)); // get the hash and drop the first character
-    }
-}
-</pre>
+<script src="https://gist.github.com/abhn/e53b6d308f3620e7b9a2.js"></script>
 <p>
 	The separate callback function for getHash was necessary because onclick() event fires before the hash is changed, and it would result in the script grabbing the previous hash. As already mentioned, the navigation is smooth if one visits index.html and then other links, but try getting the about.html page first. All you'll see are a few lines of text.
 </p>
