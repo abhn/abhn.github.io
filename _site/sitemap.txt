@@ -7,7 +7,6 @@ http://www.nagekar.com/rss.xml
 http://www.nagekar.com/sitemap.txt
 http://www.nagekar.com/tags
 
-http://www.nagekar.com/2016/01/Ajax-Loading.html
 http://www.nagekar.com/2016/01/exchanging-chikoos-for-friends.html
 http://www.nagekar.com/2016/01/how-to-private-local-cloud-using-raspberrypi.html
 http://www.nagekar.com/2016/01/fastboot-horror.html

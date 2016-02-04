@@ -5,42 +5,10 @@
         <description>Abhishek Nagekar&#39;s Blog - Abhishek Nagekar</description>
         <link>http://www.nagekar.com</link>
         <atom:link href="http://www.nagekar.com/rss.xml" rel="self" type="application/rss+xml" />
-        <lastBuildDate>Wed, 03 Feb 2016 15:31:49 +0530</lastBuildDate>
-        <pubDate>Wed, 03 Feb 2016 15:31:49 +0530</pubDate>
+        <lastBuildDate>Thu, 04 Feb 2016 18:39:09 +0530</lastBuildDate>
+        <pubDate>Thu, 04 Feb 2016 18:39:09 +0530</pubDate>
         <ttl>60</ttl>
 
-
-        <item>
-                <title>AJAX Loading - Part 1</title>
-                <description>&lt;p&gt;
-	I always admired the sites which did not reload upon clicking links here and there, but simple gave me whatever I requested for, with grace. Sites like Facebook, Twitter and Youtube extensively use it, and the application hardly reloads after the initial reload. Here&#39;s my attempt on making something similar.
-&lt;/p&gt;
-&lt;p&gt;
-	Firstly, I downloaded a free HTML template from &lt;a href=&quot;http://www.onlinecasinos.im/&quot; target=&quot;_blank&quot;&gt;Online Casinos&lt;/a&gt;. The links had to be edited. The pattern I used was to replace, for example, any (internal) link pointing to &lt;code&gt;example.html&lt;/code&gt; to &lt;code&gt;#/example.html&lt;/code&gt;. What it did was 1.) prevent the page from reloading, and 2.) putting the requested location to some place from where I can extract it with Javascript.
-&lt;/p&gt;
-&lt;p&gt;
-	Next, grab that location of the hash. The Javascript&#39;s built in method &lt;code&gt;window.location.hash&lt;/code&gt; provides the page&#39;s current hash. We drop the first char from the returned hash as it is the hash (#) character itself. The hash value is essentially the location to be navigated to, hence, we use some string manipulation to craft a new URL from it, and make an AJAX request to fetch the contents of the page requested, and insert it into the div specified through Javascript.
-&lt;/p&gt;
-&lt;p&gt;
-	For example, suppose we are on about.html page. Now if I click &#39;contact&#39; link, the link would change to /about.html#/contact.html, the hash value would be grabbed by the window.location.hash method, a GET request is fired to get that location with a XMLHttpRequest object, the response is inserted with innerHTML method on the div, and using the &lt;code&gt;window.history.pushState()&lt;/code&gt; method, we update the URL to /contact.html, to ease sharing. All this, in the blink of an eye. Cool.
-&lt;/p&gt;
-&lt;p&gt;
-	I could do it in two different ways. One was to just place the text in those files and inserting them into the template. The drawback of this was that if a user directly visits that page, he/she would just see plain text. For example, &lt;a href=&quot;/assets/ajaxreload/index.html&quot;&gt;check this link out&lt;/a&gt;. The Javascript code for that was,
-&lt;/p&gt;
-&lt;script src=&quot;https://gist.github.com/abhn/e53b6d308f3620e7b9a2.js&quot;&gt;&lt;/script&gt;
-&lt;p&gt;
-	The separate callback function for getHash was necessary because onclick() event fires before the hash is changed, and it would result in the script grabbing the previous hash. As already mentioned, the navigation is smooth if one visits index.html and then other links, but try getting the about.html page first. All you&#39;ll see are a few lines of text.
-&lt;/p&gt;
-&lt;p&gt;
-	A sloppy solution to the above problem was to replicate the entire index page with varying content for each of the page, and then replace entire DOM on anchor click. You can imagine this is not at all smart, and would destroy the point of this site. Not to mention the extra bandwidth to reload the same resources on every request. &lt;a href=&quot;/assets/ajaxreload2/index.html&quot;&gt;Here is the implementation&lt;/a&gt; for this method.
-&lt;/p&gt;
-&lt;p&gt;
-	What would be the smarter way? Perhaps, making sure the first page to load always downloads the entire html every time, and subsequent requests to be made to download the changed content. I will be implementing this solution shortly. Drop in your ideas too, and share if you enjoyed reading this. 
-&lt;/p&gt;</description>
-                <link>http://www.nagekar.com/2016/01/Ajax-Loading.html</link>
-                <guid>http://www.nagekar.com/2016/01/Ajax-Loading</guid>
-                <pubDate>Sun, 31 Jan 2016 00:00:00 +0530</pubDate>
-        </item>
 
         <item>
                 <title>Exchanging Chikoos For Friends</title>
@@ -948,6 +916,21 @@ VK.Share.count(1, 419);
                 <link>http://www.nagekar.com/2015/07/First-Anniversary-Of-My-Blog.html</link>
                 <guid>http://www.nagekar.com/2015/07/First-Anniversary-Of-My-Blog</guid>
                 <pubDate>Wed, 08 Jul 2015 00:00:00 +0530</pubDate>
+        </item>
+
+        <item>
+                <title>Blog Moved To Github</title>
+                <description>&lt;p&gt;Take a look around. Everything&#39;s changed. Yet again. I am sure you&#39;re probably sick of me changing the total appearance of this blog every 3 months or so, and you&#39;re right in being so. Let&#39;s go back into a little history. Around a year from now, I stumbled across &lt;a href=&quot;https://ghost.org&quot; target=&quot;blank&quot;&gt;Ghost blogging platform&lt;/a&gt;. It was clean, neat and beautiful. I knew I always wanted something like that to write. I didn&#39;t have this &lt;i&gt;(nagekar.com)&lt;/i&gt; domain at that time. I went ahead and started their trial, which gave me a subdomain at &lt;i&gt;ghost.io&lt;/i&gt; to blog on. It was beautiful, visually and the overall experience. After having dealth with most of the popular opensource PHP content management systems like Wordpress, Joomla and Drupal, this was something new altogether.&lt;/p&gt;
+
+&lt;p&gt;I registered this domain, about a week later and started using their minimal plan of $5 per month, which included 10k pageviews. It took me not long to realize that I couldn&#39;t afford those $5 because, 1) it was a personal blog from which I wasn&#39;t making any revenue, and 2) because being a student, I have to save money to utilize in other areas like books and all. I got off there, with the half dozen articles I published while I was there for a month and a half. I, with those articles in my backpack started wondering like a hunter, looking for a new shelter, cheap and simple. &lt;a href=&quot;https://svbtle.com/&quot; target=&quot;blank&quot;&gt;Svbtle&lt;/a&gt; was another platform that I liked, unfortunately I didn&#39;t have an invite at that time, and even when I got the invite, the custom domain feature, which I needed, was only available to paid customers. Of course not everything can be free, and I have no complaints, rather I am grateful to them for such a wonderful platform. &lt;a href=&quot;http://www.nagekar.com/2014/07/ghost-vs-blogger-view.html&quot;&gt;I had to settle for Blogger&lt;/a&gt;, as the forced ads in Wordpress were something that made me hate Wordpress.com. Initially, with a custom theme, a little complicated, but later reverted to simple one. Then I went to &lt;a href=&quot;http://www.nagekar.com/2015/06/creating-custom-blogger-template-from.html&quot;&gt;code my own&lt;/a&gt;, which turned out to be successful, as far as my goal was concerned. It was perfect. No foreign code and nothing that increased the load time.&lt;/p&gt;
+
+&lt;p&gt;There is a problem with near perfect things. They are boring. And so, I thought, was my blog. No new problems to troubleshoot and no commandline to work with. Blogger is everything what a writer sometimes needs, but we computer people are a different breed. We need problems, then be it in our own personal blogs. While randomly surfing, I came across &lt;a href=&quot;http://jekyllrb.com/&quot; target=&quot;blank&quot;&gt;Jekyll&lt;/a&gt;, a blog-like platform created to be used with Github, to publish static pages. I knew not much about how Ruby applications are, or how to set one, but thanks to their excellent documentation, I was able to set it up in less than a day. There is no database, simple text files which become posts and pages. Github automatically parses markup or markdown in the post, and you have a nice little blog which is free, easy to manage and test locally, everyone can see the source, plus new stuff can be published with a mere git push.&lt;/p&gt;
+
+&lt;p&gt;I liked the way the blog looks and feels. It is important for me to like it since I mostly blog for selfish reasons, haha, but I hope it is comfortable for others to navigate too. I would like to hear anything regarding the new look of my blog down in the comments, and constructive suggestions are welcome. Keep visiting.&lt;p&gt;
+</description>
+                <link>http://www.nagekar.com/2015/07/blog-moved-to-github.html</link>
+                <guid>http://www.nagekar.com/2015/07/blog-moved-to-github</guid>
+                <pubDate>Sun, 05 Jul 2015 00:00:00 +0530</pubDate>
         </item>
 
 

@@ -1,149 +1,165 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-us">
+
   <head>
-    <meta charset="utf-8">
-    <title>Object Oriented Programming: Concepts and explaination using Python</title>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
     
-    <meta name="author" content="Abhishek Nagekar">
+      Object Oriented Programming: Concepts and explaination using Python &middot; Abhishek Nagekar's Blog
+    
+  </title>
 
-    <!-- Enable responsive viewport -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
-    <!--[if lt IE 9]>
-      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+  <!-- Icons -->
+  <link rel="shortcut icon" href="/assets/images/favicon.ico">
 
-    <!-- Le styles -->
-    <link href="/assets/themes//bootstrap/css/bootstrap.2.2.2.min.css" rel="stylesheet">
-    <link href="/assets/themes//css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
 
-    <!-- Le fav and touch icons -->
-  <!-- Update these with your own images
-    <link rel="shortcut icon" href="images/favicon.ico">
-    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-  -->
-
-    <!-- atom & rss feed -->
-    <link href="/atom.xml" type="application/atom+xml" rel="alternate" title="Sitewide ATOM Feed">
-    <link href="/rss.xml" type="application/rss+xml" rel="alternate" title="Sitewide RSS Feed">
-
-  </head>
 
   <body>
-    <div class="navbar navbar-default" role="navigation">
-      <div class="navbar-inner">
-        <div class="container-narrow">
-          <a class="brand" href="/">Abhishek Nagekar's Blog</a>
-          <ul class="nav">
-            
-            
-            
 
-
-  
-    
-      
-      	
-      	<li><a href="/archive">Archive</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/meta">Meta</a></li>
-      	
-      
-    
-  
-    
-      
-    
-  
-    
-      
-    
-  
-    
-      
-      	
-      	<li><a href="/tags">Tags</a></li>
-      	
-      
-    
-  
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
 
 
 
-          </ul>
-        </div>
-      </div>
-    </div>
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+    
 
-    <div class="container-narrow">
+  <nav class="sidebar-nav">
+    
 
-      <div class="content">
+    
+    
+      
         
-<div class="page-header">
-  <h1>Object Oriented Programming: Concepts and explaination using Python </h1>
+          <a class="sidebar-nav-item" href="/">Sometimes, I write..</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/archive">Archive</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/meta">Meta</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/tags">Tags</a>
+        
+      
+    
+    <a class="sidebar-nav-item" href="https://github.com/abhn">GitHub</a>
+    
+    
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      Abhishek Nagekar &copy; 2016
+    <br>
+      <small>Some Rights Reserved</small>
+    </p>
+  </div>
 </div>
 
-<div class="row-fluid post-full">
-  <div class="span12">
-    <div class="date">
-      <span>19 July 2014</span>
-    </div>
-    <div class="content">
-      <div dir="ltr" style="text-align: left;" trbidi="on">Object oriented programming or OOP is a new concept for me. Till now, all I had done was C and some scripting languages. All of them were 'procedural' type of languages. I knew nothing about OOP, and I really hate knowing nothing about anything. So I decided to try it out. I could learn or start with C++ or Java, but I choose Python. The reason being its flexibility and more importantly, it is a language of choice when it comes to creating simple utilities and exploits, which is a field of interest of mine.<br /><br />So it went good. I studied Python, both in procedural and object oriented way. I am still a beginner in Python but I studied the OOP concepts well. Then my college started and I had a subject called OOPM which deals with the same OOP stuff plus Java. The teacher, who teaches us the subject, I don't really know what is wrong with her, but her examples are only confined to banks and ATM machines. That is pretty funny and annoying. One example is good, two are Okay, but when someone goes on like a week entirely on the same examples to teach something like OOP, your brain dies.<br /><br />I have attended all the lectures and I am still trying to figure out what exactly she teaches during the lecture. Just a reminder, I have recently finished with OOP concepts in Python, so it shouldn't have to that hard. Then I can only imagine the state of all those who are actually doing it for the first time.<br /><br />Sick of it, I am writing this post on OOP concepts and will try my best to keep the terms and explanation simple and practical.<br /><br /><h3 style="text-align: left;">Starting with Object Oriented Programming&nbsp;</h3><div style="text-align: left;">OOP, as the name suggests is Object Oriented. Meaning that objects are the significant em...objects in it. But what exactly are objects? I wont answer it right away, because it would require some understanding. For now, everything, from variables to functions and else, are objects. First we will see some of the terms used.</div><h4 style="text-align: left;"><a href="http://en.wikipedia.org/wiki/Class_%28computer_programming%29" target="_blank">Class</a></h4><div style="text-align: left;">A class is like a code-template for creating objects of similar types which have some dissimilarities. For example, If I had to classify the Animal Kingdom again, I would create a class called animals which will be the parent class.</div><div style="text-align: left;"><br /></div><blockquote>&nbsp;&nbsp;&nbsp; class Animals(object):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; pass<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; dog = Animals()<br />&nbsp;&nbsp;&nbsp; dog.legs = 4<br />&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; cat = Animals()<br />&nbsp;&nbsp;&nbsp; cat.legs = 2 </blockquote><div style="text-align: left;"></div><br />And to use the class, we simply create an instance of it, which can be called an object as well. Dog and Cat are the instances here, for example. Since the class is empty (see the 'pass'). We can set attributes to the instances. 'legs' is an attribute to the object dog and cat, which are instances <br /><br /><h4 style="text-align: left;"><a href="http://en.wikipedia.org/wiki/Object_%28computer_science%29" target="_blank">Object</a></h4><div style="text-align: left;">Objects are all around you. Take a look. Everything that can have an individual significance can be considered an object. All objects have two characteristics, state (like color, size) and behavior (like tasks it does, eating, sleeping). In programming, objects are much similar to that. They have state (which are variables) and they have behavior (which is through methods). In the above 'class' example, cat and dog are objects. Let me write something that will make it clear.</div><div style="text-align: left;"><br /></div><blockquote class="tr_bq"><div style="text-align: left;">&nbsp;&nbsp;&nbsp; class Foobar(object):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; def __init__(self):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; self.x = x<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; self.y = y<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; def area(self, x, y):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; return x * y<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; rectangle1 = Foobar()<br />&nbsp;&nbsp;&nbsp; area = rectangle1.area(4,6) </div></blockquote><br /><div style="text-align: left;">So rectangle1 is the object I created. I use the method area to find out area of the supplied rectangle.</div><div style="text-align: left;"><br /></div><div style="text-align: left;"><h4 style="text-align: left;"><a href="http://en.wikipedia.org/wiki/Inheritance_%28object-oriented_programming%29" target="_blank">Inheritance</a></h4>Inheritance is using an existing class and creating a new class which inherits, or has all the features of the old class plus some new features. So, if one were to organize reptiles and cats separately, he could do this.<br /><br /><blockquote class="tr_bq">&nbsp;&nbsp;&nbsp; class Reptile(Animals):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; pass<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; class cat(Animals):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; pass</blockquote><br />This creates classes which can be called daughter classes of parent class Animals. They inherit all the properties of Animals plus they can have their own new properties. It results in code reuse, but read any good book and they will tell you why you should avoid inheritance. Since this is not a guide, I wont.<br /><br /><h4 style="text-align: left;"><a href="http://en.wikipedia.org/wiki/Method_%28computer_programming%29" target="_blank">Methods</a></h4><div style="text-align: left;">When you write a function inside a class, it is called a method. Why? I don't know. Some books I have read insisted on calling them functions, while some didn't. Its upto you. For the sake of an example, I will write a class 'Shape' and daughter classes and methods in them for finding their respective areas.</div><div style="text-align: left;"><br /></div><blockquote class="tr_bq"><div style="text-align: left;">&nbsp;&nbsp;&nbsp; import math<br /><br />&nbsp;&nbsp;&nbsp; class Shapes(object):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; pass<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; class Circle(Shapes):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; def area(self, radius):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; return radius * radius * math.pi<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; class Triangle(Shapes):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; def area(self, base, height):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; return 0.5 * base * height</div></blockquote><br />The 'area' function in both the classes calculates the area of that particular shape and returns it. You need to call the function with parameters. For example,<br /><br /><blockquote class="tr_bq">&nbsp;&nbsp;&nbsp; import math<br /><br />&nbsp;&nbsp;&nbsp; class Shapes(object):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;pass<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; class Circle(Shapes):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;def area(self, radius):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;return radius * radius * math.pi<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; class Triangle(Shapes):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;def area(self, base, height):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;return 0.5 * base * height<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; mytriangle = Triangle() # Creating an instance<br />&nbsp;&nbsp;&nbsp; area_of_triangle = mytriangle.area(5,10) # 5, 10 are arguments </blockquote><br />If you are wondering, the first parameter 'self' is the object itself. <br /><br />So that was my brief scattered explanation on OOP concepts. I am pretty sure there are some mistakes in the above snippets of code. Please let me and others know the mistakes so I can correct them.</div></div>
-    </div>
 
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Abhishek Nagekar's Blog</a>
+            <small>Code, Science, Philosophy, Humor</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Object Oriented Programming: Concepts and explaination using Python</h1>
+  <span class="post-date">19 July, 2014. It was a Saturday.</span>
+  <div dir="ltr" style="text-align: left;" trbidi="on">Object oriented programming or OOP is a new concept for me. Till now, all I had done was C and some scripting languages. All of them were 'procedural' type of languages. I knew nothing about OOP, and I really hate knowing nothing about anything. So I decided to try it out. I could learn or start with C++ or Java, but I choose Python. The reason being its flexibility and more importantly, it is a language of choice when it comes to creating simple utilities and exploits, which is a field of interest of mine.<br /><br />So it went good. I studied Python, both in procedural and object oriented way. I am still a beginner in Python but I studied the OOP concepts well. Then my college started and I had a subject called OOPM which deals with the same OOP stuff plus Java. The teacher, who teaches us the subject, I don't really know what is wrong with her, but her examples are only confined to banks and ATM machines. That is pretty funny and annoying. One example is good, two are Okay, but when someone goes on like a week entirely on the same examples to teach something like OOP, your brain dies.<br /><br />I have attended all the lectures and I am still trying to figure out what exactly she teaches during the lecture. Just a reminder, I have recently finished with OOP concepts in Python, so it shouldn't have to that hard. Then I can only imagine the state of all those who are actually doing it for the first time.<br /><br />Sick of it, I am writing this post on OOP concepts and will try my best to keep the terms and explanation simple and practical.<br /><br /><h3 style="text-align: left;">Starting with Object Oriented Programming&nbsp;</h3><div style="text-align: left;">OOP, as the name suggests is Object Oriented. Meaning that objects are the significant em...objects in it. But what exactly are objects? I wont answer it right away, because it would require some understanding. For now, everything, from variables to functions and else, are objects. First we will see some of the terms used.</div><h4 style="text-align: left;"><a href="http://en.wikipedia.org/wiki/Class_%28computer_programming%29" target="_blank">Class</a></h4><div style="text-align: left;">A class is like a code-template for creating objects of similar types which have some dissimilarities. For example, If I had to classify the Animal Kingdom again, I would create a class called animals which will be the parent class.</div><div style="text-align: left;"><br /></div><blockquote>&nbsp;&nbsp;&nbsp; class Animals(object):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; pass<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; dog = Animals()<br />&nbsp;&nbsp;&nbsp; dog.legs = 4<br />&nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; cat = Animals()<br />&nbsp;&nbsp;&nbsp; cat.legs = 2 </blockquote><div style="text-align: left;"></div><br />And to use the class, we simply create an instance of it, which can be called an object as well. Dog and Cat are the instances here, for example. Since the class is empty (see the 'pass'). We can set attributes to the instances. 'legs' is an attribute to the object dog and cat, which are instances <br /><br /><h4 style="text-align: left;"><a href="http://en.wikipedia.org/wiki/Object_%28computer_science%29" target="_blank">Object</a></h4><div style="text-align: left;">Objects are all around you. Take a look. Everything that can have an individual significance can be considered an object. All objects have two characteristics, state (like color, size) and behavior (like tasks it does, eating, sleeping). In programming, objects are much similar to that. They have state (which are variables) and they have behavior (which is through methods). In the above 'class' example, cat and dog are objects. Let me write something that will make it clear.</div><div style="text-align: left;"><br /></div><blockquote class="tr_bq"><div style="text-align: left;">&nbsp;&nbsp;&nbsp; class Foobar(object):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; def __init__(self):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; self.x = x<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; self.y = y<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; def area(self, x, y):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; return x * y<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; rectangle1 = Foobar()<br />&nbsp;&nbsp;&nbsp; area = rectangle1.area(4,6) </div></blockquote><br /><div style="text-align: left;">So rectangle1 is the object I created. I use the method area to find out area of the supplied rectangle.</div><div style="text-align: left;"><br /></div><div style="text-align: left;"><h4 style="text-align: left;"><a href="http://en.wikipedia.org/wiki/Inheritance_%28object-oriented_programming%29" target="_blank">Inheritance</a></h4>Inheritance is using an existing class and creating a new class which inherits, or has all the features of the old class plus some new features. So, if one were to organize reptiles and cats separately, he could do this.<br /><br /><blockquote class="tr_bq">&nbsp;&nbsp;&nbsp; class Reptile(Animals):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; pass<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; class cat(Animals):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; pass</blockquote><br />This creates classes which can be called daughter classes of parent class Animals. They inherit all the properties of Animals plus they can have their own new properties. It results in code reuse, but read any good book and they will tell you why you should avoid inheritance. Since this is not a guide, I wont.<br /><br /><h4 style="text-align: left;"><a href="http://en.wikipedia.org/wiki/Method_%28computer_programming%29" target="_blank">Methods</a></h4><div style="text-align: left;">When you write a function inside a class, it is called a method. Why? I don't know. Some books I have read insisted on calling them functions, while some didn't. Its upto you. For the sake of an example, I will write a class 'Shape' and daughter classes and methods in them for finding their respective areas.</div><div style="text-align: left;"><br /></div><blockquote class="tr_bq"><div style="text-align: left;">&nbsp;&nbsp;&nbsp; import math<br /><br />&nbsp;&nbsp;&nbsp; class Shapes(object):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; pass<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; class Circle(Shapes):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; def area(self, radius):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; return radius * radius * math.pi<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; class Triangle(Shapes):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; def area(self, base, height):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; return 0.5 * base * height</div></blockquote><br />The 'area' function in both the classes calculates the area of that particular shape and returns it. You need to call the function with parameters. For example,<br /><br /><blockquote class="tr_bq">&nbsp;&nbsp;&nbsp; import math<br /><br />&nbsp;&nbsp;&nbsp; class Shapes(object):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;pass<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; class Circle(Shapes):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;def area(self, radius):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;return radius * radius * math.pi<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; class Triangle(Shapes):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;def area(self, base, height):<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;return 0.5 * base * height<br />&nbsp;&nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;&nbsp; <br />&nbsp;&nbsp;&nbsp; mytriangle = Triangle() # Creating an instance<br />&nbsp;&nbsp;&nbsp; area_of_triangle = mytriangle.area(5,10) # 5, 10 are arguments </blockquote><br />If you are wondering, the first parameter 'self' is the object itself. <br /><br />So that was my brief scattered explanation on OOP concepts. I am pretty sure there are some mistakes in the above snippets of code. Please let me and others know the mistakes so I can correct them.</div></div>
+</div>
+
+<div class="related">
+  <h2>You May Also Like</h2>
+  <ul class="related-posts">
     
-
+      <li>
+        <h3>
+          <a href="/2016/01/exchanging-chikoos-for-friends.html">
+            Exchanging Chikoos For Friends
+            <small>19 Jul 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2016/01/how-to-private-local-cloud-using-raspberrypi.html">
+            Private Local Cloud Storage Using Raspberrypi - How To
+            <small>19 Jul 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2016/01/fastboot-horror.html">
+            Fastboot Horror
+            <small>19 Jul 2014</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+  <hr>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2314128584981990"
+         data-ad-slot="1513670662"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+  <hr>
   
-    <ul class="tag_box inline">
-      <li><i class="icon-tags"></i></li>
-      
-      
-
-
-  
-     
-    	<li><a href="/tags.html#python-ref">python <span>6</span></a></li>
-    
-  
-
-
-
-    </ul>
-    
-
-    <hr>
-    <div class="pagination">
-      <ul>
-      
-        <li class="prev"><a href="/2014/07/ghost-vs-blogger-view.html" title="Ghost vs Blogger. A view.">&larr; Previous</a></li>
-      
-        <li><a href="">Archive</a></li>
-      
-        <li class="next"><a href="/2014/07/self-learning-is-it-worth-efforts.html" title="Self learning - Is it worth the efforts?">Next &rarr;</a></li>
-      
-      </ul>
-    </div>
-    <hr>
-    
 
 
   <div id="disqus_thread"></div>
@@ -165,25 +181,29 @@
 
 
 
-  </div>
 </div>
 
-
       </div>
-      <hr>
-      <footer>
-        <p>&copy; 2016 Abhishek Nagekar
-          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
-          and <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>
-        </p>
-      </footer>
-
     </div>
 
-    
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
 
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
 
+        document.addEventListener('click', function(e) {
+          var target = e.target;
 
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
   </body>
 </html>
-
