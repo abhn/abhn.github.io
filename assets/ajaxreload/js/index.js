@@ -11,7 +11,7 @@ for(var i = 0, len = elements.length; i < len; i++) {
 
         getHash(function(hash) {
             var url = hash;
-            url = 'http://nagekar.com/assets/ajaxreload' + url;
+            url = 'http://www.nagekar.com/assets/ajaxreload' + url;
             console.log(url);
             xmlObj.open('GET', url);
             xmlObj.send();
