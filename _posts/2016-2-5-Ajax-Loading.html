@@ -1,0 +1,43 @@
+---
+layout: post
+title: AJAX Loading
+tags:
+- javascript
+---
+
+<p>
+    <i>Edit: The section below this has some major issues, that I only found out after pushing into github. Read edit section.</i>
+</p>
+<p>
+	I always admired the sites which did not reload upon clicking links here and there, but simple gave me whatever I requested for, with grace. Sites like Facebook, Twitter and Youtube extensively use it, and the application hardly reloads after the initial reload. Here's my attempt on making something similar.
+</p>
+<p>
+	Firstly, I downloaded a free HTML template from <a href="http://www.onlinecasinos.im/" target="_blank">Online Casinos</a>. The links had to be edited. The pattern I used was to replace, for example, any (internal) link pointing to <code>example.html</code> to <code>#/example.html</code>. What it did was 1.) prevent the page from reloading, and 2.) putting the requested location to some place from where I can extract it with Javascript.
+</p>
+<p>
+	Next, grab that location of the hash. The Javascript's built in method <code>window.location.hash</code> provides the page's current hash. We drop the first char from the returned hash as it is the hash (#) character itself. The hash value is essentially the location to be navigated to, hence, we use some string manipulation to craft a new URL from it, and make an AJAX request to fetch the contents of the page requested, and insert it into the div specified through Javascript.
+</p>
+<p>
+	For example, suppose we are on about.html page. Now if I click 'contact' link, the link would change to /about.html#/contact.html, the hash value would be grabbed by the window.location.hash method, a GET request is fired to get that location with a XMLHttpRequest object, the response is inserted with innerHTML method on the div, and using the <code>window.history.pushState()</code> method, we update the URL to /contact.html, to ease sharing. All this, in the blink of an eye. Cool.
+</p>
+<p>
+	I could do it in two different ways. One was to just place the text in those files and inserting them into the template. The drawback of this was that if a user directly visits that page, he/she would just see plain text. For example, <a href="http://www.nagekar.com/assets/ajaxreload/">check this link out</a>. The Javascript code for that was,
+</p>
+<script src="https://gist.github.com/abhn/e53b6d308f3620e7b9a2.js"></script>
+<p>
+	The separate callback function for getHash was necessary because onclick() event fires before the hash is changed, and it would result in the script grabbing the previous hash. As already mentioned, the navigation is smooth if one visits index.html and then other links, but try getting the about.html page first. All you'll see are a few lines of text.
+</p>
+<p>
+	A sloppy solution to the above problem was to replicate the entire index page with varying content for each of the page, and then replace entire DOM on anchor click. You can imagine this is not at all smart, and would destroy the point of this site. Not to mention the extra bandwidth to reload the same resources on every request. <a href="http://www.nagekar.com/assets/ajaxreload2/">Here is the implementation</a> for this method.
+</p>
+<p>
+	What would be the smarter way? Perhaps, making sure the first page to load always downloads the entire html every time, and subsequent requests to be made to download the changed content. I will be implementing this solution shortly. Drop in your ideas too, and share if you enjoyed reading this. 
+</p>
+<h2>Edit</h3>
+<p>
+    So, the above code seemed to work on my localhost, but there were some serious (cross origins and some logical ones) issues with it, so much that I considered to learn relative and absolute links all over again. Anyways, I also happened to redesign my blog during this time (redesign in the sense changing the template), and I am working to implement AJAX loading on all links here on my blog. So far, all links on the home page seemed to work as expected (AJAXified). I am using the document.write() method, so judge me on that. You can check them out <a href="http://www.nagekar.com/">here</a>. The code snippet is following.
+</p>
+<script src="https://gist.github.com/abhn/330dcb193dd25e46607d.js"></script>
+<p>
+    What do you think about it? It feels a little buggy at times, and sadly, Internet Explorer isn't supported yet. But for most of it, chrome and firefox are working like a charm. Hope to get all links covered under this thing, which would be nice. Sadly though, the browser tab shows loading for all the third party resources on the page which kill the purpose of this thing. Anyways, feel free to correct or improve this in the comments below.
+</p>
