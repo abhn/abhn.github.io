@@ -8,9 +8,9 @@ document.addEventListener('click', function(e) {
         // on return of data
         xmlObj.addEventListener('load', function(resp) {
             // change the entire DOM
-            document.open();
             document.write(resp.srcElement.responseText);
-            document.close();
+
+            console.log(resp.srcElement.responseText);
             
             // push the new URL into the address bar
             window.history.pushState('', '', resp.srcElement.responseURL);
