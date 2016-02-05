@@ -11,7 +11,7 @@ for(var i = 0, len = elements.length; i < len; i++) { // for every hyperlink
 
         getHash(function(hash) {
             var url = hash;
-            url = 'http://www,nagekar.com/assets/ajaxreload2' + url;
+            url = 'http://www.nagekar.com/assets/ajaxreload2' + url;
             console.log(url);
             xmlObj.open('GET', url);
             xmlObj.send();
