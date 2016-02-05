@@ -8,7 +8,7 @@ title: Sometimes, I write..
 
 <ul class="posts">
   {% for post in site.posts %}
-    <li><a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a> <small><a style="color:grey" href="{{ BASE_PATH }}{{ post.url }}#disqus_thread"></a></small></li>
+    <li><a href="{{ BASE_PATH }}#{{ post.url }}">{{ post.title }}</a> <small><a style="color:grey" href="{{ BASE_PATH }}{{ post.url }}#disqus_thread"></a></small></li>
   {% endfor %}
 </ul>
 
