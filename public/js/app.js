@@ -8,12 +8,11 @@ document.addEventListener('click', function(e) {
         // on return of data
         xmlObj.addEventListener('load', function(resp) {
             // change the entire DOM
-            document.write(resp.srcElement.responseText);
+            document.write(resp.target.responseText);
 
-            console.log(resp.srcElement.responseText);
             
             // push the new URL into the address bar
-            window.history.pushState('', '', resp.srcElement.responseURL);
+            window.history.pushState('', '', resp.target.responseURL);
         });
         
         xmlObj.open('GET', targetURL);
