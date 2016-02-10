@@ -4,7 +4,7 @@
  <title>Abhishek Nagekar&#39;s Blog</title>
  <link href="http://www.nagekar.com/atom.xml" rel="self"/>
  <link href="http://www.nagekar.com"/>
- <updated>2016-02-07T20:08:52+05:30</updated>
+ <updated>2016-02-10T21:25:10+05:30</updated>
  <id>http://www.nagekar.com</id>
  <author>
    <name>Abhishek Nagekar</name>
@@ -128,15 +128,15 @@
 		&lt;li&gt;Open the vsftp configuration file by &lt;pre&gt;sudo nano /etc/vsftpd.conf&lt;/pre&gt;&lt;/li&gt;
 		&lt;li&gt;
 			The would be a lot of options. Just go through and make sure the following lines are there and not commented. If not, add them.
-			&lt;pre&gt;
-				anonymous_enable=NO
-				local_enable=YES
-				write_enable=YES
-				chroot_local_user=YES
-				force_dot_files=YES
-				local_root=/var/www
-				allow_writable_chroot=YES
-			&lt;/pre&gt;
+&lt;pre&gt;
+	anonymous_enable=NO
+	local_enable=YES
+	write_enable=YES
+	chroot_local_user=YES
+	force_dot_files=YES
+	local_root=/var/www
+	allow_writable_chroot=YES
+&lt;/pre&gt;
 		&lt;/li&gt;
 		&lt;li&gt;After saving (Ctrl + x and then y) and exiting, restart vsftpd by &lt;pre&gt;sudo service vsftpd restart&lt;/pre&gt;&lt;/li&gt;
 		&lt;li&gt;Lastly, change the user home to the FTP root, so that you&#39;ll directly get into the FTP server&#39;s root on logging into the FTP client. &lt;pre&gt;sudo usermod --home /var/www/ your_username&lt;/pre&gt;&lt;/li&gt;

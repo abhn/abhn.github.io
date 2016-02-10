@@ -49,15 +49,15 @@ title: Private Local Cloud Storage Using Raspberrypi - How To
 		<li>Open the vsftp configuration file by <pre>sudo nano /etc/vsftpd.conf</pre></li>
 		<li>
 			The would be a lot of options. Just go through and make sure the following lines are there and not commented. If not, add them.
-			<pre>
-				anonymous_enable=NO
-				local_enable=YES
-				write_enable=YES
-				chroot_local_user=YES
-				force_dot_files=YES
-				local_root=/var/www
-				allow_writable_chroot=YES
-			</pre>
+<pre>
+	anonymous_enable=NO
+	local_enable=YES
+	write_enable=YES
+	chroot_local_user=YES
+	force_dot_files=YES
+	local_root=/var/www
+	allow_writable_chroot=YES
+</pre>
 		</li>
 		<li>After saving (Ctrl + x and then y) and exiting, restart vsftpd by <pre>sudo service vsftpd restart</pre></li>
 		<li>Lastly, change the user home to the FTP root, so that you'll directly get into the FTP server's root on logging into the FTP client. <pre>sudo usermod --home /var/www/ your_username</pre></li>
