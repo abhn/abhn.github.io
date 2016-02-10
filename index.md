@@ -29,3 +29,4 @@ title: Sometimes, I write..
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
 </script>
+<script src='/public/js/app.js'></script>
