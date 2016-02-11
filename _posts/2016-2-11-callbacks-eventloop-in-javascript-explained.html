@@ -1,0 +1,40 @@
+---
+layout: post
+title: Callbacks And Event Loop Explained
+tags:
+- javascript
+---
+
+<p>
+	Callbacks are the things that make writing Javascript fun. If you think you are better off writing Javascript the way you wrote C and Java, then you are not really feeling the essence of this beautiful language. I found it rather hard to get used to this style of programming, called affectionately as the non-blocking style. What is this difficult sounding technique, and how can you make use of it to write better code is what we're going to see in this little essay.
+</p>
+<p>
+	Starting with the most basic explanation of what a callback is. Suppose I have two functions A and B. Although I can execute both of them myself, what I can do is execute A and ask A to execute B for me. Yes, that is all there is to the callbacks thing. I have two functions, I execute one and then ask it to execute the other one for me. Simple.
+</p>
+<p>
+	But, you might ask, why I would ever want to do such a thing. Well, think about it this way. Computer processing is way, way faster than any I/O in question, especially when the I/O is on the other side of the network (or globe, for that matter) which is usual in the case of most web applications. Now, if you write code such that it queries a remote (or local) database and uses those results to carry on further processing, it results in a bottleneck. The processor executes instructions in the order of nanoseconds. An I/O request to the disk or network takes a few milliseconds at best, or a million times more time than what a processor needs to do a single atomic task. So essentially writing code that waits for results from I/O is simply wastage of the precious CPU cycles that could've been put to better use in the meantime.
+</p>
+<p>
+	A callback is also of great use when you want to make a function, say A, do things according to the context by supplying a specialized function B at the runtime. For example,
+</p>
+<script src="https://gist.github.com/abhn/22fa7b521b4013c30bdd.js"></script>
+<p>
+	So let's get into some (pseudo) code. We will first see what it is like to write code without callbacks and blocking IO and then examine some issues. Then we will write the same code using callbacks and non-blocking IO and see if we have rectified (or at least mitigated) those issues.
+</p>
+<script src="https://gist.github.com/abhn/6b032655b0924b0ed301.js"></script>
+<p>
+	Now this code is blocked when the Javascript engine is waiting for the Mongodb query to execute and return. It may take a few milliseconds, and only after that does the control of the program moves to the next lines. If the database hangs up for any reason, then the response will never reach the end user, regardless of whether the login credentials were correct or not (or let the user know something went wrong). It may also happen that the Javascript engine continues the execution with 'undefined' returned, resulting in falsy block being executed each time. Having addressed these problems, let us now write the asynchronous version of the same (pseudo) code.
+</p>
+<script src="https://gist.github.com/abhn/c1f4527a33f92a304d7e.js"></script>
+<p>
+	The callback function in a way keeps waiting for the response from the database in the background white the flow of program is not interrupted. As soon as the reply comes, the code in the callback function is executed. That sounds neat. Wait a second. Didn't we all learn that Javascript is single threaded and does a single job at a time and what not? Then how is the callback supposed to listen when the browser is already executing the code below it? 
+</p>
+<p>
+	To understand that, you'll have to stop believing every thing you write in Javascript is Javascript. Yes, I mean it. Javascript is single threaded, but there is much more to Javascript than just a single <b>call stack</b>. Ok first, what is a call stack. Whenever a javascript file is executed, the engine creates a context for the code to run. This is the global execution context. It sits at the bottom of the call stack. Whenever a new function is invoked (or 'called'), a new execution context is pushed on top of the stack. After the execution completes, the execution context is popped off the stack. After the last line of code is interpreted, the global context is popped off the stack.
+</p>
+<p>
+	Well and good. But what about that setTimeout function that you set for the next 10 seconds? And our own mongodb query. Where did those go? The setTimeout is actually a webAPI provided to us, the Javascript developers, by the browser. Similarly, our mongodb query command was not a Javascript thingy, but a C++ API from the Nodejs bag of goodies. These events are handled by their respective environment, and when they finish execution, they enter what is called the <b>callback queue</b>. There, they wait until the call stack is completely empty. Once the call stack in empty (all Javascript code is done running), the <b>event loop</b> kicks in, pushes the callback functions waiting in the call back queue on top of the stack, one by one. A great way to visualize what the above paragraph just said is to try it out yourself at <a href="http://latentflip.com/loupe" target="_blank">loupe by Philip Roberts</a>. He's an amazing guy and you should totally check out his talks.
+</p>
+<p>
+	So that was it for this little article. Hope to have helped you. Keep digging.
+</p>
