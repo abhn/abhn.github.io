@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>
+    
+      Going Full Stack On Mobile &middot; Abhishek Nagekar's Blog
+    
+  </title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/public/css/poole.css">
+  <link rel="stylesheet" href="/public/css/syntax.css">
+  <link rel="stylesheet" href="/public/css/lanyon.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+</head>
+
+
+  <body>
+
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+    
+
+  <nav class="sidebar-nav">
+    
+
+    
+    
+      
+        
+          <a class="sidebar-nav-item" href="/">Sometimes, I write..</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/archive">Archive</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/meta">Meta</a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/tags">Tags</a>
+        
+      
+    
+    <a class="sidebar-nav-item" href="https://github.com/abhn">My GitHub</a>
+    <a class="sidebar-nav-item" href="#/search">Search This Blog</a>
+    <a class="sidebar-nav-item" onclick="window.open('https://feedburner.google.com/fb/a/mailverify?uri=AbhishekN', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true" target="popupwindow" href="https://feedburner.google.com/fb/a/mailverify?uri=AbhishekN">Email Subscription</a>
+    
+    
+  </nav>
+
+  <div class="sidebar-item">
+    <p>
+      Abhishek Nagekar &copy; 2016
+    <br>
+      <small>Some Rights Reserved</small>
+    </p>
+  </div>
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Abhishek Nagekar's Blog</a>
+            <small>Code, Science, Philosophy, Humor</small>
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 class="post-title">Going Full Stack On Mobile</h1>
+  <span class="post-date">3 March, 2016. It was a Thursday.</span>
+  <p>
+	I have been a part of numerous web projects, and after these many applications using multiple languages and frameworks, when my friend Kunal suggested that we should develop an Android application that would make use of a backend and stuff like that, I couldn't help but desperately show my excitement. I told my friends, family and even seniors about the thing I am working on. After all, it was my first time going full stack mobile.
+</p>
+<p>
+	For clarifying things, I am still doing the backend. It is my little team that has gone full stack. On mobile. The application, called the <b><i>moodShare</i></b> will enable a user to do few simple tasks like registering, logging in, adding friends, sharing statuses, reading statuses and stuff like that. Each task is made possible with a simple API that is made without much thought to future scaling. I know, that is really bad from my side. But then, I was too desperate to get an application up and running that I neglected a lot of issues that arose when we were developing.
+</p>
+<p>
+	The application's backend was Mongo, Express and Node. We deployed it to Modulus.io but then this happened and we had to shift it to Heroku. 
+</p>
+	<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="6" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:48.2886904762% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAAGFBMVEUiIiI9PT0eHh4gIB4hIBkcHBwcHBwcHBydr+JQAAAACHRSTlMABA4YHyQsM5jtaMwAAADfSURBVDjL7ZVBEgMhCAQBAf//42xcNbpAqakcM0ftUmFAAIBE81IqBJdS3lS6zs3bIpB9WED3YYXFPmHRfT8sgyrCP1x8uEUxLMzNWElFOYCV6mHWWwMzdPEKHlhLw7NWJqkHc4uIZphavDzA2JPzUDsBZziNae2S6owH8xPmX8G7zzgKEOPUoYHvGz1TBCxMkd3kwNVbU0gKHkx+iZILf77IofhrY1nYFnB/lQPb79drWOyJVa/DAvg9B/rLB4cC+Nqgdz/TvBbBnr6GBReqn/nRmDgaQEej7WhonozjF+Y2I/fZou/qAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://www.instagram.com/p/BCifT2gGkAT/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">Too poor to get a proper server... Crashing in 3..2..1 #javascript #nodejs</a></p> <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">A photo posted by Abhishek Nagekar (@abhisheknagekar) on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2016-03-04T17:06:48+00:00">Mar 4, 2016 at 9:06am PST</time></p></div></blockquote>
+<p>
+	And this was when we had around 4 live users. The code quality was poor, very poor. Trust me when I say it. 4 users were hitting the database around 7 times a second. 
+</p>
+<blockquote class="instagram-media" data-instgrm-captioned data-instgrm-version="6" style=" background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);"><div style="padding:8px;"> <div style=" background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;"> <div style=" background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAAGFBMVEUiIiI9PT0eHh4gIB4hIBkcHBwcHBwcHBydr+JQAAAACHRSTlMABA4YHyQsM5jtaMwAAADfSURBVDjL7ZVBEgMhCAQBAf//42xcNbpAqakcM0ftUmFAAIBE81IqBJdS3lS6zs3bIpB9WED3YYXFPmHRfT8sgyrCP1x8uEUxLMzNWElFOYCV6mHWWwMzdPEKHlhLw7NWJqkHc4uIZphavDzA2JPzUDsBZziNae2S6owH8xPmX8G7zzgKEOPUoYHvGz1TBCxMkd3kwNVbU0gKHkx+iZILf77IofhrY1nYFnB/lQPb79drWOyJVa/DAvg9B/rLB4cC+Nqgdz/TvBbBnr6GBReqn/nRmDgaQEej7WhonozjF+Y2I/fZou/qAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;"></div></div> <p style=" margin:8px 0 0 0; padding:0 4px;"> <a href="https://www.instagram.com/p/BCiVuS2GkNI/" style=" color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;" target="_blank">Beautiful sight of requests hitting the API server #javascript #nodejs</a></p> <p style=" color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;">A video posted by Abhishek Nagekar (@abhisheknagekar) on <time style=" font-family:Arial,sans-serif; font-size:14px; line-height:17px;" datetime="2016-03-04T15:43:02+00:00">Mar 4, 2016 at 7:43am PST</time></p></div></blockquote>
+<p>
+	Then there were many other issues as well. For example, if you added a friend who had 400 status updates in his or her name before you added, your phone would notify you, well, 400 times. Literally. That was awful. Push notification was implemented in a way you write an infinite for loop to check if something has changed.
+</p>
+<p>
+	But hey, this was our first time. We did enjoy each and every second of the development (around 4 days), the bugs just as much. We did learn a lot from it. Before this project, messaging queue was just a name, Google Cloud Messaging was just another service that I knew nothing about, three or four HTTP status codes that I knew. The satisfaction of knowing more about these was worth it all. Lastly, we did not abandon the project. Our alpha version was pretty stiff and unusable. Hopefully, with better APIs, better hosting and material design on the frontend, we plan to rock with the beta version. Stay tuned.
+</p>
+<h4>Screenshots</h4>
+<style type="text/css">
+	#inline {
+		display: inline-block;
+		text-align: center;
+	}
+</style>
+<div id="inline">
+	<a href="/assets/images/moodshare/moodshare1.png"><img src="/assets/images/moodshare/moodshare1.png" width="180px" height="320px" style="display: inline"/></a>
+	<a href="/assets/images/moodshare/moodshare2.png"><img src="/assets/images/moodshare/moodshare1.png" width="180px" height="320px" style="display: inline"/></a>	
+	<a href="/assets/images/moodshare/moodshare3.png"><img src="/assets/images/moodshare/moodshare1.png" width="180px" height="320px" style="display: inline"/></a>
+</div>
+<h4>Links</h4>
+<p>
+	<ul>
+		<li><a href="https://www.dropbox.com/s/1dqalax3rg9xhfo/moodshare.apk?dl=0">The initail release of moodShare</a></li>
+		<li><a href="https://github.com/abhn/mood-share">Backend code on Github</a></li>
+		<li><a href="https://moodshare.herokuapp.com">Live API on Heroku</a></li>
+	</ul>
+</p>
+
+
+<script async defer src="//platform.instagram.com/en_US/embeds.js"></script>
+
+</div>
+
+<div class="related">
+  <h2>You May Also Like</h2>
+  <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2016/02/callbacks-eventloop-in-javascript-explained.html">
+            Callbacks And Event Loop Explained
+            <small>03 Mar 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2016/02/Ajax-Loading.html">
+            AJAX Loading
+            <small>03 Mar 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2016/01/exchanging-chikoos-for-friends.html">
+            Exchanging Chikoos For Friends
+            <small>03 Mar 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+  <hr>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-client="ca-pub-2314128584981990"
+         data-ad-slot="1513670662"
+         data-ad-format="auto"></ins>
+    <script>
+    (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+  <hr>
+  
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    
+    var disqus_developer = 1;
+    var disqus_shortname = 'nagekar'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+</div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+  </body>
+</html>

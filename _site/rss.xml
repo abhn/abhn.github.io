@@ -5,10 +5,61 @@
         <description>Abhishek Nagekar&#39;s Blog - Abhishek Nagekar</description>
         <link>http://www.nagekar.com</link>
         <atom:link href="http://www.nagekar.com/rss.xml" rel="self" type="application/rss+xml" />
-        <lastBuildDate>Fri, 12 Feb 2016 01:19:00 +0530</lastBuildDate>
-        <pubDate>Fri, 12 Feb 2016 01:19:00 +0530</pubDate>
+        <lastBuildDate>Sun, 06 Mar 2016 19:49:58 +0530</lastBuildDate>
+        <pubDate>Sun, 06 Mar 2016 19:49:58 +0530</pubDate>
         <ttl>60</ttl>
 
+
+        <item>
+                <title>Going Full Stack On Mobile</title>
+                <description>&lt;p&gt;
+	I have been a part of numerous web projects, and after these many applications using multiple languages and frameworks, when my friend Kunal suggested that we should develop an Android application that would make use of a backend and stuff like that, I couldn&#39;t help but desperately show my excitement. I told my friends, family and even seniors about the thing I am working on. After all, it was my first time going full stack mobile.
+&lt;/p&gt;
+&lt;p&gt;
+	For clarifying things, I am still doing the backend. It is my little team that has gone full stack. On mobile. The application, called the &lt;b&gt;&lt;i&gt;moodShare&lt;/i&gt;&lt;/b&gt; will enable a user to do few simple tasks like registering, logging in, adding friends, sharing statuses, reading statuses and stuff like that. Each task is made possible with a simple API that is made without much thought to future scaling. I know, that is really bad from my side. But then, I was too desperate to get an application up and running that I neglected a lot of issues that arose when we were developing.
+&lt;/p&gt;
+&lt;p&gt;
+	The application&#39;s backend was Mongo, Express and Node. We deployed it to Modulus.io but then this happened and we had to shift it to Heroku. 
+&lt;/p&gt;
+	&lt;blockquote class=&quot;instagram-media&quot; data-instgrm-captioned data-instgrm-version=&quot;6&quot; style=&quot; background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);&quot;&gt;&lt;div style=&quot;padding:8px;&quot;&gt; &lt;div style=&quot; background:#F8F8F8; line-height:0; margin-top:40px; padding:48.2886904762% 0; text-align:center; width:100%;&quot;&gt; &lt;div style=&quot; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAAGFBMVEUiIiI9PT0eHh4gIB4hIBkcHBwcHBwcHBydr+JQAAAACHRSTlMABA4YHyQsM5jtaMwAAADfSURBVDjL7ZVBEgMhCAQBAf//42xcNbpAqakcM0ftUmFAAIBE81IqBJdS3lS6zs3bIpB9WED3YYXFPmHRfT8sgyrCP1x8uEUxLMzNWElFOYCV6mHWWwMzdPEKHlhLw7NWJqkHc4uIZphavDzA2JPzUDsBZziNae2S6owH8xPmX8G7zzgKEOPUoYHvGz1TBCxMkd3kwNVbU0gKHkx+iZILf77IofhrY1nYFnB/lQPb79drWOyJVa/DAvg9B/rLB4cC+Nqgdz/TvBbBnr6GBReqn/nRmDgaQEej7WhonozjF+Y2I/fZou/qAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;&quot;&gt;&lt;/div&gt;&lt;/div&gt; &lt;p style=&quot; margin:8px 0 0 0; padding:0 4px;&quot;&gt; &lt;a href=&quot;https://www.instagram.com/p/BCifT2gGkAT/&quot; style=&quot; color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;&quot; target=&quot;_blank&quot;&gt;Too poor to get a proper server... Crashing in 3..2..1 #javascript #nodejs&lt;/a&gt;&lt;/p&gt; &lt;p style=&quot; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;&quot;&gt;A photo posted by Abhishek Nagekar (@abhisheknagekar) on &lt;time style=&quot; font-family:Arial,sans-serif; font-size:14px; line-height:17px;&quot; datetime=&quot;2016-03-04T17:06:48+00:00&quot;&gt;Mar 4, 2016 at 9:06am PST&lt;/time&gt;&lt;/p&gt;&lt;/div&gt;&lt;/blockquote&gt;
+&lt;p&gt;
+	And this was when we had around 4 live users. The code quality was poor, very poor. Trust me when I say it. 4 users were hitting the database around 7 times a second. 
+&lt;/p&gt;
+&lt;blockquote class=&quot;instagram-media&quot; data-instgrm-captioned data-instgrm-version=&quot;6&quot; style=&quot; background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:658px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);&quot;&gt;&lt;div style=&quot;padding:8px;&quot;&gt; &lt;div style=&quot; background:#F8F8F8; line-height:0; margin-top:40px; padding:50.0% 0; text-align:center; width:100%;&quot;&gt; &lt;div style=&quot; background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAsCAMAAAApWqozAAAAGFBMVEUiIiI9PT0eHh4gIB4hIBkcHBwcHBwcHBydr+JQAAAACHRSTlMABA4YHyQsM5jtaMwAAADfSURBVDjL7ZVBEgMhCAQBAf//42xcNbpAqakcM0ftUmFAAIBE81IqBJdS3lS6zs3bIpB9WED3YYXFPmHRfT8sgyrCP1x8uEUxLMzNWElFOYCV6mHWWwMzdPEKHlhLw7NWJqkHc4uIZphavDzA2JPzUDsBZziNae2S6owH8xPmX8G7zzgKEOPUoYHvGz1TBCxMkd3kwNVbU0gKHkx+iZILf77IofhrY1nYFnB/lQPb79drWOyJVa/DAvg9B/rLB4cC+Nqgdz/TvBbBnr6GBReqn/nRmDgaQEej7WhonozjF+Y2I/fZou/qAAAAAElFTkSuQmCC); display:block; height:44px; margin:0 auto -44px; position:relative; top:-22px; width:44px;&quot;&gt;&lt;/div&gt;&lt;/div&gt; &lt;p style=&quot; margin:8px 0 0 0; padding:0 4px;&quot;&gt; &lt;a href=&quot;https://www.instagram.com/p/BCiVuS2GkNI/&quot; style=&quot; color:#000; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none; word-wrap:break-word;&quot; target=&quot;_blank&quot;&gt;Beautiful sight of requests hitting the API server #javascript #nodejs&lt;/a&gt;&lt;/p&gt; &lt;p style=&quot; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;&quot;&gt;A video posted by Abhishek Nagekar (@abhisheknagekar) on &lt;time style=&quot; font-family:Arial,sans-serif; font-size:14px; line-height:17px;&quot; datetime=&quot;2016-03-04T15:43:02+00:00&quot;&gt;Mar 4, 2016 at 7:43am PST&lt;/time&gt;&lt;/p&gt;&lt;/div&gt;&lt;/blockquote&gt;
+&lt;p&gt;
+	Then there were many other issues as well. For example, if you added a friend who had 400 status updates in his or her name before you added, your phone would notify you, well, 400 times. Literally. That was awful. Push notification was implemented in a way you write an infinite for loop to check if something has changed.
+&lt;/p&gt;
+&lt;p&gt;
+	But hey, this was our first time. We did enjoy each and every second of the development (around 4 days), the bugs just as much. We did learn a lot from it. Before this project, messaging queue was just a name, Google Cloud Messaging was just another service that I knew nothing about, three or four HTTP status codes that I knew. The satisfaction of knowing more about these was worth it all. Lastly, we did not abandon the project. Our alpha version was pretty stiff and unusable. Hopefully, with better APIs, better hosting and material design on the frontend, we plan to rock with the beta version. Stay tuned.
+&lt;/p&gt;
+&lt;h4&gt;Screenshots&lt;/h4&gt;
+&lt;style type=&quot;text/css&quot;&gt;
+	#inline {
+		display: inline-block;
+		text-align: center;
+	}
+&lt;/style&gt;
+&lt;div id=&quot;inline&quot;&gt;
+	&lt;a href=&quot;/assets/images/moodshare/moodshare1.png&quot;&gt;&lt;img src=&quot;/assets/images/moodshare/moodshare1.png&quot; width=&quot;180px&quot; height=&quot;320px&quot; style=&quot;display: inline&quot;/&gt;&lt;/a&gt;
+	&lt;a href=&quot;/assets/images/moodshare/moodshare2.png&quot;&gt;&lt;img src=&quot;/assets/images/moodshare/moodshare1.png&quot; width=&quot;180px&quot; height=&quot;320px&quot; style=&quot;display: inline&quot;/&gt;&lt;/a&gt;	
+	&lt;a href=&quot;/assets/images/moodshare/moodshare3.png&quot;&gt;&lt;img src=&quot;/assets/images/moodshare/moodshare1.png&quot; width=&quot;180px&quot; height=&quot;320px&quot; style=&quot;display: inline&quot;/&gt;&lt;/a&gt;
+&lt;/div&gt;
+&lt;h4&gt;Links&lt;/h4&gt;
+&lt;p&gt;
+	&lt;ul&gt;
+		&lt;li&gt;&lt;a href=&quot;https://www.dropbox.com/s/1dqalax3rg9xhfo/moodshare.apk?dl=0&quot;&gt;The initail release of moodShare&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;https://github.com/abhn/mood-share&quot;&gt;Backend code on Github&lt;/a&gt;&lt;/li&gt;
+		&lt;li&gt;&lt;a href=&quot;https://moodshare.herokuapp.com&quot;&gt;Live API on Heroku&lt;/a&gt;&lt;/li&gt;
+	&lt;/ul&gt;
+&lt;/p&gt;
+
+
+&lt;script async defer src=&quot;//platform.instagram.com/en_US/embeds.js&quot;&gt;&lt;/script&gt;
+</description>
+                <link>http://www.nagekar.com/2016/03/going-full-stack-on-mobile.html</link>
+                <guid>http://www.nagekar.com/2016/03/going-full-stack-on-mobile</guid>
+                <pubDate>Thu, 03 Mar 2016 00:00:00 +0530</pubDate>
+        </item>
 
         <item>
                 <title>Callbacks And Event Loop Explained</title>
@@ -892,94 +943,6 @@ img {
                 <link>http://www.nagekar.com/2015/08/4th-sem-exams-and-later.html</link>
                 <guid>http://www.nagekar.com/2015/08/4th-sem-exams-and-later</guid>
                 <pubDate>Tue, 04 Aug 2015 00:00:00 +0530</pubDate>
-        </item>
-
-        <item>
-                <title>Social Share Counts Python Implementation</title>
-                <description>&lt;p&gt;I wrote this little script that grabs the count of shares on popular social networks, using their APIs. I have listed the documentation on the project page on &lt;a href=&quot;https://github.com/abhn/Social-Share-Counts&quot; target=&quot;_blank&quot;&gt;Github&lt;/a&gt;. I will copy the relevant pieces of readme here.&lt;/p&gt;
-
-&lt;h2 id=&quot;social-network-apis&quot;&gt;Social Network APIs&lt;/h2&gt;
-
-&lt;h3 id=&quot;facebook&quot;&gt;Facebook&lt;/h3&gt;
-
-&lt;p&gt;Request:
-&lt;code class=&quot;highlighter-rouge&quot;&gt;https://graph.facebook.com/?id=https://www.github.com&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Response:
-&lt;code class=&quot;highlighter-rouge&quot;&gt;json
-{
-   &quot;id&quot;: &quot;http://www.github.com&quot;,
-   &quot;shares&quot;: 31684
-}
-&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;twitter&quot;&gt;Twitter&lt;/h3&gt;
-
-&lt;p&gt;Request:
-&lt;code class=&quot;highlighter-rouge&quot;&gt;http://cdn.api.twitter.com/1/urls/count.json?url=https://github.com&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Response:
-&lt;code class=&quot;highlighter-rouge&quot;&gt;json
-{&quot;count&quot;:14,&quot;url&quot;:&quot;http:\/\/github.com\/&quot;}
-&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;google-plus&quot;&gt;Google Plus&lt;/h3&gt;
-
-&lt;p&gt;Request:
-&lt;code class=&quot;highlighter-rouge&quot;&gt;https://plusone.google.com/_/+1/fastbutton?url=https://github.com&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;This returns the +1 button. I extracted the counts using regex &lt;code class=&quot;highlighter-rouge&quot;&gt;window.__SSR = {c: ([\d]+)&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;linkedin&quot;&gt;LinkedIn&lt;/h3&gt;
-
-&lt;p&gt;Request:
-&lt;code class=&quot;highlighter-rouge&quot;&gt;http://www.linkedin.com/countserv/count/share?url=https://github.com&amp;amp;format=json&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Response:
-&lt;code class=&quot;highlighter-rouge&quot;&gt;json
-{&quot;count&quot;:0,&quot;fCnt&quot;:&quot;0&quot;,&quot;fCntPlusOne&quot;:&quot;1&quot;,&quot;url&quot;:&quot;https:\/\/github.com&quot;}
-&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;stumbleupon&quot;&gt;StumbleUpon&lt;/h3&gt;
-
-&lt;p&gt;Request:
-&lt;code class=&quot;highlighter-rouge&quot;&gt;http://www.stumbleupon.com/services/1.01/badge.getinfo?url=https://github.com&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Response too large.&lt;/p&gt;
-
-&lt;h3 id=&quot;pinterest&quot;&gt;Pinterest&lt;/h3&gt;
-
-&lt;p&gt;Request:
-&lt;code class=&quot;highlighter-rouge&quot;&gt;http://api.pinterest.com/v1/urls/count.json?url=https://github.com&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Response:
-&lt;code class=&quot;highlighter-rouge&quot;&gt;json
-receiveCount({&quot;url&quot;:&quot;https://github.com&quot;,&quot;count&quot;:0}) 
-&lt;/code&gt;&lt;/p&gt;
-
-&lt;h3 id=&quot;reddit&quot;&gt;Reddit&lt;/h3&gt;
-
-&lt;p&gt;Request:
-&lt;code class=&quot;highlighter-rouge&quot;&gt;http://www.reddit.com/api/info.json?url=https://github.com&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;This returns a lot of data, which can be easily used to extracted counts. 
-&lt;strong&gt;Note&lt;/strong&gt; that the Reddit guys don’t really like automated requests and may cause the call to return HTTP 429.&lt;/p&gt;
-
-&lt;h3 id=&quot;vkontakte&quot;&gt;Vkontakte&lt;/h3&gt;
-
-&lt;p&gt;Request:
-&lt;code class=&quot;highlighter-rouge&quot;&gt;https://vk.com/share.php?act=count&amp;amp;index=1&amp;amp;url=https://github.com&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;Response:
-&lt;code class=&quot;highlighter-rouge&quot;&gt;json
-VK.Share.count(1, 419);
-&lt;/code&gt;&lt;/p&gt;
-
-&lt;p&gt;This marks the end of the documentation. I hope that serves some purpose. The reason I wrote this was that I wanted social sharing buttons on this blog. I could not afford any of the mainstream buttons like Addthis and Sharethis. They kill the load time, and I’m already struggling with Disqus and Adsense overload. More on that soon. I hope to create a ‘dynamic looking’ static set of buttons for this blog, and I’ll update you if I get time to complete it.&lt;/p&gt;
-</description>
-                <link>http://www.nagekar.com/2015/07/Social-Share-Counts-Python-Implementation.html</link>
-                <guid>http://www.nagekar.com/2015/07/Social-Share-Counts-Python-Implementation</guid>
-                <pubDate>Sat, 11 Jul 2015 00:00:00 +0530</pubDate>
         </item>
 
 
