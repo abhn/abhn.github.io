@@ -12,7 +12,7 @@ title: Sometimes, I write..
         <small>{{ post.date | date_to_string }}</small>
         <small><a style="color:grey" href="{{ BASE_PATH }}{{ post.url }}#disqus_thread"></a></small>
         <br>
-        <a href="{{ BASE_PATH }}#{{ post.url }}">{{ post.title }}</a>
+        <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
     </li>
   {% endfor %}
 </ul>
@@ -29,4 +29,3 @@ title: Sometimes, I write..
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
 </script>
-<script src='/public/js/app.js'></script>
