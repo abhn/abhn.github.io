@@ -11,7 +11,7 @@
 
   <title>
     
-      Vim Cheatsheet &middot; Abhishek Nagekar's Blog
+      Gentoo Experience &middot; Abhishek Nagekar's Blog
     
   </title>
 
@@ -113,129 +113,26 @@
 
       <div class="container content">
         <div class="post">
-  <h1 class="post-title">Vim Cheatsheet</h1>
-  <span class="post-date">2 December, 2015. It was a Wednesday.</span>
-  <p>Started using vi, although the only reason is it being light weight [I am taking a leap of faith, hoping that it will increase my speed after some practice, as most vi gurus say]. Let me first admit it. Vi feels awful in the beginning. It is really intimidating, and I am having a hard time to remember the commands and stuff. Hence I started writing the commands I learn from google and stackoverflow in a file. Thought to post it here, for everyone.</p>
-
-<p>I will keep the list updated as I learn more and more commands and tricks. It serves me as a reference, and hopefully will do the same for some of you.</p>
-
-<h4>Open file</h4> 
-<code>vim file.js</code>
-
-<h4>Swtich to insert mode</h4>
-<code>i</code>
-
-<h4>Switch to append mode</h4>
-<code>a</code>
-
-<h4>Switch to command mode</h4>
-<code>[ESC]</code>
-
-<h4>Save file</h4>
-<code>:w</code>
-
-<h4>Save and exit</h4>
-<code>:wq</code>
-
-<h4>Exit [if no changes were made]</h4>
-<code>:q</code>
-
-<h4>Exit, discarding changes</h4>
-<code>:q!</code>
-
-<h4>Moving through text</h4>
-<code>h - left</code><br/>
-<code>j - down</code><br/>
-<code>k - up</code><br/>
-<code>l - right</code><br/>
-
-<h4>Undo last operation</h4>
-<code>u</code>
-
-<h4>Copy current line</h4>
-<code>yy</code>
-
-<h4>Cut current line</h4>
-<code>dd</code>
-
-<h4>Paste last copied line</h4>
-<code>p</code>
-
-<h4>Select text</h4>
-<code>[CTRL] + v</code><br/>
-<code>h,j,k,l ;for moving and selecting</code>
-
-<h4>Selecting multiple lines</h4>
-<code>[SHIFT] + v</code><br/>
-<code>j,k ;selecting lines</code>
-
-<h4>Search through text</h4>
-<code>:s/pattern</code>
-
-<h4>Search and replace</h4>
-<code>:s/pattern/replacementString</code>
-
-<h4>Working with multiple files</h4>
-<code>vim file1.c file2.c file2.c</code>
-
-<h4>Next file</h4>
-<code>:n</code>
-
-<h4>Previous file</h4>
-<code>:prev</code>
-
-<h4>Go to particular file</h4>
-<code>:b file3.c</code>
-
-<h4>Working with multiple files [tabs]</h4>
-<code>vim file1.c file2.c file3.c -p</code>
-
-<h4>Move to next tab</h4>
-<code>gt</code>
-
-<h4>Move to previous tab</h4>
-<code>gT</code>
-
-<h4>List all open files [or buffers]</h4>
-<code>:ls</code>
-
-<h4>Commenting multiple lines</h4>
-<code>[CTRL] + v ;to enter visual mode</code><br/>
-<code>j ;move down to select required lines</code><br/>
-<code>i ;enter insert mode</code><br/>
-<code>[ESC]</code>
-
-<h4>Uncommenting multiple lines</h4>
-<code>[CTRL] + v ;to enter visual mode</code><br/>
-<code>jjjl ;selecting multiple rows and columns</code><br/>
-<code>d</code>
-
-<h4>Auto-indenting</h4>
-<code>=</code>
-
-<h4>Move to the start of the file</h4>
-<code>gg</code>
-
-<h4>Move to the end of the file</h4>
-<code>G</code>
-
-<h4>Auto indent entire file</h4>
-<code>gg=G</code>
-
-<h4>Indenting a block [starting from a paranthesis]</h4>
-<code>=%</code>
-
-<h4>Indenting selected lines</h4>
-<code>V ;visual line mode</code><br/>
-<code>jj ;move down through required lines</code><br/>
-<code>></code>
-
-<h4>Starting a shell</h4>
-<code>:shell</code>
-
-<h4>Executing bash without shell</h4>
-<code>:command ;eg. :pwd</code>
-
+  <h1 class="post-title">Gentoo Experience</h1>
+  <span class="post-date">26 March, 2016. It was a Saturday.</span>
+  <p>
+	I started using GNU/Linux full time sometime in 2011. Before that, it was all tiny bits here and there, virtualbox and stuff like that. But then, I finally made my mind to replace the Windows based OS that I was running for Linux. Trust me, it was a very scary decision at that time, and <a herf="http://www.backtrack-linux.org/" target="_blank">Backtrack 5</a> was my first full time Linux distro. 
+</p>
+<p>
+	From there, it was an ultimate goal to try out every major distro. I used Backtrack till version 5r3 when they dropped support. Then I tried Ubuntu, since I had read Backtrack was Ubuntu based. Switched to Kali Linux, for it was the latest. After that was CentOS 6. I remember using it because I had the same on my DigitalOcean VPS. VPS gone, it was time to switch. I tried Fedora, but GNOME 3 didn't appeal to me, and still at this point, I was unaware of what a desktop environment was, or how do I change one. Later I switched to Debian 7, which was when I fell in love with it. Attended the launch party of Debian 8 and started using it right away. Debian stable had some really outdated packages, and the GNOME environment didn't appeal to me either. I installed Debian testing, running XFCE. It was the setup I always needed and is still my daily driver. In the meantime, I tried OpenSUSE too, but nothing great. As you see, I don't really need a reason to switch distros.
+</p>
+<p>
+	What really provoked me was a sentence that I read somewhere, 'if you have not used Slackware or Gentoo, you really have not used Linux'. It was 3 years ago. Since then, I had multiple tries at installing Slackware, Gentoo and Arch, but somehow, I would mess some thing up and it would be a failure. You should note here that installing these systems is not as easy a task, especially when you don't understand the commands you are typing. This time was nothing different. I downloaded the ISO which was surprisingly just some ~250MBs. I burnt it to a disk and booted it up.
+</p>
+<p>
+	The most scary part of it all is that there is no 'installer'. You have to manually create partitions, the swap and the bootloader. Then there is the phase to download the 'stage3' file to the root and untaring it. Chrooting into it, setting up a few things like network, downloading the kernel source, compiling it and adding it to the /boot directory and then the hardest stage. Reboot. Hard emotionally, that is. After a minute, you are either greeted by the login prompt, or you realize that the past 8 hours of your life went in vain.
+</p>
+<p>
+	Luckily for me though, it booted up. It was after midnight when it booted up, and I was installing it since 2pm. I'm a noob. It is not a lot different than other distros, if you know how to <i>make</i> softwares. There is this package manager called <i>emerge</i> which is helpful too (it downloads sources and builds it, resolving dependencies). I am currently running it command line, as I didn't setup the Xorg during installation. It is pretty usable, and the best part is that you actually understand your system. I realized that this is a great way to actually learn GNU/Linux. The thing that I have to live with is that since each and every installation is by compiling source, it is damn slow. Usually 15-30 minutes for most applications. The plus point is that since it is build on my particular system, the executable is smaller than usual (and I read it is faster too). Cool, right?
+</p>
+<p>
+	I am looking forward to using it everyday on my PC, at least for sometime till I get really good at it. Maybe then I'll try doing the same on my laptop, which would be nice. For now, I'll have to figure out a way to install Xorg. 
+</p>
 </div>
 
 <div class="related">
@@ -244,18 +141,9 @@
     
       <li>
         <h3>
-          <a href="/2016/03/gentoo-experience.html">
-            Gentoo Experience
-            <small>02 Dec 2015</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
           <a href="/2016/03/going-full-stack-on-mobile.html">
             Going Full Stack On Mobile
-            <small>02 Dec 2015</small>
+            <small>26 Mar 2016</small>
           </a>
         </h3>
       </li>
@@ -264,7 +152,16 @@
         <h3>
           <a href="/2016/02/callbacks-eventloop-in-javascript-explained.html">
             Callbacks And Event Loop Explained
-            <small>02 Dec 2015</small>
+            <small>26 Mar 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2016/02/Ajax-Loading.html">
+            AJAX Loading
+            <small>26 Mar 2016</small>
           </a>
         </h3>
       </li>

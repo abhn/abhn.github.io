@@ -5,10 +5,35 @@
         <description>Abhishek Nagekar&#39;s Blog - Abhishek Nagekar</description>
         <link>http://www.nagekar.com</link>
         <atom:link href="http://www.nagekar.com/rss.xml" rel="self" type="application/rss+xml" />
-        <lastBuildDate>Sat, 19 Mar 2016 10:12:50 +0530</lastBuildDate>
-        <pubDate>Sat, 19 Mar 2016 10:12:50 +0530</pubDate>
+        <lastBuildDate>Sun, 27 Mar 2016 01:08:28 +0530</lastBuildDate>
+        <pubDate>Sun, 27 Mar 2016 01:08:28 +0530</pubDate>
         <ttl>60</ttl>
 
+
+        <item>
+                <title>Gentoo Experience</title>
+                <description>&lt;p&gt;
+	I started using GNU/Linux full time sometime in 2011. Before that, it was all tiny bits here and there, virtualbox and stuff like that. But then, I finally made my mind to replace the Windows based OS that I was running for Linux. Trust me, it was a very scary decision at that time, and &lt;a herf=&quot;http://www.backtrack-linux.org/&quot; target=&quot;_blank&quot;&gt;Backtrack 5&lt;/a&gt; was my first full time Linux distro. 
+&lt;/p&gt;
+&lt;p&gt;
+	From there, it was an ultimate goal to try out every major distro. I used Backtrack till version 5r3 when they dropped support. Then I tried Ubuntu, since I had read Backtrack was Ubuntu based. Switched to Kali Linux, for it was the latest. After that was CentOS 6. I remember using it because I had the same on my DigitalOcean VPS. VPS gone, it was time to switch. I tried Fedora, but GNOME 3 didn&#39;t appeal to me, and still at this point, I was unaware of what a desktop environment was, or how do I change one. Later I switched to Debian 7, which was when I fell in love with it. Attended the launch party of Debian 8 and started using it right away. Debian stable had some really outdated packages, and the GNOME environment didn&#39;t appeal to me either. I installed Debian testing, running XFCE. It was the setup I always needed and is still my daily driver. In the meantime, I tried OpenSUSE too, but nothing great. As you see, I don&#39;t really need a reason to switch distros.
+&lt;/p&gt;
+&lt;p&gt;
+	What really provoked me was a sentence that I read somewhere, &#39;if you have not used Slackware or Gentoo, you really have not used Linux&#39;. It was 3 years ago. Since then, I had multiple tries at installing Slackware, Gentoo and Arch, but somehow, I would mess some thing up and it would be a failure. You should note here that installing these systems is not as easy a task, especially when you don&#39;t understand the commands you are typing. This time was nothing different. I downloaded the ISO which was surprisingly just some ~250MBs. I burnt it to a disk and booted it up.
+&lt;/p&gt;
+&lt;p&gt;
+	The most scary part of it all is that there is no &#39;installer&#39;. You have to manually create partitions, the swap and the bootloader. Then there is the phase to download the &#39;stage3&#39; file to the root and untaring it. Chrooting into it, setting up a few things like network, downloading the kernel source, compiling it and adding it to the /boot directory and then the hardest stage. Reboot. Hard emotionally, that is. After a minute, you are either greeted by the login prompt, or you realize that the past 8 hours of your life went in vain.
+&lt;/p&gt;
+&lt;p&gt;
+	Luckily for me though, it booted up. It was after midnight when it booted up, and I was installing it since 2pm. I&#39;m a noob. It is not a lot different than other distros, if you know how to &lt;i&gt;make&lt;/i&gt; softwares. There is this package manager called &lt;i&gt;emerge&lt;/i&gt; which is helpful too (it downloads sources and builds it, resolving dependencies). I am currently running it command line, as I didn&#39;t setup the Xorg during installation. It is pretty usable, and the best part is that you actually understand your system. I realized that this is a great way to actually learn GNU/Linux. The thing that I have to live with is that since each and every installation is by compiling source, it is damn slow. Usually 15-30 minutes for most applications. The plus point is that since it is build on my particular system, the executable is smaller than usual (and I read it is faster too). Cool, right?
+&lt;/p&gt;
+&lt;p&gt;
+	I am looking forward to using it everyday on my PC, at least for sometime till I get really good at it. Maybe then I&#39;ll try doing the same on my laptop, which would be nice. For now, I&#39;ll have to figure out a way to install Xorg. 
+&lt;/p&gt;</description>
+                <link>http://www.nagekar.com/2016/03/gentoo-experience.html</link>
+                <guid>http://www.nagekar.com/2016/03/gentoo-experience</guid>
+                <pubDate>Sat, 26 Mar 2016 00:00:00 +0530</pubDate>
+        </item>
 
         <item>
                 <title>Going Full Stack On Mobile</title>
@@ -930,19 +955,6 @@ img {
                 <link>http://www.nagekar.com/2015/08/Need-For-An-Alternate-Social-Network.html</link>
                 <guid>http://www.nagekar.com/2015/08/Need-For-An-Alternate-Social-Network</guid>
                 <pubDate>Thu, 13 Aug 2015 00:00:00 +0530</pubDate>
-        </item>
-
-        <item>
-                <title>4th Semester And Then</title>
-                <description>&lt;p&gt;It was in June that I appeared for my 4th semester exam (we have 8 in all, 2 each year). That makes me one half of an engineer, as far as the certification thing is concerned. Apart from that, I would not consider myself anywhere near to what standards I have for an &lt;a href=&quot;http://www.nagekar.com/2015/03/engineering.html&quot;&gt;Engineer&lt;/a&gt; in my mind. Nevertheless, the results were displayed late last month, and I managed to clear all the subjects, proudly entering the 3rd year of the course.&lt;/p&gt;
-
-&lt;p&gt;But since the exams, I did a few interesting things that I would like to let you know. Just after the exams, I took to &lt;a href=&quot;http://qt.io/&quot;&gt;Qt framework&lt;/a&gt; in C++ which I did for the next one month or so. Not much, but I did the QWidget class well enough to have coded some &lt;a href=&quot;https://github.com/abhn/Data-Destroyer-GUI&quot;&gt;simple GUIs&lt;/a&gt;. It was quite interesting, and a useful asset that I think I own now. Later the interest turned towards web [again! :]. I started working on a social network written in Python, Django. I will update you once I get the base ready, and since it is the largest of all the projects I have worked on, I am quite proud and happy for it. Lastly, something even more amazing happened. I found my lost interest in Physics and Astronomy back. It is quite interesting, as to how it happened, but I will save that for a separate post.&lt;/p&gt;
-
-&lt;p&gt;The past two months have been great, from my personal perspective. I have basically transformed into someone else, hopefully wiser than I was before. Hopefully. There is a strong reasoning I found for making that statement. I started reading a lot, doubting even more and I found that it opened doors to newer dimensions to living my life. Everything, everyone exists just because they do. That&#39;s it. Nobody, nothing, especially the universe, owes you an explanation to things that seem incomprehensible. Learn to accept it. Maybe it is a part of growing up, which I seem to have realized now. For what it&#39;s worth, I will still stay curious, for that is what drives me and most of the people. Good night.&lt;/p&gt;
-</description>
-                <link>http://www.nagekar.com/2015/08/4th-sem-exams-and-later.html</link>
-                <guid>http://www.nagekar.com/2015/08/4th-sem-exams-and-later</guid>
-                <pubDate>Tue, 04 Aug 2015 00:00:00 +0530</pubDate>
         </item>
 
 

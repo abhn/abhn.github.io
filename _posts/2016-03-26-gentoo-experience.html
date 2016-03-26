@@ -1,0 +1,25 @@
+---
+title: Gentoo Experience
+layout: post
+tags:
+- linux
+---
+
+<p>
+	I started using GNU/Linux full time sometime in 2011. Before that, it was all tiny bits here and there, virtualbox and stuff like that. But then, I finally made my mind to replace the Windows based OS that I was running for Linux. Trust me, it was a very scary decision at that time, and <a herf="http://www.backtrack-linux.org/" target="_blank">Backtrack 5</a> was my first full time Linux distro. 
+</p>
+<p>
+	From there, it was an ultimate goal to try out every major distro. I used Backtrack till version 5r3 when they dropped support. Then I tried Ubuntu, since I had read Backtrack was Ubuntu based. Switched to Kali Linux, for it was the latest. After that was CentOS 6. I remember using it because I had the same on my DigitalOcean VPS. VPS gone, it was time to switch. I tried Fedora, but GNOME 3 didn't appeal to me, and still at this point, I was unaware of what a desktop environment was, or how do I change one. Later I switched to Debian 7, which was when I fell in love with it. Attended the launch party of Debian 8 and started using it right away. Debian stable had some really outdated packages, and the GNOME environment didn't appeal to me either. I installed Debian testing, running XFCE. It was the setup I always needed and is still my daily driver. In the meantime, I tried OpenSUSE too, but nothing great. As you see, I don't really need a reason to switch distros.
+</p>
+<p>
+	What really provoked me was a sentence that I read somewhere, 'if you have not used Slackware or Gentoo, you really have not used Linux'. It was 3 years ago. Since then, I had multiple tries at installing Slackware, Gentoo and Arch, but somehow, I would mess some thing up and it would be a failure. You should note here that installing these systems is not as easy a task, especially when you don't understand the commands you are typing. This time was nothing different. I downloaded the ISO which was surprisingly just some ~250MBs. I burnt it to a disk and booted it up.
+</p>
+<p>
+	The most scary part of it all is that there is no 'installer'. You have to manually create partitions, the swap and the bootloader. Then there is the phase to download the 'stage3' file to the root and untaring it. Chrooting into it, setting up a few things like network, downloading the kernel source, compiling it and adding it to the /boot directory and then the hardest stage. Reboot. Hard emotionally, that is. After a minute, you are either greeted by the login prompt, or you realize that the past 8 hours of your life went in vain.
+</p>
+<p>
+	Luckily for me though, it booted up. It was after midnight when it booted up, and I was installing it since 2pm. I'm a noob. It is not a lot different than other distros, if you know how to <i>make</i> softwares. There is this package manager called <i>emerge</i> which is helpful too (it downloads sources and builds it, resolving dependencies). I am currently running it command line, as I didn't setup the Xorg during installation. It is pretty usable, and the best part is that you actually understand your system. I realized that this is a great way to actually learn GNU/Linux. The thing that I have to live with is that since each and every installation is by compiling source, it is damn slow. Usually 15-30 minutes for most applications. The plus point is that since it is build on my particular system, the executable is smaller than usual (and I read it is faster too). Cool, right?
+</p>
+<p>
+	I am looking forward to using it everyday on my PC, at least for sometime till I get really good at it. Maybe then I'll try doing the same on my laptop, which would be nice. For now, I'll have to figure out a way to install Xorg. 
+</p>
