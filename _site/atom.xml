@@ -4,7 +4,7 @@
  <title>Abhishek Nagekar&#39;s Blog</title>
  <link href="http://www.nagekar.com/atom.xml" rel="self"/>
  <link href="http://www.nagekar.com"/>
- <updated>2016-03-27T01:08:28+05:30</updated>
+ <updated>2016-03-27T15:21:49+05:30</updated>
  <id>http://www.nagekar.com</id>
  <author>
    <name>Abhishek Nagekar</name>
@@ -18,7 +18,7 @@
    <updated>2016-03-26T00:00:00+05:30</updated>
    <id>http://www.nagekar.com/2016/03/gentoo-experience</id>
    <content type="html">&lt;p&gt;
-	I started using GNU/Linux full time sometime in 2011. Before that, it was all tiny bits here and there, virtualbox and stuff like that. But then, I finally made my mind to replace the Windows based OS that I was running for Linux. Trust me, it was a very scary decision at that time, and &lt;a herf=&quot;http://www.backtrack-linux.org/&quot; target=&quot;_blank&quot;&gt;Backtrack 5&lt;/a&gt; was my first full time Linux distro. 
+	I started using GNU/Linux full time sometime in 2011. Before that, it was all tiny bits here and there, virtualbox and stuff like that. But then, I finally made my mind to replace the Windows based OS that I was running for Linux. Trust me, it was a very scary decision at that time, and &lt;a href=&quot;http://www.backtrack-linux.org/&quot; target=&quot;_blank&quot;&gt;Backtrack 5&lt;/a&gt; was my first full time Linux distro. 
 &lt;/p&gt;
 &lt;p&gt;
 	From there, it was an ultimate goal to try out every major distro. I used Backtrack till version 5r3 when they dropped support. Then I tried Ubuntu, since I had read Backtrack was Ubuntu based. Switched to Kali Linux, for it was the latest. After that was CentOS 6. I remember using it because I had the same on my DigitalOcean VPS. VPS gone, it was time to switch. I tried Fedora, but GNOME 3 didn&#39;t appeal to me, and still at this point, I was unaware of what a desktop environment was, or how do I change one. Later I switched to Debian 7, which was when I fell in love with it. Attended the launch party of Debian 8 and started using it right away. Debian stable had some really outdated packages, and the GNOME environment didn&#39;t appeal to me either. I installed Debian testing, running XFCE. It was the setup I always needed and is still my daily driver. In the meantime, I tried OpenSUSE too, but nothing great. As you see, I don&#39;t really need a reason to switch distros.

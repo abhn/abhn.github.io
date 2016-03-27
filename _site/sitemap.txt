@@ -4,6 +4,7 @@ http://www.nagekar.com/atom.xml
 http://www.nagekar.com/
 http://www.nagekar.com/meta
 http://www.nagekar.com/rss.xml
+http://www.nagekar.com/search
 http://www.nagekar.com/sitemap.txt
 http://www.nagekar.com/tags
 

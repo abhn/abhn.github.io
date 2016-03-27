@@ -74,6 +74,12 @@
     
       
         
+          <a class="sidebar-nav-item" href="/search">Search This Blog</a>
+        
+      
+    
+      
+        
       
     
       
@@ -83,7 +89,7 @@
       
     
     <a class="sidebar-nav-item" href="https://github.com/abhn">My GitHub</a>
-    <a class="sidebar-nav-item" href="#/search">Search This Blog</a>
+    <a class="sidebar-nav-item" href="/search">Search This Blog</a>
     <a class="sidebar-nav-item" onclick="window.open('https://feedburner.google.com/fb/a/mailverify?uri=AbhishekN', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true" target="popupwindow" href="https://feedburner.google.com/fb/a/mailverify?uri=AbhishekN">Email Subscription</a>
     
     
@@ -110,8 +116,8 @@
           </h3>
         </div>
       </div>
-
       <div class="container content">
+        <div id="head-quote"></div>
         <div class="post">
   <h1 class="post-title">The Bug Bounty Dance</h1>
   <span class="post-date">17 December, 2015. It was a Thursday.</span>
@@ -229,6 +235,21 @@
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
         ga('create', 'UA-74790644-1', 'auto');
         ga('send', 'pageview');
+    </script>
+    <script>
+        var txtFile = new XMLHttpRequest();
+        txtFile.open("GET", "/quotes.txt", true);
+        txtFile.onreadystatechange = () => {
+          if (txtFile.readyState === 4) {  
+            if (txtFile.status === 200) { 
+              allText = txtFile.responseText; 
+              lines = txtFile.responseText.split("\n");
+              randLine = lines[Math.floor((Math.random() * lines.length) + 1)];
+              document.getElementById('head-quote').innerHTML = '<p class="message" style="font-size: 14px; font-color: grey; text-align: center;">' + randLine + '<small></p>';
+            }
+          }
+        }
+        txtFile.send(null);
     </script>
   </body>
 </html>

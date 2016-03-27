@@ -18,8 +18,8 @@
           </h3>
         </div>
       </div>
-
       <div class="container content">
+        <div id="head-quote"></div>
         {{ content }}
       </div>
     </div>
@@ -50,6 +50,21 @@
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
         ga('create', 'UA-74790644-1', 'auto');
         ga('send', 'pageview');
+    </script>
+    <script>
+        var txtFile = new XMLHttpRequest();
+        txtFile.open("GET", "/quotes.txt", true);
+        txtFile.onreadystatechange = () => {
+          if (txtFile.readyState === 4) {  
+            if (txtFile.status === 200) { 
+              allText = txtFile.responseText; 
+              lines = txtFile.responseText.split("\n");
+              randLine = lines[Math.floor((Math.random() * lines.length) + 1)];
+              document.getElementById('head-quote').innerHTML = '<p class="message" style="font-size: 14px; font-color: grey; text-align: center;">' + randLine + '<small></p>';
+            }
+          }
+        }
+        txtFile.send(null);
     </script>
   </body>
 </html>

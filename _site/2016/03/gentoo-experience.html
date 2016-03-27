@@ -74,6 +74,12 @@
     
       
         
+          <a class="sidebar-nav-item" href="/search">Search This Blog</a>
+        
+      
+    
+      
+        
       
     
       
@@ -83,7 +89,7 @@
       
     
     <a class="sidebar-nav-item" href="https://github.com/abhn">My GitHub</a>
-    <a class="sidebar-nav-item" href="#/search">Search This Blog</a>
+    <a class="sidebar-nav-item" href="/search">Search This Blog</a>
     <a class="sidebar-nav-item" onclick="window.open('https://feedburner.google.com/fb/a/mailverify?uri=AbhishekN', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true" target="popupwindow" href="https://feedburner.google.com/fb/a/mailverify?uri=AbhishekN">Email Subscription</a>
     
     
@@ -110,13 +116,13 @@
           </h3>
         </div>
       </div>
-
       <div class="container content">
+        <div id="head-quote"></div>
         <div class="post">
   <h1 class="post-title">Gentoo Experience</h1>
   <span class="post-date">26 March, 2016. It was a Saturday.</span>
   <p>
-	I started using GNU/Linux full time sometime in 2011. Before that, it was all tiny bits here and there, virtualbox and stuff like that. But then, I finally made my mind to replace the Windows based OS that I was running for Linux. Trust me, it was a very scary decision at that time, and <a herf="http://www.backtrack-linux.org/" target="_blank">Backtrack 5</a> was my first full time Linux distro. 
+	I started using GNU/Linux full time sometime in 2011. Before that, it was all tiny bits here and there, virtualbox and stuff like that. But then, I finally made my mind to replace the Windows based OS that I was running for Linux. Trust me, it was a very scary decision at that time, and <a href="http://www.backtrack-linux.org/" target="_blank">Backtrack 5</a> was my first full time Linux distro. 
 </p>
 <p>
 	From there, it was an ultimate goal to try out every major distro. I used Backtrack till version 5r3 when they dropped support. Then I tried Ubuntu, since I had read Backtrack was Ubuntu based. Switched to Kali Linux, for it was the latest. After that was CentOS 6. I remember using it because I had the same on my DigitalOcean VPS. VPS gone, it was time to switch. I tried Fedora, but GNOME 3 didn't appeal to me, and still at this point, I was unaware of what a desktop environment was, or how do I change one. Later I switched to Debian 7, which was when I fell in love with it. Attended the launch party of Debian 8 and started using it right away. Debian stable had some really outdated packages, and the GNOME environment didn't appeal to me either. I installed Debian testing, running XFCE. It was the setup I always needed and is still my daily driver. In the meantime, I tried OpenSUSE too, but nothing great. As you see, I don't really need a reason to switch distros.
@@ -230,6 +236,21 @@
         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
         ga('create', 'UA-74790644-1', 'auto');
         ga('send', 'pageview');
+    </script>
+    <script>
+        var txtFile = new XMLHttpRequest();
+        txtFile.open("GET", "/quotes.txt", true);
+        txtFile.onreadystatechange = () => {
+          if (txtFile.readyState === 4) {  
+            if (txtFile.status === 200) { 
+              allText = txtFile.responseText; 
+              lines = txtFile.responseText.split("\n");
+              randLine = lines[Math.floor((Math.random() * lines.length) + 1)];
+              document.getElementById('head-quote').innerHTML = '<p class="message" style="font-size: 14px; font-color: grey; text-align: center;">' + randLine + '<small></p>';
+            }
+          }
+        }
+        txtFile.send(null);
     </script>
   </body>
 </html>
