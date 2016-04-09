@@ -179,3 +179,4 @@ Power tends to corrupt; absolute power corrupts absolutely. Great men are almost
 I don't drink milk. Milk is for babies. When you grow up, you gotta drink beer" -Arnold Schwarzenegger
 Tomorrow's just a day away
 Unlimited power is apt to corrupt the minds of those who posses it; and this I know, my lords: that where law ends, tyranny begins. -William Pitt
+There are only two hard problems in computer science: cache invalidation and naming things. - Phil Karlton
