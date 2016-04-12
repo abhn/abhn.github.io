@@ -11,7 +11,7 @@
 
   <title>
     
-      Vim Cheatsheet &middot; Abhishek Nagekar's Blog
+      Event Driven Programming &middot; Abhishek Nagekar's Blog
     
   </title>
 
@@ -119,128 +119,27 @@
       <div class="container content">
         <div id="head-quote"></div>
         <div class="post">
-  <h1 class="post-title">Vim Cheatsheet</h1>
-  <span class="post-date">2 December, 2015. It was a Wednesday.</span>
-  <p>Started using vi, although the only reason is it being light weight [I am taking a leap of faith, hoping that it will increase my speed after some practice, as most vi gurus say]. Let me first admit it. Vi feels awful in the beginning. It is really intimidating, and I am having a hard time to remember the commands and stuff. Hence I started writing the commands I learn from google and stackoverflow in a file. Thought to post it here, for everyone.</p>
-
-<p>I will keep the list updated as I learn more and more commands and tricks. It serves me as a reference, and hopefully will do the same for some of you.</p>
-
-<h4>Open file</h4> 
-<code>vim file.js</code>
-
-<h4>Swtich to insert mode</h4>
-<code>i</code>
-
-<h4>Switch to append mode</h4>
-<code>a</code>
-
-<h4>Switch to command mode</h4>
-<code>[ESC]</code>
-
-<h4>Save file</h4>
-<code>:w</code>
-
-<h4>Save and exit</h4>
-<code>:wq</code>
-
-<h4>Exit [if no changes were made]</h4>
-<code>:q</code>
-
-<h4>Exit, discarding changes</h4>
-<code>:q!</code>
-
-<h4>Moving through text</h4>
-<code>h - left</code><br/>
-<code>j - down</code><br/>
-<code>k - up</code><br/>
-<code>l - right</code><br/>
-
-<h4>Undo last operation</h4>
-<code>u</code>
-
-<h4>Copy current line</h4>
-<code>yy</code>
-
-<h4>Cut current line</h4>
-<code>dd</code>
-
-<h4>Paste last copied line</h4>
-<code>p</code>
-
-<h4>Select text</h4>
-<code>[CTRL] + v</code><br/>
-<code>h,j,k,l ;for moving and selecting</code>
-
-<h4>Selecting multiple lines</h4>
-<code>[SHIFT] + v</code><br/>
-<code>j,k ;selecting lines</code>
-
-<h4>Search through text</h4>
-<code>:s/pattern</code>
-
-<h4>Search and replace</h4>
-<code>:s/pattern/replacementString</code>
-
-<h4>Working with multiple files</h4>
-<code>vim file1.c file2.c file2.c</code>
-
-<h4>Next file</h4>
-<code>:n</code>
-
-<h4>Previous file</h4>
-<code>:prev</code>
-
-<h4>Go to particular file</h4>
-<code>:b file3.c</code>
-
-<h4>Working with multiple files [tabs]</h4>
-<code>vim file1.c file2.c file3.c -p</code>
-
-<h4>Move to next tab</h4>
-<code>gt</code>
-
-<h4>Move to previous tab</h4>
-<code>gT</code>
-
-<h4>List all open files [or buffers]</h4>
-<code>:ls</code>
-
-<h4>Commenting multiple lines</h4>
-<code>[CTRL] + v ;to enter visual mode</code><br/>
-<code>j ;move down to select required lines</code><br/>
-<code>i ;enter insert mode</code><br/>
-<code>[ESC]</code>
-
-<h4>Uncommenting multiple lines</h4>
-<code>[CTRL] + v ;to enter visual mode</code><br/>
-<code>jjjl ;selecting multiple rows and columns</code><br/>
-<code>d</code>
-
-<h4>Auto-indenting</h4>
-<code>=</code>
-
-<h4>Move to the start of the file</h4>
-<code>gg</code>
-
-<h4>Move to the end of the file</h4>
-<code>G</code>
-
-<h4>Auto indent entire file</h4>
-<code>gg=G</code>
-
-<h4>Indenting a block [starting from a paranthesis]</h4>
-<code>=%</code>
-
-<h4>Indenting selected lines</h4>
-<code>V ;visual line mode</code><br/>
-<code>jj ;move down through required lines</code><br/>
-<code>></code>
-
-<h4>Starting a shell</h4>
-<code>:shell</code>
-
-<h4>Executing bash without shell</h4>
-<code>:command ;eg. :pwd</code>
+  <h1 class="post-title">Event Driven Programming</h1>
+  <span class="post-date">12 April, 2016. It was a Tuesday.</span>
+  <p>
+	I remember starting to learn Javascript. It was all a nightmare. Functions used to execute out of order and seemed very random. There was chaos all around, and I was usually left wondering, 'what is the order of execution here?'. Of course, that question never got answered, because that wasn't the right question. The right question would've been, what drives these functions in this code.
+</p>
+<p>
+	Fortunately, I asked it at an early stage. The things that make Javascript tick are called <b><i>events</i></b>. Without these, your browser window is just a dead canvas. Not just the browser, but other Javascript environments as well, work because of events. And when you understand it, events and event driven programming are probably the most intuitive form of developing applications. Events are not difficult to visualize, once you start to relate them to the real world events.
+</p>
+<p>
+	Suppose you're alone at your home. You'll need to make sure you open the door in case someone arrives. There are two ways of doing it. First way is to periodically keep checking if someone is outside the door, say every 5 minutes. In the best case, someone will arrive the moment you open the door, but in the worst case, a visitor has to wait for about 5 minutes before you make your next visit. This is just ridiculous. It is inefficient (visitors have to wait for you) and waste of time (when you check but no one has arrived). Who does this? Well, most procedural languages work this way. And it works, for their use cases. But when you're dealing with real life scenarios, like checking doors or handling HTML form responses in browsers, where the time of completion of an action or arrival of a visitor is unknown, a better approach has to be used, especially when time, muscle and browser resources are so scarce. Here comes event driven programming.
+</p>
+<p>
+	Suppose, you're alone again, in the same house. But this time, you decide to make use of events. You install a doorbell. Now, whenever someone arrives and rings the bell, you know you have to go open the door. That's simple. That's event driven. It doesn't matter if the next visitor comes after a minute or after an hour. You'll open the door instantaneously, without waste of your own time. And the fact that most homes have doorbells and this is our natural workflow when dealing with similar situations, is the proof of how intuitive this programming paradigm is.
+</p>
+<p>
+	Okay, that was cool, so far. But I know that I have to listen to a doorbell and then on hearing it, walk to the door to open it. How do I make the machine do that. The answer is callbacks. If you are not quite what they are or how they work, do check out my other article on <a href="https://www.nagekar.com/2016/02/callbacks-eventloop-in-javascript-explained.html">how callbacks and event loop work</a>. So essentially, we attach a 'callback' to an event. The callback, as the name suggests, calls back when the event occurs, and lets us control the aftereffect. Such a callback is also called an event listener, which infact is what you attach to the <code>element.addEventListener('event', callback);</code> when working in the DOM. In Nodejs environment, you get a custom EventEmitter class that you can use to emit and listen to events. If you haven't heard of it, <a href="socket.io">socket.io</a> is all about custom events and the data transfer between the client and the server. It makes use of <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API">websockets</a> along with XHRs. If you are into creating sockets and data interexchange between remote hosts like I am, socket.io is for you.
+</p>
+<script src="https://gist.github.com/abhn/d5eb252e620ee157d4ab1cc49811221a.js"></script>
+<p>
+	Finally, I hope to have given you some insights of event driven programming with Javascript. Not a lot of code, but that is something you'll find everywhere. I always like to emphasis on the concepts rather than implementation. It makes for a better implementation.
+</p>
 
 </div>
 
@@ -250,18 +149,9 @@
     
       <li>
         <h3>
-          <a href="/2016/04/event-driven-programming.html">
-            Event Driven Programming
-            <small>02 Dec 2015</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
           <a href="/2016/03/gentoo-experience.html">
             Gentoo Experience
-            <small>02 Dec 2015</small>
+            <small>12 Apr 2016</small>
           </a>
         </h3>
       </li>
@@ -270,7 +160,16 @@
         <h3>
           <a href="/2016/03/going-full-stack-on-mobile.html">
             Going Full Stack On Mobile
-            <small>02 Dec 2015</small>
+            <small>12 Apr 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2016/02/callbacks-eventloop-in-javascript-explained.html">
+            Callbacks And Event Loop Explained
+            <small>12 Apr 2016</small>
           </a>
         </h3>
       </li>

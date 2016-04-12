@@ -1,0 +1,26 @@
+---
+title: Event Driven Programming
+layout: post
+tags:
+- javascript
+---
+
+<p>
+	I remember starting to learn Javascript. It was all a nightmare. Functions used to execute out of order and seemed very random. There was chaos all around, and I was usually left wondering, 'what is the order of execution here?'. Of course, that question never got answered, because that wasn't the right question. The right question would've been, what drives these functions in this code.
+</p>
+<p>
+	Fortunately, I asked it at an early stage. The things that make Javascript tick are called <b><i>events</i></b>. Without these, your browser window is just a dead canvas. Not just the browser, but other Javascript environments as well, work because of events. And when you understand it, events and event driven programming are probably the most intuitive form of developing applications. Events are not difficult to visualize, once you start to relate them to the real world events.
+</p>
+<p>
+	Suppose you're alone at your home. You'll need to make sure you open the door in case someone arrives. There are two ways of doing it. First way is to periodically keep checking if someone is outside the door, say every 5 minutes. In the best case, someone will arrive the moment you open the door, but in the worst case, a visitor has to wait for about 5 minutes before you make your next visit. This is just ridiculous. It is inefficient (visitors have to wait for you) and waste of time (when you check but no one has arrived). Who does this? Well, most procedural languages work this way. And it works, for their use cases. But when you're dealing with real life scenarios, like checking doors or handling HTML form responses in browsers, where the time of completion of an action or arrival of a visitor is unknown, a better approach has to be used, especially when time, muscle and browser resources are so scarce. Here comes event driven programming.
+</p>
+<p>
+	Suppose, you're alone again, in the same house. But this time, you decide to make use of events. You install a doorbell. Now, whenever someone arrives and rings the bell, you know you have to go open the door. That's simple. That's event driven. It doesn't matter if the next visitor comes after a minute or after an hour. You'll open the door instantaneously, without waste of your own time. And the fact that most homes have doorbells and this is our natural workflow when dealing with similar situations, is the proof of how intuitive this programming paradigm is.
+</p>
+<p>
+	Okay, that was cool, so far. But I know that I have to listen to a doorbell and then on hearing it, walk to the door to open it. How do I make the machine do that. The answer is callbacks. If you are not quite what they are or how they work, do check out my other article on <a href="https://www.nagekar.com/2016/02/callbacks-eventloop-in-javascript-explained.html">how callbacks and event loop work</a>. So essentially, we attach a 'callback' to an event. The callback, as the name suggests, calls back when the event occurs, and lets us control the aftereffect. Such a callback is also called an event listener, which infact is what you attach to the <code>element.addEventListener('event', callback);</code> when working in the DOM. In Nodejs environment, you get a custom EventEmitter class that you can use to emit and listen to events. If you haven't heard of it, <a href="socket.io">socket.io</a> is all about custom events and the data transfer between the client and the server. It makes use of <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API">websockets</a> along with XHRs. If you are into creating sockets and data interexchange between remote hosts like I am, socket.io is for you.
+</p>
+<script src="https://gist.github.com/abhn/d5eb252e620ee157d4ab1cc49811221a.js"></script>
+<p>
+	Finally, I hope to have given you some insights of event driven programming with Javascript. Not a lot of code, but that is something you'll find everywhere. I always like to emphasis on the concepts rather than implementation. It makes for a better implementation.
+</p>

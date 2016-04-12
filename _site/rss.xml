@@ -5,10 +5,37 @@
         <description>Abhishek Nagekar&#39;s Blog - Abhishek Nagekar</description>
         <link>http://www.nagekar.com</link>
         <atom:link href="http://www.nagekar.com/rss.xml" rel="self" type="application/rss+xml" />
-        <lastBuildDate>Tue, 12 Apr 2016 14:25:06 +0530</lastBuildDate>
-        <pubDate>Tue, 12 Apr 2016 14:25:06 +0530</pubDate>
+        <lastBuildDate>Tue, 12 Apr 2016 16:50:26 +0530</lastBuildDate>
+        <pubDate>Tue, 12 Apr 2016 16:50:26 +0530</pubDate>
         <ttl>60</ttl>
 
+
+        <item>
+                <title>Event Driven Programming</title>
+                <description>&lt;p&gt;
+	I remember starting to learn Javascript. It was all a nightmare. Functions used to execute out of order and seemed very random. There was chaos all around, and I was usually left wondering, &#39;what is the order of execution here?&#39;. Of course, that question never got answered, because that wasn&#39;t the right question. The right question would&#39;ve been, what drives these functions in this code.
+&lt;/p&gt;
+&lt;p&gt;
+	Fortunately, I asked it at an early stage. The things that make Javascript tick are called &lt;b&gt;&lt;i&gt;events&lt;/i&gt;&lt;/b&gt;. Without these, your browser window is just a dead canvas. Not just the browser, but other Javascript environments as well, work because of events. And when you understand it, events and event driven programming are probably the most intuitive form of developing applications. Events are not difficult to visualize, once you start to relate them to the real world events.
+&lt;/p&gt;
+&lt;p&gt;
+	Suppose you&#39;re alone at your home. You&#39;ll need to make sure you open the door in case someone arrives. There are two ways of doing it. First way is to periodically keep checking if someone is outside the door, say every 5 minutes. In the best case, someone will arrive the moment you open the door, but in the worst case, a visitor has to wait for about 5 minutes before you make your next visit. This is just ridiculous. It is inefficient (visitors have to wait for you) and waste of time (when you check but no one has arrived). Who does this? Well, most procedural languages work this way. And it works, for their use cases. But when you&#39;re dealing with real life scenarios, like checking doors or handling HTML form responses in browsers, where the time of completion of an action or arrival of a visitor is unknown, a better approach has to be used, especially when time, muscle and browser resources are so scarce. Here comes event driven programming.
+&lt;/p&gt;
+&lt;p&gt;
+	Suppose, you&#39;re alone again, in the same house. But this time, you decide to make use of events. You install a doorbell. Now, whenever someone arrives and rings the bell, you know you have to go open the door. That&#39;s simple. That&#39;s event driven. It doesn&#39;t matter if the next visitor comes after a minute or after an hour. You&#39;ll open the door instantaneously, without waste of your own time. And the fact that most homes have doorbells and this is our natural workflow when dealing with similar situations, is the proof of how intuitive this programming paradigm is.
+&lt;/p&gt;
+&lt;p&gt;
+	Okay, that was cool, so far. But I know that I have to listen to a doorbell and then on hearing it, walk to the door to open it. How do I make the machine do that. The answer is callbacks. If you are not quite what they are or how they work, do check out my other article on &lt;a href=&quot;https://www.nagekar.com/2016/02/callbacks-eventloop-in-javascript-explained.html&quot;&gt;how callbacks and event loop work&lt;/a&gt;. So essentially, we attach a &#39;callback&#39; to an event. The callback, as the name suggests, calls back when the event occurs, and lets us control the aftereffect. Such a callback is also called an event listener, which infact is what you attach to the &lt;code&gt;element.addEventListener(&#39;event&#39;, callback);&lt;/code&gt; when working in the DOM. In Nodejs environment, you get a custom EventEmitter class that you can use to emit and listen to events. If you haven&#39;t heard of it, &lt;a href=&quot;socket.io&quot;&gt;socket.io&lt;/a&gt; is all about custom events and the data transfer between the client and the server. It makes use of &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API&quot;&gt;websockets&lt;/a&gt; along with XHRs. If you are into creating sockets and data interexchange between remote hosts like I am, socket.io is for you.
+&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/abhn/d5eb252e620ee157d4ab1cc49811221a.js&quot;&gt;&lt;/script&gt;
+&lt;p&gt;
+	Finally, I hope to have given you some insights of event driven programming with Javascript. Not a lot of code, but that is something you&#39;ll find everywhere. I always like to emphasis on the concepts rather than implementation. It makes for a better implementation.
+&lt;/p&gt;
+</description>
+                <link>http://www.nagekar.com/2016/04/event-driven-programming.html</link>
+                <guid>http://www.nagekar.com/2016/04/event-driven-programming</guid>
+                <pubDate>Tue, 12 Apr 2016 00:00:00 +0530</pubDate>
+        </item>
 
         <item>
                 <title>Gentoo Experience</title>
@@ -936,25 +963,6 @@ img {
                 <link>http://www.nagekar.com/2015/09/You-Are-Insignificant.html</link>
                 <guid>http://www.nagekar.com/2015/09/You-Are-Insignificant</guid>
                 <pubDate>Tue, 15 Sep 2015 00:00:00 +0530</pubDate>
-        </item>
-
-        <item>
-                <title>Need For An Alternate Social Network</title>
-                <description>&lt;p&gt;About a week or so ago, we were asked to choose our &#39;web-technologies&#39; project, that would be among a group of two or three, and to be completed within the course of the semester. After forming team with two of my buddies at the college, we started to discuss about the possible theme of the project. From the very beginning, I had this idea to create a social network. After discussing with the other two, or I would rather say after convincing them, we finally settled to create a &#39;social network&#39; model.&lt;/p&gt;
-
-&lt;p&gt;You can call me an avid social networker. I spend most of my free time staring at my computer&#39;s screen and most of the times, I am not actually working but surfing the social networks I have unnecessarily signed up with, which eat up most of my productive time. Well, at least that was the truth up to a few months ago. I have made some interesting, and more appropriately, disturbing observations about most of the people on these social networks. Social networks are not the online social places anymore. They have become more anti-social networks. How?&lt;/p&gt;
-
-&lt;p&gt;Well, when was the last time you saw an ugly or not-so-perfect photo of your friend on Facebook? Or when was it that you read his or her tweet that didn&#39;t have that touch of wit in it? Hard to remember, isn&#39;t it? Not all do it, but one thing you might admit, most do. We hate to feel inferior. We want ourselves to be perceived better than the rest, and in that struggle to keep our fake identity updated, we keep adding tiny bits of false facts to that image. We have image editing and filter apps more than ever. Sites that provide humorous one liners are now full time. There is a rivalry to stay on top of the popularity ladder. People consider themselves less of a user, and more of a brand. Everyone wants to have an identity online, start a vogue, get famous, all in the easiest possible way. Who want to take the effort to create or discover something? Scientists are fools. Better is to use what you got at your disposal. Make stupid statements about others to get those 5 seconds of fame. Expose your body to get followers, is what exactly happens on Instagram half of the times. Click-bait headlines are all over the place, no site to trust over it&#39;s content. News websites have started to look more like link exchange sites. The Internet is not the same good old place to share thoughts anymore, but a shameless self-promotion hub.&lt;/p&gt;
-
-&lt;p&gt;So what might be the possible solution to this? First culprit, in my opinion, is the followers thing. The problem lies in inequality in the distribution of followers. Some famous people get more followers, and in turn, get more &#39;likes&#39; and &#39;retweets&#39; even on their lamest posts. On the other hand, if some random guy posts a very interesting research, he doesn&#39;t have the audience, so maybe his research won&#39;t get that far. Now maybe he won&#39;t mind it this time, but in the long run, when he and countless others like him, don&#39;t get the appreciation they deserve but see crappy content making it to the trending news, maybe they will stop their research and get into making the content that makes it to the top. From experience, we know what content actually does. This is exactly how we are discouraging quality content on the Internet. Some sites have kept up very well (see Reddit) but for most, the future doesn&#39;t look as good. The only apparent solution to this is to keep the &#39;followers&#39; thing for topics, and not for people. That way, a celebrity and a commoner gets equal chance to be heard, and hence, reach out to the millions of other users typically found on any average sized social network today.&lt;/p&gt;
-
-&lt;p&gt;The second thing concerns me more, because it is not about the technology, but about the users of it. We are raising a generation which will never know the joy of meeting friends after a while, the joy of hanging out together and the joy in laughing over yourself. Because today fun is what is made of the poor and the powerless, and laughter is what you have when someone gets hurt. News is what the celebrities are up to, and sports is what the richest guys bet. The world has more of everything than ever, still life is more monotonos than ever. Let&#39;s be honest, how many birthdays would you actually remember if there had been no reminders on Facebook? Not many, but still we go to the extent of doing a formality of typing &#39;hbd&#39; on our friend&#39;s wall on his or her birthday. Interesting.&lt;/p&gt;
-
-&lt;p&gt;The online social universe is degrading each day, and we are not doing much to help it. Good sources of news and content are like one in a thousand, if not less. The things must be changed, or it may not be long before Internet loses it&#39;s meaning, and not stay worthy of spending time on, much like the television these days.&lt;/p&gt;
-</description>
-                <link>http://www.nagekar.com/2015/08/Need-For-An-Alternate-Social-Network.html</link>
-                <guid>http://www.nagekar.com/2015/08/Need-For-An-Alternate-Social-Network</guid>
-                <pubDate>Thu, 13 Aug 2015 00:00:00 +0530</pubDate>
         </item>
 
 
