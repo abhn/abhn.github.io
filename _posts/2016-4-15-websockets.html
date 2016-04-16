@@ -1,0 +1,123 @@
+---
+layout: post
+title: WebSockets
+tags:
+- javascript
+---
+<p>
+	If you're like me, then you must have gone nuts on hearing about <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API">WebSockets</a> for the first time. We now have a totally independent protocol that will not terminate connection after a request-response cycle, which means all hacks to keep a persistent connection from the browser (long polling, I'm looking at you) would now be part of the history. Welcome to the world of WebSockets.
+</p>
+<p>
+	Let's start with the Wikipedian and Mozillian definition of WebSockets, to get some initial traction.
+</p>
+<h6>Wikipedia says that..</h6>
+<blockquote>
+	WebSocket is a protocol providing full-duplex communication channels over a single TCP connection. The WebSocket protocol was standardized by the IETF as RFC 6455 in 2011, and the WebSocket API in Web IDL is being standardized by the W3C.
+</blockquote>
+<h6>Mozilla Developer Network says that..</h6>
+<blockquote>
+	WebSockets is an advanced technology that makes it possible to open an interactive communication session between the user's browser and a server. With this API, you can send messages to a server and receive event-driven responses without having to poll the server for a reply.
+</blockquote>
+<p>
+	To begin with, let us all make sure we have websocket support by clicking <button id="hasBtn" onclick="hasSocket();">here</button>. Assuming you do, let's begin. Web browsers provide us with the <code>WebSocket</code> class. To create a websocket, we simply need to <pre>let ws = new WebSocket('ws://server.com/endpoint');</pre>This gives us a <i>websocket</i> object which supports methods like send() and close() and event listeners like onmessage and onerror.
+</p>
+<p>
+	Creating a nodejs instance running a websocket server is easy with modules. I did try to do it natively, but it went too tedious. Finally I settled for <code>ws</code> module from npm. The server side code looks trival.
+</p>
+<script src="https://gist.github.com/abhn/d94830c3901b48ebdeb8375b37d0ee60.js"></script>
+<p>
+	On the browser, things are even simpler.
+</p>
+<pre>
+// call the object constructor
+var ws = new WebSocket('ws://nagekar-ws.herokuapp.com/');
+
+// attach a message listener
+ws.onmessage = function(msg) {
+	console.log(msg);
+}
+
+// send some message
+ws.send('hello server!');
+</pre>
+<p>
+	Once we call the constructor, an HTTP GET request is generated to initiate the transaction. You'll find that these headers are sent by your browser. 
+</p>
+<pre>
+
+GET / HTTP/1.1
+Host: nagekar-ws.herokuapp.com
+Connection:Upgrade
+Pragma:no-cache
+Sec-WebSocket-Extensions:permessage-deflate; client_max_window_bits
+Sec-WebSocket-Key:ut0NjBQxxBnmtUStHfMUDw==
+Sec-WebSocket-Version:13
+Upgrade:websocket
+User-Agent:Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.108 Safari/537.36
+</pre>
+<p>
+	The ones to notice are the URL, which begins with ws:// protocol. <a href="http://stackoverflow.com/questions/23674199/why-is-there-no-same-origin-policy-for-websockets-why-can-i-connect-to-ws-loc#comment36372038_23674863">Cross domain requests</a> are allowed. This initial step requires the use of HTTP(S) or web, hence the name 'web' sockets. The <i>'Connection:Upgrade'</i> and <i>'Upgrade:websocket'</i> and what requests the server to change this connection to a socket one. The <i>Sec-WebSocket-Key</i> header is what client sends to the server. The server crafts another key with this and returns it back in the response header. A response header looks like this.
+</p>
+<pre>
+HTTP/1.1 101 Switching Protocols
+Connection:Upgrade
+Sec-Websocket-Accept:7CAJHdL7QMG4ceqd0M1O8SDbM2Q=
+Sec-Websocket-Extensions:permessage-deflate
+Upgrade:websocket
+Via:1.1 vegur
+</pre>
+<p>
+	On receiving the <i>Sec-Websocket-Accept</i> header, the handshake is completed, and now the client and server are connected via persistent sockets, ready to perform both way message delivery.
+</p>
+<p>
+	Click 'Connect' button to initiate WebSocket handshake. The server will respond with a timestamp every 2500 milliseconds. Also, the server will echo back everything to send at it. The close button will call the WebSocket.close() method which will send 
+	<h4>Message Box</h4>
+	<div id="list" style="height:100px;overflow-y:scroll;border:1px solid">
+	    <ul id="msglist">
+	     
+	    </ul>
+    </div>
+    <center>
+	    <button id="connect">Connect</button>
+	    <input type="text" id="inp" />
+		<button id="send">Send</button>
+		<button id="close">Close</button>
+	</center>
+</p>
+<p>
+	Pretty interesting, isn't it. Things get even more interesting when you use a readymade library built on top of WebSockets, such as <a href="https://socket.io">Socket.io</a>. It supports all browsers (through fallback to XHR/polling), has better looking APIs, is easy to use and allows you to broadcast without having to worry much about raw connections. If you're going to use these WebSockets in production, there's no reason not to use Socket.io. Using native websockets is not recommended if you're planning to support some legacy browsers. Even Mozilla terms it as an 'experimental technology'. Check out the <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSocket#Browser_compatibility">compatibility table</a> for more information.
+</p>
+<p>
+	I hope this post was informative. I did learn a lot while researching on this topic, and I'm glad I did. As always, thank you for reading. Please drop a comment in case of feedback or correction.
+</p>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
+<script type="text/javascript">
+	function hasSocket() {
+		if(window.WebSocket) {
+			document.getElementById('hasBtn').innerHTML = 'Supported';
+			document.getElementById('hasBtn').disabled = true;
+		} else {
+			document.getElementById('hasBtn').innerHTML = 'Not supported';
+			document.getElementById('hasBtn').disabled = true;
+		}
+	}
+	var ws;
+	$('#connect').click(function() {
+		ws = new WebSocket('ws://nagekar-ws.herokuapp.com/');
+		ws.onmessage = function(msg) {
+			$('#msglist').append('<li style="color: green">' + msg.data + '</li>').focus();
+			$('#list').scrollTop($('ul li').last().position().top + $('ul li').last().height());
+		};
+	});
+	$('#send').click(function() {
+		var msg = $('#inp').val();
+		$('#msglist').append('<li style="color: blue">Message to server: ' + msg + '</li>').focus();
+		$('#list').scrollTop($('ul li').last().position().top + $('ul li').last().height());
+		ws.send(msg);
+	});
+	$('#close').click(function() {
+		ws.close();
+		$('#msglist').append('<li style="color: red">' + 'Connection Closed' + '</li>').focus();
+		$('#list').scrollTop($('ul li').last().position().top + $('ul li').last().height());
+	})
+</script>

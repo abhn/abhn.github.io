@@ -5,10 +5,134 @@
         <description>Abhishek Nagekar&#39;s Blog - Abhishek Nagekar</description>
         <link>http://www.nagekar.com</link>
         <atom:link href="http://www.nagekar.com/rss.xml" rel="self" type="application/rss+xml" />
-        <lastBuildDate>Tue, 12 Apr 2016 16:50:26 +0530</lastBuildDate>
-        <pubDate>Tue, 12 Apr 2016 16:50:26 +0530</pubDate>
+        <lastBuildDate>Sat, 16 Apr 2016 13:08:47 +0530</lastBuildDate>
+        <pubDate>Sat, 16 Apr 2016 13:08:47 +0530</pubDate>
         <ttl>60</ttl>
 
+
+        <item>
+                <title>WebSockets</title>
+                <description>&lt;p&gt;
+	If you&#39;re like me, then you must have gone nuts on hearing about &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API&quot;&gt;WebSockets&lt;/a&gt; for the first time. We now have a totally independent protocol that will not terminate connection after a request-response cycle, which means all hacks to keep a persistent connection from the browser (long polling, I&#39;m looking at you) would now be part of the history. Welcome to the world of WebSockets.
+&lt;/p&gt;
+&lt;p&gt;
+	Let&#39;s start with the Wikipedian and Mozillian definition of WebSockets, to get some initial traction.
+&lt;/p&gt;
+&lt;h6&gt;Wikipedia says that..&lt;/h6&gt;
+&lt;blockquote&gt;
+	WebSocket is a protocol providing full-duplex communication channels over a single TCP connection. The WebSocket protocol was standardized by the IETF as RFC 6455 in 2011, and the WebSocket API in Web IDL is being standardized by the W3C.
+&lt;/blockquote&gt;
+&lt;h6&gt;Mozilla Developer Network says that..&lt;/h6&gt;
+&lt;blockquote&gt;
+	WebSockets is an advanced technology that makes it possible to open an interactive communication session between the user&#39;s browser and a server. With this API, you can send messages to a server and receive event-driven responses without having to poll the server for a reply.
+&lt;/blockquote&gt;
+&lt;p&gt;
+	To begin with, let us all make sure we have websocket support by clicking &lt;button id=&quot;hasBtn&quot; onclick=&quot;hasSocket();&quot;&gt;here&lt;/button&gt;. Assuming you do, let&#39;s begin. Web browsers provide us with the &lt;code&gt;WebSocket&lt;/code&gt; class. To create a websocket, we simply need to &lt;pre&gt;let ws = new WebSocket(&#39;ws://server.com/endpoint&#39;);&lt;/pre&gt;This gives us a &lt;i&gt;websocket&lt;/i&gt; object which supports methods like send() and close() and event listeners like onmessage and onerror.
+&lt;/p&gt;
+&lt;p&gt;
+	Creating a nodejs instance running a websocket server is easy with modules. I did try to do it natively, but it went too tedious. Finally I settled for &lt;code&gt;ws&lt;/code&gt; module from npm. The server side code looks trival.
+&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/abhn/d94830c3901b48ebdeb8375b37d0ee60.js&quot;&gt;&lt;/script&gt;
+&lt;p&gt;
+	On the browser, things are even simpler.
+&lt;/p&gt;
+&lt;pre&gt;
+// call the object constructor
+var ws = new WebSocket(&#39;ws://nagekar-ws.herokuapp.com/&#39;);
+
+// attach a message listener
+ws.onmessage = function(msg) {
+	console.log(msg);
+}
+
+// send some message
+ws.send(&#39;hello server!&#39;);
+&lt;/pre&gt;
+&lt;p&gt;
+	Once we call the constructor, an HTTP GET request is generated to initiate the transaction. You&#39;ll find that these headers are sent by your browser. 
+&lt;/p&gt;
+&lt;pre&gt;
+
+GET / HTTP/1.1
+Host: nagekar-ws.herokuapp.com
+Connection:Upgrade
+Pragma:no-cache
+Sec-WebSocket-Extensions:permessage-deflate; client_max_window_bits
+Sec-WebSocket-Key:ut0NjBQxxBnmtUStHfMUDw==
+Sec-WebSocket-Version:13
+Upgrade:websocket
+User-Agent:Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.108 Safari/537.36
+&lt;/pre&gt;
+&lt;p&gt;
+	The ones to notice are the URL, which begins with ws:// protocol. &lt;a href=&quot;http://stackoverflow.com/questions/23674199/why-is-there-no-same-origin-policy-for-websockets-why-can-i-connect-to-ws-loc#comment36372038_23674863&quot;&gt;Cross domain requests&lt;/a&gt; are allowed. This initial step requires the use of HTTP(S) or web, hence the name &#39;web&#39; sockets. The &lt;i&gt;&#39;Connection:Upgrade&#39;&lt;/i&gt; and &lt;i&gt;&#39;Upgrade:websocket&#39;&lt;/i&gt; and what requests the server to change this connection to a socket one. The &lt;i&gt;Sec-WebSocket-Key&lt;/i&gt; header is what client sends to the server. The server crafts another key with this and returns it back in the response header. A response header looks like this.
+&lt;/p&gt;
+&lt;pre&gt;
+HTTP/1.1 101 Switching Protocols
+Connection:Upgrade
+Sec-Websocket-Accept:7CAJHdL7QMG4ceqd0M1O8SDbM2Q=
+Sec-Websocket-Extensions:permessage-deflate
+Upgrade:websocket
+Via:1.1 vegur
+&lt;/pre&gt;
+&lt;p&gt;
+	On receiving the &lt;i&gt;Sec-Websocket-Accept&lt;/i&gt; header, the handshake is completed, and now the client and server are connected via persistent sockets, ready to perform both way message delivery.
+&lt;/p&gt;
+&lt;p&gt;
+	Click &#39;Connect&#39; button to initiate WebSocket handshake. The server will respond with a timestamp every 2500 milliseconds. Also, the server will echo back everything to send at it. The close button will call the WebSocket.close() method which will send 
+	&lt;h4&gt;Message Box&lt;/h4&gt;
+	&lt;div id=&quot;list&quot; style=&quot;height:100px;overflow-y:scroll;border:1px solid&quot;&gt;
+	    &lt;ul id=&quot;msglist&quot;&gt;
+	     
+	    &lt;/ul&gt;
+    &lt;/div&gt;
+    &lt;center&gt;
+	    &lt;button id=&quot;connect&quot;&gt;Connect&lt;/button&gt;
+	    &lt;input type=&quot;text&quot; id=&quot;inp&quot; /&gt;
+		&lt;button id=&quot;send&quot;&gt;Send&lt;/button&gt;
+		&lt;button id=&quot;close&quot;&gt;Close&lt;/button&gt;
+	&lt;/center&gt;
+&lt;/p&gt;
+&lt;p&gt;
+	Pretty interesting, isn&#39;t it. Things get even more interesting when you use a readymade library built on top of WebSockets, such as &lt;a href=&quot;https://socket.io&quot;&gt;Socket.io&lt;/a&gt;. It supports all browsers (through fallback to XHR/polling), has better looking APIs, is easy to use and allows you to broadcast without having to worry much about raw connections. If you&#39;re going to use these WebSockets in production, there&#39;s no reason not to use Socket.io. Using native websockets is not recommended if you&#39;re planning to support some legacy browsers. Even Mozilla terms it as an &#39;experimental technology&#39;. Check out the &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/WebSocket#Browser_compatibility&quot;&gt;compatibility table&lt;/a&gt; for more information.
+&lt;/p&gt;
+&lt;p&gt;
+	I hope this post was informative. I did learn a lot while researching on this topic, and I&#39;m glad I did. As always, thank you for reading. Please drop a comment in case of feedback or correction.
+&lt;/p&gt;
+&lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js&quot;&gt;&lt;/script&gt;
+&lt;script type=&quot;text/javascript&quot;&gt;
+	function hasSocket() {
+		if(window.WebSocket) {
+			document.getElementById(&#39;hasBtn&#39;).innerHTML = &#39;Supported&#39;;
+			document.getElementById(&#39;hasBtn&#39;).disabled = true;
+		} else {
+			document.getElementById(&#39;hasBtn&#39;).innerHTML = &#39;Not supported&#39;;
+			document.getElementById(&#39;hasBtn&#39;).disabled = true;
+		}
+	}
+	var ws;
+	$(&#39;#connect&#39;).click(function() {
+		ws = new WebSocket(&#39;ws://nagekar-ws.herokuapp.com/&#39;);
+		ws.onmessage = function(msg) {
+			$(&#39;#msglist&#39;).append(&#39;&lt;li style=&quot;color: green&quot;&gt;&#39; + msg.data + &#39;&lt;/li&gt;&#39;).focus();
+			$(&#39;#list&#39;).scrollTop($(&#39;ul li&#39;).last().position().top + $(&#39;ul li&#39;).last().height());
+		};
+	});
+	$(&#39;#send&#39;).click(function() {
+		var msg = $(&#39;#inp&#39;).val();
+		$(&#39;#msglist&#39;).append(&#39;&lt;li style=&quot;color: blue&quot;&gt;Message to server: &#39; + msg + &#39;&lt;/li&gt;&#39;).focus();
+		$(&#39;#list&#39;).scrollTop($(&#39;ul li&#39;).last().position().top + $(&#39;ul li&#39;).last().height());
+		ws.send(msg);
+	});
+	$(&#39;#close&#39;).click(function() {
+		ws.close();
+		$(&#39;#msglist&#39;).append(&#39;&lt;li style=&quot;color: red&quot;&gt;&#39; + &#39;Connection Closed&#39; + &#39;&lt;/li&gt;&#39;).focus();
+		$(&#39;#list&#39;).scrollTop($(&#39;ul li&#39;).last().position().top + $(&#39;ul li&#39;).last().height());
+	})
+&lt;/script&gt;</description>
+                <link>http://www.nagekar.com/2016/04/websockets.html</link>
+                <guid>http://www.nagekar.com/2016/04/websockets</guid>
+                <pubDate>Fri, 15 Apr 2016 00:00:00 +0530</pubDate>
+        </item>
 
         <item>
                 <title>Event Driven Programming</title>
@@ -25,7 +149,7 @@
 	Suppose, you&#39;re alone again, in the same house. But this time, you decide to make use of events. You install a doorbell. Now, whenever someone arrives and rings the bell, you know you have to go open the door. That&#39;s simple. That&#39;s event driven. It doesn&#39;t matter if the next visitor comes after a minute or after an hour. You&#39;ll open the door instantaneously, without waste of your own time. And the fact that most homes have doorbells and this is our natural workflow when dealing with similar situations, is the proof of how intuitive this programming paradigm is.
 &lt;/p&gt;
 &lt;p&gt;
-	Okay, that was cool, so far. But I know that I have to listen to a doorbell and then on hearing it, walk to the door to open it. How do I make the machine do that. The answer is callbacks. If you are not quite what they are or how they work, do check out my other article on &lt;a href=&quot;https://www.nagekar.com/2016/02/callbacks-eventloop-in-javascript-explained.html&quot;&gt;how callbacks and event loop work&lt;/a&gt;. So essentially, we attach a &#39;callback&#39; to an event. The callback, as the name suggests, calls back when the event occurs, and lets us control the aftereffect. Such a callback is also called an event listener, which infact is what you attach to the &lt;code&gt;element.addEventListener(&#39;event&#39;, callback);&lt;/code&gt; when working in the DOM. In Nodejs environment, you get a custom EventEmitter class that you can use to emit and listen to events. If you haven&#39;t heard of it, &lt;a href=&quot;socket.io&quot;&gt;socket.io&lt;/a&gt; is all about custom events and the data transfer between the client and the server. It makes use of &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API&quot;&gt;websockets&lt;/a&gt; along with XHRs. If you are into creating sockets and data interexchange between remote hosts like I am, socket.io is for you.
+	Okay, that was cool, so far. But I know that I have to listen to a doorbell and then on hearing it, walk to the door to open it. How do I make the machine do that. The answer is callbacks. If you are not quite sure what they are or how they work, do check out my other article on &lt;a href=&quot;https://www.nagekar.com/2016/02/callbacks-eventloop-in-javascript-explained.html&quot;&gt;how callbacks and event loop work&lt;/a&gt;. So essentially, we attach a &#39;callback&#39; to an event. The callback, as the name suggests, calls back when the event occurs, and lets us control the aftereffect. Such a callback is also called an event listener, which infact is what you attach to the &lt;code&gt;element.addEventListener(&#39;event&#39;, callback);&lt;/code&gt; when working in the DOM. In Nodejs environment, you get a custom EventEmitter class that you can use to emit and listen to events. If you haven&#39;t heard of it, &lt;a href=&quot;socket.io&quot;&gt;socket.io&lt;/a&gt; is all about custom events and the data transfer between the client and the server. It makes use of &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API&quot;&gt;websockets&lt;/a&gt; along with XHRs. If you are into creating sockets and data interexchange between remote hosts like I am, socket.io is for you.
 &lt;/p&gt;
 &lt;script src=&quot;https://gist.github.com/abhn/d5eb252e620ee157d4ab1cc49811221a.js&quot;&gt;&lt;/script&gt;
 &lt;p&gt;
@@ -948,21 +1072,6 @@ img {
                 <link>http://www.nagekar.com/2015/09/Birthday-Week.html</link>
                 <guid>http://www.nagekar.com/2015/09/Birthday-Week</guid>
                 <pubDate>Tue, 29 Sep 2015 00:00:00 +0530</pubDate>
-        </item>
-
-        <item>
-                <title>You Are Insignificant</title>
-                <description>&lt;p&gt;I have a lot to write at this point, so much that I am not even sure where to start. Humans are such wonderful creatures, we make things happen, world spin, or at least believe it to be that way. We have a self-imagined feeling of superiority. We are desperate to feel important, to feel blessed, to feel we have some purpose in life, and no one has to right to point at the way you walk on the face of this planet. We humans are so vulnerable.&lt;/p&gt;
-
-&lt;p&gt;Life goes up and down all the time, with just about everyone. We all have bad times, spend some days talking about it, and then everything gets back to normal. Now the interesting part comes when you have a logical mind. I judge myself and the decisions I take. It just turned out, when you&#39;re sad, it is not that the day is a little too gloomy, or that the trees are all looking down, or that the world is a little too quite. It is just that you&#39;re sad. That&#39;s it. Done. No one, other that your little brain in there, feels a damn thing. The world is a pretty large place. The Universe, a little larger. You, me, we are too small. No one cares about you, or your thoughts, let alone the Universe as a whole. You only matter if you can make money, and that is very temporary, only applicable on earth. So basically, you are worth a rock floating in space, even less.&lt;/p&gt;
-
-&lt;p&gt;I see people crying over little things, things so little that it almost feels a shame to cry over. You can&#39;t ask people to live according to you, of course not. What you can really ask is to show a little respect to the 3.5 billion years of evolution, that they are at the front of right now. Life wasn&#39;t easy. From the hot geysers, to the half dozen catastrophic disasters that shock everything on our little planet. Life made it through them, and for every specie that you see today, at least 1000 have perished, and then you tell me that this guy is trying to ignore you and you are feeling left out. Come on people, don&#39;t be that weak. We are a race that has been here from quite some time. The end might be near somewhere, in the next 100 or 1000 years, if we stop thinking about our individual existence and our special place in this Universe we might make it out to a few thousand years. And unless we move to some other world before that, there is not much probability that we can save us from ourselves. World would completely reset itself, and your current values would be deep buried inside some fossils down the surface. The sun would expand into a red super giant and eat up the earth&#39;s atmosphere. Our galaxy Milky Way would collide with it&#39;s sister galaxy Andromeda. Artistic fiery show of stars and nebulas it would be, for some other civilization far way just opening their eyes to the Universe. The sun would soon die, and there would only be darkness after that, for eternity. No one, yes, NO ONE, would ever know how much you struggled when you existed for those 60 years in that entire 11 billion years of solar system&#39;s history.&lt;/p&gt;
-
-&lt;p&gt;So shall we begin the discussion about your life&#39;s struggles now?&lt;/p&gt;
-</description>
-                <link>http://www.nagekar.com/2015/09/You-Are-Insignificant.html</link>
-                <guid>http://www.nagekar.com/2015/09/You-Are-Insignificant</guid>
-                <pubDate>Tue, 15 Sep 2015 00:00:00 +0530</pubDate>
         </item>
 
 

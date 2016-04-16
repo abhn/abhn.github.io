@@ -134,7 +134,7 @@
 	Suppose, you're alone again, in the same house. But this time, you decide to make use of events. You install a doorbell. Now, whenever someone arrives and rings the bell, you know you have to go open the door. That's simple. That's event driven. It doesn't matter if the next visitor comes after a minute or after an hour. You'll open the door instantaneously, without waste of your own time. And the fact that most homes have doorbells and this is our natural workflow when dealing with similar situations, is the proof of how intuitive this programming paradigm is.
 </p>
 <p>
-	Okay, that was cool, so far. But I know that I have to listen to a doorbell and then on hearing it, walk to the door to open it. How do I make the machine do that. The answer is callbacks. If you are not quite what they are or how they work, do check out my other article on <a href="https://www.nagekar.com/2016/02/callbacks-eventloop-in-javascript-explained.html">how callbacks and event loop work</a>. So essentially, we attach a 'callback' to an event. The callback, as the name suggests, calls back when the event occurs, and lets us control the aftereffect. Such a callback is also called an event listener, which infact is what you attach to the <code>element.addEventListener('event', callback);</code> when working in the DOM. In Nodejs environment, you get a custom EventEmitter class that you can use to emit and listen to events. If you haven't heard of it, <a href="socket.io">socket.io</a> is all about custom events and the data transfer between the client and the server. It makes use of <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API">websockets</a> along with XHRs. If you are into creating sockets and data interexchange between remote hosts like I am, socket.io is for you.
+	Okay, that was cool, so far. But I know that I have to listen to a doorbell and then on hearing it, walk to the door to open it. How do I make the machine do that. The answer is callbacks. If you are not quite sure what they are or how they work, do check out my other article on <a href="https://www.nagekar.com/2016/02/callbacks-eventloop-in-javascript-explained.html">how callbacks and event loop work</a>. So essentially, we attach a 'callback' to an event. The callback, as the name suggests, calls back when the event occurs, and lets us control the aftereffect. Such a callback is also called an event listener, which infact is what you attach to the <code>element.addEventListener('event', callback);</code> when working in the DOM. In Nodejs environment, you get a custom EventEmitter class that you can use to emit and listen to events. If you haven't heard of it, <a href="socket.io">socket.io</a> is all about custom events and the data transfer between the client and the server. It makes use of <a href="https://developer.mozilla.org/en-US/docs/Web/API/WebSockets_API">websockets</a> along with XHRs. If you are into creating sockets and data interexchange between remote hosts like I am, socket.io is for you.
 </p>
 <script src="https://gist.github.com/abhn/d5eb252e620ee157d4ab1cc49811221a.js"></script>
 <p>
@@ -149,6 +149,15 @@
     
       <li>
         <h3>
+          <a href="/2016/04/websockets.html">
+            WebSockets
+            <small>12 Apr 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
           <a href="/2016/03/gentoo-experience.html">
             Gentoo Experience
             <small>12 Apr 2016</small>
@@ -160,15 +169,6 @@
         <h3>
           <a href="/2016/03/going-full-stack-on-mobile.html">
             Going Full Stack On Mobile
-            <small>12 Apr 2016</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2016/02/callbacks-eventloop-in-javascript-explained.html">
-            Callbacks And Event Loop Explained
             <small>12 Apr 2016</small>
           </a>
         </h3>

@@ -8,6 +8,7 @@ http://www.nagekar.com/search
 http://www.nagekar.com/sitemap.txt
 http://www.nagekar.com/tags
 
+http://www.nagekar.com/2016/04/websockets.html
 http://www.nagekar.com/2016/04/event-driven-programming.html
 http://www.nagekar.com/2016/03/gentoo-experience.html
 http://www.nagekar.com/2016/03/going-full-stack-on-mobile.html
