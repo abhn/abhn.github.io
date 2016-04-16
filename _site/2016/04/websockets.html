@@ -220,7 +220,7 @@ Via:1.1 vegur
 	}
 	var ws;
 	$('#connect').click(function() {
-		ws = new WebSocket('ws://nagekar-ws.herokuapp.com/');
+		ws = new WebSocket('wss://nagekar-ws.herokuapp.com/');
 		ws.onmessage = function(msg) {
 			$('#msglist').append('<li style="color: green">' + msg.data + '</li>').focus();
 			$('#list').scrollTop($('ul li').last().position().top + $('ul li').last().height());

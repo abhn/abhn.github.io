@@ -4,7 +4,7 @@
  <title>Abhishek Nagekar&#39;s Blog</title>
  <link href="http://www.nagekar.com/atom.xml" rel="self"/>
  <link href="http://www.nagekar.com"/>
- <updated>2016-04-16T13:08:47+05:30</updated>
+ <updated>2016-04-16T13:14:13+05:30</updated>
  <id>http://www.nagekar.com</id>
  <author>
    <name>Abhishek Nagekar</name>
@@ -116,7 +116,7 @@ Via:1.1 vegur
 	}
 	var ws;
 	$(&#39;#connect&#39;).click(function() {
-		ws = new WebSocket(&#39;ws://nagekar-ws.herokuapp.com/&#39;);
+		ws = new WebSocket(&#39;wss://nagekar-ws.herokuapp.com/&#39;);
 		ws.onmessage = function(msg) {
 			$(&#39;#msglist&#39;).append(&#39;&lt;li style=&quot;color: green&quot;&gt;&#39; + msg.data + &#39;&lt;/li&gt;&#39;).focus();
 			$(&#39;#list&#39;).scrollTop($(&#39;ul li&#39;).last().position().top + $(&#39;ul li&#39;).last().height());
