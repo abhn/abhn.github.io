@@ -4,13 +4,72 @@
  <title>Abhishek Nagekar&#39;s Blog</title>
  <link href="http://www.nagekar.com/atom.xml" rel="self"/>
  <link href="http://www.nagekar.com"/>
- <updated>2016-04-16T13:14:13+05:30</updated>
+ <updated>2016-04-18T23:08:09+05:30</updated>
  <id>http://www.nagekar.com</id>
  <author>
    <name>Abhishek Nagekar</name>
    <email>abhishek@nagekar.com</email>
  </author>
 
+ 
+ <entry>
+   <title>Googling And Asking Better Questions</title>
+   <link href="http://www.nagekar.com/2016/04/googling-life.html"/>
+   <updated>2016-04-17T00:00:00+05:30</updated>
+   <id>http://www.nagekar.com/2016/04/googling-life</id>
+   <content type="html">&lt;p&gt;
+  TL;DR
+&lt;/p&gt;
+&lt;p&gt;
+  Like many of the things you do in your lives, Googling is an art. Getting to the right page that you were looking for, with the right set keywords and clicking the right links, all this seems to be quite random and uncertain, but once you get into the groove, things become natural and predictable. Finding that random song you heard on the street is no big deal, and neither is finding the article that you had read couple of years ago, the only part of which you remember was the author&#39;s last name. Information is growing each day, and having the right set of tools always within you is so much important. Yes, there&#39;s that shiny history feature in you latest Chromium browser with sync, so that you never lose your tracks, but knowing how to find something on a totally random public PC without having to look into your history is very convenient, also cool.
+&lt;/p&gt;
+&lt;p&gt;
+  But then, you might ask, what is the point of remembering a whole new set of rules just so that I could type in proper queries on Google&#39;s homepage? Yeah, if you think about it this way, not much. Every other site has a search functionality built into it. But, think. Googling for a computer problem with &lt;code&gt;site:stackoverflow.com&lt;/code&gt; and searching the same problem on stackoverlow&#39;s search is somewhat different. Stackoverflow doesn&#39;t invest as much time on search optimization as Google does. That is the case when stackoverflow&#39;s search is one of the best you can find on the Internet. Think about others. Now, every site having its own search has its own small set of advance search syntax. Would you go around memorizing rules from each and every site that you visit? Are you not better off memorizing for just one site and using it to find everything else? In my opinion, yes.
+&lt;/p&gt;
+&lt;p&gt;
+  And learning how to google or how to search in general doesn&#39;t just mean memorizing the &lt;a href=&quot;https://en.wikipedia.org/wiki/Google_hacking&quot;&gt;dorks&lt;/a&gt;, although it does certainly help. It generally means asking better questions. What does that mean? Well, in general, the more you research before asking a question, the more are the chances of you getting a proper and to the point answer. That doesn&#39;t just apply to online searches, but also when asking for help to your fellow classmate or colleague. The research helps in a number of ways. Firstly and most importantly, it can spare you the need to ask for help by finding the answer yourself. Secondly, research also helps to properly understand your problem&#39;s causes, such that any similar problem can be solved with the same approach. Thirdly, it creates a psychological difference in the mind of the answerer when he or she reads a &lt;i&gt;&quot;this code doesn&#39;t work&quot;&lt;/i&gt; and a &lt;i&gt;&quot;this code throws a undefined variable error on line 42&quot;&lt;/i&gt; and a &lt;i&gt;&quot;the &#39;name&#39; variable on line 42 is undefined as the async function on the previous line hasn&#39;t returned yet.&quot;&lt;/i&gt;. As you see for yourself, the third problem definition is far more probable to get answered, and the first one is likely to get ignored (or worse, downvoted, if you&#39;re on StackExchange).
+&lt;/p&gt;
+&lt;p&gt;
+  I have people who send me program source code files in emails and the only line of text inside of the email being the obvious title that &#39;the code doesn&#39;t work&#39;. That is where the problem lies. When all you say is &#39;it doesn&#39;t work&#39;, then the only reply that you deserve is &#39;congratulations on figuring that out&#39;. It&#39;s that simple. And to understand the importance of it, you need to value the time of others.
+&lt;/p&gt;
+&lt;p&gt;
+  So how does one turn from a naive help addict to his or her own problem solver? The answer is simple, know what the problem is and start searching for already answered questions. You always have documentations and manuals at your disposal, but let&#39;s face it, it is not easy to get hold of manuals if you&#39;re new to the subject. And even if you&#39;re well versed with the topic in hand, you can always save time by searching the popular forums first. So what do you do? You search for the exact problem message, or keyword, keeping it as concise as possible. Trust me, the query string is all that matters, because rarely you&#39;ll encounter a problem that somebody else didn&#39;t face and asked somewhere. You want to keep the variable count low, and so if you&#39;re learning A, use popular libraries and operating systems B and C that would keep the entropy factor low. As an example, if I&#39;m not hacking into linux core and simply programming Javascript, I prefer to use Debian and Nodejs stable, &lt;i&gt;just to make sure that when I fall into a ditch, the ditch is a popular one&lt;/i&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+  In case you still didn&#39;t get a working solution, now start to dig into documents and manuals. It is usually the case when the component that you think is broken, isn&#39;t actually broken. Look out for platform specific notes and details. Troubleshoot your way backwards to the line where your code broke. If you manage to find that out, then you know the problem. Start by making a fresh google search for that error. In most of the cases, a forum thread might have the answer, which you can find easily with [SOLVED] in their titles. There are also many instances when if you are working with an open source dependency, you&#39;ll find the issue raised by somebody on the project issues section of their repository [like github issues page]. Reading those has helped me countless times.
+&lt;/p&gt;
+&lt;p&gt;
+  If even then, in the rare (very rare with computer problems) case that you still haven&#39;t found a solution for your problem in the online forums and documentations, start by properly defining the problem. It is time to ask for help. Always, ALWAYS remember, the people you&#39;re asking questions to, are busy people. If you want to have a percent chance of getting your question read by experts, value their time. The essential things that must be included in every help request are,
+  &lt;ul&gt;
+    &lt;li&gt;
+      Precise problem definition with the problem and the current and expected results.
+    &lt;/li&gt;
+    &lt;li&gt;
+      Steps to reproduce it. Code snippet that points the line of error (You should never paste 200 lines of code into the question).
+    &lt;/li&gt;
+    &lt;li&gt;
+      What have you tried yet. List of the things that didn&#39;t work out.
+    &lt;/li&gt;
+    &lt;li&gt;
+      The platform you&#39;re running, everything relevant to the problem. More the detail, better is the understanding of your situation by the reader.
+    &lt;/li&gt;
+    &lt;li&gt;
+      A paste of your latest logs relevant to the error. Learn to use pastebin like sites to paste large text files.
+    &lt;/li&gt;
+    &lt;li&gt;
+      The links to those similar problem-answers that didn&#39;t work for you.
+    &lt;/li&gt;
+  &lt;/ul&gt;
+  Add or remove things depending upon the situation. It may or may not apply every time. Important thing here is, try to be a problem solver. Don&#39;t be part of the problem, but try to be part of the possible solution. It is okay if no one answers, but hang there for the first 30 minutes at least, in case someone asks for more details that you didn&#39;t provide.
+&lt;/p&gt;
+&lt;p&gt;
+  This should really answer your question, and in case not, don&#39;t lose hope. There are hundreds of specialized forums that you can head to, if the problem is that important to you. Back to Googling, what is it that some people better at finding stuff on the Internet than others? Now you know the answer to that. See, this is how it generally works. Most good questions are answered. Now that you know how good questions are asked, you know what is inside them. You can make a pretty educated guess about what an existing question may contain. Now your task is as simple as just using those keywords to find that answer. This works. Trust me.
+&lt;/p&gt;
+&lt;p&gt;
+  Concluding it, I hope this post was informative. Ask wise questions. People really appreciate when you ask good questions. They say no question is stupid. That is not an excuse to not trying to search from the existing resources, or being a naive help addict. Keep exploring.
+&lt;/p&gt;
+</content>
+ </entry>
  
  <entry>
    <title>WebSockets</title>
@@ -1057,22 +1116,6 @@ img {
 
 
 
-</content>
- </entry>
- 
- <entry>
-   <title>Birthday Week</title>
-   <link href="http://www.nagekar.com/2015/09/Birthday-Week.html"/>
-   <updated>2015-09-29T00:00:00+05:30</updated>
-   <id>http://www.nagekar.com/2015/09/Birthday-Week</id>
-   <content type="html">&lt;p&gt;Here it comes, finally, my birthday. Not that it is something new this time, but surely one of the special ones because I passed another decade here on Earth. Last time this happened, I didn&#39;t realize how important it was, maybe because I was just 10 back then. But this time, it would be different. I realized I have moved around the Sun 20 times now, which is amazing, because I have travelled around 18.8 trillion kilometers, since my birth, &lt;a href=&quot;https://en.wikipedia.org/wiki/Earth%27s_orbit&quot; target=&quot;_blank&quot;&gt;&lt;i&gt;relative to the sun&lt;/i&gt;&lt;/a&gt;. That is a lot.&lt;/p&gt;
-
-&lt;p&gt;On 3rd of October this year, I will have lived some 7305 days which comes to about 613 million seconds. Woah! Good going. I travel a lot, and almost all of it is from and to my college. My college is 61 kilometers from home, and I am into it for the last 2 and a half years. Considering a usual semester to be of 3 months (which is lower bound for most semesters) and a usual month to have 22 working days, in the last 5 semesters I have travelled around 40,260 kilometers; a little more than the circumference of the earth at the equator. I wish I had had the fortune to visit another country or even distant parts of my own, but that&#39;s all right.&lt;/p&gt;
-
-&lt;p&gt;20 years is a lot of time. From a pilot, to astronaut, to a star gazer and now a computer guy who talks code and science. My ambitions never ceased to motivate me. There have been some really nice moments, like getting into an engineering college, getting a personal computer and a mobile phone, good friends who love food and all. I was fortunate enough to be born in a family where I get all that I needed, to do things that I love, because what I am looking at is 20% of &lt;a href=&quot;https://en.wikipedia.org/wiki/Poverty_in_India&quot; target=&quot;_blank&quot;&gt;poverty in India&lt;/a&gt;; people who earn less than INR26 a day. Life has been really good, somehow. Hopefully I use it to the fullest, make some contribution to this world, earn money so that I can buy all those things I had wished for. Earn respect, value and more. I am a strong believer in Steve Job&#39;s &quot;Your time is limited, so don&#39;t waste it living someone else&#39;s dream&quot; quote. Our lives are too short for anything but these little materialistic dreams. Dreams in which we grow to be some mainstream professionals, to help people do their thing, which in turn earn us money which we use to do our thing, occasionally become millionares, buy fast cars and live in nice apartments, die. Some may not even see the Halley&#39;s comet in their lives, which is for me, something real. Whatever we have, is right here, right now. Future cannot be predicted, nor can past be changed. However, we still have our present in our hands. What we do with it is subjective.&lt;/p&gt;
-
-&lt;p&gt;Also, I am sharing my birthday with &lt;a href=&quot;http://www.fsf.org/&quot; target=&quot;_blank&quot;&gt;Free Software Foundation&lt;/a&gt; and GNU project. They have &lt;a href=&quot;https://www.gnu.org/gnu30/&quot; target=&quot;_blank&quot;&gt;turned 30&lt;/a&gt; this year, which is cool. RMS would be real proud at where his initiative has reached today. I would like all of the people reading this to hit the link once and read about GNU and it&#39;s philosophy. I feel they are amazing people, and their contributions to the community, especially.&lt;/p&gt;
-&lt;p&gt;&lt;center&gt;&lt;a href=&quot;https://gnu.org/gnu30&quot;&gt;&lt;img src=&quot;https://static.fsf.org/nosvn/misc/GNU_30th_badge.png&quot; alt=&quot;[ Celebrate 30 years of GNU! ]&quot; /&gt;&lt;/a&gt;&lt;/center&gt;&lt;/p&gt;
 </content>
  </entry>
  
