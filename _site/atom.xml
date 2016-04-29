@@ -4,7 +4,7 @@
  <title>Abhishek Nagekar&#39;s Blog</title>
  <link href="http://www.nagekar.com/atom.xml" rel="self"/>
  <link href="http://www.nagekar.com"/>
- <updated>2016-04-18T23:08:09+05:30</updated>
+ <updated>2016-04-29T21:43:43+05:30</updated>
  <id>http://www.nagekar.com</id>
  <author>
    <name>Abhishek Nagekar</name>
@@ -13,14 +13,40 @@
 
  
  <entry>
+   <title>Being Stupid</title>
+   <link href="http://www.nagekar.com/2016/04/being-stupid.html"/>
+   <updated>2016-04-28T00:00:00+05:30</updated>
+   <id>http://www.nagekar.com/2016/04/being-stupid</id>
+   <content type="html">&lt;p&gt;
+  So my struggle with long distance trains doesn&#39;t seem to stop. This time, &lt;a href=&quot;https://www.nagekar.com/2016/01/The-Midnight-Symphony.html&quot;&gt;just like the last time&lt;/a&gt;, my train got late. By 30 days. And I am to be blamed for it.
+&lt;/p&gt;
+&lt;p&gt;
+  Like Will Smith says in &#39;The Persuit Of Happiness&#39;, &#39;this part of my life is called &lt;i&gt;being stupid&lt;/i&gt;&#39;, after trusting a hippie with his expensive scanner and realizing how bad a decision it was. I had the exact same feelings this morning about myself. Let&#39;s rewind two weeks. I had to book train tickets for attending a wedding function at my native place, Karwar, on 29th April. As always, I did so from the irctc.co.in portal, and got three confirmed seats for May 28th. Awesome, I said, knowing how hard it is to get tickets during the holiday season. Got the confirmation email with all details and I was good to go.
+&lt;/p&gt;
+&lt;p&gt;
+  Today, in the morining, we were all set. All dressed up and ready to start our day journey. We don&#39;t usually do day travels since it is too hot in the non air conditioned coaches that we usually book our tickets in. Anyways, it was going to be fun, I thought. Called up the railway enquiry number 139 to make sure train was on time. Surprisingly, it said the charts weren&#39;t prepared yet. Odd, because the train left the originating station a full day ago. Must be a technical glitch, I thought. Made sure I took everything; Misty, mobile phone, charger, water bottle and what not. Great. We left for our train that was scheduled to be departured at 08:10 in the morning.
+&lt;/p&gt;
+&lt;p&gt;
+  The station is just a few kilometers away. We reached there at 8 sharp. Reaching there, I immediately started to look for the platform where our train was expected to arrive. The indicator didn&#39;t say anything. Must be a fairly new train, I thought, trying to bury the little doubt I was starting to have. Let&#39;s ask the station master, said my uncle, and so we went to the station master, to get some solid confirmation.
+&lt;/p&gt;
+&lt;p&gt;
+  The station master&#39;s office was a large room with a table in the center. More like a bollywood movie&#39;s police station. The man there was wearing his shirt then. We entered and he asked us what was the matter. I asked him about the status of our train, numbered 22656. He thought for a second before quicky replying that the train only ran on saturdays. Damn! That wasn&#39;t possible. I had a reserved ticket in that same train and it showed today&#39;s date. Station master asked us for the ticket. I showed him the eticket on my mobile phone. Now he was confused. He called up someone on his intercom and asked if there was this particular train running today. The other guy said the same thing, this train only runs on saturdays. Umm. Weird. Station master tried to confirm it by asking if there was any additions to its trips. The answer must have been in negative.
+&lt;/p&gt;
+&lt;p&gt;
+  Now we three were real confused. We tried to reason the possbile explanations. &#39;Maybe the train is so new that even the station master doesn&#39;t know about it&#39;, said my uncle. Meanwhile the station master rang another number, this time of the previous station, called &#39;Vasai Road&#39;. He asked if any train with the said number had left the station or is scheduled to leave. No, was the reply. We thought for another few seconds when suddenly, with a little frustration in his decenly polite voice, the station master said, &#39;This ticket is for 28th May&#39;. I went silent for five full seconds. With my tongue stuck out, all I could say there was &lt;i&gt;&#39;sorry sir&#39;&lt;/i&gt;. I and my uncle came out silently, glad that he didn&#39;t swear at our stupidity. Okay, MY stupidity. We came out, and had the greatest burst of laughter. For him, it was funny. For me, a little less towards funny and a lot more towards the incoming embarassment. I, with my 17 years of schooling, couldn&#39;t tell May from April. Stupid. Very, very stupid. We went to where my parents were waiting. I told them, smiling and trying to make a poker face simultaneously. My mom, got so furious that she actually started to laugh. Things were pretty serious, and yet somehow, that was so stupid that no one knew how to react.
+&lt;/p&gt;
+&lt;p&gt;
+  We thought for some time then, and decided to go in some other train in the unreserved compartment, which, if you know, you know the struggle and if you don&#39;t, you&#39;re pretty lucky and rich. I am still in the train, tired, sleepy and dirty with sweat and dirt all over me. I&#39;ll reach in three or four hours, and then it will be life a usual.
+&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>Googling And Asking Better Questions</title>
    <link href="http://www.nagekar.com/2016/04/googling-life.html"/>
    <updated>2016-04-17T00:00:00+05:30</updated>
    <id>http://www.nagekar.com/2016/04/googling-life</id>
    <content type="html">&lt;p&gt;
-  TL;DR
-&lt;/p&gt;
-&lt;p&gt;
   Like many of the things you do in your lives, Googling is an art. Getting to the right page that you were looking for, with the right set keywords and clicking the right links, all this seems to be quite random and uncertain, but once you get into the groove, things become natural and predictable. Finding that random song you heard on the street is no big deal, and neither is finding the article that you had read couple of years ago, the only part of which you remember was the author&#39;s last name. Information is growing each day, and having the right set of tools always within you is so much important. Yes, there&#39;s that shiny history feature in you latest Chromium browser with sync, so that you never lose your tracks, but knowing how to find something on a totally random public PC without having to look into your history is very convenient, also cool.
 &lt;/p&gt;
 &lt;p&gt;
@@ -113,7 +139,7 @@ ws.onmessage = function(msg) {
 ws.send(&#39;hello server!&#39;);
 &lt;/pre&gt;
 &lt;p&gt;
-	Once we call the constructor, an HTTP GET request is generated to initiate the transaction. You&#39;ll find that these headers are sent by your browser. 
+	Once we call the constructor, an HTTP GET request is generated to initiate the transaction. You&#39;ll find that these headers are sent by your browser.
 &lt;/p&gt;
 &lt;pre&gt;
 
@@ -142,11 +168,11 @@ Via:1.1 vegur
 	On receiving the &lt;i&gt;Sec-Websocket-Accept&lt;/i&gt; header, the handshake is completed, and now the client and server are connected via persistent sockets, ready to perform both way message delivery.
 &lt;/p&gt;
 &lt;p&gt;
-	Click &#39;Connect&#39; button to initiate WebSocket handshake. The server will respond with a timestamp every 2500 milliseconds. Also, the server will echo back everything to send at it. The close button will call the WebSocket.close() method which will send 
+	Click &#39;Connect&#39; button to initiate WebSocket handshake. The server will respond with a timestamp every 2500 milliseconds. Also, the server will echo back everything to send at it. The close button will call the WebSocket.close() method which will terminate the connection.
 	&lt;h4&gt;Message Box&lt;/h4&gt;
 	&lt;div id=&quot;list&quot; style=&quot;height:100px;overflow-y:scroll;border:1px solid&quot;&gt;
 	    &lt;ul id=&quot;msglist&quot;&gt;
-	     
+
 	    &lt;/ul&gt;
     &lt;/div&gt;
     &lt;center&gt;
@@ -192,7 +218,8 @@ Via:1.1 vegur
 		$(&#39;#msglist&#39;).append(&#39;&lt;li style=&quot;color: red&quot;&gt;&#39; + &#39;Connection Closed&#39; + &#39;&lt;/li&gt;&#39;).focus();
 		$(&#39;#list&#39;).scrollTop($(&#39;ul li&#39;).last().position().top + $(&#39;ul li&#39;).last().height());
 	})
-&lt;/script&gt;</content>
+&lt;/script&gt;
+</content>
  </entry>
  
  <entry>
@@ -889,233 +916,6 @@ img {
 
 &lt;p&gt;Lastly, a big thank you on behalf of me and the thousands others who visit these Passport Seva Kendra all over the nation with dreams in their minds. While I was sitting in the initial hall, I noticed a quote from Mahatma Gandhi, that hung down a large poster. I couldn&#39;t photograph it since it was prohibited, but this was the exact quote. I am happy that they didn&#39;t just put it, but were following it on every step. Thank you!&lt;/p&gt;
 &lt;center&gt;&lt;blockquote&gt;“A customer is the most important visitor on our premises. He is not dependent on us. We are dependent on him. He is not an interruption in our work. He is the purpose of it. He is not an outsider in our business. He is part of it. We are not doing him a favor by serving him. He is doing us a favor by giving us an opportunity to do so.”&lt;/blockquote&gt;&lt;/center&gt;
-</content>
- </entry>
- 
- <entry>
-   <title>CSS Crash Course</title>
-   <link href="http://www.nagekar.com/2015/10/CSS-Crash-Course.html"/>
-   <updated>2015-10-09T00:00:00+05:30</updated>
-   <id>http://www.nagekar.com/2015/10/CSS-Crash-Course</id>
-   <content type="html">&lt;p&gt;I have a friend, who happens to be a good C and assembly programmer, but simply hates anything related to web, then be it HTML, CSS or anything way too much abstracted for that matter. Since it was compulsory for us to make our own web application project for college, he struggled to learn it (CSS and HTML) from here and there, cursing it at the same time. Hence this little guide, for all those of you who hate it, but still want to get your work done.&lt;/p&gt;
-
-&lt;h3&gt;A thing or two about CSS&lt;/h3&gt;
-&lt;p&gt;CSS isn&#39;t a markup language. It is a styling language, and hence, it won&#39;t really work if you have no document in the first place. Creating a document simply means adding some data to HTML tags in a web page. Here onwards, document would mean the HTML page that we are working on. Let us create one as an example.&lt;/p&gt; 
-&lt;code&gt;
-  &amp;lt;!DOCTYPE html&amp;gt;&lt;br/&gt;
-  &amp;lt;head&amp;gt;&lt;br/&gt;
-  &amp;nbsp;&amp;nbsp;&amp;lt;title&amp;gt;Testing&amp;lt;/title&amp;gt;&lt;br/&gt;
-  &amp;lt;/head&amp;gt;&lt;br/&gt;
-  &amp;lt;body&amp;gt;&lt;br/&gt;
-  &amp;nbsp;&amp;nbsp;&amp;lt;h1&amp;gt;Awesome Site&amp;lt;/h1&amp;gt;&lt;br/&gt;
-  &amp;nbsp;&amp;nbsp;&amp;lt;h3&amp;gt;A little heading&amp;lt;/h3&amp;gt;&lt;br/&gt;
-  &amp;nbsp;&amp;nbsp;&amp;lt;p&amp;gt;A paragraph containing some text&amp;lt;/p&amp;gt;&lt;br/&gt;
-  &amp;nbsp;&amp;nbsp;&amp;lt;h3&amp;gt;Some information&amp;lt;/h3&amp;gt;&lt;br/&gt;
-  &amp;nbsp;&amp;nbsp;&amp;lt;p&amp;gt;More text...&amp;lt;/&amp;gt;&lt;br/&gt;
-  &amp;lt;/body&amp;gt;&lt;br/&gt;
-  &amp;lt;/html&amp;gt;&lt;br/&gt;
-&lt;/code&gt;
-&lt;p&gt;This is a very basic example that would display something like the following. You can guess what each tag stands for here, if not, &#39;h&#39; tag stands for heading, &#39;h1&#39; being the largest to &#39;h6&#39; being the smallest. &#39;p&#39; stands for paragraph, and there are many &lt;a href=&quot;http://www.w3schools.com/html/&quot; target=&quot;_blank&quot;&gt;such tags&lt;/a&gt;, which are used as and when required.&lt;/p&gt;
-&lt;iframe src=&quot;/assets/css_files/test1.html&quot; width=&quot;100%&quot; height=&quot;auto&quot;&gt;&lt;/iframe&gt;
-&lt;p&gt;Now it is time to style our document. I will place all the CSS styling in a &lt;code&gt;&amp;lt;style&amp;gt;&lt;/code&gt; tag, which I will be placing into the &lt;code&gt;&amp;lt;head&amp;gt;&lt;/code&gt; of the document. Now you must know that I could do the exact same thing by using an external CSS file and linking it, or by styling individual elements using inline CSS. We will see what those are later. I think the main heading should be red, the subordinate headings should be green and the paragraphs should be orange. I also think the background should be a little off white. Let&#39;s see how that translates into CSS.&lt;/p&gt;
-&lt;code&gt;
- body {&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;background-color: #eee;&lt;br/&gt;
-  }&lt;br/&gt;
-  h1 {&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;color: red;&lt;br/&gt;
-  }&lt;br/&gt;
-  h3 {&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;color: green;&lt;br/&gt;
-  }&lt;br/&gt;
-  p {&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;color: orange;&lt;br/&gt;
-  }
-&lt;/code&gt;
-&lt;p&gt;Now that we have styled our page, let&#39;s take another look at it.&lt;p&gt;
-&lt;iframe src=&quot;/assets/css_files/test2.html&quot; width=&quot;100%&quot; height=&quot;auto&quot;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;Looks like it works, although it is looking ugly. Anyways, what we have used here is the &lt;i&gt;element selector&lt;/i&gt; of CSS which, not surprisingly, selects the elements matching the tag name and applies the properties defined for it.&lt;/p&gt;
-
-&lt;h3&gt;ID and Class selectors&lt;/h3&gt;
-
-&lt;p&gt;Now, there may be times when you have multiple elements with same tag names but you want to apply CSS properties to only specific element(s). That is where the &#39;id&#39; and the &#39;class&#39; selector comes in. Note that however, the class here does now refer to anything from your object oriented programming books. It only gives those elements with that class a particular grouping. You can use any one of &#39;id&#39; and &#39;class&#39; as per your liking for now, but conventionally, we use &#39;id&#39; for uniquely identifying elements and &#39;class&#39; for grouping similar elements. Technically, there is an additional difference of precedence here, with the &#39;id&#39; having more precedence than &#39;class&#39;. My personal rule is that, for custom CSS use &#39;id&#39;, since frameworks like Bootstrap (which we will check out later on) usually use &#39;class&#39;.&lt;/p&gt;
-
-&lt;p&gt;Now we shall rewrite the document adding an id attribute to each tag name.&lt;/p&gt;
-
-&lt;code&gt;
-&amp;lt;body&amp;gt;&lt;br/&gt;
-  &amp;nbsp;&amp;nbsp;&amp;lt;h1 id=&amp;quot;logo&amp;quot;&amp;gt;Awesome Site&amp;lt;/h1&amp;gt;&lt;br/&gt;
-  &amp;nbsp;&amp;nbsp;&amp;lt;h3 id=&amp;quot;heading&amp;quot;&amp;gt;A little heading&amp;lt;/h3&amp;gt;&lt;br/&gt;
-  &amp;nbsp;&amp;nbsp;&amp;lt;p id=&amp;quot;content&amp;quot;&amp;gt;A paragraph containing some text&amp;lt;/p&amp;gt;&lt;br/&gt;
-  &amp;nbsp;&amp;nbsp;&amp;lt;h3 id=&amp;quot;other-heading&amp;quot;&amp;gt;Some information&amp;lt;/h3&amp;gt;&lt;br/&gt;
-  &amp;nbsp;&amp;nbsp;&amp;lt;p id=&amp;quot;other-content&amp;quot;&amp;gt;More text...&amp;lt;/&amp;gt;&lt;br/&gt;
-&amp;lt;/body&amp;gt;&lt;br/&gt;
-&lt;/code&gt;
-
-&lt;p&gt;and we shall change the CSS accordingly&lt;/p&gt;
-
-&lt;code&gt;
-  #logo {&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;color: red;&lt;br/&gt;
-  }&lt;br/&gt;
-  #heading {&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;color: green;&lt;br/&gt;
-  }&lt;br/&gt;
-  #other-heading {&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;color: olive;&lt;br/&gt;
-  }&lt;br/&gt;
-  #content {&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;color: orange;&lt;br/&gt;
-  }&lt;br/&gt;
-  #other-content {&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;color: purple;&lt;br/&gt;
-  }
-&lt;/code&gt;
-
-&lt;p&gt;The resulting page looks something like this, with each of the individual elements appearing in different color.&lt;/p&gt;
-
-&lt;iframe src=&quot;/assets/css_files/test3.html&quot; width=&quot;100%&quot; height=&quot;auto&quot;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;Note that we could have well written &#39;class&#39; instead of &#39;id&#39; in our document, but then instead of &lt;code&gt;#logo&lt;/code&gt; it would have been &lt;code&gt;.class&lt;/code&gt;, which is the class selector. Having learnt two selectors, we can now combine them to get the desired result. For example, &lt;code&gt;h3#heading { color: blue; }&lt;/code&gt; would turn &lt;span style=&quot;color: blue;&quot;&gt;blue&lt;/span&gt; all the h3 tags that have a &lt;i&gt;&lt;b&gt;id=&quot;heading&quot;&lt;/b&gt;&lt;/i&gt; attribute declared. Similarly, &lt;code&gt;h3.heading { color: blue; }&lt;/code&gt; would result in the same thing to all the h3 tags with &lt;i&gt;&lt;b&gt;class=&quot;heading&quot;&lt;/b&gt;&lt;/i&gt;.&lt;/p&gt;
-
-&lt;h3&gt;Group selectors&lt;/h3&gt;
-
-&lt;p&gt;Group selectors are used to apply properties to multiple elements at once. Multiple elements are separated by commas.&lt;/p&gt;
-
-&lt;code&gt;
-  #logo {&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;color: red;&lt;br/&gt;
-  }&lt;br/&gt;
-  #heading {&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;color: green;&lt;br/&gt;
-  }&lt;br/&gt;
-  #other-heading {&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;color: olive;&lt;br/&gt;
-  }&lt;br/&gt;
-  #content {&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;color: orange;&lt;br/&gt;
-  }&lt;br/&gt;
-  #other-content {&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;color: purple;&lt;br/&gt;
-  }&lt;br/&gt;
-  /* Selecting all three tag names at once. */&lt;br/&gt;
-  h1, h3, p {&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;background-color: yellow;&lt;br/&gt;
-  }&lt;br/&gt;
-&lt;/code&gt;
-
-&lt;p&gt;Which will look like&lt;/p&gt;
-
-&lt;iframe src=&quot;/assets/css_files/test4.html&quot; width=&quot;100%&quot; height=&quot;auto&quot;&gt;&lt;/iframe&gt;
-
-&lt;h3&gt;Descendant selectors&lt;/h3&gt;
-
-&lt;p&gt;Sometimes, CSS properties needs to be applied only to tags within a specific tag or id. In such situations, the descendant selector comes in handy.&lt;/p&gt;
-
-&lt;code&gt;
-&amp;lt;!DOCTYPE html&amp;gt;&lt;br/&gt;
-&amp;lt;head&amp;gt;&lt;br/&gt;
-  &amp;nbsp;&amp;nbsp;&amp;lt;title&amp;gt;Testing&amp;lt;/title&amp;gt;&lt;br/&gt;
-  &amp;nbsp;&amp;nbsp;&amp;lt;style&amp;gt;&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;ul em {&lt;br/&gt;
-      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;font-size: 1.25em;&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br/&gt;
-  &amp;nbsp;&amp;nbsp;&amp;lt;/style&amp;gt;&lt;br/&gt;
-&amp;lt;/head&amp;gt;&lt;br/&gt;
-&amp;lt;body&amp;gt;&lt;br/&gt;
-  &amp;nbsp;&amp;nbsp;&amp;lt;p&amp;gt;Look what I&amp;apos;ve &amp;lt;em&amp;gt;got for ya!&amp;lt;/em&amp;gt;&amp;lt;/p&amp;gt;&lt;br/&gt;
-  &amp;nbsp;&amp;nbsp;&amp;lt;p&amp;gt;&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;ul&amp;gt;&lt;br/&gt;
-      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;li&amp;gt;item 1&amp;lt;/li&amp;gt;&lt;br/&gt;
-      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;li&amp;gt;item 2&amp;lt;/li&amp;gt;&lt;br/&gt;
-      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;li&amp;gt;item 3&amp;lt;/li&amp;gt;&lt;br/&gt;
-      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;li&amp;gt;&amp;lt;em&amp;gt;this looks abnormal&amp;lt;/em&amp;gt;&amp;lt;/li&amp;gt;&lt;br/&gt;
-      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;li&amp;gt;item 5&amp;lt;/li&amp;gt;&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;/ul&amp;gt;&lt;br/&gt;
-  &amp;nbsp;&amp;nbsp;&amp;lt;p&amp;gt;&lt;br/&gt;
-&amp;lt;/body&amp;gt;&lt;br/&gt;
-&amp;lt;/html&amp;gt;&lt;br/&gt;
-&lt;/code&gt;
-
-&lt;p&gt;And this will render&lt;/p&gt;
-
-&lt;iframe src=&quot;/assets/css_files/test5.html&quot; width=&quot;100%&quot; height=&quot;auto&quot;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;Look how the &lt;em&gt;emphasis&lt;/em&gt; at the top is normal but the one in the &#39;ul&#39; is enlarged. There is another similar selector called the child selector. It works similar to descendant selector but demands the child to be DIRECT descendant of the parent. For example, &lt;code&gt;p &gt; a { color: green; }&lt;/code&gt; will cause only the anchors directly children to any paragraph to look &lt;span style=&quot;color: green;&quot;&gt;green&lt;/span&gt;. These are the various selectors that you would see and probably use when dealing with web applications. Simple enough, aren&#39;t they?&lt;/p&gt;
-
-&lt;h3&gt;&amp;lt;div&amp;gt; and &amp;lt;span&amp;gt;&lt;/h3&gt;
-
-&lt;p&gt;Although div and span are html tags, any modern web application that you will write will heavily make use of these to group sections of the web page together. You might be familiar with the layouts of most websites these days, with a header on top, one or two column in the center with content and other options, and a footer at the bottom. Even on my blog, you&#39;ll notice these three things. How are they made, and how to make them look so distinct that on the first glance, your visitors know what their purpose is. The answer lies in making proper divs and adding appropriate CSS to it. Div is a block element, which means that it is used to style multiple elements at once. Span, on the other hand, is inline, that is, it is used to style little chunks of content.&lt;/p&gt;
-
-&lt;p&gt;I will write the 4 sections of a website I mentioned earlier, using divs. Read the code and you would understand what is happening.&lt;/p&gt;
-
-&lt;code&gt;
-
-&amp;lt;!DOCTYPE html&amp;gt;&lt;br/&gt;
-&amp;lt;head&amp;gt;&lt;br/&gt;
-  &amp;nbsp;&amp;nbsp;&amp;lt;title&amp;gt;Testing&amp;lt;/title&amp;gt;&lt;br/&gt;
-  &amp;nbsp;&amp;nbsp;&amp;lt;style&amp;gt;&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;* {&lt;br/&gt;
-      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;text-align: center; &lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#header {&lt;br/&gt;
-      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;background-color: red;&lt;br/&gt;
-      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;height: 50px;&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#container {&lt;br/&gt;
-      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;width: auto;&lt;br/&gt;
-      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;margin: 0 auto;&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#body {&lt;br/&gt;
-      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;width: 75%;&lt;br/&gt;
-      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;float: left;&lt;br/&gt;
-      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;background-color: grey;&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#side {&lt;br/&gt;
-      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;width: 25%;&lt;br/&gt;
-      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;float: right;&lt;br/&gt;
-      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;background-color: blue;&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;#footer {&lt;br/&gt;
-      &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;background-color: green;&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br/&gt;
-  &amp;nbsp;&amp;nbsp;&amp;lt;/style&amp;gt;&lt;br/&gt;
-&amp;lt;/head&amp;gt;&lt;br/&gt;
-&amp;lt;body&amp;gt;&lt;br/&gt;
-  &amp;nbsp;&amp;nbsp;&amp;lt;div id=&amp;quot;header&amp;quot;&amp;gt;&amp;lt;h3&amp;gt;Header Text&amp;lt;/h3&amp;gt;&amp;lt;/div&amp;gt;&lt;br/&gt;
-  &amp;nbsp;&amp;nbsp;&amp;lt;div id=&amp;quot;container&amp;quot;&amp;gt;&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;div id=&amp;quot;body&amp;quot;&amp;gt;&amp;lt;p&amp;gt;Content goes here&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;br/&gt;
-    &amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;lt;div id=&amp;quot;side&amp;quot;&amp;gt;&amp;lt;p&amp;gt;Sidebar&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;br/&gt;
-  &amp;nbsp;&amp;nbsp;&amp;lt;/div&amp;gt;&lt;br/&gt;
-  &amp;nbsp;&amp;nbsp;&amp;lt;div id=&amp;quot;footer&amp;quot;&amp;gt;&amp;lt;p&amp;gt;Copyrights&amp;lt;/p&amp;gt;&amp;lt;/div&amp;gt;&lt;br/&gt;
-&amp;lt;/body&amp;gt;&lt;br/&gt;
-&amp;lt;/html&amp;gt;&lt;br/&gt;
-
-&lt;/code&gt;
-
-&lt;p&gt;This sure looks beautiful, doesn&#39;t it?&lt;/p&gt;
-
-&lt;iframe src=&quot;/assets/css_files/test6.html&quot; width=&quot;100%&quot; height=&quot;auto&quot;&gt;&lt;/iframe&gt;
-
-&lt;p&gt;This completes the CSS syntax part. I did mention that you can write all your CSS in a file.css and include them in your document head with &lt;code&gt;&amp;lt;link href=&quot;/assets/style.css&quot; rel=&quot;stylesheet&quot;&amp;gt;&lt;/code&gt; so that it is easier to maintain the code. There is yet another way to add CSS, which makes use of @import syntax. It is better avoided for the &lt;a href=&quot;http://stackoverflow.com/questions/10036977/best-way-to-include-css-why-use-import&quot; target=&quot;_blank&quot;&gt;linked reasons&lt;/a&gt;.
-
-&lt;p&gt;Now that you are well equipped with the necessary things to learn some actual and practical CSS, you must be really excited to read from w3schools. It is a great site to begin, and since it comes on top each time you search for anything related to CSS (or web programming, for that matter), you may use it as your sole reference guide. Nothing bad, but keep in mind that after leaving your nutshell, you should &lt;a href=&quot;http://www.w3fools.com/&quot; target=&quot;_blank&quot;&gt;avoid that site&lt;/a&gt;, and start using some reputed docs instead, like the ones from &lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/CSS&quot; target=&quot;_blank&quot;&gt;Mozilla&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h3&gt;CSS Frameworks&lt;/h3&gt;
-
-&lt;p&gt;To speed up the development process, you might want to check out some libraries out there that would ease your life. One of the best is &lt;a href=&quot;http://getbootstrap.com/&quot;&gt;Bootstrap&lt;/a&gt;. It would enable you to do rapid development, with minimal typing. Bootstrap comes with jQuery, a Javascript library which also helps a lot dealing with web application stuff you are about to deal with. There is not much point reading the official docs if you only want to get the work done. Instead, I would suggest you to Google out things, pick up code on the way, keep going. That is exactly how I used to do stuff back then, when I hated to write CSS and HTML. Bad advice, but gets the job done most of the times.&lt;/p&gt;
-
-&lt;h3&gt;Outro&lt;/h3&gt;
-
-&lt;p&gt;CSS is amazing. Web is amazing. Today is a time when you either have to love the web, or keep fighting a losing battle convincing yourself that you don&#39;t need it. Either way, knowing a thing or two about how the web pages that you spend more than half of your time on, are styled, is always a plus. As always, for anything, the comment box is always there. Corrections, please. Liked the article? Suggest it to your friends! Thank you for reading.&lt;p&gt;
-
-
-
-
-
-
-
 </content>
  </entry>
  

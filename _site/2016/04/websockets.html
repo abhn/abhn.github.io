@@ -158,7 +158,7 @@ ws.onmessage = function(msg) {
 ws.send('hello server!');
 </pre>
 <p>
-	Once we call the constructor, an HTTP GET request is generated to initiate the transaction. You'll find that these headers are sent by your browser. 
+	Once we call the constructor, an HTTP GET request is generated to initiate the transaction. You'll find that these headers are sent by your browser.
 </p>
 <pre>
 
@@ -187,11 +187,11 @@ Via:1.1 vegur
 	On receiving the <i>Sec-Websocket-Accept</i> header, the handshake is completed, and now the client and server are connected via persistent sockets, ready to perform both way message delivery.
 </p>
 <p>
-	Click 'Connect' button to initiate WebSocket handshake. The server will respond with a timestamp every 2500 milliseconds. Also, the server will echo back everything to send at it. The close button will call the WebSocket.close() method which will send 
+	Click 'Connect' button to initiate WebSocket handshake. The server will respond with a timestamp every 2500 milliseconds. Also, the server will echo back everything to send at it. The close button will call the WebSocket.close() method which will terminate the connection.
 	<h4>Message Box</h4>
 	<div id="list" style="height:100px;overflow-y:scroll;border:1px solid">
 	    <ul id="msglist">
-	     
+
 	    </ul>
     </div>
     <center>
@@ -238,11 +238,21 @@ Via:1.1 vegur
 		$('#list').scrollTop($('ul li').last().position().top + $('ul li').last().height());
 	})
 </script>
+
 </div>
 
 <div class="related">
   <h2>You May Also Like</h2>
   <ul class="related-posts">
+    
+      <li>
+        <h3>
+          <a href="/2016/04/being-stupid.html">
+            Being Stupid
+            <small>15 Apr 2016</small>
+          </a>
+        </h3>
+      </li>
     
       <li>
         <h3>
@@ -257,15 +267,6 @@ Via:1.1 vegur
         <h3>
           <a href="/2016/04/event-driven-programming.html">
             Event Driven Programming
-            <small>15 Apr 2016</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
-          <a href="/2016/03/gentoo-experience.html">
-            Gentoo Experience
             <small>15 Apr 2016</small>
           </a>
         </h3>
