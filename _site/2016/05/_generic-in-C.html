@@ -11,7 +11,7 @@
 
   <title>
     
-      Birthday Week &middot; Abhishek Nagekar's Blog
+      _Generic in C And Generic LinkedList Implementation &middot; Abhishek Nagekar's Blog
     
   </title>
 
@@ -119,16 +119,111 @@
       <div class="container content">
         <div id="head-quote"></div>
         <div class="post">
-  <h1 class="post-title">Birthday Week</h1>
-  <span class="post-date">29 September, 2015. It was a Tuesday.</span>
-  <p>Here it comes, finally, my birthday. Not that it is something new this time, but surely one of the special ones because I passed another decade here on Earth. Last time this happened, I didn't realize how important it was, maybe because I was just 10 back then. But this time, it would be different. I realized I have moved around the Sun 20 times now, which is amazing, because I have travelled around 18.8 trillion kilometers, since my birth, <a href="https://en.wikipedia.org/wiki/Earth%27s_orbit" target="_blank"><i>relative to the sun</i></a>. That is a lot.</p>
+  <h1 class="post-title">_Generic in C And Generic LinkedList Implementation</h1>
+  <span class="post-date">3 May, 2016. It was a Tuesday.</span>
+  <p>
+  Tada! Finally a non-Javascript post for those of you who stopped visiting my blog because of my sick Js addiction. So my lost friend Aditya is back, and while talking to him, I got to read a piece of code that he wrote when we were in third semester, last year. The aim was to build a generic container to store different datatypes, in C. So yes, literally storing [21, "abhishek", 3.142, 'z'] in a single dynamically allocated linkedlist. That was pretty bold for us then.
+</p>
+<p>
+  For making that happen, he made use of the <a href="https://en.wikipedia.org/wiki/C11_(C_standard_revision)#Changes_from_C99_">_Generic</a> macro that C11 introducted for generic type selection. For those unfamiliar with it, I'll begin with explaining the basics of the macro. For those of you interested in the linkedlist code, scroll down to the bottom of this article. You can always check out the <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf">C11 draft [section 6.5.1.1 Generic selection pg #96]</a> (the standard costs around $60 but is essentially the same thing).
+</p>
+<p>
+	 The _Generic macro follows the format <code>_Generic(controlling-expression, association-list)</code> where <i>controlling-expression</i> is the expression whose type is to be detected, and <i>association-list</i> is the dictionary of type-expression pairs where type can be any object type and the expression can be any expression, constant or a pointer to any function, pretty much anything that can be evaluated.
+</p>
+<p>
+	To put it simply, compare it to the switch statement for type detection. For example,
+</p>
+<pre>
+#include &lt;stdio.h&gt;
+int main() {
+  char *teststring = "my char array"; // target object
+  char *type = _Generic(
+    teststring,
+    int: "int",
+    int*: "int *",
+    char: "char",
+    char*: "char *",
+    float: "float",
+    default: "default"
+  );
+  printf("%s", type);
+  return 0;
+}
 
-<p>On 3rd of October this year, I will have lived some 7305 days which comes to about 613 million seconds. Woah! Good going. I travel a lot, and almost all of it is from and to my college. My college is 61 kilometers from home, and I am into it for the last 2 and a half years. Considering a usual semester to be of 3 months (which is lower bound for most semesters) and a usual month to have 22 working days, in the last 5 semesters I have travelled around 40,260 kilometers; a little more than the circumference of the earth at the equator. I wish I had had the fortune to visit another country or even distant parts of my own, but that's all right.</p>
-
-<p>20 years is a lot of time. From a pilot, to astronaut, to a star gazer and now a computer guy who talks code and science. My ambitions never ceased to motivate me. There have been some really nice moments, like getting into an engineering college, getting a personal computer and a mobile phone, good friends who love food and all. I was fortunate enough to be born in a family where I get all that I needed, to do things that I love, because what I am looking at is 20% of <a href="https://en.wikipedia.org/wiki/Poverty_in_India" target="_blank">poverty in India</a>; people who earn less than INR26 a day. Life has been really good, somehow. Hopefully I use it to the fullest, make some contribution to this world, earn money so that I can buy all those things I had wished for. Earn respect, value and more. I am a strong believer in Steve Job's "Your time is limited, so don't waste it living someone else's dream" quote. Our lives are too short for anything but these little materialistic dreams. Dreams in which we grow to be some mainstream professionals, to help people do their thing, which in turn earn us money which we use to do our thing, occasionally become millionares, buy fast cars and live in nice apartments, die. Some may not even see the Halley's comet in their lives, which is for me, something real. Whatever we have, is right here, right now. Future cannot be predicted, nor can past be changed. However, we still have our present in our hands. What we do with it is subjective.</p>
-
-<p>Also, I am sharing my birthday with <a href="http://www.fsf.org/" target="_blank">Free Software Foundation</a> and GNU project. They have <a href="https://www.gnu.org/gnu30/" target="_blank">turned 30</a> this year, which is cool. RMS would be real proud at where his initiative has reached today. I would like all of the people reading this to hit the link once and read about GNU and it's philosophy. I feel they are amazing people, and their contributions to the community, especially.</p>
-<p><center><a href="https://gnu.org/gnu30"><img src="https://static.fsf.org/nosvn/misc/GNU_30th_badge.png" alt="[ Celebrate 30 years of GNU! ]" /></a></center></p>
+~$ gcc main.c
+~$ ./a.out
+char *
+</pre>
+<p>
+	The _Generic macro can be wrapped around in a nice looking function call, say detect_type(). Compare this to a (pseudo) switch statement which evaluates the case that matches the switch params
+</p>
+<pre>
+// Pseudocode may resemble Javascript. Reader discretion advised
+var someobj = "text here"; // target object
+var type; // to store the typename
+type_switch(someobj) {
+  case int:
+    type = "int";
+  case int*:
+    type = "int*";
+  case char:
+    type = "char";
+  case char*:
+    type = "char*";
+  default:
+    type = "default";
+}
+print(type)
+</pre>
+<p>
+	So that is it. A compile time type identification in C with a simple macro. We can do pretty amazing stuff with it using pointers to functions. For example, a generic print function, that can take in any type of argument and print it. I have added cases for integers, characters and string, but others can be added just as easily.
+</p>
+<script src="https://gist.github.com/abhn/3887df927f2d913c03704cac3ddaa9fc.js"></script>
+<p>
+	That was neat, wasn't it. Now back to Aditya. He used the same macro to create a dynamically allocated linkedlist. I am pasting the gist here so that you can read his beautiful code.
+  <button id="btn">Show Code</button>
+</p>
+<p>
+  <div id="vector">
+    <h4>File <b>linkedlist.c</b></h4>
+    <script src="https://gist.github.com/abhn/0699d92bb972320e33b3cee8f81abc23.js"></script>
+    <h4>File <b>linkedlist.h</b></h4>
+    <script src="https://gist.github.com/abhn/6175447dd928d4c46bdc7f51b90c8b33.js"></script>
+    <h4>File <b>main.c</b></h4>
+    <script src="https://gist.github.com/abhn/cacf3b03483759c02e997afe13aa3373.js"></script>
+  </div>
+</p>
+<p>
+	To compile it, run <pre>~$ gcc main.c linkedlist.c -o linkedlist</pre> on any machine with GCC installed (I've tested it on version &gt;4.9). Run it with <pre>~$ ./linkedlist</pre> and you should see the different elements that we've added printed on the standard out. You may also pack the linkedlist into a statically linked library, by running.
+</p>
+<pre>
+~$ gcc -c linkedlist.c -o linkedlist.o
+~$ ar rcs linkedlist.a linkedlist.o
+~$ gcc main.c linkedlist.a
+</pre>
+<p>
+  Interesting, isn't it? Want to thank him, or have any comments or improvements? Drop them into the comment box. Thank you for reading.
+</p>
+<p>
+  <h4>External Links</h4>
+  <ul>
+    <li>
+      <a href="https://www.ibm.com/support/knowledgecenter/SSGH2K_13.1.0/com.ibm.xlc131.aix.doc/language_ref/genericselection.html">IBM KB article on generic selector</a>
+    </li>
+    <li>
+      <a href="http://www.robertgamble.net/2012/01/c11-generic-selections.html?m=1">Robert Gamble's blog post: c11 generic selections</a>
+    </li>
+    <li>
+      <a href="http://stackoverflow.com/questions/9804371/syntax-and-sample-usage-of-generic-in-c11">Stackoverflow question: syntax and sample usage of generic in c11</a>
+    </li>
+  </ul>
+</p>
+<script>
+  document.getElementById('vector').style.display = 'none';
+  document.getElementById('btn').addEventListener('click', function showVec() {
+    document.getElementById('vector').style.display = 'block';
+  });
+</script>
 
 </div>
 
@@ -138,18 +233,9 @@
     
       <li>
         <h3>
-          <a href="/2016/05/_generic-in-C.html">
-            _Generic in C And Generic LinkedList Implementation
-            <small>29 Sep 2015</small>
-          </a>
-        </h3>
-      </li>
-    
-      <li>
-        <h3>
           <a href="/2016/04/being-stupid.html">
             Being Stupid
-            <small>29 Sep 2015</small>
+            <small>03 May 2016</small>
           </a>
         </h3>
       </li>
@@ -158,7 +244,16 @@
         <h3>
           <a href="/2016/04/googling-life.html">
             Googling And Asking Better Questions
-            <small>29 Sep 2015</small>
+            <small>03 May 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2016/04/websockets.html">
+            WebSockets
+            <small>03 May 2016</small>
           </a>
         </h3>
       </li>

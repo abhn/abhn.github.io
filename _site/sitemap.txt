@@ -8,6 +8,7 @@ http://www.nagekar.com/search
 http://www.nagekar.com/sitemap.txt
 http://www.nagekar.com/tags
 
+http://www.nagekar.com/2016/05/_generic-in-C.html
 http://www.nagekar.com/2016/04/being-stupid.html
 http://www.nagekar.com/2016/04/googling-life.html
 http://www.nagekar.com/2016/04/websockets.html

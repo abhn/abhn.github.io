@@ -1,0 +1,109 @@
+---
+layout: post
+title: _Generic in C And Generic LinkedList Implementation
+tags:
+- C
+---
+<p>
+  Tada! Finally a non-Javascript post for those of you who stopped visiting my blog because of my sick Js addiction. So my lost friend Aditya is back, and while talking to him, I got to read a piece of code that he wrote when we were in third semester, last year. The aim was to build a generic container to store different datatypes, in C. So yes, literally storing [21, "abhishek", 3.142, 'z'] in a single dynamically allocated linkedlist. That was pretty bold for us then.
+</p>
+<p>
+  For making that happen, he made use of the <a href="https://en.wikipedia.org/wiki/C11_(C_standard_revision)#Changes_from_C99_">_Generic</a> macro that C11 introducted for generic type selection. For those unfamiliar with it, I'll begin with explaining the basics of the macro. For those of you interested in the linkedlist code, scroll down to the bottom of this article. You can always check out the <a href="http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf">C11 draft [section 6.5.1.1 Generic selection pg #96]</a> (the standard costs around $60 but is essentially the same thing).
+</p>
+<p>
+	 The _Generic macro follows the format <code>_Generic(controlling-expression, association-list)</code> where <i>controlling-expression</i> is the expression whose type is to be detected, and <i>association-list</i> is the dictionary of type-expression pairs where type can be any object type and the expression can be any expression, constant or a pointer to any function, pretty much anything that can be evaluated.
+</p>
+<p>
+	To put it simply, compare it to the switch statement for type detection. For example,
+</p>
+<pre>
+#include &lt;stdio.h&gt;
+int main() {
+  char *teststring = "my char array"; // target object
+  char *type = _Generic(
+    teststring,
+    int: "int",
+    int*: "int *",
+    char: "char",
+    char*: "char *",
+    float: "float",
+    default: "default"
+  );
+  printf("%s", type);
+  return 0;
+}
+
+~$ gcc main.c
+~$ ./a.out
+char *
+</pre>
+<p>
+	The _Generic macro can be wrapped around in a nice looking function call, say detect_type(). Compare this to a (pseudo) switch statement which evaluates the case that matches the switch params
+</p>
+<pre>
+// Pseudocode may resemble Javascript. Reader discretion advised
+var someobj = "text here"; // target object
+var type; // to store the typename
+type_switch(someobj) {
+  case int:
+    type = "int";
+  case int*:
+    type = "int*";
+  case char:
+    type = "char";
+  case char*:
+    type = "char*";
+  default:
+    type = "default";
+}
+print(type)
+</pre>
+<p>
+	So that is it. A compile time type identification in C with a simple macro. We can do pretty amazing stuff with it using pointers to functions. For example, a generic print function, that can take in any type of argument and print it. I have added cases for integers, characters and string, but others can be added just as easily.
+</p>
+<script src="https://gist.github.com/abhn/3887df927f2d913c03704cac3ddaa9fc.js"></script>
+<p>
+	That was neat, wasn't it. Now back to Aditya. He used the same macro to create a dynamically allocated linkedlist. I am pasting the gist here so that you can read his beautiful code.
+  <button id="btn">Show Code</button>
+</p>
+<p>
+  <div id="vector">
+    <h4>File <b>linkedlist.c</b></h4>
+    <script src="https://gist.github.com/abhn/0699d92bb972320e33b3cee8f81abc23.js"></script>
+    <h4>File <b>linkedlist.h</b></h4>
+    <script src="https://gist.github.com/abhn/6175447dd928d4c46bdc7f51b90c8b33.js"></script>
+    <h4>File <b>main.c</b></h4>
+    <script src="https://gist.github.com/abhn/cacf3b03483759c02e997afe13aa3373.js"></script>
+  </div>
+</p>
+<p>
+	To compile it, run <pre>~$ gcc main.c linkedlist.c -o linkedlist</pre> on any machine with GCC installed (I've tested it on version &gt;4.9). Run it with <pre>~$ ./linkedlist</pre> and you should see the different elements that we've added printed on the standard out. You may also pack the linkedlist into a statically linked library, by running.
+</p>
+<pre>
+~$ gcc -c linkedlist.c -o linkedlist.o
+~$ ar rcs linkedlist.a linkedlist.o
+~$ gcc main.c linkedlist.a
+</pre>
+<p>
+  Interesting, isn't it? Want to thank him, or have any comments or improvements? Drop them into the comment box. Thank you for reading.
+</p>
+<p>
+  <h4>External Links</h4>
+  <ul>
+    <li>
+      <a href="https://www.ibm.com/support/knowledgecenter/SSGH2K_13.1.0/com.ibm.xlc131.aix.doc/language_ref/genericselection.html">IBM KB article on generic selector</a>
+    </li>
+    <li>
+      <a href="http://www.robertgamble.net/2012/01/c11-generic-selections.html?m=1">Robert Gamble's blog post: c11 generic selections</a>
+    </li>
+    <li>
+      <a href="http://stackoverflow.com/questions/9804371/syntax-and-sample-usage-of-generic-in-c11">Stackoverflow question: syntax and sample usage of generic in c11</a>
+    </li>
+  </ul>
+</p>
+<script>
+  document.getElementById('vector').style.display = 'none';
+  document.getElementById('btn').addEventListener('click', function showVec() {
+    document.getElementById('vector').style.display = 'block';
+  });
+</script>

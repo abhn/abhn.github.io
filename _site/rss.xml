@@ -5,10 +5,121 @@
         <description>Abhishek Nagekar&#39;s Blog - Abhishek Nagekar</description>
         <link>http://www.nagekar.com</link>
         <atom:link href="http://www.nagekar.com/rss.xml" rel="self" type="application/rss+xml" />
-        <lastBuildDate>Fri, 29 Apr 2016 21:43:43 +0530</lastBuildDate>
-        <pubDate>Fri, 29 Apr 2016 21:43:43 +0530</pubDate>
+        <lastBuildDate>Wed, 04 May 2016 12:03:47 +0530</lastBuildDate>
+        <pubDate>Wed, 04 May 2016 12:03:47 +0530</pubDate>
         <ttl>60</ttl>
 
+
+        <item>
+                <title>_Generic in C And Generic LinkedList Implementation</title>
+                <description>&lt;p&gt;
+  Tada! Finally a non-Javascript post for those of you who stopped visiting my blog because of my sick Js addiction. So my lost friend Aditya is back, and while talking to him, I got to read a piece of code that he wrote when we were in third semester, last year. The aim was to build a generic container to store different datatypes, in C. So yes, literally storing [21, &quot;abhishek&quot;, 3.142, &#39;z&#39;] in a single dynamically allocated linkedlist. That was pretty bold for us then.
+&lt;/p&gt;
+&lt;p&gt;
+  For making that happen, he made use of the &lt;a href=&quot;https://en.wikipedia.org/wiki/C11_(C_standard_revision)#Changes_from_C99_&quot;&gt;_Generic&lt;/a&gt; macro that C11 introducted for generic type selection. For those unfamiliar with it, I&#39;ll begin with explaining the basics of the macro. For those of you interested in the linkedlist code, scroll down to the bottom of this article. You can always check out the &lt;a href=&quot;http://www.open-std.org/jtc1/sc22/wg14/www/docs/n1570.pdf&quot;&gt;C11 draft [section 6.5.1.1 Generic selection pg #96]&lt;/a&gt; (the standard costs around $60 but is essentially the same thing).
+&lt;/p&gt;
+&lt;p&gt;
+	 The _Generic macro follows the format &lt;code&gt;_Generic(controlling-expression, association-list)&lt;/code&gt; where &lt;i&gt;controlling-expression&lt;/i&gt; is the expression whose type is to be detected, and &lt;i&gt;association-list&lt;/i&gt; is the dictionary of type-expression pairs where type can be any object type and the expression can be any expression, constant or a pointer to any function, pretty much anything that can be evaluated.
+&lt;/p&gt;
+&lt;p&gt;
+	To put it simply, compare it to the switch statement for type detection. For example,
+&lt;/p&gt;
+&lt;pre&gt;
+#include &amp;lt;stdio.h&amp;gt;
+int main() {
+  char *teststring = &quot;my char array&quot;; // target object
+  char *type = _Generic(
+    teststring,
+    int: &quot;int&quot;,
+    int*: &quot;int *&quot;,
+    char: &quot;char&quot;,
+    char*: &quot;char *&quot;,
+    float: &quot;float&quot;,
+    default: &quot;default&quot;
+  );
+  printf(&quot;%s&quot;, type);
+  return 0;
+}
+
+~$ gcc main.c
+~$ ./a.out
+char *
+&lt;/pre&gt;
+&lt;p&gt;
+	The _Generic macro can be wrapped around in a nice looking function call, say detect_type(). Compare this to a (pseudo) switch statement which evaluates the case that matches the switch params
+&lt;/p&gt;
+&lt;pre&gt;
+// Pseudocode may resemble Javascript. Reader discretion advised
+var someobj = &quot;text here&quot;; // target object
+var type; // to store the typename
+type_switch(someobj) {
+  case int:
+    type = &quot;int&quot;;
+  case int*:
+    type = &quot;int*&quot;;
+  case char:
+    type = &quot;char&quot;;
+  case char*:
+    type = &quot;char*&quot;;
+  default:
+    type = &quot;default&quot;;
+}
+print(type)
+&lt;/pre&gt;
+&lt;p&gt;
+	So that is it. A compile time type identification in C with a simple macro. We can do pretty amazing stuff with it using pointers to functions. For example, a generic print function, that can take in any type of argument and print it. I have added cases for integers, characters and string, but others can be added just as easily.
+&lt;/p&gt;
+&lt;script src=&quot;https://gist.github.com/abhn/3887df927f2d913c03704cac3ddaa9fc.js&quot;&gt;&lt;/script&gt;
+&lt;p&gt;
+	That was neat, wasn&#39;t it. Now back to Aditya. He used the same macro to create a dynamically allocated linkedlist. I am pasting the gist here so that you can read his beautiful code.
+  &lt;button id=&quot;btn&quot;&gt;Show Code&lt;/button&gt;
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;div id=&quot;vector&quot;&gt;
+    &lt;h4&gt;File &lt;b&gt;linkedlist.c&lt;/b&gt;&lt;/h4&gt;
+    &lt;script src=&quot;https://gist.github.com/abhn/0699d92bb972320e33b3cee8f81abc23.js&quot;&gt;&lt;/script&gt;
+    &lt;h4&gt;File &lt;b&gt;linkedlist.h&lt;/b&gt;&lt;/h4&gt;
+    &lt;script src=&quot;https://gist.github.com/abhn/6175447dd928d4c46bdc7f51b90c8b33.js&quot;&gt;&lt;/script&gt;
+    &lt;h4&gt;File &lt;b&gt;main.c&lt;/b&gt;&lt;/h4&gt;
+    &lt;script src=&quot;https://gist.github.com/abhn/cacf3b03483759c02e997afe13aa3373.js&quot;&gt;&lt;/script&gt;
+  &lt;/div&gt;
+&lt;/p&gt;
+&lt;p&gt;
+	To compile it, run &lt;pre&gt;~$ gcc main.c linkedlist.c -o linkedlist&lt;/pre&gt; on any machine with GCC installed (I&#39;ve tested it on version &amp;gt;4.9). Run it with &lt;pre&gt;~$ ./linkedlist&lt;/pre&gt; and you should see the different elements that we&#39;ve added printed on the standard out. You may also pack the linkedlist into a statically linked library, by running.
+&lt;/p&gt;
+&lt;pre&gt;
+~$ gcc -c linkedlist.c -o linkedlist.o
+~$ ar rcs linkedlist.a linkedlist.o
+~$ gcc main.c linkedlist.a
+&lt;/pre&gt;
+&lt;p&gt;
+  Interesting, isn&#39;t it? Want to thank him, or have any comments or improvements? Drop them into the comment box. Thank you for reading.
+&lt;/p&gt;
+&lt;p&gt;
+  &lt;h4&gt;External Links&lt;/h4&gt;
+  &lt;ul&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;https://www.ibm.com/support/knowledgecenter/SSGH2K_13.1.0/com.ibm.xlc131.aix.doc/language_ref/genericselection.html&quot;&gt;IBM KB article on generic selector&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;http://www.robertgamble.net/2012/01/c11-generic-selections.html?m=1&quot;&gt;Robert Gamble&#39;s blog post: c11 generic selections&lt;/a&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+      &lt;a href=&quot;http://stackoverflow.com/questions/9804371/syntax-and-sample-usage-of-generic-in-c11&quot;&gt;Stackoverflow question: syntax and sample usage of generic in c11&lt;/a&gt;
+    &lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/p&gt;
+&lt;script&gt;
+  document.getElementById(&#39;vector&#39;).style.display = &#39;none&#39;;
+  document.getElementById(&#39;btn&#39;).addEventListener(&#39;click&#39;, function showVec() {
+    document.getElementById(&#39;vector&#39;).style.display = &#39;block&#39;;
+  });
+&lt;/script&gt;
+</description>
+                <link>http://www.nagekar.com/2016/05/_generic-in-C.html</link>
+                <guid>http://www.nagekar.com/2016/05/_generic-in-C</guid>
+                <pubDate>Tue, 03 May 2016 00:00:00 +0530</pubDate>
+        </item>
 
         <item>
                 <title>Being Stupid</title>
@@ -893,28 +1004,6 @@ img {
                 <link>http://www.nagekar.com/2015/11/Guide-Passport-Application-India.html</link>
                 <guid>http://www.nagekar.com/2015/11/Guide-Passport-Application-India</guid>
                 <pubDate>Sat, 07 Nov 2015 00:00:00 +0530</pubDate>
-        </item>
-
-        <item>
-                <title>Passport Office</title>
-                <description>&lt;p&gt;Today, I had an appointment at the passport office for document verification at 10.30 in the morning. To be honest, I was worried, not because I had any problem in any of the documents, but because the thought of visiting a government office makes me nauseatic.&lt;/p&gt;
-
-&lt;p&gt;Have you ever visited a Government office, where you spent hours rushing from one counter to other, facing people at every stage who don&#39;t give the tiniest bit of importance to your existence, and you felt like you are in a totally different hostile country altogether? If yes, then you know exactly what I&#39;m talking about here.&lt;/p&gt;
-
-&lt;p&gt;But today was something different. Although the reporting time was 10:30, I reached the place by 10, just in case. I was expecting hour long queues and chaos, but to my surprise, it was not that way. There was a queue, but there were hardly 10 people in it. After about 10 minutes of reaching, the security guard, who stood by the entry gate, called upon every one who had the reporting time of 10:30. He looked at our documents at a glance, did the physical security checks and we were in. It was still 10:20 on my watch. I went inside, where there were multiple counters. I stood in one of those. When my turn came, the lady at the counter took all my zeroxed documents and attached them to a file along with the application form. She gave me a form which had a token number on it. I was unsure about what to do next, but a helpful voice again called me and guided me towards the next room.&lt;/p&gt;
-
-&lt;p&gt;The next room was a large air conditioned hall, with a canteen, a zerox machine and many such convenience stuff. More importantly, it had three large LCD displays which displayed a table of token numbers and their corresponding counter locations. I sat there for around 10 minutes when I saw &quot;N150 - A7&quot; on the screen. I got up and went to the A7 counter. A lady there read all my documents and asked me to zerox a few more things. I did as she said. Then she captured my photograph, took my finger and thumb prints, and asked me to go ahead. All in all, the entire main hall and &#39;A&#39; section took 30 minutes.&lt;/p&gt;
-
-&lt;p&gt;Next up, I was in a waiting room with other people, where there were the same monitors. Here I had to wait around 15 minutes before I saw &quot;N150 - B3&quot;. On this &#39;B&#39; counter, a lady verified every detail line by line, going through each minor issue. After this, she returned my documents and told me to wait for the third counter. I went into the same room as that earlier and waited for the next call. Somewhere around 15 minutes later, I saw &quot;N150 - C7&quot; on the screen. Here, I was greeted by a very pleasant man, who smiled as I entered. He looked at the documents, doing some typing at the same time. After about 30 seconds, he kept the folder, returned me my originals, and said, &quot;You&#39;re done here. Submit the token, and then you may leave&quot;. I smiled and gathered my originals, giving way to the next guy standing behind me. I checked my watch. It was 11:15. I returned the token slip, and went towards the exit. A very polite guard asked me to fill the feedback form, which had all sorts of questions. It should not be surprising that they deserved an &#39;excellent&#39; in almost all questions. I then left the premises, got into a rickshaw and went home, with a totally changed mindset for Government offices. Oh boy, I wish all government offices were like that.&lt;/p&gt;
-
-&lt;p&gt;Summarizing my experiences, the entire process was smooth as silk. It was because of the excellent management of the people who worked there. They deserve the entire credits. Not a single person looked like he/she was forced to work there, something you often see in such places (My personal experience with SBI bank). Everyone made me feel good, and my work important. I was treated nicely, even though I didn&#39;t get down from a VIP car at their premises, or had a call from a bureaucrat beforehand. The entire process was way better then what I could have ever imagined.&lt;/p&gt;
-
-&lt;p&gt;Lastly, a big thank you on behalf of me and the thousands others who visit these Passport Seva Kendra all over the nation with dreams in their minds. While I was sitting in the initial hall, I noticed a quote from Mahatma Gandhi, that hung down a large poster. I couldn&#39;t photograph it since it was prohibited, but this was the exact quote. I am happy that they didn&#39;t just put it, but were following it on every step. Thank you!&lt;/p&gt;
-&lt;center&gt;&lt;blockquote&gt;“A customer is the most important visitor on our premises. He is not dependent on us. We are dependent on him. He is not an interruption in our work. He is the purpose of it. He is not an outsider in our business. He is part of it. We are not doing him a favor by serving him. He is doing us a favor by giving us an opportunity to do so.”&lt;/blockquote&gt;&lt;/center&gt;
-</description>
-                <link>http://www.nagekar.com/2015/11/Passport-Office.html</link>
-                <guid>http://www.nagekar.com/2015/11/Passport-Office</guid>
-                <pubDate>Tue, 03 Nov 2015 00:00:00 +0530</pubDate>
         </item>
 
 
