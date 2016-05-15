@@ -145,18 +145,14 @@
 <p>
 	On the browser, things are even simpler.
 </p>
-<pre>
-// call the object constructor
-var ws = new WebSocket('ws://nagekar-ws.herokuapp.com/');
-
-// attach a message listener
-ws.onmessage = function(msg) {
-	console.log(msg);
-}
-
-// send some message
-ws.send('hello server!');
-</pre>
+<figure class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="c1">// call the object constructor</span>
+<span class="kd">var</span> <span class="nx">ws</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WebSocket</span><span class="p">(</span><span class="s1">'ws://nagekar-ws.herokuapp.com/'</span><span class="p">);</span>
+<span class="c1">// attach a message listener</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">onmessage</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">msg</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">msg</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="c1">// send some message</span>
+<span class="nx">ws</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">'hello server!'</span><span class="p">);</span></code></pre></figure>
 <p>
 	Once we call the constructor, an HTTP GET request is generated to initiate the transaction. You'll find that these headers are sent by your browser.
 </p>

@@ -3,10 +3,10 @@
 <channel>
         <title>Abhishek Nagekar&#39;s Blog</title>
         <description>Abhishek Nagekar&#39;s Blog - Abhishek Nagekar</description>
-        <link>http://www.nagekar.com</link>
-        <atom:link href="http://www.nagekar.com/rss.xml" rel="self" type="application/rss+xml" />
-        <lastBuildDate>Wed, 04 May 2016 12:03:47 +0530</lastBuildDate>
-        <pubDate>Wed, 04 May 2016 12:03:47 +0530</pubDate>
+        <link>https://www.nagekar.com</link>
+        <atom:link href="https://www.nagekar.com/rss.xml" rel="self" type="application/rss+xml" />
+        <lastBuildDate>Thu, 12 May 2016 16:07:00 +0530</lastBuildDate>
+        <pubDate>Thu, 12 May 2016 16:07:00 +0530</pubDate>
         <ttl>60</ttl>
 
 
@@ -116,8 +116,8 @@ print(type)
   });
 &lt;/script&gt;
 </description>
-                <link>http://www.nagekar.com/2016/05/_generic-in-C.html</link>
-                <guid>http://www.nagekar.com/2016/05/_generic-in-C</guid>
+                <link>https://www.nagekar.com/2016/05/_generic-in-C.html</link>
+                <guid>https://www.nagekar.com/2016/05/_generic-in-C</guid>
                 <pubDate>Tue, 03 May 2016 00:00:00 +0530</pubDate>
         </item>
 
@@ -145,8 +145,8 @@ print(type)
   We thought for some time then, and decided to go in some other train in the unreserved compartment, which, if you know, you know the struggle and if you don&#39;t, you&#39;re pretty lucky and rich. I am still in the train, tired, sleepy and dirty with sweat and dirt all over me. I&#39;ll reach in three or four hours, and then it will be life a usual.
 &lt;/p&gt;
 </description>
-                <link>http://www.nagekar.com/2016/04/being-stupid.html</link>
-                <guid>http://www.nagekar.com/2016/04/being-stupid</guid>
+                <link>https://www.nagekar.com/2016/04/being-stupid.html</link>
+                <guid>https://www.nagekar.com/2016/04/being-stupid</guid>
                 <pubDate>Thu, 28 Apr 2016 00:00:00 +0530</pubDate>
         </item>
 
@@ -201,8 +201,8 @@ print(type)
   Concluding it, I hope this post was informative. Ask wise questions. People really appreciate when you ask good questions. They say no question is stupid. That is not an excuse to not trying to search from the existing resources, or being a naive help addict. Keep exploring.
 &lt;/p&gt;
 </description>
-                <link>http://www.nagekar.com/2016/04/googling-life.html</link>
-                <guid>http://www.nagekar.com/2016/04/googling-life</guid>
+                <link>https://www.nagekar.com/2016/04/googling-life.html</link>
+                <guid>https://www.nagekar.com/2016/04/googling-life</guid>
                 <pubDate>Sun, 17 Apr 2016 00:00:00 +0530</pubDate>
         </item>
 
@@ -232,18 +232,14 @@ print(type)
 &lt;p&gt;
 	On the browser, things are even simpler.
 &lt;/p&gt;
-&lt;pre&gt;
-// call the object constructor
-var ws = new WebSocket(&#39;ws://nagekar-ws.herokuapp.com/&#39;);
-
-// attach a message listener
-ws.onmessage = function(msg) {
-	console.log(msg);
-}
-
-// send some message
-ws.send(&#39;hello server!&#39;);
-&lt;/pre&gt;
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-javascript&quot; data-lang=&quot;javascript&quot;&gt;&lt;span class=&quot;c1&quot;&gt;// call the object constructor&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ws&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;WebSocket&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;ws://nagekar-ws.herokuapp.com/&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// attach a message listener&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;ws&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onmessage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+	&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;msg&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// send some message&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;ws&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;send&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;&#39;hello server!&#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 &lt;p&gt;
 	Once we call the constructor, an HTTP GET request is generated to initiate the transaction. You&#39;ll find that these headers are sent by your browser.
 &lt;/p&gt;
@@ -326,8 +322,8 @@ Via:1.1 vegur
 	})
 &lt;/script&gt;
 </description>
-                <link>http://www.nagekar.com/2016/04/websockets.html</link>
-                <guid>http://www.nagekar.com/2016/04/websockets</guid>
+                <link>https://www.nagekar.com/2016/04/websockets.html</link>
+                <guid>https://www.nagekar.com/2016/04/websockets</guid>
                 <pubDate>Fri, 15 Apr 2016 00:00:00 +0530</pubDate>
         </item>
 
@@ -353,8 +349,8 @@ Via:1.1 vegur
 	Finally, I hope to have given you some insights of event driven programming with Javascript. Not a lot of code, but that is something you&#39;ll find everywhere. I always like to emphasis on the concepts rather than implementation. It makes for a better implementation.
 &lt;/p&gt;
 </description>
-                <link>http://www.nagekar.com/2016/04/event-driven-programming.html</link>
-                <guid>http://www.nagekar.com/2016/04/event-driven-programming</guid>
+                <link>https://www.nagekar.com/2016/04/event-driven-programming.html</link>
+                <guid>https://www.nagekar.com/2016/04/event-driven-programming</guid>
                 <pubDate>Tue, 12 Apr 2016 00:00:00 +0530</pubDate>
         </item>
 
@@ -378,8 +374,8 @@ Via:1.1 vegur
 &lt;p&gt;
 	I am looking forward to using it everyday on my PC, at least for sometime till I get really good at it. Maybe then I&#39;ll try doing the same on my laptop, which would be nice. For now, I&#39;ll have to figure out a way to install Xorg. 
 &lt;/p&gt;</description>
-                <link>http://www.nagekar.com/2016/03/gentoo-experience.html</link>
-                <guid>http://www.nagekar.com/2016/03/gentoo-experience</guid>
+                <link>https://www.nagekar.com/2016/03/gentoo-experience.html</link>
+                <guid>https://www.nagekar.com/2016/03/gentoo-experience</guid>
                 <pubDate>Sat, 26 Mar 2016 00:00:00 +0530</pubDate>
         </item>
 
@@ -429,8 +425,8 @@ Via:1.1 vegur
 
 &lt;script async defer src=&quot;//platform.instagram.com/en_US/embeds.js&quot;&gt;&lt;/script&gt;
 </description>
-                <link>http://www.nagekar.com/2016/03/going-full-stack-on-mobile.html</link>
-                <guid>http://www.nagekar.com/2016/03/going-full-stack-on-mobile</guid>
+                <link>https://www.nagekar.com/2016/03/going-full-stack-on-mobile.html</link>
+                <guid>https://www.nagekar.com/2016/03/going-full-stack-on-mobile</guid>
                 <pubDate>Thu, 03 Mar 2016 00:00:00 +0530</pubDate>
         </item>
 
@@ -469,8 +465,8 @@ Via:1.1 vegur
 &lt;p&gt;
 	So that was it for this little article. Hope to have helped you. Keep digging.
 &lt;/p&gt;</description>
-                <link>http://www.nagekar.com/2016/02/callbacks-eventloop-in-javascript-explained.html</link>
-                <guid>http://www.nagekar.com/2016/02/callbacks-eventloop-in-javascript-explained</guid>
+                <link>https://www.nagekar.com/2016/02/callbacks-eventloop-in-javascript-explained.html</link>
+                <guid>https://www.nagekar.com/2016/02/callbacks-eventloop-in-javascript-explained</guid>
                 <pubDate>Thu, 11 Feb 2016 00:00:00 +0530</pubDate>
         </item>
 
@@ -512,8 +508,8 @@ Via:1.1 vegur
 &lt;p&gt;
     What do you think about it? It feels a little buggy at times, and sadly, Internet Explorer isn&#39;t supported yet. But for most of it, chrome and firefox are working like a charm. Hope to get all links covered under this thing, which would be nice. Sadly though, the browser tab shows loading for all the third party resources on the page which kill the purpose of this thing. Anyways, feel free to correct or improve this in the comments below.
 &lt;/p&gt;</description>
-                <link>http://www.nagekar.com/2016/02/Ajax-Loading.html</link>
-                <guid>http://www.nagekar.com/2016/02/Ajax-Loading</guid>
+                <link>https://www.nagekar.com/2016/02/Ajax-Loading.html</link>
+                <guid>https://www.nagekar.com/2016/02/Ajax-Loading</guid>
                 <pubDate>Fri, 05 Feb 2016 00:00:00 +0530</pubDate>
         </item>
 
@@ -534,8 +530,8 @@ Via:1.1 vegur
 &lt;p&gt;
 	It is funny how a random incident changes your point of views to that extent. People like these exist in our World, who call the World their home, and the people their very own. The World and Mother Nature are really our very own. It is just that we often forget it in our fast paced lives. Have a great time ahead.
 &lt;/p&gt;</description>
-                <link>http://www.nagekar.com/2016/01/exchanging-chikoos-for-friends.html</link>
-                <guid>http://www.nagekar.com/2016/01/exchanging-chikoos-for-friends</guid>
+                <link>https://www.nagekar.com/2016/01/exchanging-chikoos-for-friends.html</link>
+                <guid>https://www.nagekar.com/2016/01/exchanging-chikoos-for-friends</guid>
                 <pubDate>Fri, 15 Jan 2016 00:00:00 +0530</pubDate>
         </item>
 
@@ -623,8 +619,8 @@ Via:1.1 vegur
 &lt;p&gt;
 	What do you think?
 &lt;/p&gt;</description>
-                <link>http://www.nagekar.com/2016/01/how-to-private-local-cloud-using-raspberrypi.html</link>
-                <guid>http://www.nagekar.com/2016/01/how-to-private-local-cloud-using-raspberrypi</guid>
+                <link>https://www.nagekar.com/2016/01/how-to-private-local-cloud-using-raspberrypi.html</link>
+                <guid>https://www.nagekar.com/2016/01/how-to-private-local-cloud-using-raspberrypi</guid>
                 <pubDate>Mon, 11 Jan 2016 00:00:00 +0530</pubDate>
         </item>
 
@@ -638,8 +634,8 @@ Via:1.1 vegur
 &lt;p&gt;Googled it and read every thread on the first page of the search results, literally. I had started to doubt the USB 3 ports on the notebook now. I am on Debian testing, and thought something has broken down at the kernel level. I immediately started to download openSUSE, to see if it really is a kernel bug, because I am not brave enough to switch kernels. Anyways, I thought, let me look if the BIOS is reading the drive, and boy, what do I see. The BIOS is just not recognizing the drive. Now I began to panic. It really looks like a hardware issue.&lt;/p&gt;
 
 &lt;p&gt;In between my googling, I came across a page that provided some information. Some good guy had asked it for his Windows 8.1 laptop. There was an accepted answer. There were these simple steps, go to BIOS, find Fastboot, disable it. Aha! I said. How did I not think about that myself. Did it, and it was working again, like it should have. Fastboot does save a second each time I turn on my notebook, but this time, it costed me 2 full days. Lesson learnt. When the guys at elite forums say fastboot will prevent some hardware from being read and tested on boot, they aren&#39;t just putting a nominal warning on the door, that thing is real. &quot;Want to make your PC boot faster? Enable fastboot&quot;. No thanks.&lt;/p&gt;</description>
-                <link>http://www.nagekar.com/2016/01/fastboot-horror.html</link>
-                <guid>http://www.nagekar.com/2016/01/fastboot-horror</guid>
+                <link>https://www.nagekar.com/2016/01/fastboot-horror.html</link>
+                <guid>https://www.nagekar.com/2016/01/fastboot-horror</guid>
                 <pubDate>Fri, 08 Jan 2016 00:00:00 +0530</pubDate>
         </item>
 
@@ -664,8 +660,8 @@ Via:1.1 vegur
 &lt;p&gt;Its 4:52 and I am still writing. There are so many things that demand a mention. The Railway Police Guard standing confidently besides the still train is thinking about something. I wonder what that might be. The best thing about a railway platform is, it feels like a mini democracy. There are people from every section of the society, eating the same sandwich and drinking the same masala tea.&lt;/p&gt;
 
 &lt;p&gt;I think it is time for my second cup of tea as well. Thank you for being with me guys, have a great weekend. See you then.&lt;/p&gt;</description>
-                <link>http://www.nagekar.com/2016/01/The-Midnight-Symphony.html</link>
-                <guid>http://www.nagekar.com/2016/01/The-Midnight-Symphony</guid>
+                <link>https://www.nagekar.com/2016/01/The-Midnight-Symphony.html</link>
+                <guid>https://www.nagekar.com/2016/01/The-Midnight-Symphony</guid>
                 <pubDate>Sat, 02 Jan 2016 00:00:00 +0530</pubDate>
         </item>
 
@@ -693,8 +689,8 @@ Via:1.1 vegur
 
 &lt;p&gt;Wish you all a very happy new year, yet again.&lt;/p&gt;
 </description>
-                <link>http://www.nagekar.com/2015/12/Yet-Another-Happy-Year-Passed.html</link>
-                <guid>http://www.nagekar.com/2015/12/Yet-Another-Happy-Year-Passed</guid>
+                <link>https://www.nagekar.com/2015/12/Yet-Another-Happy-Year-Passed.html</link>
+                <guid>https://www.nagekar.com/2015/12/Yet-Another-Happy-Year-Passed</guid>
                 <pubDate>Thu, 31 Dec 2015 00:00:00 +0530</pubDate>
         </item>
 
@@ -712,8 +708,8 @@ Via:1.1 vegur
 
 &lt;p&gt;From a technical perspective, I didn&#39;t learn much. But somewhere I learnt what to value. Myself and my time. It is pointless to try to do everything. You just can&#39;t. No one can. A much better approach would be to give 100% to the few things that matter the most. This was a lesson for a lifetime. Now it is just me and the things that matter. Cheers!&lt;/p&gt;
 </description>
-                <link>http://www.nagekar.com/2015/12/The-October-Dance-With-Cool-Indians.html</link>
-                <guid>http://www.nagekar.com/2015/12/The-October-Dance-With-Cool-Indians</guid>
+                <link>https://www.nagekar.com/2015/12/The-October-Dance-With-Cool-Indians.html</link>
+                <guid>https://www.nagekar.com/2015/12/The-October-Dance-With-Cool-Indians</guid>
                 <pubDate>Wed, 30 Dec 2015 00:00:00 +0530</pubDate>
         </item>
 
@@ -733,8 +729,8 @@ Via:1.1 vegur
 
 &lt;p&gt;I would really love to write more on Js, but maybe when I actually have something. Till then, assume I am on it, and I would encourage you to take up learning something wonderful too, in case you haven&#39;t. See you then.&lt;/p&gt;
 </description>
-                <link>http://www.nagekar.com/2015/12/Love-For-Javascript.html</link>
-                <guid>http://www.nagekar.com/2015/12/Love-For-Javascript</guid>
+                <link>https://www.nagekar.com/2015/12/Love-For-Javascript.html</link>
+                <guid>https://www.nagekar.com/2015/12/Love-For-Javascript</guid>
                 <pubDate>Wed, 30 Dec 2015 00:00:00 +0530</pubDate>
         </item>
 
@@ -757,8 +753,8 @@ Via:1.1 vegur
 &lt;p&gt;The quote is still stuck on my mind. I miss those days badly.&lt;/p&gt;
 &lt;blockquote&gt;Don&#39;t be smart, be sincere. Then you&#39;ll become a hacker&lt;/blockquote&gt;
 </description>
-                <link>http://www.nagekar.com/2015/12/bug-bounty-dance.html</link>
-                <guid>http://www.nagekar.com/2015/12/bug-bounty-dance</guid>
+                <link>https://www.nagekar.com/2015/12/bug-bounty-dance.html</link>
+                <guid>https://www.nagekar.com/2015/12/bug-bounty-dance</guid>
                 <pubDate>Thu, 17 Dec 2015 00:00:00 +0530</pubDate>
         </item>
 
@@ -885,8 +881,8 @@ Via:1.1 vegur
 &lt;h4&gt;Executing bash without shell&lt;/h4&gt;
 &lt;code&gt;:command ;eg. :pwd&lt;/code&gt;
 </description>
-                <link>http://www.nagekar.com/2015/12/vim-cheatsheet.html</link>
-                <guid>http://www.nagekar.com/2015/12/vim-cheatsheet</guid>
+                <link>https://www.nagekar.com/2015/12/vim-cheatsheet.html</link>
+                <guid>https://www.nagekar.com/2015/12/vim-cheatsheet</guid>
                 <pubDate>Wed, 02 Dec 2015 00:00:00 +0530</pubDate>
         </item>
 
@@ -947,8 +943,8 @@ img {
 
 &lt;p&gt;&lt;i&gt;*Links contain affiliate code. If this review helped you, please consider buying the laptop (or anything else) from my affiliated link. Thank you for the support!*&lt;/i&gt;&lt;/p&gt;
 </description>
-                <link>http://www.nagekar.com/2015/11/Fujitsu-Lifebook-A514-Review.html</link>
-                <guid>http://www.nagekar.com/2015/11/Fujitsu-Lifebook-A514-Review</guid>
+                <link>https://www.nagekar.com/2015/11/Fujitsu-Lifebook-A514-Review.html</link>
+                <guid>https://www.nagekar.com/2015/11/Fujitsu-Lifebook-A514-Review</guid>
                 <pubDate>Wed, 25 Nov 2015 00:00:00 +0530</pubDate>
         </item>
 
@@ -1001,8 +997,8 @@ img {
 &lt;p&gt;Assuming that you are done with the police verification, the police will send the recommendations back to the passport office. It would contain details and depending on those, they&#39;ll further enquire and review your application or they will send the passport to print. If the latter is the case, then you can expect your passport within a month via speed post.&lt;/p&gt;
 
 </description>
-                <link>http://www.nagekar.com/2015/11/Guide-Passport-Application-India.html</link>
-                <guid>http://www.nagekar.com/2015/11/Guide-Passport-Application-India</guid>
+                <link>https://www.nagekar.com/2015/11/Guide-Passport-Application-India.html</link>
+                <guid>https://www.nagekar.com/2015/11/Guide-Passport-Application-India</guid>
                 <pubDate>Sat, 07 Nov 2015 00:00:00 +0530</pubDate>
         </item>
 

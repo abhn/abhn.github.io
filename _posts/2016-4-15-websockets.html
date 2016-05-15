@@ -28,18 +28,16 @@ tags:
 <p>
 	On the browser, things are even simpler.
 </p>
-<pre>
+{% highlight javascript %}
 // call the object constructor
 var ws = new WebSocket('ws://nagekar-ws.herokuapp.com/');
-
 // attach a message listener
 ws.onmessage = function(msg) {
 	console.log(msg);
 }
-
 // send some message
 ws.send('hello server!');
-</pre>
+{% endhighlight %}
 <p>
 	Once we call the constructor, an HTTP GET request is generated to initiate the transaction. You'll find that these headers are sent by your browser.
 </p>
