@@ -5,10 +5,56 @@
         <description>Abhishek Nagekar&#39;s Blog - Abhishek Nagekar</description>
         <link>https://www.nagekar.com</link>
         <atom:link href="https://www.nagekar.com/rss.xml" rel="self" type="application/rss+xml" />
-        <lastBuildDate>Mon, 25 Jul 2016 23:51:30 +0530</lastBuildDate>
-        <pubDate>Mon, 25 Jul 2016 23:51:30 +0530</pubDate>
+        <lastBuildDate>Mon, 15 Aug 2016 12:33:20 +0530</lastBuildDate>
+        <pubDate>Mon, 15 Aug 2016 12:33:20 +0530</pubDate>
         <ttl>60</ttl>
 
+
+        <item>
+                <title>College Vs Startup - Working On Projects</title>
+                <description>&lt;p&gt;
+	First of all, wishing all you fellow Indians a very happy 70th Independence Day. This day is very dear to the hearts of us Indians, and although I enjoy watching the Republic Day parade more, I certainly enjoy seeing the beautiful tricolors all around the place. 
+&lt;/p&gt;
+&lt;p&gt;
+	I was asked to compile a list of all the differences between working on a project in a startup and doing the same in college. Of course, we have projects every semester the way (some) startups have products, and we are made to follow some guidelines while developing these projects (like planning, documentation and testing methodologies), but there are some subtle differences. Here is a paste of all the points I wrote at that time. I thought it would make for a useful read for some of you. It is about an organization, addressed to a real person and talks about some other people too, if you were wondering about the names involved, and trimmed to only the parts that matter here.
+&lt;/p&gt;
+&lt;h3&gt;Differences between college and startup projects&lt;/h3&gt;
+&lt;ul&gt;
+	&lt;li&gt;
+		The most important factor for me were the stakes involved. In college, making a mistake or leaving some edge cases incomplete were quite acceptable since we were the users of the product. Here at Fourthlion, since a lot of people are involved in making a project happen, plus the people we pitch the product to are some high level state officials, the margin of error tolerated is reduced. That actually brings out the best in you, since you have to push your limits in order to accomplish the new quality standards that you never knew existed.
+	&lt;/li&gt;
+	&lt;li&gt;
+		The second factor is deadlines. There are deadlines in college projects, but the deadlines aren&#39;t connected to further set of events. Here at Fourthlion, me completing a project on, say Monday is directly linked with the product getting pitched on Tuesday, and that sense of responsibility makes you want to meet those deadlines to avoid wasting other people&#39;s time.
+	&lt;/li&gt;
+	&lt;li&gt;
+		Then there are people around you. They know how to make things work. For example, Sukhpreet. I learnt what it is like to be organized, from him. He writes down each and everything in his diary or in a spreadsheet. I bought a diary just to get that habit, and it is already helping. I saw what serious documentation looked like when working on the first project, made by him. I understood how important initial user feedbacks are, which I had never taken ever in my life till now. These are the things Fourthlion taught me even though I had never planned to learn them. This is what I feel is the effect of working with great people. You try to copy them, and acquire their good habits.
+	&lt;/li&gt;
+	&lt;li&gt;
+		You get to know how much can be accomplished in a day. In college, if someone asks me how much time will it take to complete this product, I&#39;d say I don&#39;t know. Because there are a lot of different things that a student does apart from the project. Here, I have a fairly good estimate on what I can do in the 8-10 hours of work everyday, and hence I can give you a good estimate of how much time the project/component should take based past estimates.
+	&lt;/li&gt;
+	&lt;li&gt;
+		 There&#39;s a good deal of pressure working here that I never felt in college. A reason for that could be there&#39;s real people&#39;s real money and time involved. The pressure actually feels bad at first, but just looking a week back, I hardly think I would&#39;ve been able to accomplish whatever I did, if there was no pressure involved.
+	&lt;/li&gt;
+	&lt;li&gt;
+		At this startup, the users are real people who just want a beautiful working product and don&#39;t really care about the cutting edge tech stack I use, which wasn&#39;t the case until now. That has given me a new way to think about the code I write, the more user oriented way. And since I am the only person editing and adding code, I feel much connected to the project than otherwise would have, which is not necessarily a good thing in the real world with multiple developers collaborating.
+	&lt;/li&gt;
+	&lt;li&gt;
+		About DoNew, I&#39;d honestly admit that I didn&#39;t really see the point of sending updates on what I do, initially. But I like to take leaps of faith when the people involved know much more about how things work than I do. Now when I think, I feel like the updates were more for myself than they were for you and others. I feel I have started to keep a track of my own progress through the updates, which has formed a habit. Just to give you an idea, after writing the update to you, I write myself a personal update in a diary, with things I did wrong and things I can improve upon. It has made a great deal of difference to me personally. And I don&#39;t think I will ever break this habit of tracking my own progress and shortcomings.
+	&lt;/li&gt;
+	&lt;li&gt;
+		When I was skeptic about whether I would be able to handle the real world development here at Fourthlion back when I was in Mumbai, you told me to try, build, make mistakes and to believe that you can. That &#39;believing that you can&#39; has been an important part. For example, when I heard about integrating Asana and building a project on top of it that people can use, I was a bit scared. But I made my mind to keep working as much as I could with all dedication and not really worry about the end result. And now, slowly but steadily, it is taking shape of a practical app, which I am really proud of!
+	&lt;/li&gt;
+	&lt;li&gt;
+		Lastly, the importance of having a mentor. I didn&#39;t understand it before when I read about people having mentor. I don&#39;t need to say much about this one now!
+	&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;
+	As always, thank you for reading!
+&lt;/p&gt;</description>
+                <link>https://www.nagekar.com/2016/08/college-vs-startup.html</link>
+                <guid>https://www.nagekar.com/2016/08/college-vs-startup</guid>
+                <pubDate>Mon, 15 Aug 2016 00:00:00 +0530</pubDate>
+        </item>
 
         <item>
                 <title>The Project Lumos Experience</title>
@@ -70,7 +116,7 @@
 	Today, 25th of July. Four more days to the end of my internship. I am thinking about the number of things I have learned in the last six months. Insane. I have learned how to talk to people, how to talk in public, how to teach, how to listen, how to manage time, energy and utilize it efficiently, explored widest of the technology domains, created and deployed some good applications, got a state&#39;s chief minister see the application I made, visited Agra, Taj Mahal, traveled in an aeroplane, made numerous great contacts at Fourthlion, met Sukhpreet who is one of the best individuals I have had the fortune of knowing. Damn! All of this, each and every one of it was because I agreed to work for Project Lumos with Abhishek and Dhananjay. Is it fair to say now, and in no way an exaggeration, that agreeing to it was probably one of the best decisions I had ever taken for myself, if not the best.
 &lt;/p&gt;
 &lt;p&gt;
-	It is quite late, but it is now that I have understood Abhishek well. He is one of the jewels that is yet to be discovered by someone. He has had his past, but the things that he has achieved ever since, amazing. He is honest to the core, straightforward and never thinks once before appreciating or criticizing someone. He rather undervalues himself, for he thinks he has something less than that most of people have. The fact is, he is far richer in his attitude and character than most people I know, helpful, hardworking and selfless. In the end, I think this is what matters. Skilled human-robots are dime a dozen these days. Attitude is what separates the individual from the herd, and he&#39;s kind of a guy you see and say, &#39;Dude, he&#39;s going to make it big in life&#39;. Yes, exactly that kind of a guy.
+	It is quite late, but it is now that I have understood Abhishek well. He is one of the jewels that is yet to be discovered by someone. He has had his past, but the things that he has achieved ever since, amazing. He is honest to the core, straightforward and never thinks once before appreciating or criticizing someone. He rather undervalues himself, for he thinks he has something less than that what most people do. The fact is, he is far richer in his attitude and character than most people I know, helpful, hardworking and selfless. In the end, I think this is what matters. Skilled human-robots are dime a dozen these days. Attitude is what separates the individual from the herd, and he&#39;s kind of a guy you see and say, &#39;Dude, he&#39;s going to make it big in life&#39;. Yes, exactly that kind of a guy.
 &lt;/p&gt;
 &lt;p&gt;
 	I need not say more, for I have poured my thoughts into this piece. This came out because of an email that Abhishek sent out on Saturday, and I kept thinking, this guy has no damn clue how much of an influence he has on our lives. So Abhishek, and Dhananjay, this one&#39;s for you. If you ever read this, know that you are SUPER AWESOME and SUPER COOL! Your fan forever, Abhishek.
@@ -849,134 +895,6 @@ Via:1.1 vegur
                 <link>https://www.nagekar.com/2015/12/bug-bounty-dance.html</link>
                 <guid>https://www.nagekar.com/2015/12/bug-bounty-dance</guid>
                 <pubDate>Thu, 17 Dec 2015 00:00:00 +0530</pubDate>
-        </item>
-
-        <item>
-                <title>Vim Cheatsheet</title>
-                <description>&lt;p&gt;Started using vi, although the only reason is it being light weight [I am taking a leap of faith, hoping that it will increase my speed after some practice, as most vi gurus say]. Let me first admit it. Vi feels awful in the beginning. It is really intimidating, and I am having a hard time to remember the commands and stuff. Hence I started writing the commands I learn from google and stackoverflow in a file. Thought to post it here, for everyone.&lt;/p&gt;
-
-&lt;p&gt;I will keep the list updated as I learn more and more commands and tricks. It serves me as a reference, and hopefully will do the same for some of you.&lt;/p&gt;
-
-&lt;h4&gt;Open file&lt;/h4&gt; 
-&lt;code&gt;vim file.js&lt;/code&gt;
-
-&lt;h4&gt;Swtich to insert mode&lt;/h4&gt;
-&lt;code&gt;i&lt;/code&gt;
-
-&lt;h4&gt;Switch to append mode&lt;/h4&gt;
-&lt;code&gt;a&lt;/code&gt;
-
-&lt;h4&gt;Switch to command mode&lt;/h4&gt;
-&lt;code&gt;[ESC]&lt;/code&gt;
-
-&lt;h4&gt;Save file&lt;/h4&gt;
-&lt;code&gt;:w&lt;/code&gt;
-
-&lt;h4&gt;Save and exit&lt;/h4&gt;
-&lt;code&gt;:wq&lt;/code&gt;
-
-&lt;h4&gt;Exit [if no changes were made]&lt;/h4&gt;
-&lt;code&gt;:q&lt;/code&gt;
-
-&lt;h4&gt;Exit, discarding changes&lt;/h4&gt;
-&lt;code&gt;:q!&lt;/code&gt;
-
-&lt;h4&gt;Moving through text&lt;/h4&gt;
-&lt;code&gt;h - left&lt;/code&gt;&lt;br/&gt;
-&lt;code&gt;j - down&lt;/code&gt;&lt;br/&gt;
-&lt;code&gt;k - up&lt;/code&gt;&lt;br/&gt;
-&lt;code&gt;l - right&lt;/code&gt;&lt;br/&gt;
-
-&lt;h4&gt;Undo last operation&lt;/h4&gt;
-&lt;code&gt;u&lt;/code&gt;
-
-&lt;h4&gt;Copy current line&lt;/h4&gt;
-&lt;code&gt;yy&lt;/code&gt;
-
-&lt;h4&gt;Cut current line&lt;/h4&gt;
-&lt;code&gt;dd&lt;/code&gt;
-
-&lt;h4&gt;Paste last copied line&lt;/h4&gt;
-&lt;code&gt;p&lt;/code&gt;
-
-&lt;h4&gt;Select text&lt;/h4&gt;
-&lt;code&gt;[CTRL] + v&lt;/code&gt;&lt;br/&gt;
-&lt;code&gt;h,j,k,l ;for moving and selecting&lt;/code&gt;
-
-&lt;h4&gt;Selecting multiple lines&lt;/h4&gt;
-&lt;code&gt;[SHIFT] + v&lt;/code&gt;&lt;br/&gt;
-&lt;code&gt;j,k ;selecting lines&lt;/code&gt;
-
-&lt;h4&gt;Search through text&lt;/h4&gt;
-&lt;code&gt;:s/pattern&lt;/code&gt;
-
-&lt;h4&gt;Search and replace&lt;/h4&gt;
-&lt;code&gt;:s/pattern/replacementString&lt;/code&gt;
-
-&lt;h4&gt;Working with multiple files&lt;/h4&gt;
-&lt;code&gt;vim file1.c file2.c file2.c&lt;/code&gt;
-
-&lt;h4&gt;Next file&lt;/h4&gt;
-&lt;code&gt;:n&lt;/code&gt;
-
-&lt;h4&gt;Previous file&lt;/h4&gt;
-&lt;code&gt;:prev&lt;/code&gt;
-
-&lt;h4&gt;Go to particular file&lt;/h4&gt;
-&lt;code&gt;:b file3.c&lt;/code&gt;
-
-&lt;h4&gt;Working with multiple files [tabs]&lt;/h4&gt;
-&lt;code&gt;vim file1.c file2.c file3.c -p&lt;/code&gt;
-
-&lt;h4&gt;Move to next tab&lt;/h4&gt;
-&lt;code&gt;gt&lt;/code&gt;
-
-&lt;h4&gt;Move to previous tab&lt;/h4&gt;
-&lt;code&gt;gT&lt;/code&gt;
-
-&lt;h4&gt;List all open files [or buffers]&lt;/h4&gt;
-&lt;code&gt;:ls&lt;/code&gt;
-
-&lt;h4&gt;Commenting multiple lines&lt;/h4&gt;
-&lt;code&gt;[CTRL] + v ;to enter visual mode&lt;/code&gt;&lt;br/&gt;
-&lt;code&gt;j ;move down to select required lines&lt;/code&gt;&lt;br/&gt;
-&lt;code&gt;i ;enter insert mode&lt;/code&gt;&lt;br/&gt;
-&lt;code&gt;[ESC]&lt;/code&gt;
-
-&lt;h4&gt;Uncommenting multiple lines&lt;/h4&gt;
-&lt;code&gt;[CTRL] + v ;to enter visual mode&lt;/code&gt;&lt;br/&gt;
-&lt;code&gt;jjjl ;selecting multiple rows and columns&lt;/code&gt;&lt;br/&gt;
-&lt;code&gt;d&lt;/code&gt;
-
-&lt;h4&gt;Auto-indenting&lt;/h4&gt;
-&lt;code&gt;=&lt;/code&gt;
-
-&lt;h4&gt;Move to the start of the file&lt;/h4&gt;
-&lt;code&gt;gg&lt;/code&gt;
-
-&lt;h4&gt;Move to the end of the file&lt;/h4&gt;
-&lt;code&gt;G&lt;/code&gt;
-
-&lt;h4&gt;Auto indent entire file&lt;/h4&gt;
-&lt;code&gt;gg=G&lt;/code&gt;
-
-&lt;h4&gt;Indenting a block [starting from a paranthesis]&lt;/h4&gt;
-&lt;code&gt;=%&lt;/code&gt;
-
-&lt;h4&gt;Indenting selected lines&lt;/h4&gt;
-&lt;code&gt;V ;visual line mode&lt;/code&gt;&lt;br/&gt;
-&lt;code&gt;jj ;move down through required lines&lt;/code&gt;&lt;br/&gt;
-&lt;code&gt;&gt;&lt;/code&gt;
-
-&lt;h4&gt;Starting a shell&lt;/h4&gt;
-&lt;code&gt;:shell&lt;/code&gt;
-
-&lt;h4&gt;Executing bash without shell&lt;/h4&gt;
-&lt;code&gt;:command ;eg. :pwd&lt;/code&gt;
-</description>
-                <link>https://www.nagekar.com/2015/12/vim-cheatsheet.html</link>
-                <guid>https://www.nagekar.com/2015/12/vim-cheatsheet</guid>
-                <pubDate>Wed, 02 Dec 2015 00:00:00 +0530</pubDate>
         </item>
 
 
