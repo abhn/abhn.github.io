@@ -7,6 +7,7 @@ https://www.nagekar.com/rss.xml
 https://www.nagekar.com/search
 https://www.nagekar.com/sitemap.txt
 https://www.nagekar.com/tags
+https://www.nagekar.com/wish
 
 https://www.nagekar.com/2016/08/college-vs-startup.html
 https://www.nagekar.com/2016/07/the-project-lumos-experience.html
