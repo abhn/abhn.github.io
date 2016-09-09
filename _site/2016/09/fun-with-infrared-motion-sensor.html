@@ -11,7 +11,7 @@
 
   <title>
     
-      AJAX registration form using jQuery &middot; Abhishek Nagekar's Blog
+      Fun With Infrared Motion Sensor &middot; Abhishek Nagekar's Blog
     
   </title>
 
@@ -125,23 +125,42 @@
       <div class="container content">
         <div id="head-quote"></div>
         <div class="post">
-  <h1 class="post-title">AJAX registration form using jQuery</h1>
-  <span class="post-date">28 December, 2014. It was a Sunday.</span>
-  <div dir="ltr" style="text-align: left;" trbidi="on"><div dir="ltr" style="text-align: left;" trbidi="on">I have created this simple registration form which makes user registration using asynchronous requests in the background, checking if a duplicate username or email exists, and presenting the user with status of registration on the same page without have to reload the page even once.<br /><br />It is simple, but with some prerequisites for my particular example. They are<br /><ol style="text-align: left;"><li>MySQL database for saving registrations</li><li>PHP registration page for connecting to database</li><li>Some basic javascript knowledge</li></ol>&nbsp;So having set up the above stuff, we shall get started. If you don't want to code all yourself, use my code from <a href="https://github.com/abhn/turnouts/tree/master" target="_blank">Github</a>.<br /><br />First of all, create for yourself a nice form. It doesn't take much right? Just make sure you attach an 'id' attribute to each input field for convenience later. Here is my version.<br /><br /><br /><script src="https://gist.github.com/abhn/a737ff8f28f2259b11c2.js"></script> <br />If you see, after the form I have left an empty div. It is for displaying the response we get from our ajax request. You can, of course, add nice styling to this div. Having our form set, we can concentrate on the jQuery part.<br /><br />Start with making sure our DOM is loaded with $(document).ready() function. Grab hold of the click event of the form submit button. Then we get the values in the username, email and password fields.<br /><br />Here, we can have some basic checks to make sure form is filled up. We could have used the <i>required</i> attribute to make sure all fields are filled, but that does not give us full control, so use Javascript or jQuery and display some custom messages. I clubbed them together in a single if.<br /><br /><script src="https://gist.github.com/abhn/6e060043c13d3dbf03f2.js"></script> Next, using the simple $.ajax() function, make a request and get the response code. My action page is register.php, and I have make simple error codes to detect what response the backend gave. Here are the codes, for some reference.<br /><br />// Code returns 101 for "username already exists"<br />// Code returns 102 for "email already exists"<br />// Code returns 104 for "internal server error"<br />// Code returns 202 for "user created successfully"<br /><br />Refer <a href="https://github.com/abhn/turnouts/blob/master/register.php">register.php</a> for complete code.<br /><br />If the query succeeds, we capture the response in responseText variable. We can then do any response based manipulation we need for our specific needs. Just make sure to <i>return false</i> at the end to prevent default submit behavior. Here is my final jQuery snippet.</div><br /><script src="https://gist.github.com/abhn/18f450bb299214d0c68f.js"></script><br />Finally, the entire HTML code has nothing more, just the standard doctype and stuff. Here is what to expect, or similar. LOL I was trying some CSS so ignore all that ;)<br /><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-fz6kduaRLyc/VKBFf0eMnQI/AAAAAAAAHvs/yfIxoTQws1I/s1600/form.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-fz6kduaRLyc/VKBFf0eMnQI/AAAAAAAAHvs/yfIxoTQws1I/s1600/form.png" height="258" width="400" /></a></div>Also, I wanted to tell you, I switched from the classy syntax highlighter to this new (for me!) gist. It is cool, only a little more effort. Loved it. If you own a blog and post code frequently, give it a try. Thank you for reading.</div>
+  <h1 class="post-title">Fun With Infrared Motion Sensor</h1>
+  <span class="post-date">9 September, 2016. It was a Friday.</span>
+  <p>
+	Very few of the projects I've done actually had any real life purpose. The rest were just <i>Can I do it?</i> projects. Here's one more to that little list. So last year, the fan switch in my room changed its position, from the spot where it was in a one arm distance behind my desktop computer table, to a spot where I had to walk three steps, climb my bed and walk another three steps to reach. Too much effort for something that is required to be done tens of times in a day. Naturally, I didn't bother to turn it off whenever I left the room, and at times, the fan used to stay running long after I had left, until mom or dad noticed it and turned it off again, just before giving me a nice stare. Something had to be done. 
+</p>
+<p>
+	I had this <a href="http://www.amazon.in/REES52-PIR-Motion-Sensor/dp/B01HOP1V0Q">PIR module</a> that I had bought a couple of years ago with a friend. PIR [for Passive Infrared] sensor triggers when a hot body comes in its range, like a human being. I had to make use of it somehow to control the fan in the room. I had to Google just about everything about this project, and slowly I discovered that you cannot just put the AC mains and DC circuits on the same breadboard, and expect them to be nice to each other. As a result, <a href="http://www.amazon.in/Channel-Arduino-Raspberry-Silicon-TechnoLabs/dp/B0181W7QSW">relay</a> was discovered. [The <a href="https://www.sparkfun.com/products/100">one I have used</a> is a more compact, cheaper version].
+</p>
+<p>
+	So a relay to act as a switch to turn the fan on and off, a PIR sensor to detect me entering the room and something in between to interface the two. <i>Arduino should do it</i>. So next is to code the arduino such that on receiving a <code>True</code>from the PIR, the arduino would close the switch, activating the relay to close the switch of the fan, and stay like that for a couple of minutes. I didn't want it to go on-off every 3 seconds, hence the timeout.
+</p>
+<p>
+	Next was mounting all of it together. A breadboard would've been unsafe, <a href="http://electronics.stackexchange.com/questions/19813/can-you-put-a-120vac-positive-line-into-a-breadboard">as per the Internet</a>, hence I bought a perfboard for the purpose. I soldered everything to its place, and the final result was something like the following. Oh but first, some code.
+</p>
+<h3>The code which was shamelessly ripped off Arduino.cc</h3>
+<script src="https://gist.github.com/abhn/800a4cbc44150d9e777936edde912680.js"></script>
+<h3>Here is how it looked [Heavy images. Patience!]</h3>
+<img src="/assets/images/pir/pir2.jpg">
+<img src="/assets/images/pir/pir4.jpeg">
+<img src="/assets/images/pir/pir5.jpeg">
+<h3>My desk that beautiful day!</h3>
+<img src="/assets/images/pir/pir1.jpg">
+<p>
+	Now <a href="https://github.com/Adirockzz95/TARS">Aditya</a> would've told you that this project is what electronics people do when they're like 5. Nevertheless, I was too proud of this. Not just because I could do it, but because I needed it.
+</p>
+<p>
+	So did it work? No. The range of the PIR sensor was a bit too small for the entire room, and I had to literally dance in front of it to trigger it. Solution? Multiple PIRs to cover the entire room. Also, I realized how easily I could just add the tubelight to the same circuit. Just add another relay and connect it to the <a href="http://www.amazon.in/LDR-Light-Dependent-Register-resistor/dp/B018LJPI76">LDR</a> sensor and set it to trigger when the daylight fell below a certain threshold. 
+</p>
+<p>
+	Suddenly, automating stuff in the room seemed a bit too simple, and it really is, even for an electronics novice like myself. The Internet gives you that power. As always, thank you for reading, and pardon any silly technical mistakes that I must've made in the post (even better, correct me ;).
+</p>
 </div>
 
 <div class="related">
   <h2>You May Also Like</h2>
   <ul class="related-posts">
-    
-      <li>
-        <h3>
-          <a href="/2016/09/fun-with-infrared-motion-sensor.html">
-            Fun With Infrared Motion Sensor
-            <small>09 Sep 2016</small>
-          </a>
-        </h3>
-      </li>
     
       <li>
         <h3>
@@ -157,6 +176,15 @@
           <a href="/2016/07/the-project-lumos-experience.html">
             The Project Lumos Experience
             <small>25 Jul 2016</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/2016/06/sixth-semester-and-then.html">
+            Sixth Semester And Then
+            <small>30 Jun 2016</small>
           </a>
         </h3>
       </li>

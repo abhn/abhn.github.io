@@ -1,0 +1,33 @@
+---
+layout: post
+title: Fun With Infrared Motion Sensor
+---
+<p>
+	Very few of the projects I've done actually had any real life purpose. The rest were just <i>Can I do it?</i> projects. Here's one more to that little list. So last year, the fan switch in my room changed its position, from the spot where it was in a one arm distance behind my desktop computer table, to a spot where I had to walk three steps, climb my bed and walk another three steps to reach. Too much effort for something that is required to be done tens of times in a day. Naturally, I didn't bother to turn it off whenever I left the room, and at times, the fan used to stay running long after I had left, until mom or dad noticed it and turned it off again, just before giving me a nice stare. Something had to be done. 
+</p>
+<p>
+	I had this <a href="http://www.amazon.in/REES52-PIR-Motion-Sensor/dp/B01HOP1V0Q">PIR module</a> that I had bought a couple of years ago with a friend. PIR [for Passive Infrared] sensor triggers when a hot body comes in its range, like a human being. I had to make use of it somehow to control the fan in the room. I had to Google just about everything about this project, and slowly I discovered that you cannot just put the AC mains and DC circuits on the same breadboard, and expect them to be nice to each other. As a result, <a href="http://www.amazon.in/Channel-Arduino-Raspberry-Silicon-TechnoLabs/dp/B0181W7QSW">relay</a> was discovered. [The <a href="https://www.sparkfun.com/products/100">one I have used</a> is a more compact, cheaper version].
+</p>
+<p>
+	So a relay to act as a switch to turn the fan on and off, a PIR sensor to detect me entering the room and something in between to interface the two. <i>Arduino should do it</i>. So next is to code the arduino such that on receiving a <code>True</code>from the PIR, the arduino would close the switch, activating the relay to close the switch of the fan, and stay like that for a couple of minutes. I didn't want it to go on-off every 3 seconds, hence the timeout.
+</p>
+<p>
+	Next was mounting all of it together. A breadboard would've been unsafe, <a href="http://electronics.stackexchange.com/questions/19813/can-you-put-a-120vac-positive-line-into-a-breadboard">as per the Internet</a>, hence I bought a perfboard for the purpose. I soldered everything to its place, and the final result was something like the following. Oh but first, some code.
+</p>
+<h3>The code which was shamelessly ripped off Arduino.cc</h3>
+<script src="https://gist.github.com/abhn/800a4cbc44150d9e777936edde912680.js"></script>
+<h3>Here is how it looked [Heavy images. Patience!]</h3>
+<img src="/assets/images/pir/pir2.jpg">
+<img src="/assets/images/pir/pir4.jpeg">
+<img src="/assets/images/pir/pir5.jpeg">
+<h3>My desk that beautiful day!</h3>
+<img src="/assets/images/pir/pir1.jpg">
+<p>
+	Now <a href="https://github.com/Adirockzz95/TARS">Aditya</a> would've told you that this project is what electronics people do when they're like 5. Nevertheless, I was too proud of this. Not just because I could do it, but because I needed it.
+</p>
+<p>
+	So did it work? No. The range of the PIR sensor was a bit too small for the entire room, and I had to literally dance in front of it to trigger it. Solution? Multiple PIRs to cover the entire room. Also, I realized how easily I could just add the tubelight to the same circuit. Just add another relay and connect it to the <a href="http://www.amazon.in/LDR-Light-Dependent-Register-resistor/dp/B018LJPI76">LDR</a> sensor and set it to trigger when the daylight fell below a certain threshold. 
+</p>
+<p>
+	Suddenly, automating stuff in the room seemed a bit too simple, and it really is, even for an electronics novice like myself. The Internet gives you that power. As always, thank you for reading, and pardon any silly technical mistakes that I must've made in the post (even better, correct me ;).
+</p>
