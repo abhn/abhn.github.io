@@ -113,7 +113,7 @@ Bees may well have honey in their mouths, but never forget that they have a stin
 "Where others feel fear I feel only curiosity." - TheMindRapist
 "Lottery: A tax on people who are bad at math."
 "Caring is the most dangerous of experiences because it means choosing to be vulnerable."
-�Fanaticism consists in redoubling your effort when you have forgotten your aim.�
+“Fanaticism consists in redoubling your effort when you have forgotten your aim.”
 "We never remember days, only moments." - Cesare Pavese"
 Tomorrow's just a day away
 There are only two hard problems in computer science: cache invalidation and naming things. - Phil Karlton
@@ -136,3 +136,7 @@ There are two ways to live: you can live as if nothing is a miracle; you can liv
 I have decided to stick with love. Hate is too great a burden to bear. 
 Life's most persistent and urgent question is, 'What are you doing for others?' 
 Nothing in all the world is more dangerous than sincere ignorance and conscientious stupidity. 
+Where is the wisdom we have lost in knowledge? Where is the knowledge we have lost in information? — T.S. Eliot
+When the student is ready the teacher will appear. When the student is truly ready, the teacher will disappear. — Lao Tzu
+Inevitability Thinking is thinking and acting as if what you are doing is a forgone conclusion because you set up the conditions for it to happen. — Eban Pagan
+“When performance is measured, performance improves. When performance is measured and reported, the rate of improvement accelerates.” — Thomas S. Monson
