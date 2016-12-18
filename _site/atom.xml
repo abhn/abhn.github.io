@@ -4,13 +4,105 @@
  <title>Abhishek Nagekar&#39;s Blog</title>
  <link href="https://www.nagekar.com/atom.xml" rel="self"/>
  <link href="https://www.nagekar.com"/>
- <updated>2016-11-20T16:09:07+05:30</updated>
+ <updated>2016-12-18T17:23:44+05:30</updated>
  <id>https://www.nagekar.com</id>
  <author>
    <name>Abhishek Nagekar</name>
    <email>abhishek@nagekar.com</email>
  </author>
 
+ 
+ <entry>
+   <title>BSNL 3G And Broadband Rant</title>
+   <link href="https://www.nagekar.com/2016/12/BSNL-3g-broadband-rant.html"/>
+   <updated>2016-12-18T00:00:00+05:30</updated>
+   <id>https://www.nagekar.com/2016/12/BSNL-3g-broadband-rant</id>
+   <content type="html">&lt;p&gt;
+	Aah. Ranting is never fun, but right now I&#39;m so very upset with BSNL &lt;i&gt;[bsnl.in or bsnl.co.in, not sure which one is it that they take seriously, but my guess is neither]&lt;/i&gt; that I&#39;ll do it anyway. 
+&lt;/p&gt;
+&lt;p&gt;
+    Background: I live in the rural parts of Thane in Maharashtra, and as a result, Internet connectivity is a nightmare. There aren&#39;t many private service providers here, and although wireless is fine, it is too much for me to afford. Plus, there aren&#39;t many providers that have plans in the order of hundreds of gigabytes, so 3G is a no no. Back in 2010, my Dad got us a broadband connection from BSNL. It was a 2Mb/s connection with 1GB of data transfer limit per month. The quality of the connection was crap, and frequent disconnections were part of my life, but having been promoted from the 2G connection that I had before this, it felt okay.
+&lt;/p&gt;
+&lt;p&gt;
+	Today, I&#39;m using an expensive 2Mb/s connection with unlimited data cap. The good thing about BSNL, unlike some of the private connection providers, is that it doesn&#39;t disconnect when there is a power outage, which happens all the time here during monsoon, thanks to the phone lines they use which are powered at source and run underground. Unfortunately, that is where the good things (thing, technically. Singular) about BSNL end. 
+&lt;/p&gt;
+&lt;h3&gt;&amp;lt;rant&amp;gt;&lt;/h3&gt;
+&lt;p&gt;
+	&lt;b&gt;BSNL Broadband&lt;/b&gt; To start with the broadband criticism, the connection is flaky. How flaky, you might ask. It takes me 2-3 tries before I manage to &#39;successfully&#39; downloading a mere 50MB file, that flaky. That has turned me towards torrents of files as small as 30MB, as then I don&#39;t have to care about the disconnections. Once every month, the Internet connection totally dies, and so does the landline, and the DSL line keeps blinking endlessly, which is when I have to go to their office, register a complaint and the next day they send a &#39;technician&#39; who replaces a few cables, &#39;charges&#39; me a 100 bucks and boom, I am blessed with Internet for 30 more days. For this pathetic service, I pay around Rs. 1400 a month, plus the &#39;technician charges&#39; &lt;i&gt;(or kharcha pani, if you like it desi)&lt;/i&gt;.
+&lt;/p&gt;
+&lt;p&gt;
+	And their office. It is a spot on example of a &#39;Government office&#39;. Sluggish staff, who when confronted would act as deaf for the first time, then a nod or if you&#39;re lucky &#39;hmm&#39; the next, at which point any self respecting person would back off and go home angrily, swearing at his own misfortune, but if you manage to gather the courage to ask an elaborate question next, get ready for some random bashing on why it isn&#39;t their job to listen to your problems and why you should have probably never asked the question in the first place. The area around their office feels more hostile than an enemy state. 
+&lt;/p&gt;
+&lt;p&gt;
+	Have you ever been to a sweet shop and saw the Rasgullas and Gulab Jamuns floating in thick sugary syrup there? That is exactly how these employees look like, wanting to carry on floating in that thick protective fluid of a Government job, forever. 
+&lt;/p&gt;
+&lt;h3&gt;BSNL 3G&lt;/h3&gt;
+&lt;p&gt;
+	It was a few months back that I got so fed up with their broadband services that I decided to go for their 3G services. Immediately you can sense that I&#39;m not a smart guy. I know, right? I bought a dongle worth some Rs. 1600, got a BSNL SIM card and recharged it for the Rs. 1099 unlimited plan. Smart. I would admit, it worked well when it did, but then, that was the problem, it hardly ever did. Call it greed, but I thought, anyway I&#39;m paying a lot on the Broadband, so why not invest the same for a much faster connection. Great plan, or so I thought. It was again, a nightmare. I&#39;ll explain why.
+&lt;/p&gt;
+&lt;p&gt;
+	So firstly, the BSNL 3G network had some kind of a personality. It used to disappear randomly, and you would start thinking of all the things you did recently that might have caused it to stall. A 3G dongle with 3G data plan and full network strength, still no data transfer. Why? Then, after having restarted the dongle for 10+ times, resetting it 2 times, trying 5 different places in the house and even the building terrace, and finally driving 8 kilometers to BSNL&#39;s office and trying it under their building to see if it works there, you decide to give up and ask for help.
+&lt;/p&gt;
+&lt;p&gt;
+	And I did. Into their office I sprang. I stood in front of the inquiry counter, but not very surprisingly, I wasn&#39;t asked if I wanted any help. Probably they think people visit their sacred office when they lack entertainment in life. Helplessly, I told the guy that my mobile Internet isn&#39;t connecting in spite of having credit and data balance. Guess what he replied. He said &#39;What office is this?&#39;. I replied, with a bit of a smile on my face now, &#39;BSNL&#39;. He annoyingly corrected, &#39;No. It is BSNL landline and broadband. If you have mobile problems, call the customer care&#39;. Of course, I should have known that. They just sell SIM cards in that large 3 storey building, not support or any of those non trivial tasks.
+&lt;/p&gt;
+&lt;p&gt;
+	So I went home, with much anger. My work had stopped, my 3 days were wasted, some Rs. 3000 spent on something I would&#39;ve never needed if the broadband had worked well, and now I am completely helpless, I thought. But wait. There is someone who always cares for you when you&#39;re lost, someone who will solve all your technical problems like a friend and follow up to ask if everything was okay. Yes, I&#39;m talking about customer care. So Google&#39;d and I found out their number. Called them up, and they did pick up my call. Yaay. 
+&lt;/p&gt;
+&lt;p&gt;
+	So I told him my problem, and he confidently replied &#39;Sir, we&#39;re having some problem in our network from the last 2 days. It should be working in a few hours. If not, please call back&#39;. I felt relieved. Not only did this guy knew what was wrong, but he even said &#39;Have a great day thank you for calling BSNL customer care&#39; at the end of the call. Dayam!
+&lt;/p&gt;
+&lt;p&gt;
+	So waiting for a few hours, and a few more, and a day more. Finally, since it didn&#39;t work out well, called them up again. This time, same confident tone, the lady said &#39;Sir your device isn&#39;t configured to use our services&#39; and instructed me to re-insert the SIM card, manually configure the access point and call back if I had any problem. Hmm, so this was the issue. Did the job, waited for a few hours, but nothing.
+&lt;/p&gt;
+&lt;p&gt;
+	Called them up again that evening, a guy picks up. Explained him the problem, and he replied &#39;Sir, your one month Internet pack has expired. Please recharge and it should be working&#39;. Okay, sounds fair, but wait a second. &#39;Hello there, my SIM card is 6 days old. How can a 28 day recharge expire in 5 days?!&#39;. The call drops, probably intentionally.
+&lt;/p&gt;
+&lt;p&gt;
+	Called them up again immediately. Somebody picks up. Told them the problem, &#39;Sir we are having a network outage. Please try again in a few hours&#39;. Okay, now I think I can play this game. Just to confirm my doubt, I called them up again within a few minutes, and the reply, unsurprisingly, was to &#39;re-insert the SIM, manually configure the Internet settings and try again&#39;. The best part was they were asking me to call back in case that didn&#39;t solve my problem.  
+&lt;/p&gt;
+&lt;p&gt;
+	Now that was funny, annoying, shameful and depressing at the same time. I could&#39;ve kept doing it all night, but unlike them, I had some real work to do. It is really an interesting strategy, if you think about it. Explaining the problem takes 3 minutes, and they give the solution in 20 seconds and ask you to call again if that doesn&#39;t solve your problem. Which you will, and after a while, you&#39;re doing it all over again. Great way to get work off your chest, right?  
+&lt;/p&gt;
+&lt;h3&gt;BSNL Hungama Scam&lt;/h3&gt;
+&lt;p&gt;
+	So one day, my dad receives a call. It was from some Hungama.com call center asking his email address. Not knowing what&#39;s going on, and thinking it was from BSNL (at least that is what they told my dad), my dad gave it, and the next month we find 3 new services that &#39;we subscribed to&#39; in our BSNL bill. They were some &#39;Movie on demand&#39;, &#39;Games on demand&#39; and &#39;Movies on demand&#39;, the total for which Rs. 450 were charged and added to the final bill, along with landline and broadband. I was surprised, and so was my Dad.
+&lt;/p&gt;
+&lt;p&gt;
+	Googled and immediately concluded that a lot of people had &lt;a href=&quot;https://www.google.co.in/search?q=bsnl+hungama&quot;&gt;fallen prey to this scam&lt;/a&gt;. Got their number, called them up and asked them to drop the services. The guy agreed. Next month, the charges recurred. This was simply unacceptable. But who could you complain to? Service center? No it isn&#39;t their job. Call center? They would cut your call half way through the conversation. Wrote an angry email to their customer care address.
+&lt;/p&gt;
+&lt;p&gt;
+	&lt;i&gt;
+		Hello,
+&lt;br&gt;&lt;br&gt;
+		Please unsubscribe my BSNL telephone number ***-****** from the scam that I was, against my intentions, made to subscribe to. I&#39;m being charged some 444 odd rupees for some crappy services that I, honestly, wouldn&#39;t even care to read the names of. 
+&lt;br&gt;&lt;br&gt;
+
+		I was earlier told that I&#39;ve been unsubscribed only to find out the charges still recurring. Maybe your incompetent call center folks aren&#39;t that quick with their actions.
+&lt;br&gt;&lt;br&gt;
+
+		Waiting for a confirmation from your side. 
+&lt;br&gt;&lt;br&gt;
+
+		Thank you,
+		Abhishek
+	&lt;/i&gt;
+&lt;/p&gt;
+&lt;p&gt;
+	And they did unsubscribe me, immediately. Wasn&#39;t that easy? 
+&lt;/p&gt;
+&lt;p&gt;
+	The BSNL office doesn&#39;t have ADSL modems of their own, but &#39;recommend&#39; buying it from a local store. They also &#39;recommend&#39; calling the same guy in case anyone has any technical difficulties with the Broadband. Turns out, their &#39;technicians&#39; are only good enough for replacing telephone cables.
+&lt;/p&gt;
+&lt;h3&gt;&amp;lt;/rant&amp;gt;&lt;/h3&gt;
+&lt;p&gt;
+	So maybe some of you can relate to this. Maybe some of you had similar experience in some other (Government?) sector offices. I really have given up on BSNL. I see them injecting ads into HTML of the pages I visit, ugly banner ads that come up telling me about the amazing unlimited 3G plans they have, unlimited broadband &#39;for as low as Rs. 249 which let&#39;s you download 300GB a month&#39;. They lie pretty well, don&#39;t they. So people reading this, if you have an option, stay away from BSNL. If not, stay strong. And in case anybody from BSNL reads this, man I had so much hopes from &#39;our own Indian&#39; telecom company. I wish you guys were sincere, for there was a time I used to argue with friends on why BSNL was superior, although it wasn&#39;t sincere even then. Hope you enjoyed the post. Feel free to leave a comment below to counter my views or in case you had better or even worse experiences. Thank you for reading.
+&lt;/p&gt;
+&lt;p&gt;
+	By the way, just when I was proof reading the article, this popped up!&lt;br/&gt;
+	&lt;center&gt;&lt;div style=&quot;border:1px solid black;&quot;&gt;&lt;img src=&quot;/assets/images/rant.png&quot;&gt;&lt;/div&gt;&lt;/center&gt;
+&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>A Visit To The Taj Mahal</title>
@@ -918,35 +1010,6 @@ Via:1.1 vegur
 &lt;p&gt;Its 4:52 and I am still writing. There are so many things that demand a mention. The Railway Police Guard standing confidently besides the still train is thinking about something. I wonder what that might be. The best thing about a railway platform is, it feels like a mini democracy. There are people from every section of the society, eating the same sandwich and drinking the same masala tea.&lt;/p&gt;
 
 &lt;p&gt;I think it is time for my second cup of tea as well. Thank you for being with me guys, have a great weekend. See you then.&lt;/p&gt;</content>
- </entry>
- 
- <entry>
-   <title>Yet Another Happy Year Passed</title>
-   <link href="https://www.nagekar.com/2015/12/Yet-Another-Happy-Year-Passed.html"/>
-   <updated>2015-12-31T00:00:00+05:30</updated>
-   <id>https://www.nagekar.com/2015/12/Yet-Another-Happy-Year-Passed</id>
-   <content type="html">&lt;p&gt;Howdy folks, first of all, wishing you a very happy new year. It has been a long year, in a purely poetic sense. Life went through some major ups and minor downs, but all in all, it was a great year. I would be summarizing few of the great moments that I remember in the following paragraphs.&lt;/p&gt;
-
-&lt;p&gt;The year started with a lot of confusion. I was going great with Python, but something felt missing. I missed C. I knew C was not the right thing for me, and C++ looked intimidating. I needed something that would back me well for the code competitions I participated in, so C++ or Java seemed to be the only way out. I choose C++, for it looked similar to things I already knew.&lt;/p&gt;
-
-&lt;p&gt;C++ was a great choice. I got going with it quite smoothly. I learnt the fairly advanced concepts in it, and implemented some algorithms and applications using it. But the results of the coding events I participated in didn&#39;t change much. I really sucked at them, sometimes unable to solve even 1 of the 8 problems given to be solved in the 8 to 24 hour time limit. Felt ashamed.&lt;/p&gt;
-
-&lt;p&gt;During march, we had our college technical festival, a.k.a. Technitude. All of a sudden, I and my mate Aditya found ourselves handling two of the technical events namely &#39;Code Wars&#39; and &#39;Debugging&#39;. The events were just what they sounded like and it went fairly well. I had never before been the responsible person for any such event in the past, and executing it successfully was something I was proud of. I even made great contacts with my seniors at the same time, who later became the people who guided my with many important decisions.&lt;/p&gt;
-
-&lt;p&gt;The Technitude was great, and tiresome. The committee members and we, the volunteers, worked hard to make it work. Things concluded with the afterparty, which sadly, I wasn&#39;t a part of. Anyways, things went pretty fast after the technitude. Fourth semester came and went in no time. I cleared it, marginally. C++ was still on, in the background. I bought &#39;The C++ Programming Language by Bjarne Stoustrop&#39; and started to read it.&lt;/p&gt;
-
-&lt;p&gt;In the post-semester holidays, there were a couple of other competitions, which I failed, yet again. The C++ learning wasn&#39;t helping me with the competitions as much as I expected. Probably because algorithms was what I lacked, and not a language.&lt;/p&gt;
-
-&lt;p&gt;Around in June, the startup fever took over. More than a startup, it was for refreshing my Python skills, learning a web framework called Django, and creating my first serious RESTful application. It took about a month for me to realize that a social networking backend was not really a one man business, at least not if I wanted to build it up in under a year. I deserted that ship, and started with another application along with my friend, this time entirely in Javascript. That was when the love for Javascript took over. I realized that after all these languages I have learnt, Javascript was something different. It required my to completely empty my brain of existing rules and guidelines, and start afresh. My love for Javascript will take up an &lt;a href=&quot;/2015/12/Love-For-Javascript.html&quot;&gt;entirely new article&lt;/a&gt;, so I am leaving it here.&lt;/p&gt;
-
-&lt;p&gt;In around late August or September, we had our committee elections. I was elected the Technical head, and then our committee went further to deliver an amazing Engineers&#39; day. Javascript and my new startup were in the making. Later, we got Rajashree in our team, who looked at the frontend and UI stuff. We got Nikhil, who joined the frontend team. Harshal, a budding lawyer, joined us later in November. We are five now, and while we don&#39;t work as consistently these days, we still call ourselves the Cherrylogs Dev Team, which is nice.&lt;/p&gt;
-
-&lt;p&gt;In the first week of October, I got the chance to develop the website of FabIndia&#39;s Cooltobeindian initiative. Although I and Rajashree did all that we could, they were not satisfied, and we did not get paid. Anyways, I will leave that for a &lt;a href=&quot;/2015/12/The-October-Dance-With-Cool-Indians.html&quot;&gt;separate article&lt;/a&gt; as well. That incident taught me a lot of things, especially to say &#39;No&#39;. Now, I am much comfortable in saying No to people and things that I know are not going to be worth the efforts. Result? I get much more time for things that actually make me happy, the ones that are worth it, the 20% that matters.&lt;/p&gt;
-
-&lt;p&gt;Then there were submissions, practicals and examinations. I got a Laptop in late October, which was generously given to me by Vijutai, my aunt and my mom. The post-semester holidays were spent on Javscript and Cherrylogs. I and &lt;a href=&quot;http://noobhole.com&quot; target=&quot;_blank&quot;&gt;Kunal&lt;/a&gt; did some work, but not a lot of it. On 23rd December, I left for Murdeshwar, Karnataka. An awesome place to spend a day or two. Then I came back to my native, Karwar, and now I am here writing this post, sitting in the hall room, thinking about the wonderful year that I have just passed.&lt;/p&gt;
-
-&lt;p&gt;Wish you all a very happy new year, yet again.&lt;/p&gt;
-</content>
  </entry>
  
  
