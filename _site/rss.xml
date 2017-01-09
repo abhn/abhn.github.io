@@ -5,10 +5,42 @@
         <description>Abhishek Nagekar&#39;s Blog - Abhishek Nagekar</description>
         <link>https://www.nagekar.com</link>
         <atom:link href="https://www.nagekar.com/rss.xml" rel="self" type="application/rss+xml" />
-        <lastBuildDate>Sun, 18 Dec 2016 17:23:44 +0530</lastBuildDate>
-        <pubDate>Sun, 18 Dec 2016 17:23:44 +0530</pubDate>
+        <lastBuildDate>Mon, 09 Jan 2017 20:46:07 +0530</lastBuildDate>
+        <pubDate>Mon, 09 Jan 2017 20:46:07 +0530</pubDate>
         <ttl>60</ttl>
 
+
+        <item>
+                <title>7th Semester And Then</title>
+                <description>&lt;b&gt;Important News!&lt;/b&gt;
+&lt;p&gt;
+	Today is probably one of the best days of my life. I got myself a new Internet connection and got rid of that old &lt;a href=&quot;https://www.nagekar.com/2016/12/BSNL-3g-broadband-rant.html&quot;&gt;BSNL broadband&lt;/a&gt;. 
+&lt;/p&gt;
+&lt;p&gt;
+	This one is from a private service provider called &#39;Speednet&#39;, and the connection is actually very &lt;i&gt;speedy&lt;/i&gt;. I am getting a latency of &amp;lt;10ms to most of my regularly visited sites (thank you, CDNs) which is nice, because BSNL used to do around 80-100. The transfer rates, which for me are more important than latency alone, hover around 20-25Mb/s which is at least 30 times of what BSNL gave at 3 times of the price, with no connection drops. And of course, no FUP. So finally, my connectivity crises come to an end, at least for now.
+	&lt;center&gt;&lt;a href=&quot;http://beta.speedtest.net/result/5950264247&quot;&gt;&lt;img src=&quot;http://speedtest.net/result/5950264247.png&quot;/&gt;&lt;/a&gt;&lt;/center&gt;
+&lt;/p&gt;
+&lt;hr/&gt;
+&lt;p&gt;
+	Let&#39;s get back to the topic. A very happy new year to all of you. 2016 was a great year. It made us smarter than what we were before, and hopefully 2017 would do the same. I remember updating the status &lt;i&gt;&#39;1/8th engineer already&#39;&lt;/i&gt; sometime three years back. Well today, I&#39;m 7/8th an engineer. If I clear all the subjects, of course.  
+&lt;/p&gt;
+&lt;p&gt;
+	This semester was less busy. I think too much work is bad for oneself, because in my case, it made me do nothing. That is the most important thing I&#39;ve learnt this semester. You cannot focus on 3 different things at a time, and expect your brain to switch contexts the moment you switch for Webstorm to Pycharm. Series always works better than Parallel for the mind, and although I had read it before, I got a first hand experience of the line. The takeaway here is, keep in mind there is a fine line between pushing your limits and overburdening yourself, where one brings out the best in you, the other takes away everything. Thanks, Dj.
+&lt;/p&gt;
+&lt;p&gt;
+	I have also decided to travel more. The trip to Delhi and Agra made one thing really clear, traveling does make one rich. It adds to the one&#39;s experience store and the benefits are not something you can completely describe in text. It is a feeling. The other thing is meeting new people and talking to them. Different people can give you different perspectives to a thing, and you can use it all the time to challenge your own beliefs. Expressing yourself is great, and the regrets that arise from it are far less troubling than those you get by not doing it. Definitely an important lesson I&#39;ve learnt in 2016.
+&lt;/p&gt;
+&lt;p&gt;
+	Also, this pretty girl became part of the family in October. We call her &#39;Zacky&#39; and I&#39;ll write about her in detail in another post. 
+	&lt;center&gt;&lt;img src=&quot;/assets/images/zacky.jpg&quot;&gt;&lt;/center&gt;
+&lt;/p&gt;
+&lt;p&gt;
+	So 2016 was filled with learnings, but of a different kind for nerds such as myself. I think this has come with age plus the amazing people I have around me. I hope you liked this post. As always, thank you for reading. 
+&lt;/p&gt;</description>
+                <link>https://www.nagekar.com/2017/01/7th-sem-and-then.html</link>
+                <guid>https://www.nagekar.com/2017/01/7th-sem-and-then</guid>
+                <pubDate>Mon, 09 Jan 2017 00:00:00 +0530</pubDate>
+        </item>
 
         <item>
                 <title>BSNL 3G And Broadband Rant</title>
@@ -982,32 +1014,6 @@ Via:1.1 vegur
                 <link>https://www.nagekar.com/2016/01/fastboot-horror.html</link>
                 <guid>https://www.nagekar.com/2016/01/fastboot-horror</guid>
                 <pubDate>Fri, 08 Jan 2016 00:00:00 +0530</pubDate>
-        </item>
-
-        <item>
-                <title>The Midnight Symphony</title>
-                <description>&lt;p&gt;Its 4:07am of 2nd January on my watch and I have started to feel a little sleepy, to be honest. I have been awake this long once before, and coincidently, it was on the same platform, in the same conditions, but for a different reason. This time, it is my train back home that got late. A bit too late.&lt;/p&gt;
-
-&lt;p&gt;I am not a night owl, just so that you know. Staying awake beyond 1am is a real deal for me, unlike most of my friends and maybe, you. &quot;Hey, but all computer people work at night. That&#39;s the rule.&quot;. Well, sorry. I am that black sheep. Its been around 7 hours since I arrived on Karwar platform. I had my train at 1:28 am, which was already too late in the first place. I hardly thought I would be able to make it till 1:30, but then, here I am.&lt;/p&gt;
-
-&lt;p&gt;You know something amazing? The Earth rotates. And just because of that, you can sit at a place facing east, and have a large portion of the night sky pass slowly right in front of you. Super cool it feels, to watch Venus rise, followed by half Moon and then the red Mars, all surrounded by hundreds of stars, twinkling, right in front of you. The station is far off any junction, and the silence of the night is occassionally disturbed by an ongoing express train, whose whistle you can hear right from when it is kilometers away. Can you imagine the silence. The cold.&lt;/p&gt;
-
-&lt;p&gt;I am hardly able to type with my fingers. It is really very cold. My CPUs are at 24 and 26 degree celsius respectively, which pretty much sums up the surrounding temperature. I am wearing my napkin as a mask on my face with my hoodie on my head, to prevent my ears and nose from getting so cold that I fear touching them, seriously. In fact, when I wore the napkin on my face, my nose started to kinda defrost. Shit. That is bad. The soft breeze that comes in once in a while adds to the bone crackling cold. I had tea at 2, and the vapors that came out of the cup felt nice on my cheeks. Warm and real good.&lt;/p&gt;
-
-&lt;p&gt;I sometimes wonder, does every stomach makes dinosaur sounds when hungry? Mine does, and to avoid the public embarassment, I grabed some chips from a nearby 24/7 food stall on one side of the platform. Untill 12, I was constantly checking my phone for the live status of the train, covering myself with a sheet of cloth my mom caringly gave to me, trying to accommodate my back on the little wooden bench on the platform, but then I thought to use this rare moment on the platform to make a little note.&lt;/p&gt;
-
-&lt;p&gt;The Garibrath Express is just leaving the platform. I am a bit attracted to these fully airconditioned express trains. I want to travel in one too. Look at how magnificiant this one looks, damn! There are some 50 passengers with us on the platform, but what is really worth watching is the night station staff. They are functioning quietly, like an army of ants working without anybody  noticing. I just came to know some of their everyday post-mid-night tasks. The respect rose several folds. While we sleep peacefully in the midst of the night inside the cozy compartment of our couch in the Express train, these are the people who make sure the sleep isn&#39;t interrupted, and boy they are working real good.&lt;/p&gt;
-
-&lt;p&gt;I am glad I had Misty here with me this time. Last time on this platform, I didn&#39;t have her. I might have experienced an amazing night, but I don&#39;t have any record of that 3 year old event. The trees infront of me some 50 yards away are so quiet, you can actually see their eyes closed. It is a dense forest on the other side, with nothing for kilometers except these trees.&lt;/p&gt;
-
-&lt;p&gt;The clock on the platform is the one used by railways around a decade ago, those black and white analog ones. When I was a kid, I always asked Mom why didn&#39;t the platform watch have a seconds hand. I generally don&#39;t ask such questions these days, but I get reminded of them whenever I see those pretty objects. The amazing thing about night is that people become very easy to talk to. Everyone here is going through the same mindset, and exploiting that common linkage to explore the other uncommon corners of human nature is interesting. The station master here is friendly too. He lets me look at his console which has little LED indicator lights that show incoming and outgoing traffic. His alarm bell rings when any train is incoming and he clears the route for it on his console. Pretty neat. His dot matrix printer is making some sound, similar to the one we have in our college labs, but this one here sounds sweeter. Maybe it&#39;s just me. Master also flashes green lights to trains indicating everything is alright. It feels weird to see this human interaction, inspite of the rest of the stuff computerized. The smile that the guard of the passing train gives is yet another treat. Another train is arriving. Can you hear the tracks making that typical squeaking sound. I am yet to find out what that actually is. But that&#39;s the magic of it.&lt;/p&gt;
-
-&lt;p&gt;Its 4:52 and I am still writing. There are so many things that demand a mention. The Railway Police Guard standing confidently besides the still train is thinking about something. I wonder what that might be. The best thing about a railway platform is, it feels like a mini democracy. There are people from every section of the society, eating the same sandwich and drinking the same masala tea.&lt;/p&gt;
-
-&lt;p&gt;I think it is time for my second cup of tea as well. Thank you for being with me guys, have a great weekend. See you then.&lt;/p&gt;</description>
-                <link>https://www.nagekar.com/2016/01/The-Midnight-Symphony.html</link>
-                <guid>https://www.nagekar.com/2016/01/The-Midnight-Symphony</guid>
-                <pubDate>Sat, 02 Jan 2016 00:00:00 +0530</pubDate>
         </item>
 
 
