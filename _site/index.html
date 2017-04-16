@@ -1,630 +1,669 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
-  <head>
+<head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
-  <!-- Enable responsiveness on mobile devices-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <title>
-    
-      Sometimes, I write.. &middot; Abhishek Nagekar's Blog
-    
-  </title>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="/public/css/poole.css">
-  <link rel="stylesheet" href="/public/css/syntax.css">
-  <link rel="stylesheet" href="/public/css/lanyon.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
+  <link rel="stylesheet" href="/public/css/normalize.css"/>
+  <link rel="stylesheet" href="/public/css/bulma.css"/>
+  <link rel="stylesheet" href="/public/css/custom.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
 
   <!-- Icons -->
   <link rel="shortcut icon" href="/assets/images/favicon.ico">
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <title>
+    
+      Well, Hello There! &middot; Abhishek Nagekar's Blog
+    
+  </title>
+
 </head>
 
 
-  <body>
+<body>
 
-    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
-     styles, `#sidebar-checkbox` for behavior. -->
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
-
-
-
-<!-- Toggleable sidebar -->
-<div class="sidebar" id="sidebar">
-
-    <div class="sidebar-item">
-        <img src="/assets/images/me.jpg" />
-        <p>One of them is me.</p>
+<section class="hero is-dark">
+  <div class="hero-body">
+    <div class="container">
+        <h1 class="title">
+          <span class="typewrite" data-period="2000" data-type='[ "hello", "namaste", "assalam o alaikum",
+          "sat srī akāl", "khammaghani", "hola", "bonjour", "nomoskaar", "guten tag", "kumusta", "salut", "nômoshkar"]'>
+            <span class="wrap"></span>
+          </span>
+        </h1>
+      <h4 class="subtitle" id="quote">
+      </h4>
     </div>
-
-
-  <nav class="sidebar-nav">
-    
-
-    
-    
-      
-        
-          <a class="sidebar-nav-item active" href="/">Sometimes, I write..</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/archive">Archive</a>
-        
-      
-    
-      
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/meta">Meta</a>
-        
-      
-    
-      
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/search">Search This Blog</a>
-        
-      
-    
-      
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/tags">Tags</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/wish">Wish List</a>
-        
-      
-    
-    <a class="sidebar-nav-item" href="https://github.com/abhn">My GitHub</a>
-    <a class="sidebar-nav-item" href="/search">Search This Blog</a>
-    <a class="sidebar-nav-item" onclick="window.open('https://feedburner.google.com/fb/a/mailverify?uri=AbhishekN', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true" target="popupwindow" href="https://feedburner.google.com/fb/a/mailverify?uri=AbhishekN">Email Subscription</a>
-    
-    
-  </nav>
-
-  <div class="sidebar-item">
-    <p>
-      Abhishek Nagekar &copy; 2017
-    <br>
-      <small>Some Rights Reserved</small>
-    </p>
   </div>
-</div>
+</section>
+
+<div class="main-container">
+  <div class="tile is-ancestor is-vertical">
 
 
-    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
-         content to avoid any CSS collisions with our real content. -->
-    <div class="wrap">
-      <div class="masthead">
-        <div class="container">
-          <h3 class="masthead-title">
-            <a href="/" title="Home">Abhishek Nagekar's Blog</a>
-            <small>Code, Science, Philosophy, Humor</small>
-          </h3>
+    <nav class="nav has-shadow">
+
+      <div class="nav-left">
+
+        <a href="/" class="nav-item">
+          <span class="icon">
+            <i class="fa fa-home" aria-hidden="true" title="Homepage"></i>
+          </span>
+        </a>
+
+        <a href="https://github.com/abhn" class="nav-item">
+          <span class="icon">
+            <i class="fa fa-github" aria-hidden="true" title="Github"></i>
+          </span>
+        </a>
+
+        <div class="nav-item" id="searchFieldNav">
+          <div class="field has-addons">
+            <p class="control">
+              <input class="input is-small" type="text" placeholder="Find an article" id="search-text">
+            </p>
+            <p class="control">
+              <a class="button is-dark is-small" onclick="searchHandler();">
+                Search
+              </a>
+            </p>
+          </div>
         </div>
-      </div>
-      <div class="container content">
-        <div id="head-quote"></div>
-        <div class="page">
-  <h1 class="page-title">Sometimes, I write..</h1>
-  
-<h3 id="essays">Essays</h3>
 
-<ul class="posts">
-  
-    <li>
+      </div>
+
+      <div class="nav-right nav-menu" id='nav-menu'>
+        <a href="https://www.nagekar.com/meta" class="nav-item">Meta</a>
+        <a href="https://www.nagekar.com/archive" class="nav-item">Archive</a>
+        <a href="https://www.nagekar.com/tags" class="nav-item">Tags</a>
+      </div>
+
+      <span class="nav-toggle" id="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+      </span>
+    </nav>
+
+    <div class="tile is-parent">
+      <div class="tile is-8 is-child main">
+
+        <div class="box">
+    <h1 class="post-title">Well, Hello There!</h1>
+    <hr/>
+    <div class="content"><span class="post-text"><ul class="posts">
+    
+    <li class="post">
         <small>21 Feb 2017</small>
         <small><a style="color:grey" href="/2017/02/trip-to-bramhatal-uttarakhand.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2017/02/trip-to-bramhatal-uttarakhand.html">Trek To Bramhatal (Uttarakhand)</a>
+        <br>
+        <a class="nice-title" href="/2017/02/trip-to-bramhatal-uttarakhand.html">Trek To Bramhatal (Uttarakhand)</a>
+        <p class="nice-text">Hello! It has been more than a month since I shared something here. Although there has not been much, I'd like to share my experiences of the trip I went on last month. It was one of those trips that I'd remember for a very long time. Since our first... <a href="/2017/02/trip-to-bramhatal-uttarakhand.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>09 Jan 2017</small>
         <small><a style="color:grey" href="/2017/01/7th-sem-and-then.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2017/01/7th-sem-and-then.html">7th Semester And Then</a>
+        <br>
+        <a class="nice-title" href="/2017/01/7th-sem-and-then.html">7th Semester And Then</a>
+        <p class="nice-text">Important News! Today is probably one of the best days of my life. I got myself a new Internet connection and got rid of that old BSNL broadband. This one is from a private service provider called 'Speednet', and the connection is actually very speedy. I am getting a latency... <a href="/2017/01/7th-sem-and-then.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>18 Dec 2016</small>
         <small><a style="color:grey" href="/2016/12/BSNL-3g-broadband-rant.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2016/12/BSNL-3g-broadband-rant.html">BSNL 3G And Broadband Rant</a>
+        <br>
+        <a class="nice-title" href="/2016/12/BSNL-3g-broadband-rant.html">BSNL 3G And Broadband Rant</a>
+        <p class="nice-text">Aah. Ranting is never fun, but right now I'm so very upset with BSNL [bsnl.in or bsnl.co.in, not sure which one is it that they take seriously, but my guess is neither] that I'll do it anyway. Background: I live in the rural parts of Thane in Maharashtra, and as... <a href="/2016/12/BSNL-3g-broadband-rant.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>20 Nov 2016</small>
         <small><a style="color:grey" href="/2016/11/a-visit-to-the-taj-mahal.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2016/11/a-visit-to-the-taj-mahal.html">A Visit To The Taj Mahal</a>
+        <br>
+        <a class="nice-title" href="/2016/11/a-visit-to-the-taj-mahal.html">A Visit To The Taj Mahal</a>
+        <p class="nice-text">So in the last week of July, 23rd, on a Saturday, I was wondering what should be done tomorrow, Sunday that is. It was going to be my last weekend in Delhi, and I wanted to make it memorable. I had the option to spend the evening with my colleague,... <a href="/2016/11/a-visit-to-the-taj-mahal.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>14 Oct 2016</small>
         <small><a style="color:grey" href="/2016/10/why-no-masters-for-now.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2016/10/why-no-masters-for-now.html">Dropping The Master Plan</a>
+        <br>
+        <a class="nice-title" href="/2016/10/why-no-masters-for-now.html">Dropping The Master Plan</a>
+        <p class="nice-text">Back when I was in my first and second year of engineering, I was very optimistic about my future. I liked the idea of starting my own venture, and I really believed that by the end of my graduation, I'll have something that would sustain me without having to look... <a href="/2016/10/why-no-masters-for-now.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>09 Sep 2016</small>
         <small><a style="color:grey" href="/2016/09/fun-with-infrared-motion-sensor.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2016/09/fun-with-infrared-motion-sensor.html">Fun With Infrared Motion Sensor</a>
+        <br>
+        <a class="nice-title" href="/2016/09/fun-with-infrared-motion-sensor.html">Fun With Infrared Motion Sensor</a>
+        <p class="nice-text">Very few of the projects I've done actually had any real life purpose. The rest were just Can I do it? projects. Here's one more to that little list. So last year, the fan switch in my room changed its position, from the spot where it was in a one... <a href="/2016/09/fun-with-infrared-motion-sensor.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>15 Aug 2016</small>
         <small><a style="color:grey" href="/2016/08/college-vs-startup.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2016/08/college-vs-startup.html">College Vs Startup - Working On Projects</a>
+        <br>
+        <a class="nice-title" href="/2016/08/college-vs-startup.html">College Vs Startup - Working On Projects</a>
+        <p class="nice-text">First of all, wishing all you fellow Indians a very happy 70th Independence Day. This day is very dear to the hearts of us Indians, and although I enjoy watching the Republic Day parade more, I certainly enjoy seeing the beautiful tricolors all around the place. I was asked to... <a href="/2016/08/college-vs-startup.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>25 Jul 2016</small>
         <small><a style="color:grey" href="/2016/07/the-project-lumos-experience.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2016/07/the-project-lumos-experience.html">The Project Lumos Experience</a>
+        <br>
+        <a class="nice-title" href="/2016/07/the-project-lumos-experience.html">The Project Lumos Experience</a>
+        <p class="nice-text">This thing started about a year ago, and I didn't write about it because I haven't thought about it, or probably didn't think it was that significant part of me. But today, when I look back, it probably was the best thing I ever did. Let us go back and... <a href="/2016/07/the-project-lumos-experience.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>30 Jun 2016</small>
         <small><a style="color:grey" href="/2016/06/sixth-semester-and-then.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2016/06/sixth-semester-and-then.html">Sixth Semester And Then</a>
+        <br>
+        <a class="nice-title" href="/2016/06/sixth-semester-and-then.html">Sixth Semester And Then</a>
+        <p class="nice-text">I intended to write this long ago, at least a month ago. But then, I am doing it now. Even now, to be honest, I am writing this to just to save my per-month-an-article-streak. So here I am, sixth semester and then. Semester 6, especially the end of it was... <a href="/2016/06/sixth-semester-and-then.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>03 May 2016</small>
         <small><a style="color:grey" href="/2016/05/_generic-in-C.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2016/05/_generic-in-C.html">_Generic in C And Generic LinkedList Implementation</a>
+        <br>
+        <a class="nice-title" href="/2016/05/_generic-in-C.html">_Generic in C And Generic LinkedList Implementation</a>
+        <p class="nice-text">Tada! Finally a non-Javascript post for those of you who stopped visiting my blog because of my sick Js addiction. So my lost friend Aditya is back, and while talking to him, I got to read a piece of code that he wrote when we were in third semester, last... <a href="/2016/05/_generic-in-C.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>28 Apr 2016</small>
         <small><a style="color:grey" href="/2016/04/being-stupid.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2016/04/being-stupid.html">Being Stupid</a>
+        <br>
+        <a class="nice-title" href="/2016/04/being-stupid.html">Being Stupid</a>
+        <p class="nice-text">So my struggle with long distance trains doesn't seem to stop. This time, just like the last time, my train got late. By 30 days. And I am to be blamed for it. Like Will Smith says in 'The Persuit Of Happiness', 'this part of my life is called being... <a href="/2016/04/being-stupid.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>17 Apr 2016</small>
         <small><a style="color:grey" href="/2016/04/googling-life.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2016/04/googling-life.html">Googling And Asking Better Questions</a>
+        <br>
+        <a class="nice-title" href="/2016/04/googling-life.html">Googling And Asking Better Questions</a>
+        <p class="nice-text">Like many of the things you do in your lives, Googling is an art. Getting to the right page that you were looking for, with the right set keywords and clicking the right links, all this seems to be quite random and uncertain, but once you get into the groove,... <a href="/2016/04/googling-life.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>15 Apr 2016</small>
         <small><a style="color:grey" href="/2016/04/websockets.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2016/04/websockets.html">WebSockets</a>
+        <br>
+        <a class="nice-title" href="/2016/04/websockets.html">WebSockets</a>
+        <p class="nice-text">If you're like me, then you must have gone nuts on hearing about WebSockets for the first time. We now have a totally independent protocol that will not terminate connection after a request-response cycle, which means all hacks to keep a persistent connection from the browser (long polling, I'm looking... <a href="/2016/04/websockets.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>12 Apr 2016</small>
         <small><a style="color:grey" href="/2016/04/event-driven-programming.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2016/04/event-driven-programming.html">Event Driven Programming</a>
+        <br>
+        <a class="nice-title" href="/2016/04/event-driven-programming.html">Event Driven Programming</a>
+        <p class="nice-text">I remember starting to learn Javascript. It was all a nightmare. Functions used to execute out of order and seemed very random. There was chaos all around, and I was usually left wondering, 'what is the order of execution here?'. Of course, that question never got answered, because that wasn't... <a href="/2016/04/event-driven-programming.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>26 Mar 2016</small>
         <small><a style="color:grey" href="/2016/03/gentoo-experience.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2016/03/gentoo-experience.html">Gentoo Experience</a>
+        <br>
+        <a class="nice-title" href="/2016/03/gentoo-experience.html">Gentoo Experience</a>
+        <p class="nice-text">I started using GNU/Linux full time sometime in 2011. Before that, it was all tiny bits here and there, virtualbox and stuff like that. But then, I finally made my mind to replace the Windows based OS that I was running for Linux. Trust me, it was a very scary... <a href="/2016/03/gentoo-experience.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>03 Mar 2016</small>
         <small><a style="color:grey" href="/2016/03/going-full-stack-on-mobile.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2016/03/going-full-stack-on-mobile.html">Going Full Stack On Mobile</a>
+        <br>
+        <a class="nice-title" href="/2016/03/going-full-stack-on-mobile.html">Going Full Stack On Mobile</a>
+        <p class="nice-text">I have been a part of numerous web projects, and after these many applications using multiple languages and frameworks, when my friend Kunal suggested that we should develop an Android application that would make use of a backend and stuff like that, I couldn't help but desperately show my excitement.... <a href="/2016/03/going-full-stack-on-mobile.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>11 Feb 2016</small>
         <small><a style="color:grey" href="/2016/02/callbacks-eventloop-in-javascript-explained.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2016/02/callbacks-eventloop-in-javascript-explained.html">Callbacks And Event Loop Explained</a>
+        <br>
+        <a class="nice-title" href="/2016/02/callbacks-eventloop-in-javascript-explained.html">Callbacks And Event Loop Explained</a>
+        <p class="nice-text">Callbacks are the things that make writing Javascript fun. If you think you are better off writing Javascript the way you wrote C and Java, then you are not really feeling the essence of this beautiful language. I found it rather hard to get used to this style of programming,... <a href="/2016/02/callbacks-eventloop-in-javascript-explained.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>05 Feb 2016</small>
         <small><a style="color:grey" href="/2016/02/Ajax-Loading.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2016/02/Ajax-Loading.html">AJAX Loading</a>
+        <br>
+        <a class="nice-title" href="/2016/02/Ajax-Loading.html">AJAX Loading</a>
+        <p class="nice-text">Edit: The section below this has some major issues, that I only found out after pushing into github. Read edit section. I always admired the sites which did not reload upon clicking links here and there, but simple gave me whatever I requested for, with grace. Sites like Facebook, Twitter... <a href="/2016/02/Ajax-Loading.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>15 Jan 2016</small>
         <small><a style="color:grey" href="/2016/01/exchanging-chikoos-for-friends.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2016/01/exchanging-chikoos-for-friends.html">Exchanging Chikoos For Friends</a>
+        <br>
+        <a class="nice-title" href="/2016/01/exchanging-chikoos-for-friends.html">Exchanging Chikoos For Friends</a>
+        <p class="nice-text">Traveling to college everyday, in a train compartment, sitting on the same seat for about an hour, your entire attention is on your phone of course. Yes, it was surely enjoyable in the early days, but after a while, you don't get to see anything unusual most of the times.... <a href="/2016/01/exchanging-chikoos-for-friends.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>11 Jan 2016</small>
         <small><a style="color:grey" href="/2016/01/how-to-private-local-cloud-using-raspberrypi.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2016/01/how-to-private-local-cloud-using-raspberrypi.html">Private Local Cloud Storage Using Raspberrypi - How To</a>
+        <br>
+        <a class="nice-title" href="/2016/01/how-to-private-local-cloud-using-raspberrypi.html">Private Local Cloud Storage Using Raspberrypi - How To</a>
+        <p class="nice-text">Today we'll see how you can home brew a cloud (in the local sense) storage solution that would be free to use, quite faster than an Internet based one, secure enough from any outside the network intrusion and customizable. But why do you need to go to such lengths when... <a href="/2016/01/how-to-private-local-cloud-using-raspberrypi.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>08 Jan 2016</small>
         <small><a style="color:grey" href="/2016/01/fastboot-horror.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2016/01/fastboot-horror.html">Fastboot Horror</a>
+        <br>
+        <a class="nice-title" href="/2016/01/fastboot-horror.html">Fastboot Horror</a>
+        <p class="nice-text">This was the second day entirely wasted to get my external hard drive to work with the USB 3 ports on my laptop. It just refused to get detected. It worked fine on the USB 2 port, but just didn't read on the 3. Initially thought it was a Thunar... <a href="/2016/01/fastboot-horror.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>02 Jan 2016</small>
         <small><a style="color:grey" href="/2016/01/The-Midnight-Symphony.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2016/01/The-Midnight-Symphony.html">The Midnight Symphony</a>
+        <br>
+        <a class="nice-title" href="/2016/01/The-Midnight-Symphony.html">The Midnight Symphony</a>
+        <p class="nice-text">Its 4:07am of 2nd January on my watch and I have started to feel a little sleepy, to be honest. I have been awake this long once before, and coincidently, it was on the same platform, in the same conditions, but for a different reason. This time, it is my... <a href="/2016/01/The-Midnight-Symphony.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>31 Dec 2015</small>
         <small><a style="color:grey" href="/2015/12/Yet-Another-Happy-Year-Passed.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/12/Yet-Another-Happy-Year-Passed.html">Yet Another Happy Year Passed</a>
+        <br>
+        <a class="nice-title" href="/2015/12/Yet-Another-Happy-Year-Passed.html">Yet Another Happy Year Passed</a>
+        <p class="nice-text">Howdy folks, first of all, wishing you a very happy new year. It has been a long year, in a purely poetic sense. Life went through some major ups and minor downs, but all in all, it was a great year. I would be summarizing few of the great moments... <a href="/2015/12/Yet-Another-Happy-Year-Passed.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>30 Dec 2015</small>
         <small><a style="color:grey" href="/2015/12/The-October-Dance-With-Cool-Indians.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/12/The-October-Dance-With-Cool-Indians.html">The October Dance With Some Cool Indians</a>
+        <br>
+        <a class="nice-title" href="/2015/12/The-October-Dance-With-Cool-Indians.html">The October Dance With Some Cool Indians</a>
+        <p class="nice-text">I really took long to write this story. I didn't feel like it was anything worth the time or the efforts to write one. But I really felt something recently. I got called up by a passed out senior from my college. He wanted me to work on a project... <a href="/2015/12/The-October-Dance-With-Cool-Indians.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>30 Dec 2015</small>
         <small><a style="color:grey" href="/2015/12/Love-For-Javascript.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/12/Love-For-Javascript.html">Love For Javascript</a>
+        <br>
+        <a class="nice-title" href="/2015/12/Love-For-Javascript.html">Love For Javascript</a>
+        <p class="nice-text">When it comes to choosing a programming language, I am an **. I have to admit that. Nevertheless, let's talk about my new love, Javascript. When I first saw Javascript, it looked like a great language for client side scripting. Yes, a wonderful toy in the delicate hands of an... <a href="/2015/12/Love-For-Javascript.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>17 Dec 2015</small>
         <small><a style="color:grey" href="/2015/12/bug-bounty-dance.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/12/bug-bounty-dance.html">The Bug Bounty Dance</a>
+        <br>
+        <a class="nice-title" href="/2015/12/bug-bounty-dance.html">The Bug Bounty Dance</a>
+        <p class="nice-text">Starting with the update, I finally made myself some money with my first ever bug bounty. It was a simple logical flaw that was rewarded. I was, of course, very happy. I had dinner with my parents in a good restaurant, bought a backpack for my new laptop computer, kept... <a href="/2015/12/bug-bounty-dance.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>02 Dec 2015</small>
         <small><a style="color:grey" href="/2015/12/vim-cheatsheet.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/12/vim-cheatsheet.html">Vim Cheatsheet</a>
+        <br>
+        <a class="nice-title" href="/2015/12/vim-cheatsheet.html">Vim Cheatsheet</a>
+        <p class="nice-text">Started using vi, although the only reason is it being light weight [I am taking a leap of faith, hoping that it will increase my speed after some practice, as most vi gurus say]. Let me first admit it. Vi feels awful in the beginning. It is really intimidating, and... <a href="/2015/12/vim-cheatsheet.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>25 Nov 2015</small>
         <small><a style="color:grey" href="/2015/11/Fujitsu-Lifebook-A514-Review.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/11/Fujitsu-Lifebook-A514-Review.html">Fujitsu Lifebook A514 Review</a>
+        <br>
+        <a class="nice-title" href="/2015/11/Fujitsu-Lifebook-A514-Review.html">Fujitsu Lifebook A514 Review</a>
+        <p class="nice-text">Hey guys, I bought the Fujitsu Lifebook A514*. I had a strict low budget of INR 20k and I had to squeeze the most out of that. I don't play games, nor do I watch movies and hence I could cut on the graphics card and hard disk space. A... <a href="/2015/11/Fujitsu-Lifebook-A514-Review.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>07 Nov 2015</small>
         <small><a style="color:grey" href="/2015/11/Guide-Passport-Application-India.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/11/Guide-Passport-Application-India.html">Guide To Online Passport Application In India</a>
+        <br>
+        <a class="nice-title" href="/2015/11/Guide-Passport-Application-India.html">Guide To Online Passport Application In India</a>
+        <p class="nice-text">If you read my recent posts, you know I went to the passport office for the purpose of document verification. It went as smooth as it could, but before all this, before submitting the form, I didn't have the slightest clue what all I had to do, and I learnt... <a href="/2015/11/Guide-Passport-Application-India.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>03 Nov 2015</small>
         <small><a style="color:grey" href="/2015/11/Passport-Office.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/11/Passport-Office.html">Passport Office</a>
+        <br>
+        <a class="nice-title" href="/2015/11/Passport-Office.html">Passport Office</a>
+        <p class="nice-text">Today, I had an appointment at the passport office for document verification at 10.30 in the morning. To be honest, I was worried, not because I had any problem in any of the documents, but because the thought of visiting a government office makes me nauseatic. Have you ever visited... <a href="/2015/11/Passport-Office.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>09 Oct 2015</small>
         <small><a style="color:grey" href="/2015/10/CSS-Crash-Course.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/10/CSS-Crash-Course.html">CSS Crash Course</a>
+        <br>
+        <a class="nice-title" href="/2015/10/CSS-Crash-Course.html">CSS Crash Course</a>
+        <p class="nice-text">I have a friend, who happens to be a good C and assembly programmer, but simply hates anything related to web, then be it HTML, CSS or anything way too much abstracted for that matter. Since it was compulsory for us to make our own web application project for college,... <a href="/2015/10/CSS-Crash-Course.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>29 Sep 2015</small>
         <small><a style="color:grey" href="/2015/09/Birthday-Week.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/09/Birthday-Week.html">Birthday Week</a>
+        <br>
+        <a class="nice-title" href="/2015/09/Birthday-Week.html">Birthday Week</a>
+        <p class="nice-text">Here it comes, finally, my birthday. Not that it is something new this time, but surely one of the special ones because I passed another decade here on Earth. Last time this happened, I didn't realize how important it was, maybe because I was just 10 back then. But this... <a href="/2015/09/Birthday-Week.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>15 Sep 2015</small>
         <small><a style="color:grey" href="/2015/09/You-Are-Insignificant.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/09/You-Are-Insignificant.html">You Are Insignificant</a>
+        <br>
+        <a class="nice-title" href="/2015/09/You-Are-Insignificant.html">You Are Insignificant</a>
+        <p class="nice-text">I have a lot to write at this point, so much that I am not even sure where to start. Humans are such wonderful creatures, we make things happen, world spin, or at least believe it to be that way. We have a self-imagined feeling of superiority. We are desperate... <a href="/2015/09/You-Are-Insignificant.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>13 Aug 2015</small>
         <small><a style="color:grey" href="/2015/08/Need-For-An-Alternate-Social-Network.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/08/Need-For-An-Alternate-Social-Network.html">Need For An Alternate Social Network</a>
+        <br>
+        <a class="nice-title" href="/2015/08/Need-For-An-Alternate-Social-Network.html">Need For An Alternate Social Network</a>
+        <p class="nice-text">About a week or so ago, we were asked to choose our 'web-technologies' project, that would be among a group of two or three, and to be completed within the course of the semester. After forming team with two of my buddies at the college, we started to discuss about... <a href="/2015/08/Need-For-An-Alternate-Social-Network.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>04 Aug 2015</small>
         <small><a style="color:grey" href="/2015/08/4th-sem-exams-and-later.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/08/4th-sem-exams-and-later.html">4th Semester And Then</a>
+        <br>
+        <a class="nice-title" href="/2015/08/4th-sem-exams-and-later.html">4th Semester And Then</a>
+        <p class="nice-text">It was in June that I appeared for my 4th semester exam (we have 8 in all, 2 each year). That makes me one half of an engineer, as far as the certification thing is concerned. Apart from that, I would not consider myself anywhere near to what standards I... <a href="/2015/08/4th-sem-exams-and-later.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>11 Jul 2015</small>
         <small><a style="color:grey" href="/2015/07/Social-Share-Counts-Python-Implementation.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/07/Social-Share-Counts-Python-Implementation.html">Social Share Counts Python Implementation</a>
+        <br>
+        <a class="nice-title" href="/2015/07/Social-Share-Counts-Python-Implementation.html">Social Share Counts Python Implementation</a>
+        <p class="nice-text">I wrote this little script that grabs the count of shares on popular social networks, using their APIs. I have listed the documentation on the project page on Github. I will copy the relevant pieces of readme here. Social Network APIs Facebook Request: https://graph.facebook.com/?id=https://www.github.com Response: json { "id": "http://www.github.com", "shares":... <a href="/2015/07/Social-Share-Counts-Python-Implementation.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>08 Jul 2015</small>
         <small><a style="color:grey" href="/2015/07/First-Anniversary-Of-My-Blog.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/07/First-Anniversary-Of-My-Blog.html">First Anniversary Of My Blog</a>
+        <br>
+        <a class="nice-title" href="/2015/07/First-Anniversary-Of-My-Blog.html">First Anniversary Of My Blog</a>
+        <p class="nice-text">Last month, I was reminded by Bigrock.in about the pending renewal of nagekar.com. It was through an email. I had completely forgotten the date of registering the site and it came in as a handy reminder. 6th of June it was, in 2014. I had an affinity towards blogs and... <a href="/2015/07/First-Anniversary-Of-My-Blog.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>05 Jul 2015</small>
         <small><a style="color:grey" href="/2015/07/blog-moved-to-github.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/07/blog-moved-to-github.html">Blog Moved To Github</a>
+        <br>
+        <a class="nice-title" href="/2015/07/blog-moved-to-github.html">Blog Moved To Github</a>
+        <p class="nice-text">Take a look around. Everything's changed. Yet again. I am sure you're probably sick of me changing the total appearance of this blog every 3 months or so, and you're right in being so. Let's go back into a little history. Around a year from now, I stumbled across Ghost... <a href="/2015/07/blog-moved-to-github.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>03 Jul 2015</small>
         <small><a style="color:grey" href="/2015/07/love-for-graphical-user-interface.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/07/love-for-graphical-user-interface.html">Love For Graphical User Interface</a>
+        <br>
+        <a class="nice-title" href="/2015/07/love-for-graphical-user-interface.html">Love For Graphical User Interface</a>
+        <p class="nice-text">I considered myself a 'programmer'. One who can make stuff happen, put it on paper, my thoughts and use it as a framework to create working stuff in the digital world. As any programmer, I learnt to write command line programs first. What are command line programs, you'd ask. Well,... <a href="/2015/07/love-for-graphical-user-interface.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>15 Jun 2015</small>
         <small><a style="color:grey" href="/2015/06/creating-custom-blogger-template-from.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/06/creating-custom-blogger-template-from.html">Creating Custom Blogger Template From Scratch</a>
+        <br>
+        <a class="nice-title" href="/2015/06/creating-custom-blogger-template-from.html">Creating Custom Blogger Template From Scratch</a>
+        <p class="nice-text">Although when I started with it, I hardly knew anything about a blogger template, but it turned out, designing a blogger template is easier than designing a HTML template. Just a few basic concepts and you are good to go.Firstly, before digging into the template code, we will look at... <a href="/2015/06/creating-custom-blogger-template-from.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>13 Jun 2015</small>
         <small><a style="color:grey" href="/2015/06/techmax-publications-plagiarism-check.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/06/techmax-publications-plagiarism-check.html">TechMax Publications - Plagiarism Check</a>
+        <br>
+        <a class="nice-title" href="/2015/06/techmax-publications-plagiarism-check.html">TechMax Publications - Plagiarism Check</a>
+        <p class="nice-text">I study for my finals from various sources, the Internet, class notes and some reference books. This time though, I had this Computer Graphics, by Sanjesh Pawale, Techmax Publications. The books from this publishing house are everything what a Mumbai University guy needs to study for exam. Well, not exactly,... <a href="/2015/06/techmax-publications-plagiarism-check.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>04 Jun 2015</small>
         <small><a style="color:grey" href="/2015/06/a-day-of-struggle-with-python-ides.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/06/a-day-of-struggle-with-python-ides.html">A Day Of Struggle With Python IDEs</a>
+        <br>
+        <a class="nice-title" href="/2015/06/a-day-of-struggle-with-python-ides.html">A Day Of Struggle With Python IDEs</a>
+        <p class="nice-text">Yesterday, I gave up on doing my next web application project with QT. I knew C++ was never meant to be a language of the web, but I really had some hopes with QT. It actually is good, and apparently it would have ran faster than any other platform or... <a href="/2015/06/a-day-of-struggle-with-python-ides.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>03 Jun 2015</small>
         <small><a style="color:grey" href="/2015/06/grammar-nazi.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/06/grammar-nazi.html">Grammar Nazi</a>
+        <br>
+        <a class="nice-title" href="/2015/06/grammar-nazi.html">Grammar Nazi</a>
+        <p class="nice-text">Let's start with a story. I go for workout in a nearby gymnasium. A few days back, I remember, it was a hot day, and we were all sweating, in spite of the air conditioner running continuously. One of my mates then, asked the gym trainer to increase the cooling... <a href="/2015/06/grammar-nazi.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>07 May 2015</small>
         <small><a style="color:grey" href="/2015/05/wall-of-shame-salman-khans-verdict.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/05/wall-of-shame-salman-khans-verdict.html">Wall of shame - Salman Khan's verdict</a>
+        <br>
+        <a class="nice-title" href="/2015/05/wall-of-shame-salman-khans-verdict.html">Wall of shame - Salman Khan's verdict</a>
+        <p class="nice-text">Salman Khan was awarded with a 5 year jail term yesterday, on account of the 2002 hit and run case where he ran over 5 homeless people sleeping on the footpath, out of which, one died.Now, the law will do it's job, justice will look at who's guilty and who's... <a href="/2015/05/wall-of-shame-salman-khans-verdict.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>01 May 2015</small>
         <small><a style="color:grey" href="/2015/05/debian-8-jessie-is-here.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/05/debian-8-jessie-is-here.html">Debian 8 Jessie is here</a>
+        <br>
+        <a class="nice-title" href="/2015/05/debian-8-jessie-is-here.html">Debian 8 Jessie is here</a>
+        <p class="nice-text">The next major stable release of the Debian lineup, the 8th one, codename Jessie was launched on 25th of april, last month. And like every Debian release, this one was packed with an awfully large package repo, meaning more free stuff to choose from, one of the fundamental reason I... <a href="/2015/05/debian-8-jessie-is-here.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>19 Apr 2015</small>
         <small><a style="color:grey" href="/2015/04/i-feel-so-powerless-in-my-own-country.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/04/i-feel-so-powerless-in-my-own-country.html">I feel so powerless in my own country</a>
+        <br>
+        <a class="nice-title" href="/2015/04/i-feel-so-powerless-in-my-own-country.html">I feel so powerless in my own country</a>
+        <p class="nice-text">I am not feeling very good writing on such a topic, but yes, I have really convinced myself, if I am not rich, I am nothing in this country.It is a daily sight for me, how being rich makes all the difference there is, here. If something is bothering me,... <a href="/2015/04/i-feel-so-powerless-in-my-own-country.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>13 Apr 2015</small>
         <small><a style="color:grey" href="/2015/04/net-neutrality.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/04/net-neutrality.html">Net Neutrality</a>
+        <br>
+        <a class="nice-title" href="/2015/04/net-neutrality.html">Net Neutrality</a>
+        <p class="nice-text">Do you know, here in India, at most of the public places like temples, we have two separate queues. One for the ordinary folks, and the other one for the rich folks. Sometimes the rich folks are charged, sometimes they are just judged from the car they get down from... <a href="/2015/04/net-neutrality.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>10 Apr 2015</small>
         <small><a style="color:grey" href="/2015/04/what-programming-isnt.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/04/what-programming-isnt.html">What programming isn't</a>
+        <br>
+        <a class="nice-title" href="/2015/04/what-programming-isnt.html">What programming isn't</a>
+        <p class="nice-text">There were days when I used to search the web for 'best programming languages' and 'most popular programming languages' in my free time. I was not able to decide myself what language to learn and invest my time upon, such that it would pay me back everything I put into... <a href="/2015/04/what-programming-isnt.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>07 Mar 2015</small>
         <small><a style="color:grey" href="/2015/03/engineering.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/03/engineering.html">Engineering</a>
+        <br>
+        <a class="nice-title" href="/2015/03/engineering.html">Engineering</a>
+        <p class="nice-text">Engineer.What comes to your mind when you hear that word? To me, the picture of a hard working individual, who is rational in his way of life, sees every aspect with the touch of technicality, given a job, he will do whatever it takes to get it done, selfless about... <a href="/2015/03/engineering.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>11 Feb 2015</small>
         <small><a style="color:grey" href="/2015/02/aib-knockout.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/02/aib-knockout.html">AIB Knockout</a>
+        <br>
+        <a class="nice-title" href="/2015/02/aib-knockout.html">AIB Knockout</a>
+        <p class="nice-text">If you happen to be from India, you must have most probably heard of the AIB Knockout thing, a Roast (an event in which a celebrity is subject to insults and rest of the audience is well, entertained by it.) hosted by Karan Johar in Mumbai. It was uploaded on... <a href="/2015/02/aib-knockout.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>02 Feb 2015</small>
         <small><a style="color:grey" href="/2015/02/time.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/02/time.html">Time</a>
+        <br>
+        <a class="nice-title" href="/2015/02/time.html">Time</a>
+        <p class="nice-text">Time is one of my favorite subjects. The reason being it's highly mysterious and absolute nature. It give everything a reference frame. How else on earth would have you said when a thing actually occurred. It actually gives even the rest of the three dimensions a reference frame. Newton put... <a href="/2015/02/time.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>19 Jan 2015</small>
         <small><a style="color:grey" href="/2015/01/handling-large-numbers-with-cc.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/01/handling-large-numbers-with-cc.html">Handling large numbers with C/C++</a>
+        <br>
+        <a class="nice-title" href="/2015/01/handling-large-numbers-with-cc.html">Handling large numbers with C/C++</a>
+        <p class="nice-text">I will tell you what this is about. I saw a simple looking problem on HackerEarth about finding factorial of given numbers. It looks easy, but another look at the constraints (1&lt;=N&lt;=100) changes everything. Well, not everything, especially if you are going to write it in languages like Python ("dynamically... <a href="/2015/01/handling-large-numbers-with-cc.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>17 Jan 2015</small>
         <small><a style="color:grey" href="/2015/01/what-is-gnulinux.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/01/what-is-gnulinux.html">What is GNU/Linux </a>
+        <br>
+        <a class="nice-title" href="/2015/01/what-is-gnulinux.html">What is GNU/Linux </a>
+        <p class="nice-text">The following is a piece from my previous blog. I had written it in one of my diaries and since that blog of mine is no more, I would like to publish it here. My views on Linux/GNU and why it is one of the most amazing thing you will... <a href="/2015/01/what-is-gnulinux.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>09 Jan 2015</small>
         <small><a style="color:grey" href="/2015/01/jumping-over-multiple-programming.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2015/01/jumping-over-multiple-programming.html">Jumping over multiple programming languages</a>
+        <br>
+        <a class="nice-title" href="/2015/01/jumping-over-multiple-programming.html">Jumping over multiple programming languages</a>
+        <p class="nice-text">I just happened to take a look at my own blog. Starting with some posts about python, I went to C, then PHP-MySQL and then Javascript. All of this in around 3 months. Now, it is great to know multiple languages, but the thing I feel is, you must 'know'... <a href="/2015/01/jumping-over-multiple-programming.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>28 Dec 2014</small>
         <small><a style="color:grey" href="/2014/12/ajax-registration-form-using-jquery.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2014/12/ajax-registration-form-using-jquery.html">AJAX registration form using jQuery</a>
+        <br>
+        <a class="nice-title" href="/2014/12/ajax-registration-form-using-jquery.html">AJAX registration form using jQuery</a>
+        <p class="nice-text">I have created this simple registration form which makes user registration using asynchronous requests in the background, checking if a duplicate username or email exists, and presenting the user with status of registration on the same page without have to reload the page even once.It is simple, but with some... <a href="/2014/12/ajax-registration-form-using-jquery.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>24 Dec 2014</small>
         <small><a style="color:grey" href="/2014/12/on-why-php-removed-magic-quotes-nice.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2014/12/on-why-php-removed-magic-quotes-nice.html">On why PHP removed magic quotes - Nice explanation</a>
+        <br>
+        <a class="nice-title" href="/2014/12/on-why-php-removed-magic-quotes-nice.html">On why PHP removed magic quotes - Nice explanation</a>
+        <p class="nice-text">I am a newbie in PHP, or at least not as good to call myself mature. Recently, PHP announced deprecation for magic_quotes in version 5.3 and complete removal in version 5.4. So there are official docs on why it was removed, but this is what I found written by a... <a href="/2014/12/on-why-php-removed-magic-quotes-nice.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>20 Dec 2014</small>
         <small><a style="color:grey" href="/2014/12/autocomplete-field-setting-up-frontend.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2014/12/autocomplete-field-setting-up-frontend.html">Creating an autocomplete field | Setting up frontend | Part 2</a>
+        <br>
+        <a class="nice-title" href="/2014/12/autocomplete-field-setting-up-frontend.html">Creating an autocomplete field | Setting up frontend | Part 2</a>
+        <p class="nice-text">In the first part of this article, we had set up the backend MySQL database. Now we can write the code necessary to get information from the server and convert it to a format we can parse, JSON in my case here. So lets begin.Step 4 - Writing script to... <a href="/2014/12/autocomplete-field-setting-up-frontend.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>20 Dec 2014</small>
         <small><a style="color:grey" href="/2014/12/creating-autocomplete-field-with-ajax.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2014/12/creating-autocomplete-field-with-ajax.html">Creating an autocomplete field | Setting up the backend | Part 1</a>
+        <br>
+        <a class="nice-title" href="/2014/12/creating-autocomplete-field-with-ajax.html">Creating an autocomplete field | Setting up the backend | Part 1</a>
+        <p class="nice-text">Hello folks, so my exams are over and its time to roll. LOL pretty excited here. I am creating this series of two articles in which we will download all the pincodes (or zipcodes), add them to a MySQL database, write an API in PHP to retrieve the data in... <a href="/2014/12/creating-autocomplete-field-with-ajax.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>04 Dec 2014</small>
         <small><a style="color:grey" href="/2014/12/lan-group-messenger-in-python.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2014/12/lan-group-messenger-in-python.html">Simple group messenger/chat in Python</a>
+        <br>
+        <a class="nice-title" href="/2014/12/lan-group-messenger-in-python.html">Simple group messenger/chat in Python</a>
+        <p class="nice-text">Aaaaannd here is another post of mine on sockets, client/server models and stuff. I suppose you have started to get bored by the same stuff everyday right? Seems like I just can't get enough of this thing. But trust me, I had no intention of doing this today, a friend... <a href="/2014/12/lan-group-messenger-in-python.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>03 Dec 2014</small>
         <small><a style="color:grey" href="/2014/12/top-reasons-why-you-should-start-using.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2014/12/top-reasons-why-you-should-start-using.html">Top reasons why you should start using Mozilla Firefox right now</a>
+        <br>
+        <a class="nice-title" href="/2014/12/top-reasons-why-you-should-start-using.html">Top reasons why you should start using Mozilla Firefox right now</a>
+        <p class="nice-text">If you have visited my blog a couple of times, it must be clear to you by now that I am a Mozillian. I love their way and goals and in this world dominated by corporate giants, they are like a candle in the darkness. I promote Mozilla everywhere, at... <a href="/2014/12/top-reasons-why-you-should-start-using.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>03 Dec 2014</small>
         <small><a style="color:grey" href="/2014/12/python-vs-c-how-simple-is-it-to-write.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2014/12/python-vs-c-how-simple-is-it-to-write.html">Python vs C - How simple is it to write a pair of communicating sockets?</a>
+        <br>
+        <a class="nice-title" href="/2014/12/python-vs-c-how-simple-is-it-to-write.html">Python vs C - How simple is it to write a pair of communicating sockets?</a>
+        <p class="nice-text">Lately I have been reading a lot of articles online written to compare Python to other languages. It is not a secret to anyone that the Python community is growing, and along with it, is the number of people who promote/recommend this language, of course.Let me not add up to... <a href="/2014/12/python-vs-c-how-simple-is-it-to-write.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>30 Nov 2014</small>
         <small><a style="color:grey" href="/2014/11/simple-tcp-banner-grabber-in-c.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2014/11/simple-tcp-banner-grabber-in-c.html">Simple TCP banner grabber in C</a>
+        <br>
+        <a class="nice-title" href="/2014/11/simple-tcp-banner-grabber-in-c.html">Simple TCP banner grabber in C</a>
+        <p class="nice-text">Hello folks, Its been a great week. I got the book called Expert C Programming - Deep C Secrets, by Peter van der Linden. I read about 100 pages in a couple of days, and I had never gained so much confidence reading any other book. Many concepts got sharper,... <a href="/2014/11/simple-tcp-banner-grabber-in-c.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>12 Nov 2014</small>
         <small><a style="color:grey" href="/2014/11/celebrating-10th-birthday-of-mozilla.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2014/11/celebrating-10th-birthday-of-mozilla.html">Celebrating 10th birthday of Mozilla Firefox</a>
+        <br>
+        <a class="nice-title" href="/2014/11/celebrating-10th-birthday-of-mozilla.html">Celebrating 10th birthday of Mozilla Firefox</a>
+        <p class="nice-text">Around 10 years from now, in a small room, a bunch of wizards created something that later went on to change the entire web. It was called Firefox 1.0At that time, Internet Explorer had around 95% browser market share in client side desktops. If you didn't catch, read it again,... <a href="/2014/11/celebrating-10th-birthday-of-mozilla.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>20 Jul 2014</small>
         <small><a style="color:grey" href="/2014/07/self-learning-is-it-worth-efforts.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2014/07/self-learning-is-it-worth-efforts.html">Self learning - Is it worth the efforts?</a>
+        <br>
+        <a class="nice-title" href="/2014/07/self-learning-is-it-worth-efforts.html">Self learning - Is it worth the efforts?</a>
+        <p class="nice-text">Self learning implies reading and doing it yourself. Not waiting for being spoon-fed and trying your best to teach yourself. Formally it is called Autodidacticism, which I came to know at the time of writing, honestly. In this age of globalization, where majority of the basic resources are available to... <a href="/2014/07/self-learning-is-it-worth-efforts.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>19 Jul 2014</small>
         <small><a style="color:grey" href="/2014/07/object-oriented-programming-concepts.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2014/07/object-oriented-programming-concepts.html">Object Oriented Programming: Concepts and explaination using Python</a>
+        <br>
+        <a class="nice-title" href="/2014/07/object-oriented-programming-concepts.html">Object Oriented Programming: Concepts and explaination using Python</a>
+        <p class="nice-text">Object oriented programming or OOP is a new concept for me. Till now, all I had done was C and some scripting languages. All of them were 'procedural' type of languages. I knew nothing about OOP, and I really hate knowing nothing about anything. So I decided to try it... <a href="/2014/07/object-oriented-programming-concepts.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>17 Jul 2014</small>
         <small><a style="color:grey" href="/2014/07/ghost-vs-blogger-view.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2014/07/ghost-vs-blogger-view.html">Ghost vs Blogger. A view.</a>
+        <br>
+        <a class="nice-title" href="/2014/07/ghost-vs-blogger-view.html">Ghost vs Blogger. A view.</a>
+        <p class="nice-text">I wrote it in my first post, why I choose ghost over anything else. Yes, Ghost is beautiful and content focused. If you are interested in pure content and not much bells and whistles, then Ghost is for you. It is free and open source, which makes it hard for... <a href="/2014/07/ghost-vs-blogger-view.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>16 Jul 2014</small>
         <small><a style="color:grey" href="/2014/07/blogging-and-why-it-isnt-for-everyone.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2014/07/blogging-and-why-it-isnt-for-everyone.html">Blogging and why it isn't for everyone</a>
+        <br>
+        <a class="nice-title" href="/2014/07/blogging-and-why-it-isnt-for-everyone.html">Blogging and why it isn't for everyone</a>
+        <p class="nice-text">To begin with, I will share some of my experiences with blogging. I never wanted to be a blogger, in fact, I didn't even knew what exactly a blogger is. I was happy as a web enthusiast and a geek. Then, I came across people who had blogs, the typical... <a href="/2014/07/blogging-and-why-it-isnt-for-everyone.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>16 Jul 2014</small>
         <small><a style="color:grey" href="/2014/07/why-you-must-get-raspberrypi.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2014/07/why-you-must-get-raspberrypi.html">Why you must get a RaspberryPi</a>
+        <br>
+        <a class="nice-title" href="/2014/07/why-you-must-get-raspberrypi.html">Why you must get a RaspberryPi</a>
+        <p class="nice-text">Since you are reading this, I can assume you have some sort of interest in computers and technology, as that is all this blog has. It is also very likely that you might have heard of this single-board computer called Raspberry-Pi which literally took over the internet back when it... <a href="/2014/07/why-you-must-get-raspberrypi.html">Read more!</a></p>
     </li>
-  
-    <li>
+    
+    <li class="post">
         <small>16 Jul 2014</small>
         <small><a style="color:grey" href="/2014/07/starting-with-python.html#disqus_thread"></a></small>
-        <br />
-        <a href="/2014/07/starting-with-python.html">Starting With Python</a>
+        <br>
+        <a class="nice-title" href="/2014/07/starting-with-python.html">Starting With Python</a>
+        <p class="nice-text">Ok so first let me make it clear, this is not a tutorial. I don't really know that much as to write a tutorial myself. I am still a beginner.So let me start with it. I have had a good idea of C programming and can code basic stuff in... <a href="/2014/07/starting-with-python.html">Read more!</a></p>
     </li>
-  
+    
 </ul>
 
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = 'nagekar';
-    
+
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function () {
         var s = document.createElement('script'); s.async = true;
@@ -632,56 +671,140 @@
         s.src = '//' + disqus_shortname + '.disqus.com/count.js';
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
-</script>
-
-
+</script></span></div>
 </div>
 
+
       </div>
+
+      <div class="tile is-4 is-child">
+        <div class="tile is-parent is-vertical sidebar">
+
+          <div class="tile is-child widget">
+            <!--<h2>Related articles</h2>-->
+
+            <div class="box">
+              <header class="card-header">
+                <p class="card-header-title nice-title">
+                  Recent Posts
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content nice-text">
+                  <ul>
+                  
+                  <li><a href="/2017/02/trip-to-bramhatal-uttarakhand.html">
+                    Trek To Bramhatal (Uttarakhand)
+                  </a></li>
+                  
+                  <li><a href="/2017/01/7th-sem-and-then.html">
+                    7th Semester And Then
+                  </a></li>
+                  
+                  <li><a href="/2016/12/BSNL-3g-broadband-rant.html">
+                    BSNL 3G And Broadband Rant
+                  </a></li>
+                  
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tile is-child widget">
+
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title nice-title">
+                  Sponsored
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content nice-text">
+                  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                  <ins class="adsbygoogle"
+                       style="display:block"
+                       data-ad-client="ca-pub-2314128584981990"
+                       data-ad-slot="1513670662"
+                       data-ad-format="auto"></ins>
+                  <script>
+                      (adsbygoogle = window.adsbygoogle || []).push({});
+                  </script>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="tile is-child widget">
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title nice-title">
+                  Recommended Websites
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content nice-text">
+                  <ul>
+                    <li>
+                      <a href="https://xkcd.com">xkcd</a>
+                    </li>
+                    <li>
+                      <a href="http://commitstrip.com">Commit Strip</a>
+                    </li>
+                    <li>
+                      <a href="http://www.smbc-comics.com">SMBC Comics</a>
+                    </li>
+                    <li>
+                      <a href="https://blog.codinghorror.com">Coding Horror</a>
+                    </li>
+                    <li>
+                      <a href="http://waitbutwhy.com">Wait Buy Why</a>
+                    </li>
+                    <li>
+                      <a href="https://simplysoch.wordpress.com/">Simply Soch</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+  </div>
+</div>
 
-    <script>
-      (function(document) {
-        var toggle = document.querySelector('.sidebar-toggle');
-        var sidebar = document.querySelector('#sidebar');
-        var checkbox = document.querySelector('#sidebar-checkbox');
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        Some rights reserved.
+      </p>
+      <p>
+        Made with <i class="fa fa-heart"></i> and <a href="https://github.com/jgthms/bulma">Bulma</a>, <a href="https://jekyllrb.com/">Jekyll</a>. Hosted on <a href="https://github.com/">Github</a>
+      </p>
+      <p>
+        <a class="icon" href="https://github.com/abhn">
+          <i class="fa fa-github" title="Github"></i>
+        </a>
+        <a class="icon" href="https://in.linkedin.com/in/AbhishekNagekar">
+          <i class="fa fa-linkedin" title="Linkedin"></i>
+        </a>
+        <a class="icon" href="mailto:abhishek@nagekar.com">
+          <i class="fa fa-envelope" title="Email"></i>
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>
 
-        document.addEventListener('click', function(e) {
-          var target = e.target;
-
-          if(!checkbox.checked ||
-             sidebar.contains(target) ||
-             (target === checkbox || target === toggle)) return;
-
-          checkbox.checked = false;
-        }, false);
-      })(document);
-    </script>
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-74790644-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-    <script>
-        // stop reading other people's source, dude. That is rude
-        var txtFile = new XMLHttpRequest();
-        txtFile.open("GET", "/quotes.txt", true);
-        txtFile.onreadystatechange = () => {
-          if (txtFile.readyState === 4) {  
-            if (txtFile.status === 200) { 
-              allText = txtFile.responseText; 
-              lines = txtFile.responseText.split("\n");
-              randLine = lines[Math.floor((Math.random() * lines.length) + 1)];
-              document.getElementById('head-quote').innerHTML = '<p class="message" style="font-size: 14px; font-color: grey; text-align: center;">' + randLine + '<small></p>';
-            }
-          }
-        }
-        txtFile.send(null);
-    </script>
-  </body>
+<!-- js -->
+<script src="/public/js/custom.js"></script>
+<script src="/public/js/typewriter.js"></script>
+</body>
 </html>

@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
-  <head>
+<head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
-  <!-- Enable responsiveness on mobile devices-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <link rel="stylesheet" href="/public/css/normalize.css"/>
+  <link rel="stylesheet" href="/public/css/bulma.css"/>
+  <link rel="stylesheet" href="/public/css/custom.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 
   <title>
     
@@ -15,138 +27,100 @@
     
   </title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="/public/css/poole.css">
-  <link rel="stylesheet" href="/public/css/syntax.css">
-  <link rel="stylesheet" href="/public/css/lanyon.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
-
-  <!-- Icons -->
-  <link rel="shortcut icon" href="/assets/images/favicon.ico">
-
-  <!-- RSS -->
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 </head>
 
 
-  <body>
+<body>
 
-    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
-     styles, `#sidebar-checkbox` for behavior. -->
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
-
-
-
-<!-- Toggleable sidebar -->
-<div class="sidebar" id="sidebar">
-
-    <div class="sidebar-item">
-        <img src="/assets/images/me.jpg" />
-        <p>One of them is me.</p>
+<section class="hero is-dark">
+  <div class="hero-body">
+    <div class="container">
+        <h1 class="title">
+          <span class="typewrite" data-period="2000" data-type='[ "hello", "namaste", "assalam o alaikum",
+          "sat srī akāl", "khammaghani", "hola", "bonjour", "nomoskaar", "guten tag", "kumusta", "salut", "nômoshkar"]'>
+            <span class="wrap"></span>
+          </span>
+        </h1>
+      <h4 class="subtitle" id="quote">
+      </h4>
     </div>
-
-
-  <nav class="sidebar-nav">
-    
-
-    
-    
-      
-        
-          <a class="sidebar-nav-item" href="/">Sometimes, I write..</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/archive">Archive</a>
-        
-      
-    
-      
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/meta">Meta</a>
-        
-      
-    
-      
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/search">Search This Blog</a>
-        
-      
-    
-      
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/tags">Tags</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/wish">Wish List</a>
-        
-      
-    
-    <a class="sidebar-nav-item" href="https://github.com/abhn">My GitHub</a>
-    <a class="sidebar-nav-item" href="/search">Search This Blog</a>
-    <a class="sidebar-nav-item" onclick="window.open('https://feedburner.google.com/fb/a/mailverify?uri=AbhishekN', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true" target="popupwindow" href="https://feedburner.google.com/fb/a/mailverify?uri=AbhishekN">Email Subscription</a>
-    
-    
-  </nav>
-
-  <div class="sidebar-item">
-    <p>
-      Abhishek Nagekar &copy; 2017
-    <br>
-      <small>Some Rights Reserved</small>
-    </p>
   </div>
-</div>
+</section>
+
+<div class="main-container">
+  <div class="tile is-ancestor is-vertical">
 
 
-    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
-         content to avoid any CSS collisions with our real content. -->
-    <div class="wrap">
-      <div class="masthead">
-        <div class="container">
-          <h3 class="masthead-title">
-            <a href="/" title="Home">Abhishek Nagekar's Blog</a>
-            <small>Code, Science, Philosophy, Humor</small>
-          </h3>
+    <nav class="nav has-shadow">
+
+      <div class="nav-left">
+
+        <a href="/" class="nav-item">
+          <span class="icon">
+            <i class="fa fa-home" aria-hidden="true" title="Homepage"></i>
+          </span>
+        </a>
+
+        <a href="https://github.com/abhn" class="nav-item">
+          <span class="icon">
+            <i class="fa fa-github" aria-hidden="true" title="Github"></i>
+          </span>
+        </a>
+
+        <div class="nav-item" id="searchFieldNav">
+          <div class="field has-addons">
+            <p class="control">
+              <input class="input is-small" type="text" placeholder="Find an article" id="search-text">
+            </p>
+            <p class="control">
+              <a class="button is-dark is-small" onclick="searchHandler();">
+                Search
+              </a>
+            </p>
+          </div>
         </div>
+
       </div>
-      <div class="container content">
-        <div id="head-quote"></div>
-        <div class="post">
-  <h1 class="post-title">Self learning - Is it worth the efforts?</h1>
-  <span class="post-date">20 July, 2014. It was a Sunday.</span>
-  <div dir="ltr" style="text-align: left;" trbidi="on"><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-w3DYvqk5BHE/U8tWzeTie8I/AAAAAAAAHWI/ltKQ7YTyYEo/s1600/50.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-w3DYvqk5BHE/U8tWzeTie8I/AAAAAAAAHWI/ltKQ7YTyYEo/s1600/50.jpg" height="174" width="320" /></a></div>Self learning implies reading and doing it yourself. Not waiting for being spoon-fed and trying your best to teach yourself. Formally it is called <a href="http://en.wikipedia.org/wiki/Autodidacticism" target="_blank">Autodidacticism</a>, which I came to know at the time of writing, honestly. In this age of globalization, where majority of the basic resources are available to a large section of the society, people can go to schools and colleges for <a href="http://www.usnews.com/education/best-colleges/paying-for-college/articles/2012/09/18/consider-study-abroad-to-save-money-on-college" target="_blank">little price</a> (at least in some countries), not many give a thought to self learning. So, I thought, lets see what I can bring up on this topic today.<br /><br />Self learning is something that needs to be taught to every kid when he's growing up. It is not just beneficial to him during academics, but also changes his attitude towards different stuff he encounters. It fills him with a feeling of 'if anybody else can, why can't I?' attitude whenever he sees something hard ahead of him. It lessens the required resources for him to learn something new. For example, learning a new programming language, while some might need special coaching classes and notes, a self learner would only require a book or an Internet connection to read up all the stuff and practice. That's the clear benefit of it. He stops being a cry baby and takes life head on.<br /><br />I have argued with people over this from long. A thing which I have heard in nearly all the arguments is the 'time' factor. People think self learning is time consuming. Indeed it is. You require time to grasp something and to master it, don't you? Now, join a coaching class for the same. Will you learn it in a day? Talking about crash courses, those '<i>learn this in one week</i>' thingy? Do you seriously believe that the stuff on which people spend their lives to master, can be mastered in a week, just because they are charging '<b>way too much</b>'? No you can't. After a week, you will have like tiny bits of knowledge, enough to convince others that you know the stuff, and probably even a shiny framed certificate, that proves you know the thing. It is good for the show-off types. But if you were planning to make something out of it, then you would be disappointed, because the moment you start with something on your own, you will realize that just knowing theoretically is not enough. You need to know trouble shooting, maintenance and behavior of that particular thing. Because you won't appoint someone to drive your brand new AMG who has just got his driving license. Right?<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-XUaehe1uV98/U8tXQ1Dp_nI/AAAAAAAAHWQ/hK-q0HQd7ec/s1600/selfeducation.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-XUaehe1uV98/U8tXQ1Dp_nI/AAAAAAAAHWQ/hK-q0HQd7ec/s1600/selfeducation.jpg" height="239" width="320" /></a></div><br /><br />When I say self learned, there are two groups of people that come to my&nbsp; mind. First are those who are pure <a href="http://en.wikipedia.org/wiki/List_of_notable_autodidacts" target="_blank">self learned</a>. They never went to any <a href="http://enhancinged.wgbh.org/started/what/formal.html" target="_blank">formal school</a> and succeeded in life. Yes, success is important. But more important is the scale on which you equate success. Success doesn't necessarily mean making billions from scratch, although it surely is one of the examples. Success is an abstract term. Success, more generally means being able to do what you always wanted to, and being contented. We have famous people who worked for science and arts and were self learned. Thomas Edison, Wright Brothers, Michael Faraday and <a href="http://en.wikipedia.org/wiki/Rabindranath_Tagore" target="_blank">Rabindranath Tagore</a> to name a few of my favorites. They never walked on the steps of any school, but we know what they did. Could they do the same after joining a school or college? I think not. Not in the present situation, where a fixed curriculum is followed by teachers, which is to be followed by students, no matter who understands what. An exam at the end, after which you are free to forget what you learned because that was what you learned it for in the first place.<br /><br />The second group of people, who come to my mind are those who technically went to a school and some college, but what they did was completely because of their own hardships and work, and their education had not much to do with it. Consider the example of <a href="http://en.wikipedia.org/wiki/Steve_Jobs" target="_blank">Steve Jobs</a>, the '<i>Apple Computers</i>' guy, who had been to school. He was good with studies and even enrolled into a college, but dropped out six months later as his parents were not able to pay his college fees. He later went on to create a company (actually, more than one) known for its standards and he is often called one of the best marketers of all time. This is a dead solid proof, that you don't need an MBA to know how to do business and be successful in it. <a href="http://en.wikipedia.org/wiki/Warren_Buffett" target="_blank">Warren Buffett</a> and <a href="http://en.wikipedia.org/wiki/Bill_Gates" target="_blank">Bill Gates</a> are no different. They spent an awful time during their childhood, got the practical experience needed to do things, and they are where we see them now. So, again the question pops up. Should you leave getting formal education and go ahead, learning what you like, all by yourself?<br /><br />It is a quite risky path. You never know if you will click. There is always a possibility of failing miserably. Even if you are skilled and talented, why would the world believe you? You don't have a certificate right? How will you convince others you know that thing? Demonstrations? The world is too busy for that. Then there are people who have heavy expectations from you. They depend on you. It becomes real hard to take decisions when you have to think not only about yourself, but also about the people who are calling on you. Now having said that, it is still finally on you. You can't just live according to others. Because if you fail living the way you want, you don't feel bad, as you would if you fail living according to the rules of others, right?<br /><br />Ok, lets see the brighter side. You go to school. You go to college. Suppose you are interested in Astronomy. You have a subject on it in your college. Rest all the subjects are of the <i>none of your business</i> type. Still you have to learn them to clear your examination. If you were self learned, you study what you want to, and you can concentrate entirely on your passion. Honestly, life is short. You never know if you will be there to see the next sun rise. So why spend it on something you aren't even interested in. I totally agree basic knowledge of the world is essential. Yes, primary schooling is something that should be given to every individual, as it not only builds knowledge but also the child's logic and understanding of the world around him. But at a stage, everyone needs to be given the choice of continuing life according to his or her way, rather then making him or her follow others and lead to a boring, monotonous life. Feels like a crime to me. Indeed some need schooling, no doubt, but it is bad to make it a standard. To make it a <i>rule </i>to live respectfully on this planet.<br /><br />That is the way I feel. Learn formally till you get to your senses, and then you can do whatever the hell you feel like. It makes you confident about yourself and you start thinking independently, no handles required. You know when and where to look for help and that means you never stop on a jerk in the road to success. Most importantly, self learning is rewarding. It is such a good feeling when you set goals for yourself and attain them. You keep raising the bar for yourself and get to it. There is no fear of ending up last in the class or below your fellow mates. You are your only competition, and that's when you will realize, you have left the world far behind. You got no certificates, but you can argue, and defeat anyone in it, who has spend $20,000 a year to get that crappy piece of paper which certifies his level of skills and usefulness. Thats the magic of self learning. No boundaries, no limits.<br /><br /><blockquote class="tr_bq">and in case you were wondering, I am not self learned. I go to college to learn what they have to teach me, and I really regret not being able to be a self learner, although I am trying hard to be one. I take as little help as possible, work my ass off trying to figure out concepts in my books. Because once I get it, the feeling is rewarding; and I love it.</blockquote><br />Thank you for reading.</div>
+
+      <div class="nav-right nav-menu" id='nav-menu'>
+        <a href="https://www.nagekar.com/meta" class="nav-item">Meta</a>
+        <a href="https://www.nagekar.com/archive" class="nav-item">Archive</a>
+        <a href="https://www.nagekar.com/tags" class="nav-item">Tags</a>
+      </div>
+
+      <span class="nav-toggle" id="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+      </span>
+    </nav>
+
+    <div class="tile is-parent">
+      <div class="tile is-8 is-child main">
+
+        <div class="box">
+    <h1 class="post-title">Self learning - Is it worth the efforts?</h1>
+    <span class="post-meta">20 July, 2014. It was a Sunday. <a style="color:grey" href="#disqus_thread"></a></span><hr/>
+
+    <span class="post-text"><div dir="ltr" style="text-align: left;" trbidi="on"><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-w3DYvqk5BHE/U8tWzeTie8I/AAAAAAAAHWI/ltKQ7YTyYEo/s1600/50.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://1.bp.blogspot.com/-w3DYvqk5BHE/U8tWzeTie8I/AAAAAAAAHWI/ltKQ7YTyYEo/s1600/50.jpg" height="174" width="320" /></a></div>Self learning implies reading and doing it yourself. Not waiting for being spoon-fed and trying your best to teach yourself. Formally it is called <a href="http://en.wikipedia.org/wiki/Autodidacticism" target="_blank">Autodidacticism</a>, which I came to know at the time of writing, honestly. In this age of globalization, where majority of the basic resources are available to a large section of the society, people can go to schools and colleges for <a href="http://www.usnews.com/education/best-colleges/paying-for-college/articles/2012/09/18/consider-study-abroad-to-save-money-on-college" target="_blank">little price</a> (at least in some countries), not many give a thought to self learning. So, I thought, lets see what I can bring up on this topic today.<br /><br />Self learning is something that needs to be taught to every kid when he's growing up. It is not just beneficial to him during academics, but also changes his attitude towards different stuff he encounters. It fills him with a feeling of 'if anybody else can, why can't I?' attitude whenever he sees something hard ahead of him. It lessens the required resources for him to learn something new. For example, learning a new programming language, while some might need special coaching classes and notes, a self learner would only require a book or an Internet connection to read up all the stuff and practice. That's the clear benefit of it. He stops being a cry baby and takes life head on.<br /><br />I have argued with people over this from long. A thing which I have heard in nearly all the arguments is the 'time' factor. People think self learning is time consuming. Indeed it is. You require time to grasp something and to master it, don't you? Now, join a coaching class for the same. Will you learn it in a day? Talking about crash courses, those '<i>learn this in one week</i>' thingy? Do you seriously believe that the stuff on which people spend their lives to master, can be mastered in a week, just because they are charging '<b>way too much</b>'? No you can't. After a week, you will have like tiny bits of knowledge, enough to convince others that you know the stuff, and probably even a shiny framed certificate, that proves you know the thing. It is good for the show-off types. But if you were planning to make something out of it, then you would be disappointed, because the moment you start with something on your own, you will realize that just knowing theoretically is not enough. You need to know trouble shooting, maintenance and behavior of that particular thing. Because you won't appoint someone to drive your brand new AMG who has just got his driving license. Right?<br /><br /><div class="separator" style="clear: both; text-align: center;"><a href="http://3.bp.blogspot.com/-XUaehe1uV98/U8tXQ1Dp_nI/AAAAAAAAHWQ/hK-q0HQd7ec/s1600/selfeducation.jpg" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" src="http://3.bp.blogspot.com/-XUaehe1uV98/U8tXQ1Dp_nI/AAAAAAAAHWQ/hK-q0HQd7ec/s1600/selfeducation.jpg" height="239" width="320" /></a></div><br /><br />When I say self learned, there are two groups of people that come to my&nbsp; mind. First are those who are pure <a href="http://en.wikipedia.org/wiki/List_of_notable_autodidacts" target="_blank">self learned</a>. They never went to any <a href="http://enhancinged.wgbh.org/started/what/formal.html" target="_blank">formal school</a> and succeeded in life. Yes, success is important. But more important is the scale on which you equate success. Success doesn't necessarily mean making billions from scratch, although it surely is one of the examples. Success is an abstract term. Success, more generally means being able to do what you always wanted to, and being contented. We have famous people who worked for science and arts and were self learned. Thomas Edison, Wright Brothers, Michael Faraday and <a href="http://en.wikipedia.org/wiki/Rabindranath_Tagore" target="_blank">Rabindranath Tagore</a> to name a few of my favorites. They never walked on the steps of any school, but we know what they did. Could they do the same after joining a school or college? I think not. Not in the present situation, where a fixed curriculum is followed by teachers, which is to be followed by students, no matter who understands what. An exam at the end, after which you are free to forget what you learned because that was what you learned it for in the first place.<br /><br />The second group of people, who come to my mind are those who technically went to a school and some college, but what they did was completely because of their own hardships and work, and their education had not much to do with it. Consider the example of <a href="http://en.wikipedia.org/wiki/Steve_Jobs" target="_blank">Steve Jobs</a>, the '<i>Apple Computers</i>' guy, who had been to school. He was good with studies and even enrolled into a college, but dropped out six months later as his parents were not able to pay his college fees. He later went on to create a company (actually, more than one) known for its standards and he is often called one of the best marketers of all time. This is a dead solid proof, that you don't need an MBA to know how to do business and be successful in it. <a href="http://en.wikipedia.org/wiki/Warren_Buffett" target="_blank">Warren Buffett</a> and <a href="http://en.wikipedia.org/wiki/Bill_Gates" target="_blank">Bill Gates</a> are no different. They spent an awful time during their childhood, got the practical experience needed to do things, and they are where we see them now. So, again the question pops up. Should you leave getting formal education and go ahead, learning what you like, all by yourself?<br /><br />It is a quite risky path. You never know if you will click. There is always a possibility of failing miserably. Even if you are skilled and talented, why would the world believe you? You don't have a certificate right? How will you convince others you know that thing? Demonstrations? The world is too busy for that. Then there are people who have heavy expectations from you. They depend on you. It becomes real hard to take decisions when you have to think not only about yourself, but also about the people who are calling on you. Now having said that, it is still finally on you. You can't just live according to others. Because if you fail living the way you want, you don't feel bad, as you would if you fail living according to the rules of others, right?<br /><br />Ok, lets see the brighter side. You go to school. You go to college. Suppose you are interested in Astronomy. You have a subject on it in your college. Rest all the subjects are of the <i>none of your business</i> type. Still you have to learn them to clear your examination. If you were self learned, you study what you want to, and you can concentrate entirely on your passion. Honestly, life is short. You never know if you will be there to see the next sun rise. So why spend it on something you aren't even interested in. I totally agree basic knowledge of the world is essential. Yes, primary schooling is something that should be given to every individual, as it not only builds knowledge but also the child's logic and understanding of the world around him. But at a stage, everyone needs to be given the choice of continuing life according to his or her way, rather then making him or her follow others and lead to a boring, monotonous life. Feels like a crime to me. Indeed some need schooling, no doubt, but it is bad to make it a standard. To make it a <i>rule </i>to live respectfully on this planet.<br /><br />That is the way I feel. Learn formally till you get to your senses, and then you can do whatever the hell you feel like. It makes you confident about yourself and you start thinking independently, no handles required. You know when and where to look for help and that means you never stop on a jerk in the road to success. Most importantly, self learning is rewarding. It is such a good feeling when you set goals for yourself and attain them. You keep raising the bar for yourself and get to it. There is no fear of ending up last in the class or below your fellow mates. You are your only competition, and that's when you will realize, you have left the world far behind. You got no certificates, but you can argue, and defeat anyone in it, who has spend $20,000 a year to get that crappy piece of paper which certifies his level of skills and usefulness. Thats the magic of self learning. No boundaries, no limits.<br /><br /><blockquote class="tr_bq">and in case you were wondering, I am not self learned. I go to college to learn what they have to teach me, and I really regret not being able to be a self learner, although I am trying hard to be one. I take as little help as possible, work my ass off trying to figure out concepts in my books. Because once I get it, the feeling is rewarding; and I love it.</blockquote><br />Thank you for reading.</div></span>
 </div>
 
-<div class="related">
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<div class="box">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-2314128584981990"
          data-ad-slot="1513670662"
          data-ad-format="auto"></ins>
     <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-  <hr>
-  
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+
 
 
   <div id="disqus_thread"></div>
@@ -167,53 +141,137 @@
 
 
 
-</div>
 
       </div>
+
+      <div class="tile is-4 is-child">
+        <div class="tile is-parent is-vertical sidebar">
+
+          <div class="tile is-child widget">
+            <!--<h2>Related articles</h2>-->
+
+            <div class="box">
+              <header class="card-header">
+                <p class="card-header-title nice-title">
+                  Recent Posts
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content nice-text">
+                  <ul>
+                  
+                  <li><a href="/2017/02/trip-to-bramhatal-uttarakhand.html">
+                    Trek To Bramhatal (Uttarakhand)
+                  </a></li>
+                  
+                  <li><a href="/2017/01/7th-sem-and-then.html">
+                    7th Semester And Then
+                  </a></li>
+                  
+                  <li><a href="/2016/12/BSNL-3g-broadband-rant.html">
+                    BSNL 3G And Broadband Rant
+                  </a></li>
+                  
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tile is-child widget">
+
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title nice-title">
+                  Sponsored
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content nice-text">
+                  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                  <ins class="adsbygoogle"
+                       style="display:block"
+                       data-ad-client="ca-pub-2314128584981990"
+                       data-ad-slot="1513670662"
+                       data-ad-format="auto"></ins>
+                  <script>
+                      (adsbygoogle = window.adsbygoogle || []).push({});
+                  </script>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="tile is-child widget">
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title nice-title">
+                  Recommended Websites
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content nice-text">
+                  <ul>
+                    <li>
+                      <a href="https://xkcd.com">xkcd</a>
+                    </li>
+                    <li>
+                      <a href="http://commitstrip.com">Commit Strip</a>
+                    </li>
+                    <li>
+                      <a href="http://www.smbc-comics.com">SMBC Comics</a>
+                    </li>
+                    <li>
+                      <a href="https://blog.codinghorror.com">Coding Horror</a>
+                    </li>
+                    <li>
+                      <a href="http://waitbutwhy.com">Wait Buy Why</a>
+                    </li>
+                    <li>
+                      <a href="https://simplysoch.wordpress.com/">Simply Soch</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+  </div>
+</div>
 
-    <script>
-      (function(document) {
-        var toggle = document.querySelector('.sidebar-toggle');
-        var sidebar = document.querySelector('#sidebar');
-        var checkbox = document.querySelector('#sidebar-checkbox');
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        Some rights reserved.
+      </p>
+      <p>
+        Made with <i class="fa fa-heart"></i> and <a href="https://github.com/jgthms/bulma">Bulma</a>, <a href="https://jekyllrb.com/">Jekyll</a>. Hosted on <a href="https://github.com/">Github</a>
+      </p>
+      <p>
+        <a class="icon" href="https://github.com/abhn">
+          <i class="fa fa-github" title="Github"></i>
+        </a>
+        <a class="icon" href="https://in.linkedin.com/in/AbhishekNagekar">
+          <i class="fa fa-linkedin" title="Linkedin"></i>
+        </a>
+        <a class="icon" href="mailto:abhishek@nagekar.com">
+          <i class="fa fa-envelope" title="Email"></i>
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>
 
-        document.addEventListener('click', function(e) {
-          var target = e.target;
-
-          if(!checkbox.checked ||
-             sidebar.contains(target) ||
-             (target === checkbox || target === toggle)) return;
-
-          checkbox.checked = false;
-        }, false);
-      })(document);
-    </script>
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-74790644-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-    <script>
-        // stop reading other people's source, dude. That is rude
-        var txtFile = new XMLHttpRequest();
-        txtFile.open("GET", "/quotes.txt", true);
-        txtFile.onreadystatechange = () => {
-          if (txtFile.readyState === 4) {  
-            if (txtFile.status === 200) { 
-              allText = txtFile.responseText; 
-              lines = txtFile.responseText.split("\n");
-              randLine = lines[Math.floor((Math.random() * lines.length) + 1)];
-              document.getElementById('head-quote').innerHTML = '<p class="message" style="font-size: 14px; font-color: grey; text-align: center;">' + randLine + '<small></p>';
-            }
-          }
-        }
-        txtFile.send(null);
-    </script>
-  </body>
+<!-- js -->
+<script src="/public/js/custom.js"></script>
+<script src="/public/js/typewriter.js"></script>
+</body>
 </html>

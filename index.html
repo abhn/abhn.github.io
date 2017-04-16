@@ -1,26 +1,23 @@
 ---
 layout: page
-title: Sometimes, I write..
+title: Well, Hello There!
 ---
-{% include JB/setup %}
-    
-### Essays
-
 <ul class="posts">
-  {% for post in site.posts %}
-    <li>
+    {% for post in site.posts %}
+    <li class="post">
         <small>{{ post.date | date_to_string }}</small>
         <small><a style="color:grey" href="{{ BASE_PATH }}{{ post.url }}#disqus_thread"></a></small>
         <br>
-        <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+        <a class="nice-title" href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a>
+        <p class="nice-text">{{ post.content | strip_html | truncatewords: 50 }} <a href="{{ BASE_PATH }}{{ post.url }}">Read more!</a></p>
     </li>
-  {% endfor %}
+    {% endfor %}
 </ul>
 
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES * * */
     var disqus_shortname = 'nagekar';
-    
+
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function () {
         var s = document.createElement('script'); s.async = true;

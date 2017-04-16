@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
-  <head>
+<head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
-  <!-- Enable responsiveness on mobile devices-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <link rel="stylesheet" href="/public/css/normalize.css"/>
+  <link rel="stylesheet" href="/public/css/bulma.css"/>
+  <link rel="stylesheet" href="/public/css/custom.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 
   <title>
     
@@ -15,124 +27,85 @@
     
   </title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="/public/css/poole.css">
-  <link rel="stylesheet" href="/public/css/syntax.css">
-  <link rel="stylesheet" href="/public/css/lanyon.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
-
-  <!-- Icons -->
-  <link rel="shortcut icon" href="/assets/images/favicon.ico">
-
-  <!-- RSS -->
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 </head>
 
 
-  <body>
+<body>
 
-    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
-     styles, `#sidebar-checkbox` for behavior. -->
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
-
-
-
-<!-- Toggleable sidebar -->
-<div class="sidebar" id="sidebar">
-
-    <div class="sidebar-item">
-        <img src="/assets/images/me.jpg" />
-        <p>One of them is me.</p>
+<section class="hero is-dark">
+  <div class="hero-body">
+    <div class="container">
+        <h1 class="title">
+          <span class="typewrite" data-period="2000" data-type='[ "hello", "namaste", "assalam o alaikum",
+          "sat srī akāl", "khammaghani", "hola", "bonjour", "nomoskaar", "guten tag", "kumusta", "salut", "nômoshkar"]'>
+            <span class="wrap"></span>
+          </span>
+        </h1>
+      <h4 class="subtitle" id="quote">
+      </h4>
     </div>
-
-
-  <nav class="sidebar-nav">
-    
-
-    
-    
-      
-        
-          <a class="sidebar-nav-item" href="/">Sometimes, I write..</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/archive">Archive</a>
-        
-      
-    
-      
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/meta">Meta</a>
-        
-      
-    
-      
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/search">Search This Blog</a>
-        
-      
-    
-      
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/tags">Tags</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/wish">Wish List</a>
-        
-      
-    
-    <a class="sidebar-nav-item" href="https://github.com/abhn">My GitHub</a>
-    <a class="sidebar-nav-item" href="/search">Search This Blog</a>
-    <a class="sidebar-nav-item" onclick="window.open('https://feedburner.google.com/fb/a/mailverify?uri=AbhishekN', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true" target="popupwindow" href="https://feedburner.google.com/fb/a/mailverify?uri=AbhishekN">Email Subscription</a>
-    
-    
-  </nav>
-
-  <div class="sidebar-item">
-    <p>
-      Abhishek Nagekar &copy; 2017
-    <br>
-      <small>Some Rights Reserved</small>
-    </p>
   </div>
-</div>
+</section>
+
+<div class="main-container">
+  <div class="tile is-ancestor is-vertical">
 
 
-    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
-         content to avoid any CSS collisions with our real content. -->
-    <div class="wrap">
-      <div class="masthead">
-        <div class="container">
-          <h3 class="masthead-title">
-            <a href="/" title="Home">Abhishek Nagekar's Blog</a>
-            <small>Code, Science, Philosophy, Humor</small>
-          </h3>
+    <nav class="nav has-shadow">
+
+      <div class="nav-left">
+
+        <a href="/" class="nav-item">
+          <span class="icon">
+            <i class="fa fa-home" aria-hidden="true" title="Homepage"></i>
+          </span>
+        </a>
+
+        <a href="https://github.com/abhn" class="nav-item">
+          <span class="icon">
+            <i class="fa fa-github" aria-hidden="true" title="Github"></i>
+          </span>
+        </a>
+
+        <div class="nav-item" id="searchFieldNav">
+          <div class="field has-addons">
+            <p class="control">
+              <input class="input is-small" type="text" placeholder="Find an article" id="search-text">
+            </p>
+            <p class="control">
+              <a class="button is-dark is-small" onclick="searchHandler();">
+                Search
+              </a>
+            </p>
+          </div>
         </div>
+
       </div>
-      <div class="container content">
-        <div id="head-quote"></div>
-        <div class="post">
-  <h1 class="post-title">Googling And Asking Better Questions</h1>
-  <span class="post-date">17 April, 2016. It was a Sunday.</span>
-  <p>
+
+      <div class="nav-right nav-menu" id='nav-menu'>
+        <a href="https://www.nagekar.com/meta" class="nav-item">Meta</a>
+        <a href="https://www.nagekar.com/archive" class="nav-item">Archive</a>
+        <a href="https://www.nagekar.com/tags" class="nav-item">Tags</a>
+      </div>
+
+      <span class="nav-toggle" id="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+      </span>
+    </nav>
+
+    <div class="tile is-parent">
+      <div class="tile is-8 is-child main">
+
+        <div class="box">
+    <h1 class="post-title">Googling And Asking Better Questions</h1>
+    <span class="post-meta">17 April, 2016. It was a Sunday. <a style="color:grey" href="#disqus_thread"></a></span><hr/>
+
+    <span class="post-text"><p>
   Like many of the things you do in your lives, Googling is an art. Getting to the right page that you were looking for, with the right set keywords and clicking the right links, all this seems to be quite random and uncertain, but once you get into the groove, things become natural and predictable. Finding that random song you heard on the street is no big deal, and neither is finding the article that you had read couple of years ago, the only part of which you remember was the author's last name. Information is growing each day, and having the right set of tools always within you is so much important. Yes, there's that shiny history feature in you latest Chromium browser with sync, so that you never lose your tracks, but knowing how to find something on a totally random public PC without having to look into your history is very convenient, also cool.
 </p>
 <p>
@@ -180,21 +153,22 @@
 <p>
   Concluding it, I hope this post was informative. Ask wise questions. People really appreciate when you ask good questions. They say no question is stupid. That is not an excuse to not trying to search from the existing resources, or being a naive help addict. Keep exploring.
 </p>
-
+</span>
 </div>
 
-<div class="related">
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<div class="box">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-2314128584981990"
          data-ad-slot="1513670662"
          data-ad-format="auto"></ins>
     <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-  <hr>
-  
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+
 
 
   <div id="disqus_thread"></div>
@@ -215,53 +189,137 @@
 
 
 
-</div>
 
       </div>
+
+      <div class="tile is-4 is-child">
+        <div class="tile is-parent is-vertical sidebar">
+
+          <div class="tile is-child widget">
+            <!--<h2>Related articles</h2>-->
+
+            <div class="box">
+              <header class="card-header">
+                <p class="card-header-title nice-title">
+                  Recent Posts
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content nice-text">
+                  <ul>
+                  
+                  <li><a href="/2017/02/trip-to-bramhatal-uttarakhand.html">
+                    Trek To Bramhatal (Uttarakhand)
+                  </a></li>
+                  
+                  <li><a href="/2017/01/7th-sem-and-then.html">
+                    7th Semester And Then
+                  </a></li>
+                  
+                  <li><a href="/2016/12/BSNL-3g-broadband-rant.html">
+                    BSNL 3G And Broadband Rant
+                  </a></li>
+                  
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tile is-child widget">
+
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title nice-title">
+                  Sponsored
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content nice-text">
+                  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                  <ins class="adsbygoogle"
+                       style="display:block"
+                       data-ad-client="ca-pub-2314128584981990"
+                       data-ad-slot="1513670662"
+                       data-ad-format="auto"></ins>
+                  <script>
+                      (adsbygoogle = window.adsbygoogle || []).push({});
+                  </script>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="tile is-child widget">
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title nice-title">
+                  Recommended Websites
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content nice-text">
+                  <ul>
+                    <li>
+                      <a href="https://xkcd.com">xkcd</a>
+                    </li>
+                    <li>
+                      <a href="http://commitstrip.com">Commit Strip</a>
+                    </li>
+                    <li>
+                      <a href="http://www.smbc-comics.com">SMBC Comics</a>
+                    </li>
+                    <li>
+                      <a href="https://blog.codinghorror.com">Coding Horror</a>
+                    </li>
+                    <li>
+                      <a href="http://waitbutwhy.com">Wait Buy Why</a>
+                    </li>
+                    <li>
+                      <a href="https://simplysoch.wordpress.com/">Simply Soch</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+  </div>
+</div>
 
-    <script>
-      (function(document) {
-        var toggle = document.querySelector('.sidebar-toggle');
-        var sidebar = document.querySelector('#sidebar');
-        var checkbox = document.querySelector('#sidebar-checkbox');
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        Some rights reserved.
+      </p>
+      <p>
+        Made with <i class="fa fa-heart"></i> and <a href="https://github.com/jgthms/bulma">Bulma</a>, <a href="https://jekyllrb.com/">Jekyll</a>. Hosted on <a href="https://github.com/">Github</a>
+      </p>
+      <p>
+        <a class="icon" href="https://github.com/abhn">
+          <i class="fa fa-github" title="Github"></i>
+        </a>
+        <a class="icon" href="https://in.linkedin.com/in/AbhishekNagekar">
+          <i class="fa fa-linkedin" title="Linkedin"></i>
+        </a>
+        <a class="icon" href="mailto:abhishek@nagekar.com">
+          <i class="fa fa-envelope" title="Email"></i>
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>
 
-        document.addEventListener('click', function(e) {
-          var target = e.target;
-
-          if(!checkbox.checked ||
-             sidebar.contains(target) ||
-             (target === checkbox || target === toggle)) return;
-
-          checkbox.checked = false;
-        }, false);
-      })(document);
-    </script>
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-74790644-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-    <script>
-        // stop reading other people's source, dude. That is rude
-        var txtFile = new XMLHttpRequest();
-        txtFile.open("GET", "/quotes.txt", true);
-        txtFile.onreadystatechange = () => {
-          if (txtFile.readyState === 4) {  
-            if (txtFile.status === 200) { 
-              allText = txtFile.responseText; 
-              lines = txtFile.responseText.split("\n");
-              randLine = lines[Math.floor((Math.random() * lines.length) + 1)];
-              document.getElementById('head-quote').innerHTML = '<p class="message" style="font-size: 14px; font-color: grey; text-align: center;">' + randLine + '<small></p>';
-            }
-          }
-        }
-        txtFile.send(null);
-    </script>
-  </body>
+<!-- js -->
+<script src="/public/js/custom.js"></script>
+<script src="/public/js/typewriter.js"></script>
+</body>
 </html>

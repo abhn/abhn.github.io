@@ -27,8 +27,8 @@ Usage:
     {% capture next_month %}{{ post.previous.date | date: "%B" }}{% endcapture %}
   
     {% if forloop.first %}
-      <h2>{{this_year}}</h2>
-      <h3>{{this_month}}</h3>
+      <h2 class="nice-title">{{this_year}}</h2>
+      <h3 class="nice-text">{{this_month}}</h3>
       <ul>
     {% endif %}
   
@@ -39,13 +39,14 @@ Usage:
     {% else %}
       {% if this_year != next_year %}
         </ul>
-        <h2>{{next_year}}</h2>
-        <h3>{{next_month}}</h3>
+        <hr/>
+        <h2 class="nice-title">{{next_year}}</h2>
+        <h3 class="nice-text">{{next_month}}</h3>
         <ul>
       {% else %}    
         {% if this_month != next_month %}
           </ul>
-          <h3>{{next_month}}</h3>
+          <h3 class="nice-text">{{next_month}}</h3>
           <ul>
         {% endif %}
       {% endif %}

@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
-  <head>
+<head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
-  <!-- Enable responsiveness on mobile devices-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <link rel="stylesheet" href="/public/css/normalize.css"/>
+  <link rel="stylesheet" href="/public/css/bulma.css"/>
+  <link rel="stylesheet" href="/public/css/custom.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 
   <title>
     
@@ -15,138 +27,100 @@
     
   </title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="/public/css/poole.css">
-  <link rel="stylesheet" href="/public/css/syntax.css">
-  <link rel="stylesheet" href="/public/css/lanyon.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
-
-  <!-- Icons -->
-  <link rel="shortcut icon" href="/assets/images/favicon.ico">
-
-  <!-- RSS -->
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 </head>
 
 
-  <body>
+<body>
 
-    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
-     styles, `#sidebar-checkbox` for behavior. -->
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
-
-
-
-<!-- Toggleable sidebar -->
-<div class="sidebar" id="sidebar">
-
-    <div class="sidebar-item">
-        <img src="/assets/images/me.jpg" />
-        <p>One of them is me.</p>
+<section class="hero is-dark">
+  <div class="hero-body">
+    <div class="container">
+        <h1 class="title">
+          <span class="typewrite" data-period="2000" data-type='[ "hello", "namaste", "assalam o alaikum",
+          "sat srī akāl", "khammaghani", "hola", "bonjour", "nomoskaar", "guten tag", "kumusta", "salut", "nômoshkar"]'>
+            <span class="wrap"></span>
+          </span>
+        </h1>
+      <h4 class="subtitle" id="quote">
+      </h4>
     </div>
-
-
-  <nav class="sidebar-nav">
-    
-
-    
-    
-      
-        
-          <a class="sidebar-nav-item" href="/">Sometimes, I write..</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/archive">Archive</a>
-        
-      
-    
-      
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/meta">Meta</a>
-        
-      
-    
-      
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/search">Search This Blog</a>
-        
-      
-    
-      
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/tags">Tags</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/wish">Wish List</a>
-        
-      
-    
-    <a class="sidebar-nav-item" href="https://github.com/abhn">My GitHub</a>
-    <a class="sidebar-nav-item" href="/search">Search This Blog</a>
-    <a class="sidebar-nav-item" onclick="window.open('https://feedburner.google.com/fb/a/mailverify?uri=AbhishekN', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true" target="popupwindow" href="https://feedburner.google.com/fb/a/mailverify?uri=AbhishekN">Email Subscription</a>
-    
-    
-  </nav>
-
-  <div class="sidebar-item">
-    <p>
-      Abhishek Nagekar &copy; 2017
-    <br>
-      <small>Some Rights Reserved</small>
-    </p>
   </div>
-</div>
+</section>
+
+<div class="main-container">
+  <div class="tile is-ancestor is-vertical">
 
 
-    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
-         content to avoid any CSS collisions with our real content. -->
-    <div class="wrap">
-      <div class="masthead">
-        <div class="container">
-          <h3 class="masthead-title">
-            <a href="/" title="Home">Abhishek Nagekar's Blog</a>
-            <small>Code, Science, Philosophy, Humor</small>
-          </h3>
+    <nav class="nav has-shadow">
+
+      <div class="nav-left">
+
+        <a href="/" class="nav-item">
+          <span class="icon">
+            <i class="fa fa-home" aria-hidden="true" title="Homepage"></i>
+          </span>
+        </a>
+
+        <a href="https://github.com/abhn" class="nav-item">
+          <span class="icon">
+            <i class="fa fa-github" aria-hidden="true" title="Github"></i>
+          </span>
+        </a>
+
+        <div class="nav-item" id="searchFieldNav">
+          <div class="field has-addons">
+            <p class="control">
+              <input class="input is-small" type="text" placeholder="Find an article" id="search-text">
+            </p>
+            <p class="control">
+              <a class="button is-dark is-small" onclick="searchHandler();">
+                Search
+              </a>
+            </p>
+          </div>
         </div>
+
       </div>
-      <div class="container content">
-        <div id="head-quote"></div>
-        <div class="post">
-  <h1 class="post-title">Net Neutrality</h1>
-  <span class="post-date">13 April, 2015. It was a Monday.</span>
-  Do you know, here in India, at most of the public places like temples, we have two separate queues. One for the ordinary folks, and the other one for the rich folks. Sometimes the rich folks are charged, sometimes they are just judged from the car they get down from and are treated likewise. On the other hand, the ordinary people are treated like cattles, pulled and pushed by the authority, because we are not really benefiting them much.<br /><br />This is the reason I would almost always choose Internet over any other public institution, at least in India. I know that whatever my social status be, on the Internet, I am equal. I have just as much right to put forth by thoughts as any rich businessman or a politician. I know that I have got people behind me who would not tolerate anyone who curtails my rights on the Internet. Yes, Internet is my home, and I am Internet's child.<br /><br />But like always, there are people who cannot stand that the ordinary are getting this extra power. They want to bring all of this under control. They want to turn the Internet into their own playground where they will control the lines as in our temples, giving early and quick access to the one who pays extra and slow to the one who does not. They want to make sure only the ones who can pay get heard, and all the others are suppressed.<br /><br /><h3>Net Neutrality</h3>You are out with your family, on a nice sunday picnic when on a toll booth, you are told that your Maruti car is no longer allowed on this flyover because Hyundai has paid the construction company to only allow their cars through the shortcut. What would be your reaction?<br /><table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody><tr><td style="text-align: center;"><img border="0" height="320" src="http://4.bp.blogspot.com/-lAAz-YJyr2k/VSt8xLCNxNI/AAAAAAAAH7g/wHM831EryY8/s1600/Black-Girl-Wat.jpg" style="margin-left: auto; margin-right: auto;" width="306" /></td></tr><tr><td class="tr-caption" style="text-align: center;">This, precisely! </td></tr></tbody></table><div class="separator" style="clear: both; text-align: center;"></div><br /><blockquote class="tr_bq"><a href="http://en.wikipedia.org/wiki/Tim_Berners-Lee" target="_blank">Tim Berners-Lee</a> ('Inventor' or the world wide web, or more technically, original implementer of the HTTP protocol) defines 'Net Neutrality' as the principle that each packet of data should be treated equally, and no discrimination should be made based on economic motivations.</blockquote><br />The exact opposite is what some telecom companies in India are trying to do. It started with Airtel. All of a sudden, it struck Airtel that if websites and applications can make revenue by creating services like messaging (like Whatsapp and Facebook) and calling (like Skype and Viber) which in turn decrease the usage of Airtel's own services of SMS and calling, it is their right to start charging these Internet services separately. They even got out with their VOIP pack that a customer had to subscribe in addition to the existing 'base' data pack, to use this service. <a href="http://in.reuters.com/article/2014/12/29/bharti-airtel-rates-idINKBN0K70A920141229" target="_blank">Eventually it was dropped</a> on account of the resistance.<br /><br />Now this time, telecom companies have convinced <a href="http://www.trai.gov.in/" target="_blank">TRAI</a> that they must be entitled with the authority to intercept the traffic, to decide what websites to let users access, and what not, and if yes, then at what speed. Ridiculous, right? Charging more for extra speed can be justified, but why on earth are those innocent data packets discriminated. TRAI has even released a consultation paper <a href="http://www.trai.gov.in/Content/ConDis/10743_0.aspx" target="_blank">asking 20 questions here</a>. If you take a look, you would immediately see that the paper is made extra complicated to not make sense to you, yes you, the customer. The <a href="https://isocpp.org/std/the-standard" target="_blank">C++ standard</a> looks simpler. LOL.<br /><br /><h3>So what does it change for you, for me?</h3><i>As a customer</i>, it will change almost everything for us that has any connection with the Internet. Firstly, we will have to pay for the usual data plan we currently do. So far so good. Now, you can't use any messenger services from this pack, so no Whatsapp, Facebook, WeChat and all. Similarly, no Internet calling services would work, like Skype and Viber. Well, they would work if you pay an extra Rs100 or so a month for the 'Special-messenger-pack' and the 'Special-VOIP-pack'. Now who the heck are these telecom companies to tell me how and what sites and services should I use.<br /><br />Plus, it also gives the companies the power to control the speed of your connection on particular sites. For example, maybe Flipkart.com will load up instantly, but Amazon.in would take forever to load up just because Flipkart is affiliated with your service provider, and you are forced to buy from Flipkart. Disgusting, right?<br /><br />So, if you don't want to pay Rs250 for data, Rs50 for Whatsapp, Rs70 for Facebook and Rs80 for Youtube seperately, then you should instantly head to<b>&nbsp;</b><br /><blockquote class="tr_bq"><b><a href="http://www.savetheinternet.in/" target="_blank">http://www.savetheinternet.in/ </a></b></blockquote>and send an email to TRAI, which can be done with 2 clicks, yes literally.<br /><br /><i>As a publisher</i>, you might own a startup or maybe a modest blog like the one you are reading this article on. Now, large sites and enterprises with deep pockets can just call up these telecom companies and be like "Make my site free on your network, I'll pay you the incentive." This will make all the traffic go on that particular site or use that particular service and not yours, which was equally good, or maybe better.<br /><br />The Internet is the only place guys, where everyone is still equal. We need to keep it this way, otherwise, we would be helpless. We know exactly how strong our law is, and how well behaved our politicians are. We know exactly how seriously we are taken by the mainstream media and the police. We, Indians, are like puppets for the rich filthy and greedy companies that rule here. And now, they are trying to close the only open source of information for us. Don't let that happen.<br /><br />A humble request to all my fellow netizens. Log on to the site and send an email to TRAI. Educate your fellow netizens. Together we can stop this.<b>&nbsp;</b><br /><blockquote class="tr_bq"><b><a href="http://www.savetheinternet.in/" target="_blank">http://www.savetheinternet.in/</a></b></blockquote><br /><blockquote class="tr_bq"><b>For further reading, here is a short list.</b></blockquote><ul><li><a href="http://www.netneutrality.in/">http://www.netneutrality.in/</a> - More information and compilation of articles.</li><li><a href="https://www.facebook.com/netneutralityin">https://www.facebook.com/netneutralityin</a> <a href="https://twitter.com/neutrality_in">https://twitter.com/neutrality_in</a> - Social handles to follow for latest updates.</li></ul><ul><li>Awesome video by All India Bakchod to put it simply - <a href="https://www.youtube.com/watch?v=mfY1NKrzqi0">https://www.youtube.com/watch?v=mfY1NKrzqi0</a></li><li><a href="http://www.reddit.com/r/india/comments/31lyxx/table_of_companies_which_support_net_neutrality/" target="_blank">List of violators and supporters of net neutrality,</a> so the next time you have to choose between them, you know whose side to take and whose product to use.</li><li><a href="https://medium.com/@chupchap/india-s-net-neutrality-debate-explained-in-memes-3a8f6febaccf" target="_blank">Post on Medium by NT Balanarayan</a> explaining the intensity of this situation with memes.</li><li><a href="http://www.trai.gov.in/WriteReaddata/ConsultationPaper/Document/OTT-CP-27032015.pdf" target="_blank">TRAI Consultation paper</a> hot-link (PDF)</li><li><a href="https://www.change.org/p/telecom-regulatory-authority-of-india-call-to-protect-net-neutrality-in-india-and-block-airtel-other-telecoms-from-who-are-trying-to-break-it-for-personal-gains" target="_blank">Petition on Change.org</a> - You should help here as well. The more you help, the better our chances.</li></ul>
+
+      <div class="nav-right nav-menu" id='nav-menu'>
+        <a href="https://www.nagekar.com/meta" class="nav-item">Meta</a>
+        <a href="https://www.nagekar.com/archive" class="nav-item">Archive</a>
+        <a href="https://www.nagekar.com/tags" class="nav-item">Tags</a>
+      </div>
+
+      <span class="nav-toggle" id="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+      </span>
+    </nav>
+
+    <div class="tile is-parent">
+      <div class="tile is-8 is-child main">
+
+        <div class="box">
+    <h1 class="post-title">Net Neutrality</h1>
+    <span class="post-meta">13 April, 2015. It was a Monday. <a style="color:grey" href="#disqus_thread"></a></span><hr/>
+
+    <span class="post-text">Do you know, here in India, at most of the public places like temples, we have two separate queues. One for the ordinary folks, and the other one for the rich folks. Sometimes the rich folks are charged, sometimes they are just judged from the car they get down from and are treated likewise. On the other hand, the ordinary people are treated like cattles, pulled and pushed by the authority, because we are not really benefiting them much.<br /><br />This is the reason I would almost always choose Internet over any other public institution, at least in India. I know that whatever my social status be, on the Internet, I am equal. I have just as much right to put forth by thoughts as any rich businessman or a politician. I know that I have got people behind me who would not tolerate anyone who curtails my rights on the Internet. Yes, Internet is my home, and I am Internet's child.<br /><br />But like always, there are people who cannot stand that the ordinary are getting this extra power. They want to bring all of this under control. They want to turn the Internet into their own playground where they will control the lines as in our temples, giving early and quick access to the one who pays extra and slow to the one who does not. They want to make sure only the ones who can pay get heard, and all the others are suppressed.<br /><br /><h3>Net Neutrality</h3>You are out with your family, on a nice sunday picnic when on a toll booth, you are told that your Maruti car is no longer allowed on this flyover because Hyundai has paid the construction company to only allow their cars through the shortcut. What would be your reaction?<br /><table align="center" cellpadding="0" cellspacing="0" class="tr-caption-container" style="margin-left: auto; margin-right: auto; text-align: center;"><tbody><tr><td style="text-align: center;"><img border="0" height="320" src="http://4.bp.blogspot.com/-lAAz-YJyr2k/VSt8xLCNxNI/AAAAAAAAH7g/wHM831EryY8/s1600/Black-Girl-Wat.jpg" style="margin-left: auto; margin-right: auto;" width="306" /></td></tr><tr><td class="tr-caption" style="text-align: center;">This, precisely! </td></tr></tbody></table><div class="separator" style="clear: both; text-align: center;"></div><br /><blockquote class="tr_bq"><a href="http://en.wikipedia.org/wiki/Tim_Berners-Lee" target="_blank">Tim Berners-Lee</a> ('Inventor' or the world wide web, or more technically, original implementer of the HTTP protocol) defines 'Net Neutrality' as the principle that each packet of data should be treated equally, and no discrimination should be made based on economic motivations.</blockquote><br />The exact opposite is what some telecom companies in India are trying to do. It started with Airtel. All of a sudden, it struck Airtel that if websites and applications can make revenue by creating services like messaging (like Whatsapp and Facebook) and calling (like Skype and Viber) which in turn decrease the usage of Airtel's own services of SMS and calling, it is their right to start charging these Internet services separately. They even got out with their VOIP pack that a customer had to subscribe in addition to the existing 'base' data pack, to use this service. <a href="http://in.reuters.com/article/2014/12/29/bharti-airtel-rates-idINKBN0K70A920141229" target="_blank">Eventually it was dropped</a> on account of the resistance.<br /><br />Now this time, telecom companies have convinced <a href="http://www.trai.gov.in/" target="_blank">TRAI</a> that they must be entitled with the authority to intercept the traffic, to decide what websites to let users access, and what not, and if yes, then at what speed. Ridiculous, right? Charging more for extra speed can be justified, but why on earth are those innocent data packets discriminated. TRAI has even released a consultation paper <a href="http://www.trai.gov.in/Content/ConDis/10743_0.aspx" target="_blank">asking 20 questions here</a>. If you take a look, you would immediately see that the paper is made extra complicated to not make sense to you, yes you, the customer. The <a href="https://isocpp.org/std/the-standard" target="_blank">C++ standard</a> looks simpler. LOL.<br /><br /><h3>So what does it change for you, for me?</h3><i>As a customer</i>, it will change almost everything for us that has any connection with the Internet. Firstly, we will have to pay for the usual data plan we currently do. So far so good. Now, you can't use any messenger services from this pack, so no Whatsapp, Facebook, WeChat and all. Similarly, no Internet calling services would work, like Skype and Viber. Well, they would work if you pay an extra Rs100 or so a month for the 'Special-messenger-pack' and the 'Special-VOIP-pack'. Now who the heck are these telecom companies to tell me how and what sites and services should I use.<br /><br />Plus, it also gives the companies the power to control the speed of your connection on particular sites. For example, maybe Flipkart.com will load up instantly, but Amazon.in would take forever to load up just because Flipkart is affiliated with your service provider, and you are forced to buy from Flipkart. Disgusting, right?<br /><br />So, if you don't want to pay Rs250 for data, Rs50 for Whatsapp, Rs70 for Facebook and Rs80 for Youtube seperately, then you should instantly head to<b>&nbsp;</b><br /><blockquote class="tr_bq"><b><a href="http://www.savetheinternet.in/" target="_blank">http://www.savetheinternet.in/ </a></b></blockquote>and send an email to TRAI, which can be done with 2 clicks, yes literally.<br /><br /><i>As a publisher</i>, you might own a startup or maybe a modest blog like the one you are reading this article on. Now, large sites and enterprises with deep pockets can just call up these telecom companies and be like "Make my site free on your network, I'll pay you the incentive." This will make all the traffic go on that particular site or use that particular service and not yours, which was equally good, or maybe better.<br /><br />The Internet is the only place guys, where everyone is still equal. We need to keep it this way, otherwise, we would be helpless. We know exactly how strong our law is, and how well behaved our politicians are. We know exactly how seriously we are taken by the mainstream media and the police. We, Indians, are like puppets for the rich filthy and greedy companies that rule here. And now, they are trying to close the only open source of information for us. Don't let that happen.<br /><br />A humble request to all my fellow netizens. Log on to the site and send an email to TRAI. Educate your fellow netizens. Together we can stop this.<b>&nbsp;</b><br /><blockquote class="tr_bq"><b><a href="http://www.savetheinternet.in/" target="_blank">http://www.savetheinternet.in/</a></b></blockquote><br /><blockquote class="tr_bq"><b>For further reading, here is a short list.</b></blockquote><ul><li><a href="http://www.netneutrality.in/">http://www.netneutrality.in/</a> - More information and compilation of articles.</li><li><a href="https://www.facebook.com/netneutralityin">https://www.facebook.com/netneutralityin</a> <a href="https://twitter.com/neutrality_in">https://twitter.com/neutrality_in</a> - Social handles to follow for latest updates.</li></ul><ul><li>Awesome video by All India Bakchod to put it simply - <a href="https://www.youtube.com/watch?v=mfY1NKrzqi0">https://www.youtube.com/watch?v=mfY1NKrzqi0</a></li><li><a href="http://www.reddit.com/r/india/comments/31lyxx/table_of_companies_which_support_net_neutrality/" target="_blank">List of violators and supporters of net neutrality,</a> so the next time you have to choose between them, you know whose side to take and whose product to use.</li><li><a href="https://medium.com/@chupchap/india-s-net-neutrality-debate-explained-in-memes-3a8f6febaccf" target="_blank">Post on Medium by NT Balanarayan</a> explaining the intensity of this situation with memes.</li><li><a href="http://www.trai.gov.in/WriteReaddata/ConsultationPaper/Document/OTT-CP-27032015.pdf" target="_blank">TRAI Consultation paper</a> hot-link (PDF)</li><li><a href="https://www.change.org/p/telecom-regulatory-authority-of-india-call-to-protect-net-neutrality-in-india-and-block-airtel-other-telecoms-from-who-are-trying-to-break-it-for-personal-gains" target="_blank">Petition on Change.org</a> - You should help here as well. The more you help, the better our chances.</li></ul></span>
 </div>
 
-<div class="related">
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<div class="box">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-2314128584981990"
          data-ad-slot="1513670662"
          data-ad-format="auto"></ins>
     <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-  <hr>
-  
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+
 
 
   <div id="disqus_thread"></div>
@@ -167,53 +141,137 @@
 
 
 
-</div>
 
       </div>
+
+      <div class="tile is-4 is-child">
+        <div class="tile is-parent is-vertical sidebar">
+
+          <div class="tile is-child widget">
+            <!--<h2>Related articles</h2>-->
+
+            <div class="box">
+              <header class="card-header">
+                <p class="card-header-title nice-title">
+                  Recent Posts
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content nice-text">
+                  <ul>
+                  
+                  <li><a href="/2017/02/trip-to-bramhatal-uttarakhand.html">
+                    Trek To Bramhatal (Uttarakhand)
+                  </a></li>
+                  
+                  <li><a href="/2017/01/7th-sem-and-then.html">
+                    7th Semester And Then
+                  </a></li>
+                  
+                  <li><a href="/2016/12/BSNL-3g-broadband-rant.html">
+                    BSNL 3G And Broadband Rant
+                  </a></li>
+                  
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tile is-child widget">
+
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title nice-title">
+                  Sponsored
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content nice-text">
+                  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                  <ins class="adsbygoogle"
+                       style="display:block"
+                       data-ad-client="ca-pub-2314128584981990"
+                       data-ad-slot="1513670662"
+                       data-ad-format="auto"></ins>
+                  <script>
+                      (adsbygoogle = window.adsbygoogle || []).push({});
+                  </script>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="tile is-child widget">
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title nice-title">
+                  Recommended Websites
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content nice-text">
+                  <ul>
+                    <li>
+                      <a href="https://xkcd.com">xkcd</a>
+                    </li>
+                    <li>
+                      <a href="http://commitstrip.com">Commit Strip</a>
+                    </li>
+                    <li>
+                      <a href="http://www.smbc-comics.com">SMBC Comics</a>
+                    </li>
+                    <li>
+                      <a href="https://blog.codinghorror.com">Coding Horror</a>
+                    </li>
+                    <li>
+                      <a href="http://waitbutwhy.com">Wait Buy Why</a>
+                    </li>
+                    <li>
+                      <a href="https://simplysoch.wordpress.com/">Simply Soch</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+  </div>
+</div>
 
-    <script>
-      (function(document) {
-        var toggle = document.querySelector('.sidebar-toggle');
-        var sidebar = document.querySelector('#sidebar');
-        var checkbox = document.querySelector('#sidebar-checkbox');
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        Some rights reserved.
+      </p>
+      <p>
+        Made with <i class="fa fa-heart"></i> and <a href="https://github.com/jgthms/bulma">Bulma</a>, <a href="https://jekyllrb.com/">Jekyll</a>. Hosted on <a href="https://github.com/">Github</a>
+      </p>
+      <p>
+        <a class="icon" href="https://github.com/abhn">
+          <i class="fa fa-github" title="Github"></i>
+        </a>
+        <a class="icon" href="https://in.linkedin.com/in/AbhishekNagekar">
+          <i class="fa fa-linkedin" title="Linkedin"></i>
+        </a>
+        <a class="icon" href="mailto:abhishek@nagekar.com">
+          <i class="fa fa-envelope" title="Email"></i>
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>
 
-        document.addEventListener('click', function(e) {
-          var target = e.target;
-
-          if(!checkbox.checked ||
-             sidebar.contains(target) ||
-             (target === checkbox || target === toggle)) return;
-
-          checkbox.checked = false;
-        }, false);
-      })(document);
-    </script>
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-74790644-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-    <script>
-        // stop reading other people's source, dude. That is rude
-        var txtFile = new XMLHttpRequest();
-        txtFile.open("GET", "/quotes.txt", true);
-        txtFile.onreadystatechange = () => {
-          if (txtFile.readyState === 4) {  
-            if (txtFile.status === 200) { 
-              allText = txtFile.responseText; 
-              lines = txtFile.responseText.split("\n");
-              randLine = lines[Math.floor((Math.random() * lines.length) + 1)];
-              document.getElementById('head-quote').innerHTML = '<p class="message" style="font-size: 14px; font-color: grey; text-align: center;">' + randLine + '<small></p>';
-            }
-          }
-        }
-        txtFile.send(null);
-    </script>
-  </body>
+<!-- js -->
+<script src="/public/js/custom.js"></script>
+<script src="/public/js/typewriter.js"></script>
+</body>
 </html>

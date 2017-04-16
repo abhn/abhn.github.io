@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
-  <head>
+<head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
-  <!-- Enable responsiveness on mobile devices-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <link rel="stylesheet" href="/public/css/normalize.css"/>
+  <link rel="stylesheet" href="/public/css/bulma.css"/>
+  <link rel="stylesheet" href="/public/css/custom.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 
   <title>
     
@@ -15,138 +27,100 @@
     
   </title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="/public/css/poole.css">
-  <link rel="stylesheet" href="/public/css/syntax.css">
-  <link rel="stylesheet" href="/public/css/lanyon.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
-
-  <!-- Icons -->
-  <link rel="shortcut icon" href="/assets/images/favicon.ico">
-
-  <!-- RSS -->
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 </head>
 
 
-  <body>
+<body>
 
-    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
-     styles, `#sidebar-checkbox` for behavior. -->
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
-
-
-
-<!-- Toggleable sidebar -->
-<div class="sidebar" id="sidebar">
-
-    <div class="sidebar-item">
-        <img src="/assets/images/me.jpg" />
-        <p>One of them is me.</p>
+<section class="hero is-dark">
+  <div class="hero-body">
+    <div class="container">
+        <h1 class="title">
+          <span class="typewrite" data-period="2000" data-type='[ "hello", "namaste", "assalam o alaikum",
+          "sat srī akāl", "khammaghani", "hola", "bonjour", "nomoskaar", "guten tag", "kumusta", "salut", "nômoshkar"]'>
+            <span class="wrap"></span>
+          </span>
+        </h1>
+      <h4 class="subtitle" id="quote">
+      </h4>
     </div>
-
-
-  <nav class="sidebar-nav">
-    
-
-    
-    
-      
-        
-          <a class="sidebar-nav-item" href="/">Sometimes, I write..</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/archive">Archive</a>
-        
-      
-    
-      
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/meta">Meta</a>
-        
-      
-    
-      
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/search">Search This Blog</a>
-        
-      
-    
-      
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/tags">Tags</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/wish">Wish List</a>
-        
-      
-    
-    <a class="sidebar-nav-item" href="https://github.com/abhn">My GitHub</a>
-    <a class="sidebar-nav-item" href="/search">Search This Blog</a>
-    <a class="sidebar-nav-item" onclick="window.open('https://feedburner.google.com/fb/a/mailverify?uri=AbhishekN', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true" target="popupwindow" href="https://feedburner.google.com/fb/a/mailverify?uri=AbhishekN">Email Subscription</a>
-    
-    
-  </nav>
-
-  <div class="sidebar-item">
-    <p>
-      Abhishek Nagekar &copy; 2017
-    <br>
-      <small>Some Rights Reserved</small>
-    </p>
   </div>
-</div>
+</section>
+
+<div class="main-container">
+  <div class="tile is-ancestor is-vertical">
 
 
-    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
-         content to avoid any CSS collisions with our real content. -->
-    <div class="wrap">
-      <div class="masthead">
-        <div class="container">
-          <h3 class="masthead-title">
-            <a href="/" title="Home">Abhishek Nagekar's Blog</a>
-            <small>Code, Science, Philosophy, Humor</small>
-          </h3>
+    <nav class="nav has-shadow">
+
+      <div class="nav-left">
+
+        <a href="/" class="nav-item">
+          <span class="icon">
+            <i class="fa fa-home" aria-hidden="true" title="Homepage"></i>
+          </span>
+        </a>
+
+        <a href="https://github.com/abhn" class="nav-item">
+          <span class="icon">
+            <i class="fa fa-github" aria-hidden="true" title="Github"></i>
+          </span>
+        </a>
+
+        <div class="nav-item" id="searchFieldNav">
+          <div class="field has-addons">
+            <p class="control">
+              <input class="input is-small" type="text" placeholder="Find an article" id="search-text">
+            </p>
+            <p class="control">
+              <a class="button is-dark is-small" onclick="searchHandler();">
+                Search
+              </a>
+            </p>
+          </div>
         </div>
+
       </div>
-      <div class="container content">
-        <div id="head-quote"></div>
-        <div class="post">
-  <h1 class="post-title">Love For Graphical User Interface</h1>
-  <span class="post-date">3 July, 2015. It was a Friday.</span>
-  I considered myself a 'programmer'. One who can make stuff happen, put it on paper, my thoughts and use it as a framework to create working stuff in the digital world. As any programmer, I learnt to write command line programs first. What are command line programs, you'd ask. Well, a Command Line Interface (CLI) is an interface which reacts to not visual, but textual inputs from the keyboard. You never need a mouse to work with a command line, of course, if you're skilled with that particular type.<br /><br />Command lines were the only way people worked with computers in the past. It was a time when the other name for people who worked with computers was programmers and hackers. No one else had the time or skill to learn and master the complicated systems. But like everything, it changed. Back in 1973, we had the first computer system that ran a GUI, or Graphical User Interface. As it sounds, yes everything was now controlled by pointing device, better known to us as a mouse. This was the onset of computers for the non programmers. Now, everyone could learn how to make computers do stuff with few 'clicks'. We never actually looked back since.<br /><br />But same was not true for people who program the computer. Programmers still and will always prefer the command line interface for most simple tasks. There are actually some tough reasons for this statement. Mainly, although the task to master CLI tools is not easy, once you do it, it feels much more comfortable than to use the every changing GUI. Not to mention the low resources that are required to run these utilities, and consistency over different platforms or operating systems. As an example, I can write a CLI tool in Python and C++ to run on Windows and Linux, and you won't be able to spot the difference between the four instances. Can I do the same with GUIs? No, at least not right now.<br /><br />For the above few reasons, I never gave a thought to learning GUI programming, in any language. You don't want to do something that is of no use to you, right? Maybe.<br /><br />After been coding for sometime now, I gave a thought to why some people who are not very good programmers, succeed more than people who are great programmers. It was a thing that deserved a thought. After reading several success and failure stories on Medium and Quora, I was convinced that there is no lack of skill in any field on this planet. Take anything for example, like I thought about C++. The language I am getting better at everyday, people have been learning it from the past 30 years. Who am I challenging? It struck me that mastering some form of art (yes, programming is as much an art for me as astronomy) and creating something that people use, are not necessarily same sets. Though there is a large area of intersection, you can't be sure that just being good at something will make you successful, whatever that word means here. It was good time for me to stop thinking about how good of a shot I am at programming, and start focusing on what the world actually needs that I can provide or produce, if at all I can.<br /><br />That was the time I realized, CLIs are great, but if you want everyone to use your thing, you need to give them something they will love. You need to help them in a way that they are able to use the help. How did I expect everyone to love the CLI just because I think it is cool and looks all black and white (well, that's what I think is cool).<br /><br />Not everyone is a nerd. Not everyone has to be one. The world is so diverse. It is really satisfying to see an artist painting, a drummer performing and an athlete giving his best. It is this diversity, in us, the animals and the plants as well that makes our home, the Earth. We, geeks and nerds are no different. We love making stuff that work to our command. But we, like every other human present, also has the morale duty to help others with the stuff that excites us. Just as a painter sells his paintings, not only because he wants to earn from it, but also because he wants his art to spread, so that somewhere in a living room of some house, the hosts always get asked, 'where did you get this masterpiece from?'.<br /><br />There is a very different joy in seeing your creation being used. It is something different than doing what you love. Yes, it really is different. It brings the best out of you, a kind of motivation. I wanted to make something like that. I wanted to write GUIs. I took up learning it about a month ago, and I am kind of comfortable with Qt.<br /><br />There are a lot of frameworks for writing GUIs, as anybody using a computer today can imagine. Plus, many high level languages provide APIs to write graphical applications within the language libraries, Java for instance. Still, having done some programming in C++, I had two basic options open in front of me, <a href="https://www.wikivs.com/wiki/GTK_vs_Qt" target="_blank">GTK+ and Qt</a>. <a href="http://unix.stackexchange.com/questions/129355/what-is-difference-between-gtk-and-qt-applications" target="_blank">I choose Qt</a> after reading some <a href="http://stackoverflow.com/questions/9441127/gui-development-qt-vs-gtk" target="_blank">articles on Stackoverflow</a> from users with similar dilemma. Qt is cool, lots of possibilities and support. Code is quite portable, and an important thing, I am enjoying it, which matters a lot, right?<br /><br /><div class="separator" style="clear: both; text-align: left;">If you wonder where am I right now with it, I am writing a GUI wrapper for the GNU's <a href="https://en.wikipedia.org/wiki/Dd_%28Unix%29" target="_blank">dd utility</a> which should make it simple for someone who's just started using GNU/Linux to burn ISOs to disks, without the hassle of setting up a more than required complex tool or destroying the data trying to use dd from the command line by messing up the 'if' and 'of', for example.</div><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-sppW3p-8Aug/VZacFriakLI/AAAAAAAAH_E/LTauqZAYW2E/s1600/Screenshot%2B-%2BFriday%2B03%2BJuly%2B2015%2B-%2B07%253A57%253A13%2B%2BIST.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="282" src="http://1.bp.blogspot.com/-sppW3p-8Aug/VZacFriakLI/AAAAAAAAH_E/LTauqZAYW2E/s320/Screenshot%2B-%2BFriday%2B03%2BJuly%2B2015%2B-%2B07%253A57%253A13%2B%2BIST.png" width="320" /></a></div><div class="separator" style="clear: both; text-align: left;">Neat, huh? Haha. I will put it up once I finish it, but the important thing is, I could do it. The best part about being a programmer is, adapting is too easy. At least when beginning. And that is mandatory, given the ever changing world of Information Technology.</div><div class="separator" style="clear: both; text-align: left;"><br /></div><div class="separator" style="clear: both; text-align: left;">I'll conclude this long post here. If you made it till here, then a big thank you. I feel it is hard to read what I write, because I tend to write my feeling, and mostly they don't look the same on paper. Nevertheless, do tell me what you think about this article. Liked it, hated it, anything.</div>
+
+      <div class="nav-right nav-menu" id='nav-menu'>
+        <a href="https://www.nagekar.com/meta" class="nav-item">Meta</a>
+        <a href="https://www.nagekar.com/archive" class="nav-item">Archive</a>
+        <a href="https://www.nagekar.com/tags" class="nav-item">Tags</a>
+      </div>
+
+      <span class="nav-toggle" id="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+      </span>
+    </nav>
+
+    <div class="tile is-parent">
+      <div class="tile is-8 is-child main">
+
+        <div class="box">
+    <h1 class="post-title">Love For Graphical User Interface</h1>
+    <span class="post-meta">3 July, 2015. It was a Friday. <a style="color:grey" href="#disqus_thread"></a></span><hr/>
+
+    <span class="post-text">I considered myself a 'programmer'. One who can make stuff happen, put it on paper, my thoughts and use it as a framework to create working stuff in the digital world. As any programmer, I learnt to write command line programs first. What are command line programs, you'd ask. Well, a Command Line Interface (CLI) is an interface which reacts to not visual, but textual inputs from the keyboard. You never need a mouse to work with a command line, of course, if you're skilled with that particular type.<br /><br />Command lines were the only way people worked with computers in the past. It was a time when the other name for people who worked with computers was programmers and hackers. No one else had the time or skill to learn and master the complicated systems. But like everything, it changed. Back in 1973, we had the first computer system that ran a GUI, or Graphical User Interface. As it sounds, yes everything was now controlled by pointing device, better known to us as a mouse. This was the onset of computers for the non programmers. Now, everyone could learn how to make computers do stuff with few 'clicks'. We never actually looked back since.<br /><br />But same was not true for people who program the computer. Programmers still and will always prefer the command line interface for most simple tasks. There are actually some tough reasons for this statement. Mainly, although the task to master CLI tools is not easy, once you do it, it feels much more comfortable than to use the every changing GUI. Not to mention the low resources that are required to run these utilities, and consistency over different platforms or operating systems. As an example, I can write a CLI tool in Python and C++ to run on Windows and Linux, and you won't be able to spot the difference between the four instances. Can I do the same with GUIs? No, at least not right now.<br /><br />For the above few reasons, I never gave a thought to learning GUI programming, in any language. You don't want to do something that is of no use to you, right? Maybe.<br /><br />After been coding for sometime now, I gave a thought to why some people who are not very good programmers, succeed more than people who are great programmers. It was a thing that deserved a thought. After reading several success and failure stories on Medium and Quora, I was convinced that there is no lack of skill in any field on this planet. Take anything for example, like I thought about C++. The language I am getting better at everyday, people have been learning it from the past 30 years. Who am I challenging? It struck me that mastering some form of art (yes, programming is as much an art for me as astronomy) and creating something that people use, are not necessarily same sets. Though there is a large area of intersection, you can't be sure that just being good at something will make you successful, whatever that word means here. It was good time for me to stop thinking about how good of a shot I am at programming, and start focusing on what the world actually needs that I can provide or produce, if at all I can.<br /><br />That was the time I realized, CLIs are great, but if you want everyone to use your thing, you need to give them something they will love. You need to help them in a way that they are able to use the help. How did I expect everyone to love the CLI just because I think it is cool and looks all black and white (well, that's what I think is cool).<br /><br />Not everyone is a nerd. Not everyone has to be one. The world is so diverse. It is really satisfying to see an artist painting, a drummer performing and an athlete giving his best. It is this diversity, in us, the animals and the plants as well that makes our home, the Earth. We, geeks and nerds are no different. We love making stuff that work to our command. But we, like every other human present, also has the morale duty to help others with the stuff that excites us. Just as a painter sells his paintings, not only because he wants to earn from it, but also because he wants his art to spread, so that somewhere in a living room of some house, the hosts always get asked, 'where did you get this masterpiece from?'.<br /><br />There is a very different joy in seeing your creation being used. It is something different than doing what you love. Yes, it really is different. It brings the best out of you, a kind of motivation. I wanted to make something like that. I wanted to write GUIs. I took up learning it about a month ago, and I am kind of comfortable with Qt.<br /><br />There are a lot of frameworks for writing GUIs, as anybody using a computer today can imagine. Plus, many high level languages provide APIs to write graphical applications within the language libraries, Java for instance. Still, having done some programming in C++, I had two basic options open in front of me, <a href="https://www.wikivs.com/wiki/GTK_vs_Qt" target="_blank">GTK+ and Qt</a>. <a href="http://unix.stackexchange.com/questions/129355/what-is-difference-between-gtk-and-qt-applications" target="_blank">I choose Qt</a> after reading some <a href="http://stackoverflow.com/questions/9441127/gui-development-qt-vs-gtk" target="_blank">articles on Stackoverflow</a> from users with similar dilemma. Qt is cool, lots of possibilities and support. Code is quite portable, and an important thing, I am enjoying it, which matters a lot, right?<br /><br /><div class="separator" style="clear: both; text-align: left;">If you wonder where am I right now with it, I am writing a GUI wrapper for the GNU's <a href="https://en.wikipedia.org/wiki/Dd_%28Unix%29" target="_blank">dd utility</a> which should make it simple for someone who's just started using GNU/Linux to burn ISOs to disks, without the hassle of setting up a more than required complex tool or destroying the data trying to use dd from the command line by messing up the 'if' and 'of', for example.</div><div class="separator" style="clear: both; text-align: center;"><a href="http://1.bp.blogspot.com/-sppW3p-8Aug/VZacFriakLI/AAAAAAAAH_E/LTauqZAYW2E/s1600/Screenshot%2B-%2BFriday%2B03%2BJuly%2B2015%2B-%2B07%253A57%253A13%2B%2BIST.png" imageanchor="1" style="margin-left: 1em; margin-right: 1em;"><img border="0" height="282" src="http://1.bp.blogspot.com/-sppW3p-8Aug/VZacFriakLI/AAAAAAAAH_E/LTauqZAYW2E/s320/Screenshot%2B-%2BFriday%2B03%2BJuly%2B2015%2B-%2B07%253A57%253A13%2B%2BIST.png" width="320" /></a></div><div class="separator" style="clear: both; text-align: left;">Neat, huh? Haha. I will put it up once I finish it, but the important thing is, I could do it. The best part about being a programmer is, adapting is too easy. At least when beginning. And that is mandatory, given the ever changing world of Information Technology.</div><div class="separator" style="clear: both; text-align: left;"><br /></div><div class="separator" style="clear: both; text-align: left;">I'll conclude this long post here. If you made it till here, then a big thank you. I feel it is hard to read what I write, because I tend to write my feeling, and mostly they don't look the same on paper. Nevertheless, do tell me what you think about this article. Liked it, hated it, anything.</div></span>
 </div>
 
-<div class="related">
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<div class="box">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-2314128584981990"
          data-ad-slot="1513670662"
          data-ad-format="auto"></ins>
     <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-  <hr>
-  
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+
 
 
   <div id="disqus_thread"></div>
@@ -167,53 +141,137 @@
 
 
 
-</div>
 
       </div>
+
+      <div class="tile is-4 is-child">
+        <div class="tile is-parent is-vertical sidebar">
+
+          <div class="tile is-child widget">
+            <!--<h2>Related articles</h2>-->
+
+            <div class="box">
+              <header class="card-header">
+                <p class="card-header-title nice-title">
+                  Recent Posts
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content nice-text">
+                  <ul>
+                  
+                  <li><a href="/2017/02/trip-to-bramhatal-uttarakhand.html">
+                    Trek To Bramhatal (Uttarakhand)
+                  </a></li>
+                  
+                  <li><a href="/2017/01/7th-sem-and-then.html">
+                    7th Semester And Then
+                  </a></li>
+                  
+                  <li><a href="/2016/12/BSNL-3g-broadband-rant.html">
+                    BSNL 3G And Broadband Rant
+                  </a></li>
+                  
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tile is-child widget">
+
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title nice-title">
+                  Sponsored
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content nice-text">
+                  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                  <ins class="adsbygoogle"
+                       style="display:block"
+                       data-ad-client="ca-pub-2314128584981990"
+                       data-ad-slot="1513670662"
+                       data-ad-format="auto"></ins>
+                  <script>
+                      (adsbygoogle = window.adsbygoogle || []).push({});
+                  </script>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="tile is-child widget">
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title nice-title">
+                  Recommended Websites
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content nice-text">
+                  <ul>
+                    <li>
+                      <a href="https://xkcd.com">xkcd</a>
+                    </li>
+                    <li>
+                      <a href="http://commitstrip.com">Commit Strip</a>
+                    </li>
+                    <li>
+                      <a href="http://www.smbc-comics.com">SMBC Comics</a>
+                    </li>
+                    <li>
+                      <a href="https://blog.codinghorror.com">Coding Horror</a>
+                    </li>
+                    <li>
+                      <a href="http://waitbutwhy.com">Wait Buy Why</a>
+                    </li>
+                    <li>
+                      <a href="https://simplysoch.wordpress.com/">Simply Soch</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+  </div>
+</div>
 
-    <script>
-      (function(document) {
-        var toggle = document.querySelector('.sidebar-toggle');
-        var sidebar = document.querySelector('#sidebar');
-        var checkbox = document.querySelector('#sidebar-checkbox');
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        Some rights reserved.
+      </p>
+      <p>
+        Made with <i class="fa fa-heart"></i> and <a href="https://github.com/jgthms/bulma">Bulma</a>, <a href="https://jekyllrb.com/">Jekyll</a>. Hosted on <a href="https://github.com/">Github</a>
+      </p>
+      <p>
+        <a class="icon" href="https://github.com/abhn">
+          <i class="fa fa-github" title="Github"></i>
+        </a>
+        <a class="icon" href="https://in.linkedin.com/in/AbhishekNagekar">
+          <i class="fa fa-linkedin" title="Linkedin"></i>
+        </a>
+        <a class="icon" href="mailto:abhishek@nagekar.com">
+          <i class="fa fa-envelope" title="Email"></i>
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>
 
-        document.addEventListener('click', function(e) {
-          var target = e.target;
-
-          if(!checkbox.checked ||
-             sidebar.contains(target) ||
-             (target === checkbox || target === toggle)) return;
-
-          checkbox.checked = false;
-        }, false);
-      })(document);
-    </script>
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-74790644-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-    <script>
-        // stop reading other people's source, dude. That is rude
-        var txtFile = new XMLHttpRequest();
-        txtFile.open("GET", "/quotes.txt", true);
-        txtFile.onreadystatechange = () => {
-          if (txtFile.readyState === 4) {  
-            if (txtFile.status === 200) { 
-              allText = txtFile.responseText; 
-              lines = txtFile.responseText.split("\n");
-              randLine = lines[Math.floor((Math.random() * lines.length) + 1)];
-              document.getElementById('head-quote').innerHTML = '<p class="message" style="font-size: 14px; font-color: grey; text-align: center;">' + randLine + '<small></p>';
-            }
-          }
-        }
-        txtFile.send(null);
-    </script>
-  </body>
+<!-- js -->
+<script src="/public/js/custom.js"></script>
+<script src="/public/js/typewriter.js"></script>
+</body>
 </html>

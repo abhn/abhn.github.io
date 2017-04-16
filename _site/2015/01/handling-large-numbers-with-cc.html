@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
-  <head>
+<head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
-  <!-- Enable responsiveness on mobile devices-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <link rel="stylesheet" href="/public/css/normalize.css"/>
+  <link rel="stylesheet" href="/public/css/bulma.css"/>
+  <link rel="stylesheet" href="/public/css/custom.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 
   <title>
     
@@ -15,138 +27,100 @@
     
   </title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="/public/css/poole.css">
-  <link rel="stylesheet" href="/public/css/syntax.css">
-  <link rel="stylesheet" href="/public/css/lanyon.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
-
-  <!-- Icons -->
-  <link rel="shortcut icon" href="/assets/images/favicon.ico">
-
-  <!-- RSS -->
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 </head>
 
 
-  <body>
+<body>
 
-    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
-     styles, `#sidebar-checkbox` for behavior. -->
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
-
-
-
-<!-- Toggleable sidebar -->
-<div class="sidebar" id="sidebar">
-
-    <div class="sidebar-item">
-        <img src="/assets/images/me.jpg" />
-        <p>One of them is me.</p>
+<section class="hero is-dark">
+  <div class="hero-body">
+    <div class="container">
+        <h1 class="title">
+          <span class="typewrite" data-period="2000" data-type='[ "hello", "namaste", "assalam o alaikum",
+          "sat srī akāl", "khammaghani", "hola", "bonjour", "nomoskaar", "guten tag", "kumusta", "salut", "nômoshkar"]'>
+            <span class="wrap"></span>
+          </span>
+        </h1>
+      <h4 class="subtitle" id="quote">
+      </h4>
     </div>
-
-
-  <nav class="sidebar-nav">
-    
-
-    
-    
-      
-        
-          <a class="sidebar-nav-item" href="/">Sometimes, I write..</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/archive">Archive</a>
-        
-      
-    
-      
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/meta">Meta</a>
-        
-      
-    
-      
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/search">Search This Blog</a>
-        
-      
-    
-      
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/tags">Tags</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/wish">Wish List</a>
-        
-      
-    
-    <a class="sidebar-nav-item" href="https://github.com/abhn">My GitHub</a>
-    <a class="sidebar-nav-item" href="/search">Search This Blog</a>
-    <a class="sidebar-nav-item" onclick="window.open('https://feedburner.google.com/fb/a/mailverify?uri=AbhishekN', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true" target="popupwindow" href="https://feedburner.google.com/fb/a/mailverify?uri=AbhishekN">Email Subscription</a>
-    
-    
-  </nav>
-
-  <div class="sidebar-item">
-    <p>
-      Abhishek Nagekar &copy; 2017
-    <br>
-      <small>Some Rights Reserved</small>
-    </p>
   </div>
-</div>
+</section>
+
+<div class="main-container">
+  <div class="tile is-ancestor is-vertical">
 
 
-    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
-         content to avoid any CSS collisions with our real content. -->
-    <div class="wrap">
-      <div class="masthead">
-        <div class="container">
-          <h3 class="masthead-title">
-            <a href="/" title="Home">Abhishek Nagekar's Blog</a>
-            <small>Code, Science, Philosophy, Humor</small>
-          </h3>
+    <nav class="nav has-shadow">
+
+      <div class="nav-left">
+
+        <a href="/" class="nav-item">
+          <span class="icon">
+            <i class="fa fa-home" aria-hidden="true" title="Homepage"></i>
+          </span>
+        </a>
+
+        <a href="https://github.com/abhn" class="nav-item">
+          <span class="icon">
+            <i class="fa fa-github" aria-hidden="true" title="Github"></i>
+          </span>
+        </a>
+
+        <div class="nav-item" id="searchFieldNav">
+          <div class="field has-addons">
+            <p class="control">
+              <input class="input is-small" type="text" placeholder="Find an article" id="search-text">
+            </p>
+            <p class="control">
+              <a class="button is-dark is-small" onclick="searchHandler();">
+                Search
+              </a>
+            </p>
+          </div>
         </div>
+
       </div>
-      <div class="container content">
-        <div id="head-quote"></div>
-        <div class="post">
-  <h1 class="post-title">Handling large numbers with C/C++</h1>
-  <span class="post-date">19 January, 2015. It was a Monday.</span>
-  <div dir="ltr" style="text-align: left;" trbidi="on">I will tell you what this is about. I saw a simple looking problem on <a href="http://www.hackerearth.com/problem/algorithm/small-factorials/" target="_blank">HackerEarth</a> about finding factorial of given numbers. It looks easy, but another look at the constraints (1&lt;=N&lt;=100) changes everything. Well, not everything, especially if you are going to write it in languages like Python ("dynamically typed") which has built-in capabilities to handle big numbers, but it is really a trouble to do it in C or any such statically typed language.<br /><a href="https://www.blogger.com/null" name="more"></a><br />So first of all, what exactly is the difference between statically and dynamically typed languages. Dynamically typed languages require their interpreters to detect the type of the variable from the value that is assigned to it. On the other hand, in statically typed languages, the type of the variables must be known at compile time.<br /><br />Some believe the latter has advantages over the former. As we explicitly state the type, run time errors are reduced and run time performance increases. We won't get into that discussion here.<br /><br /><h4 style="text-align: left;">So our problem</h4><div style="text-align: left;"><br />Before getting into it, I will first write the Python code that worked flawlessly and gave answers to factorials of over 100.&nbsp;</div><div style="text-align: left;"></div><div style="text-align: left;"></div><script src="https://gist.github.com/abhn/a7a894bee916cf2910e2.js"></script>As you can see, it doesn't get any easier for anybody, no matter how novice he is with programming. But how does one solve the same problem with languages with no native support for big (of order &gt;10^100) numbers? Simple. We make use of algorithms. The first thing that pops in one's mind when dealing with numbers this large is the use of arrays. Yes, that is the right way to go, or at least the one that worked for me.<br /><br />So here is the plan. We create an array of integers which will hold a digit in each index, starting with the least significant bit. For example, if we were to store the number 12345 in the array, we would do it like this:<br /><style type="text/css">.tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;} .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 15px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;} .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 15px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;} .tg .tg-xueg{font-weight:bold;background-color:#ffffc7;color:#333333} .tg .tg-2ks1{font-weight:bold;font-size:100%;background-color:#ffffc7;color:#333333} </style> <br /><center><table class="tg">  <tbody><tr>    <th class="tg-xueg">5</th>    <th class="tg-xueg">4</th>    <th class="tg-xueg">3</th>    <th class="tg-xueg">2</th>    <th class="tg-2ks1">1</th>  </tr></tbody></table></center><br />That is,<span style="background-color: #fff2cc;"> <span style="background-color: #d9d2e9;"><i>array[0]</i></span></span> stores '5', <span style="background-color: #d9d2e9;"><i>array[1]</i></span> stores '4' and so on. We have reversed the number for a specific reason. For knowing that reason, you have to go back to your 2nd grade class where you were taught to multiply two two-digit numbers. How did you do that?<br /><style type="text/css">.tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;} .tg td{font-family:Arial, sans-serif;font-size:14px;padding:3px 11px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;} .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:3px 11px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;} .tg .tg-bsv2{background-color:#efefef} .tg .tg-cxkv{background-color:#ffffff} .tg .tg-c7d0{background-color:#bbdaff} .tg .tg-fqpo{background-color:#cbcefb} .tg .tg-8o5d{background-color:#34ff34} </style> <br /><center><table class="tg" style="table-layout: fixed; width: 86px;"><colgroup><col style="width: 21px;"></col><col style="width: 21px;"></col><col style="width: 22px;"></col><col style="width: 22px;"></col></colgroup>  <tbody><tr>    <th class="tg-031e"><br /></th>    <th class="tg-031e"><br /></th>    <th class="tg-bsv2">4</th>    <th class="tg-031e"><br /></th>  </tr><tr>    <td class="tg-031e"><br /></td>    <td class="tg-031e"><br /></td>    <td class="tg-bsv2">2</td>    <td class="tg-031e"><br /></td>  </tr><tr>    <td class="tg-031e"><br /></td>    <td class="tg-cxkv"><br /></td>    <td class="tg-c7d0">3</td>    <td class="tg-c7d0">7</td>  </tr><tr>    <td class="tg-031e"><br /></td>    <td class="tg-cxkv">x</td>    <td class="tg-c7d0">6</td>    <td class="tg-c7d0">3</td>  </tr><tr>    <td class="tg-fqpo"><br /></td>    <td class="tg-fqpo">1</td>    <td class="tg-fqpo">1</td>    <td class="tg-fqpo">1</td>  </tr><tr>    <td class="tg-fqpo">2</td>    <td class="tg-fqpo">2</td>    <td class="tg-fqpo">2</td>    <td class="tg-fqpo">0</td>  </tr><tr>    <td class="tg-8o5d">2</td>    <td class="tg-8o5d">3</td>    <td class="tg-8o5d">3</td>    <td class="tg-8o5d">1</td>  </tr></tbody></table></center><br />Got the memory back? Although it may seem a trivial thing now, notice that you never do a multiplication whose result is more than 81, that is, 9x9 which is the product of largest two single digit numbers. So can you somehow make the computer follow the same method to calculate the factorial, such that it never does a &gt;81 digit addition in the entire process, which is well inside the size of the shortest numeric data type in C <i>(unsigned short: 65,535)</i>? Yes, of course. We are coders, right? ;)<br /><br />To start off, we will need variables.<br />We will use <span style="background-color: #d9d2e9;"><i>num</i></span> to accept the input number whose factorial is to be found out.<br /><span style="background-color: #d9d2e9;"><i>cur</i></span> stores the result of the calculation<i> <span style="background-color: #d9d2e9;">i * arr[j] + temp</span></i>. The least significant digit from <span style="background-color: #d9d2e9;"><i>cur</i></span> (for example <i>3</i>, in case of <i>123</i>) goes into <span style="background-color: #d9d2e9;"><i>arr[j]</i></span> while the remaining digits get stored in the <span style="background-color: #d9d2e9;"><i>temp</i></span> variable. Follow the above step till the end of the array which we initially denote by <i><span style="background-color: #d9d2e9;">pos</span> </i>variable. <span style="background-color: #d9d2e9;"><i>pos</i></span> is initialized and assigned 1, as we initialize our <span style="background-color: #d9d2e9;"><i>arr[]</i></span> with <i><span style="background-color: #d9d2e9;">arr[0]=1</span> (since we will be using this value to multiply subsequent 2,3,4...<span style="background-color: #d9d2e9;">num</span>, we don't want our answer to evaluate to 0).</i><br /><i> </i><br />After this loop, we will need to empty out the carry forward integer in our <span style="background-color: #d9d2e9;"><i>temp</i></span> variable. It will be done in the reverse order as well, but here, we will increment <span style="background-color: #d9d2e9;"><i>pos</i></span> to make it always point to the number of digits in <span style="background-color: #d9d2e9;"><i>arr[]</i></span>.<br /><br />Finally you can print our the <span style="background-color: #d9d2e9;"><i>arr[]</i></span> in the reverse order to get the expected answer and this should not surprise you since we have been doing storing of the numbers in reverse order in our <span style="background-color: #d9d2e9;"><i>arr[]</i></span>. Here is the C++ code that I wrote. I didn't cross check the results for larger values of <span style="background-color: #d9d2e9;"><i>num</i></span>, so take care with that. <br /><script src="https://gist.github.com/abhn/34824e2918e86fcf2576.js"></script> So that was it for this short article. I am reading more on GMP (<a href="https://gmplib.org/" target="_blank"><i>GNU Multiple Precision Arithmetic Library</i></a>) that is written exactly for this purpose. Nevertheless, it is always good to know how to do it by hand. Thank you.<br /><br /><br /></div>
+
+      <div class="nav-right nav-menu" id='nav-menu'>
+        <a href="https://www.nagekar.com/meta" class="nav-item">Meta</a>
+        <a href="https://www.nagekar.com/archive" class="nav-item">Archive</a>
+        <a href="https://www.nagekar.com/tags" class="nav-item">Tags</a>
+      </div>
+
+      <span class="nav-toggle" id="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+      </span>
+    </nav>
+
+    <div class="tile is-parent">
+      <div class="tile is-8 is-child main">
+
+        <div class="box">
+    <h1 class="post-title">Handling large numbers with C/C++</h1>
+    <span class="post-meta">19 January, 2015. It was a Monday. <a style="color:grey" href="#disqus_thread"></a></span><hr/>
+
+    <span class="post-text"><div dir="ltr" style="text-align: left;" trbidi="on">I will tell you what this is about. I saw a simple looking problem on <a href="http://www.hackerearth.com/problem/algorithm/small-factorials/" target="_blank">HackerEarth</a> about finding factorial of given numbers. It looks easy, but another look at the constraints (1&lt;=N&lt;=100) changes everything. Well, not everything, especially if you are going to write it in languages like Python ("dynamically typed") which has built-in capabilities to handle big numbers, but it is really a trouble to do it in C or any such statically typed language.<br /><a href="https://www.blogger.com/null" name="more"></a><br />So first of all, what exactly is the difference between statically and dynamically typed languages. Dynamically typed languages require their interpreters to detect the type of the variable from the value that is assigned to it. On the other hand, in statically typed languages, the type of the variables must be known at compile time.<br /><br />Some believe the latter has advantages over the former. As we explicitly state the type, run time errors are reduced and run time performance increases. We won't get into that discussion here.<br /><br /><h4 style="text-align: left;">So our problem</h4><div style="text-align: left;"><br />Before getting into it, I will first write the Python code that worked flawlessly and gave answers to factorials of over 100.&nbsp;</div><div style="text-align: left;"></div><div style="text-align: left;"></div><script src="https://gist.github.com/abhn/a7a894bee916cf2910e2.js"></script>As you can see, it doesn't get any easier for anybody, no matter how novice he is with programming. But how does one solve the same problem with languages with no native support for big (of order &gt;10^100) numbers? Simple. We make use of algorithms. The first thing that pops in one's mind when dealing with numbers this large is the use of arrays. Yes, that is the right way to go, or at least the one that worked for me.<br /><br />So here is the plan. We create an array of integers which will hold a digit in each index, starting with the least significant bit. For example, if we were to store the number 12345 in the array, we would do it like this:<br /><style type="text/css">.tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;} .tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 15px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;} .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 15px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;} .tg .tg-xueg{font-weight:bold;background-color:#ffffc7;color:#333333} .tg .tg-2ks1{font-weight:bold;font-size:100%;background-color:#ffffc7;color:#333333} </style> <br /><center><table class="tg">  <tbody><tr>    <th class="tg-xueg">5</th>    <th class="tg-xueg">4</th>    <th class="tg-xueg">3</th>    <th class="tg-xueg">2</th>    <th class="tg-2ks1">1</th>  </tr></tbody></table></center><br />That is,<span style="background-color: #fff2cc;"> <span style="background-color: #d9d2e9;"><i>array[0]</i></span></span> stores '5', <span style="background-color: #d9d2e9;"><i>array[1]</i></span> stores '4' and so on. We have reversed the number for a specific reason. For knowing that reason, you have to go back to your 2nd grade class where you were taught to multiply two two-digit numbers. How did you do that?<br /><style type="text/css">.tg  {border-collapse:collapse;border-spacing:0;border-color:#ccc;} .tg td{font-family:Arial, sans-serif;font-size:14px;padding:3px 11px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#fff;} .tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:3px 11px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#ccc;color:#333;background-color:#f0f0f0;} .tg .tg-bsv2{background-color:#efefef} .tg .tg-cxkv{background-color:#ffffff} .tg .tg-c7d0{background-color:#bbdaff} .tg .tg-fqpo{background-color:#cbcefb} .tg .tg-8o5d{background-color:#34ff34} </style> <br /><center><table class="tg" style="table-layout: fixed; width: 86px;"><colgroup><col style="width: 21px;"></col><col style="width: 21px;"></col><col style="width: 22px;"></col><col style="width: 22px;"></col></colgroup>  <tbody><tr>    <th class="tg-031e"><br /></th>    <th class="tg-031e"><br /></th>    <th class="tg-bsv2">4</th>    <th class="tg-031e"><br /></th>  </tr><tr>    <td class="tg-031e"><br /></td>    <td class="tg-031e"><br /></td>    <td class="tg-bsv2">2</td>    <td class="tg-031e"><br /></td>  </tr><tr>    <td class="tg-031e"><br /></td>    <td class="tg-cxkv"><br /></td>    <td class="tg-c7d0">3</td>    <td class="tg-c7d0">7</td>  </tr><tr>    <td class="tg-031e"><br /></td>    <td class="tg-cxkv">x</td>    <td class="tg-c7d0">6</td>    <td class="tg-c7d0">3</td>  </tr><tr>    <td class="tg-fqpo"><br /></td>    <td class="tg-fqpo">1</td>    <td class="tg-fqpo">1</td>    <td class="tg-fqpo">1</td>  </tr><tr>    <td class="tg-fqpo">2</td>    <td class="tg-fqpo">2</td>    <td class="tg-fqpo">2</td>    <td class="tg-fqpo">0</td>  </tr><tr>    <td class="tg-8o5d">2</td>    <td class="tg-8o5d">3</td>    <td class="tg-8o5d">3</td>    <td class="tg-8o5d">1</td>  </tr></tbody></table></center><br />Got the memory back? Although it may seem a trivial thing now, notice that you never do a multiplication whose result is more than 81, that is, 9x9 which is the product of largest two single digit numbers. So can you somehow make the computer follow the same method to calculate the factorial, such that it never does a &gt;81 digit addition in the entire process, which is well inside the size of the shortest numeric data type in C <i>(unsigned short: 65,535)</i>? Yes, of course. We are coders, right? ;)<br /><br />To start off, we will need variables.<br />We will use <span style="background-color: #d9d2e9;"><i>num</i></span> to accept the input number whose factorial is to be found out.<br /><span style="background-color: #d9d2e9;"><i>cur</i></span> stores the result of the calculation<i> <span style="background-color: #d9d2e9;">i * arr[j] + temp</span></i>. The least significant digit from <span style="background-color: #d9d2e9;"><i>cur</i></span> (for example <i>3</i>, in case of <i>123</i>) goes into <span style="background-color: #d9d2e9;"><i>arr[j]</i></span> while the remaining digits get stored in the <span style="background-color: #d9d2e9;"><i>temp</i></span> variable. Follow the above step till the end of the array which we initially denote by <i><span style="background-color: #d9d2e9;">pos</span> </i>variable. <span style="background-color: #d9d2e9;"><i>pos</i></span> is initialized and assigned 1, as we initialize our <span style="background-color: #d9d2e9;"><i>arr[]</i></span> with <i><span style="background-color: #d9d2e9;">arr[0]=1</span> (since we will be using this value to multiply subsequent 2,3,4...<span style="background-color: #d9d2e9;">num</span>, we don't want our answer to evaluate to 0).</i><br /><i> </i><br />After this loop, we will need to empty out the carry forward integer in our <span style="background-color: #d9d2e9;"><i>temp</i></span> variable. It will be done in the reverse order as well, but here, we will increment <span style="background-color: #d9d2e9;"><i>pos</i></span> to make it always point to the number of digits in <span style="background-color: #d9d2e9;"><i>arr[]</i></span>.<br /><br />Finally you can print our the <span style="background-color: #d9d2e9;"><i>arr[]</i></span> in the reverse order to get the expected answer and this should not surprise you since we have been doing storing of the numbers in reverse order in our <span style="background-color: #d9d2e9;"><i>arr[]</i></span>. Here is the C++ code that I wrote. I didn't cross check the results for larger values of <span style="background-color: #d9d2e9;"><i>num</i></span>, so take care with that. <br /><script src="https://gist.github.com/abhn/34824e2918e86fcf2576.js"></script> So that was it for this short article. I am reading more on GMP (<a href="https://gmplib.org/" target="_blank"><i>GNU Multiple Precision Arithmetic Library</i></a>) that is written exactly for this purpose. Nevertheless, it is always good to know how to do it by hand. Thank you.<br /><br /><br /></div></span>
 </div>
 
-<div class="related">
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<div class="box">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-2314128584981990"
          data-ad-slot="1513670662"
          data-ad-format="auto"></ins>
     <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-  <hr>
-  
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+
 
 
   <div id="disqus_thread"></div>
@@ -167,53 +141,137 @@
 
 
 
-</div>
 
       </div>
+
+      <div class="tile is-4 is-child">
+        <div class="tile is-parent is-vertical sidebar">
+
+          <div class="tile is-child widget">
+            <!--<h2>Related articles</h2>-->
+
+            <div class="box">
+              <header class="card-header">
+                <p class="card-header-title nice-title">
+                  Recent Posts
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content nice-text">
+                  <ul>
+                  
+                  <li><a href="/2017/02/trip-to-bramhatal-uttarakhand.html">
+                    Trek To Bramhatal (Uttarakhand)
+                  </a></li>
+                  
+                  <li><a href="/2017/01/7th-sem-and-then.html">
+                    7th Semester And Then
+                  </a></li>
+                  
+                  <li><a href="/2016/12/BSNL-3g-broadband-rant.html">
+                    BSNL 3G And Broadband Rant
+                  </a></li>
+                  
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tile is-child widget">
+
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title nice-title">
+                  Sponsored
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content nice-text">
+                  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                  <ins class="adsbygoogle"
+                       style="display:block"
+                       data-ad-client="ca-pub-2314128584981990"
+                       data-ad-slot="1513670662"
+                       data-ad-format="auto"></ins>
+                  <script>
+                      (adsbygoogle = window.adsbygoogle || []).push({});
+                  </script>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="tile is-child widget">
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title nice-title">
+                  Recommended Websites
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content nice-text">
+                  <ul>
+                    <li>
+                      <a href="https://xkcd.com">xkcd</a>
+                    </li>
+                    <li>
+                      <a href="http://commitstrip.com">Commit Strip</a>
+                    </li>
+                    <li>
+                      <a href="http://www.smbc-comics.com">SMBC Comics</a>
+                    </li>
+                    <li>
+                      <a href="https://blog.codinghorror.com">Coding Horror</a>
+                    </li>
+                    <li>
+                      <a href="http://waitbutwhy.com">Wait Buy Why</a>
+                    </li>
+                    <li>
+                      <a href="https://simplysoch.wordpress.com/">Simply Soch</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+  </div>
+</div>
 
-    <script>
-      (function(document) {
-        var toggle = document.querySelector('.sidebar-toggle');
-        var sidebar = document.querySelector('#sidebar');
-        var checkbox = document.querySelector('#sidebar-checkbox');
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        Some rights reserved.
+      </p>
+      <p>
+        Made with <i class="fa fa-heart"></i> and <a href="https://github.com/jgthms/bulma">Bulma</a>, <a href="https://jekyllrb.com/">Jekyll</a>. Hosted on <a href="https://github.com/">Github</a>
+      </p>
+      <p>
+        <a class="icon" href="https://github.com/abhn">
+          <i class="fa fa-github" title="Github"></i>
+        </a>
+        <a class="icon" href="https://in.linkedin.com/in/AbhishekNagekar">
+          <i class="fa fa-linkedin" title="Linkedin"></i>
+        </a>
+        <a class="icon" href="mailto:abhishek@nagekar.com">
+          <i class="fa fa-envelope" title="Email"></i>
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>
 
-        document.addEventListener('click', function(e) {
-          var target = e.target;
-
-          if(!checkbox.checked ||
-             sidebar.contains(target) ||
-             (target === checkbox || target === toggle)) return;
-
-          checkbox.checked = false;
-        }, false);
-      })(document);
-    </script>
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-74790644-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-    <script>
-        // stop reading other people's source, dude. That is rude
-        var txtFile = new XMLHttpRequest();
-        txtFile.open("GET", "/quotes.txt", true);
-        txtFile.onreadystatechange = () => {
-          if (txtFile.readyState === 4) {  
-            if (txtFile.status === 200) { 
-              allText = txtFile.responseText; 
-              lines = txtFile.responseText.split("\n");
-              randLine = lines[Math.floor((Math.random() * lines.length) + 1)];
-              document.getElementById('head-quote').innerHTML = '<p class="message" style="font-size: 14px; font-color: grey; text-align: center;">' + randLine + '<small></p>';
-            }
-          }
-        }
-        txtFile.send(null);
-    </script>
-  </body>
+<!-- js -->
+<script src="/public/js/custom.js"></script>
+<script src="/public/js/typewriter.js"></script>
+</body>
 </html>

@@ -1,13 +1,25 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
-  <head>
+<head>
   <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
-  <!-- Enable responsiveness on mobile devices-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <link rel="stylesheet" href="/public/css/normalize.css"/>
+  <link rel="stylesheet" href="/public/css/bulma.css"/>
+  <link rel="stylesheet" href="/public/css/custom.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto" rel="stylesheet">
+
+  <!-- Icons -->
+  <link rel="shortcut icon" href="/assets/images/favicon.ico">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 
   <title>
     
@@ -15,138 +27,100 @@
     
   </title>
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="/public/css/poole.css">
-  <link rel="stylesheet" href="/public/css/syntax.css">
-  <link rel="stylesheet" href="/public/css/lanyon.css">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400">
-
-  <!-- Icons -->
-  <link rel="shortcut icon" href="/assets/images/favicon.ico">
-
-  <!-- RSS -->
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
 </head>
 
 
-  <body>
+<body>
 
-    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
-     styles, `#sidebar-checkbox` for behavior. -->
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
-
-
-
-<!-- Toggleable sidebar -->
-<div class="sidebar" id="sidebar">
-
-    <div class="sidebar-item">
-        <img src="/assets/images/me.jpg" />
-        <p>One of them is me.</p>
+<section class="hero is-dark">
+  <div class="hero-body">
+    <div class="container">
+        <h1 class="title">
+          <span class="typewrite" data-period="2000" data-type='[ "hello", "namaste", "assalam o alaikum",
+          "sat srī akāl", "khammaghani", "hola", "bonjour", "nomoskaar", "guten tag", "kumusta", "salut", "nômoshkar"]'>
+            <span class="wrap"></span>
+          </span>
+        </h1>
+      <h4 class="subtitle" id="quote">
+      </h4>
     </div>
-
-
-  <nav class="sidebar-nav">
-    
-
-    
-    
-      
-        
-          <a class="sidebar-nav-item" href="/">Sometimes, I write..</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/archive">Archive</a>
-        
-      
-    
-      
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/meta">Meta</a>
-        
-      
-    
-      
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/search">Search This Blog</a>
-        
-      
-    
-      
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/tags">Tags</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/wish">Wish List</a>
-        
-      
-    
-    <a class="sidebar-nav-item" href="https://github.com/abhn">My GitHub</a>
-    <a class="sidebar-nav-item" href="/search">Search This Blog</a>
-    <a class="sidebar-nav-item" onclick="window.open('https://feedburner.google.com/fb/a/mailverify?uri=AbhishekN', 'popupwindow', 'scrollbars=yes,width=550,height=520');return true" target="popupwindow" href="https://feedburner.google.com/fb/a/mailverify?uri=AbhishekN">Email Subscription</a>
-    
-    
-  </nav>
-
-  <div class="sidebar-item">
-    <p>
-      Abhishek Nagekar &copy; 2017
-    <br>
-      <small>Some Rights Reserved</small>
-    </p>
   </div>
-</div>
+</section>
+
+<div class="main-container">
+  <div class="tile is-ancestor is-vertical">
 
 
-    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
-         content to avoid any CSS collisions with our real content. -->
-    <div class="wrap">
-      <div class="masthead">
-        <div class="container">
-          <h3 class="masthead-title">
-            <a href="/" title="Home">Abhishek Nagekar's Blog</a>
-            <small>Code, Science, Philosophy, Humor</small>
-          </h3>
+    <nav class="nav has-shadow">
+
+      <div class="nav-left">
+
+        <a href="/" class="nav-item">
+          <span class="icon">
+            <i class="fa fa-home" aria-hidden="true" title="Homepage"></i>
+          </span>
+        </a>
+
+        <a href="https://github.com/abhn" class="nav-item">
+          <span class="icon">
+            <i class="fa fa-github" aria-hidden="true" title="Github"></i>
+          </span>
+        </a>
+
+        <div class="nav-item" id="searchFieldNav">
+          <div class="field has-addons">
+            <p class="control">
+              <input class="input is-small" type="text" placeholder="Find an article" id="search-text">
+            </p>
+            <p class="control">
+              <a class="button is-dark is-small" onclick="searchHandler();">
+                Search
+              </a>
+            </p>
+          </div>
         </div>
+
       </div>
-      <div class="container content">
-        <div id="head-quote"></div>
-        <div class="post">
-  <h1 class="post-title">Engineering</h1>
-  <span class="post-date">7 March, 2015. It was a Saturday.</span>
-  <i>Engineer</i>.<br />What comes to your mind when you hear that word? To me, the picture of a hard working individual, who is rational in his way of life, sees every aspect with the touch of technicality, given a job, he will do whatever it takes to get it done, selfless about his own personal pleasures, solving the problems of this world, one by one.<br /><br />Well, at least that is what comes to my mind. The reality is far from it. We have more <a href="http://dazeinfo.com/2014/10/28/1-5-million-engineering-pass-outs-india-every-year-fewer-getting-hired-trends/" target="_blank">engineering colleges</a> here in India than we have good hospitals. Why? Because you cannot charge Rs.400k from each patient that visits your hospital the way you can from the students that study engineering course. In the particular state that I live in, engineering colleges are a part time income source of the politicians here. See the problem in India is, everybody wants to get rich, before the other one. Now there is nothing wrong with it as long as you don't steal people from their rights.<br /><br />A student, passed out from junior college, is an empty vase eager to absorb knowledge. He is excited about his life ahead, his life in a professional institute where he will be taught the essentials to work in the industry for most of his life later. He has dreams, just like everyone. He has interests, and he tries very hard to get the stream of his choice. He had been working hard since the very day he got admitted in school for this particular moment.<br /><br />Finally the moment of truth arrives. He is admitted into a good college. He even gets the stream of his choice. There is no bounds to his happiness. His life is all set to rock, in a sense. Isn't it? His parents pay their hard earned money to the college, thinking that it will benefit their child to become a better man, an 'educated' person, a responsible citizen. Now the student's joy know no bounds. He is excited as a child is on his first visit to an amusement park. The can't sleep the day before his first day at college. Its time.<br /><br />On the first day of college, he wakes up early. Gets ready and dashes his way to the college. He has 4-5 blank books in his bag, to make notes on what the professor teaches. He trips on the way multiple times due to excitement. On reaching the college, he takes the first bench in the class. "I would be able to pay more attention from here", he whispers. The professor enters the classroom with a set of papers and a fat reference book. He speaks out his name, rather lifelessly, and gives a very brief intro on the topic he would be teaching that semester. The intro was rather too short."This is it? Why doesn't he speak more on it." whispers the student. He was enjoying it. But the professor must hurry, a vast syllabus is waiting to get done.<br /><br />The rest of the day goes similar. Nothing out of the ordinary. Nobody wants to talk anything out of the textbook. Probably it will waste a lot of time of the professor. Days pass by, and the only thing that changes is the number of books in the student's bag. From 6 to 3 and then to one common rough book for all subjects. No, not because he was lazy to carry them all, but the pathetic quality of notes his teachers gave, he simply didn't feel like they are worth of writing in separate books.<br /><br />After a few boring days with no activity, which he later realizes were the best days of the semester, the professor starts to give them assignments as homework. Not the kind of assignments where you can research and write on your own, but the <i>do-it-by-tomorrow-atleast-30-pages-or-get-a-C-grade </i>kind of assignments. Alas, there isn't enough time to find the solutions. He gets readymade solutions from a friend who had copied it from another friend who might have got the solutions from previous year's journal of a senior, and copies all the answers into his assignment.<br /><br />There is nothing in practicals too. Most of the time he is made to write journals so that he might submit them on time. So basically practicals are library hours where he gets to do nothing 'practical' but copy from other's journals so that at least he can get an A grade, which eventually by the end of the semester gets him 5 additional marks, at the cost of wasting the precious practical hours where he could have maybe learnt how that particular IC works.<br /><br />Days fly by quickly. Sitting for lectures where you don't understand a word of what the professor says, but still have to, for attendance. Yes, the university enforces 75% compulsory attendance but fails to enforce benchmarks for the quality of lectures the professors give. Maybe enforcing the later will automatically make the attendance, not only 75% but also 90%, of most students.<br /><br />Failing to comply with the attendance policy of the college results the student not being able to attend his exams and parents getting called up to meet the professors in college. What happens when a professor comes to teach a topic he has hardly any idea of, gives the worst lecture you can possibly imagine with all bits of information flying around, and then leaves? Nothing happens. Even if you do complain about it, the replacement is as good as the old one, so most of the student don't even bother to do that.<br /><br />Technical festivals. Yes, the thing our colleges are famous for. Technical festival, or tech fest as we call them, are something I personally waited for the entire semester. I could imagine all the amazing stuff that would be put to display, the workshops, the seminars and the enthusiasm. When it came, it was nothing as I had in my mind. It was all guys and girls hanging out enjoying their accidental holiday. It was foolish games like laser tag, devil_maze where people were made to run through dark corridors created with black curtains and UV lights. It was nothing technical, only games-which-can-attract-most-participants-and-earn-most-ticket-fees festival.<br /><br />This concludes with the semester exams, or finals. Here all we learn is the questioning pattern of the university so that we can quite accurately guess what is going to be there on the exam the next day and how am I going to fool the paper checker into believing that I know something about the topic, not much but something to earn me passing marks, after which I will spend 15 days doing nothing but hoping the next semester is better than this one.<br /><br />Finally, a student has covered 1/8th of his life in the engineering course, spending a fortune as time and money, achieving nothing, and now the only thing differs is that he knows how the rest 7/8ths of this life of his, which he highly anticipated, are going to be like. Welcome to the reality.
+
+      <div class="nav-right nav-menu" id='nav-menu'>
+        <a href="https://www.nagekar.com/meta" class="nav-item">Meta</a>
+        <a href="https://www.nagekar.com/archive" class="nav-item">Archive</a>
+        <a href="https://www.nagekar.com/tags" class="nav-item">Tags</a>
+      </div>
+
+      <span class="nav-toggle" id="nav-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+      </span>
+    </nav>
+
+    <div class="tile is-parent">
+      <div class="tile is-8 is-child main">
+
+        <div class="box">
+    <h1 class="post-title">Engineering</h1>
+    <span class="post-meta">7 March, 2015. It was a Saturday. <a style="color:grey" href="#disqus_thread"></a></span><hr/>
+
+    <span class="post-text"><i>Engineer</i>.<br />What comes to your mind when you hear that word? To me, the picture of a hard working individual, who is rational in his way of life, sees every aspect with the touch of technicality, given a job, he will do whatever it takes to get it done, selfless about his own personal pleasures, solving the problems of this world, one by one.<br /><br />Well, at least that is what comes to my mind. The reality is far from it. We have more <a href="http://dazeinfo.com/2014/10/28/1-5-million-engineering-pass-outs-india-every-year-fewer-getting-hired-trends/" target="_blank">engineering colleges</a> here in India than we have good hospitals. Why? Because you cannot charge Rs.400k from each patient that visits your hospital the way you can from the students that study engineering course. In the particular state that I live in, engineering colleges are a part time income source of the politicians here. See the problem in India is, everybody wants to get rich, before the other one. Now there is nothing wrong with it as long as you don't steal people from their rights.<br /><br />A student, passed out from junior college, is an empty vase eager to absorb knowledge. He is excited about his life ahead, his life in a professional institute where he will be taught the essentials to work in the industry for most of his life later. He has dreams, just like everyone. He has interests, and he tries very hard to get the stream of his choice. He had been working hard since the very day he got admitted in school for this particular moment.<br /><br />Finally the moment of truth arrives. He is admitted into a good college. He even gets the stream of his choice. There is no bounds to his happiness. His life is all set to rock, in a sense. Isn't it? His parents pay their hard earned money to the college, thinking that it will benefit their child to become a better man, an 'educated' person, a responsible citizen. Now the student's joy know no bounds. He is excited as a child is on his first visit to an amusement park. The can't sleep the day before his first day at college. Its time.<br /><br />On the first day of college, he wakes up early. Gets ready and dashes his way to the college. He has 4-5 blank books in his bag, to make notes on what the professor teaches. He trips on the way multiple times due to excitement. On reaching the college, he takes the first bench in the class. "I would be able to pay more attention from here", he whispers. The professor enters the classroom with a set of papers and a fat reference book. He speaks out his name, rather lifelessly, and gives a very brief intro on the topic he would be teaching that semester. The intro was rather too short."This is it? Why doesn't he speak more on it." whispers the student. He was enjoying it. But the professor must hurry, a vast syllabus is waiting to get done.<br /><br />The rest of the day goes similar. Nothing out of the ordinary. Nobody wants to talk anything out of the textbook. Probably it will waste a lot of time of the professor. Days pass by, and the only thing that changes is the number of books in the student's bag. From 6 to 3 and then to one common rough book for all subjects. No, not because he was lazy to carry them all, but the pathetic quality of notes his teachers gave, he simply didn't feel like they are worth of writing in separate books.<br /><br />After a few boring days with no activity, which he later realizes were the best days of the semester, the professor starts to give them assignments as homework. Not the kind of assignments where you can research and write on your own, but the <i>do-it-by-tomorrow-atleast-30-pages-or-get-a-C-grade </i>kind of assignments. Alas, there isn't enough time to find the solutions. He gets readymade solutions from a friend who had copied it from another friend who might have got the solutions from previous year's journal of a senior, and copies all the answers into his assignment.<br /><br />There is nothing in practicals too. Most of the time he is made to write journals so that he might submit them on time. So basically practicals are library hours where he gets to do nothing 'practical' but copy from other's journals so that at least he can get an A grade, which eventually by the end of the semester gets him 5 additional marks, at the cost of wasting the precious practical hours where he could have maybe learnt how that particular IC works.<br /><br />Days fly by quickly. Sitting for lectures where you don't understand a word of what the professor says, but still have to, for attendance. Yes, the university enforces 75% compulsory attendance but fails to enforce benchmarks for the quality of lectures the professors give. Maybe enforcing the later will automatically make the attendance, not only 75% but also 90%, of most students.<br /><br />Failing to comply with the attendance policy of the college results the student not being able to attend his exams and parents getting called up to meet the professors in college. What happens when a professor comes to teach a topic he has hardly any idea of, gives the worst lecture you can possibly imagine with all bits of information flying around, and then leaves? Nothing happens. Even if you do complain about it, the replacement is as good as the old one, so most of the student don't even bother to do that.<br /><br />Technical festivals. Yes, the thing our colleges are famous for. Technical festival, or tech fest as we call them, are something I personally waited for the entire semester. I could imagine all the amazing stuff that would be put to display, the workshops, the seminars and the enthusiasm. When it came, it was nothing as I had in my mind. It was all guys and girls hanging out enjoying their accidental holiday. It was foolish games like laser tag, devil_maze where people were made to run through dark corridors created with black curtains and UV lights. It was nothing technical, only games-which-can-attract-most-participants-and-earn-most-ticket-fees festival.<br /><br />This concludes with the semester exams, or finals. Here all we learn is the questioning pattern of the university so that we can quite accurately guess what is going to be there on the exam the next day and how am I going to fool the paper checker into believing that I know something about the topic, not much but something to earn me passing marks, after which I will spend 15 days doing nothing but hoping the next semester is better than this one.<br /><br />Finally, a student has covered 1/8th of his life in the engineering course, spending a fortune as time and money, achieving nothing, and now the only thing differs is that he knows how the rest 7/8ths of this life of his, which he highly anticipated, are going to be like. Welcome to the reality.</span>
 </div>
 
-<div class="related">
-  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<div class="box">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
     <ins class="adsbygoogle"
          style="display:block"
          data-ad-client="ca-pub-2314128584981990"
          data-ad-slot="1513670662"
          data-ad-format="auto"></ins>
     <script>
-    (adsbygoogle = window.adsbygoogle || []).push({});
-  </script>
-  <hr>
-  
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+</div>
+
+
 
 
   <div id="disqus_thread"></div>
@@ -167,53 +141,137 @@
 
 
 
-</div>
 
       </div>
+
+      <div class="tile is-4 is-child">
+        <div class="tile is-parent is-vertical sidebar">
+
+          <div class="tile is-child widget">
+            <!--<h2>Related articles</h2>-->
+
+            <div class="box">
+              <header class="card-header">
+                <p class="card-header-title nice-title">
+                  Recent Posts
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content nice-text">
+                  <ul>
+                  
+                  <li><a href="/2017/02/trip-to-bramhatal-uttarakhand.html">
+                    Trek To Bramhatal (Uttarakhand)
+                  </a></li>
+                  
+                  <li><a href="/2017/01/7th-sem-and-then.html">
+                    7th Semester And Then
+                  </a></li>
+                  
+                  <li><a href="/2016/12/BSNL-3g-broadband-rant.html">
+                    BSNL 3G And Broadband Rant
+                  </a></li>
+                  
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="tile is-child widget">
+
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title nice-title">
+                  Sponsored
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content nice-text">
+                  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                  <ins class="adsbygoogle"
+                       style="display:block"
+                       data-ad-client="ca-pub-2314128584981990"
+                       data-ad-slot="1513670662"
+                       data-ad-format="auto"></ins>
+                  <script>
+                      (adsbygoogle = window.adsbygoogle || []).push({});
+                  </script>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="tile is-child widget">
+            <div class="card">
+              <header class="card-header">
+                <p class="card-header-title nice-title">
+                  Recommended Websites
+                </p>
+              </header>
+              <div class="card-content">
+                <div class="content nice-text">
+                  <ul>
+                    <li>
+                      <a href="https://xkcd.com">xkcd</a>
+                    </li>
+                    <li>
+                      <a href="http://commitstrip.com">Commit Strip</a>
+                    </li>
+                    <li>
+                      <a href="http://www.smbc-comics.com">SMBC Comics</a>
+                    </li>
+                    <li>
+                      <a href="https://blog.codinghorror.com">Coding Horror</a>
+                    </li>
+                    <li>
+                      <a href="http://waitbutwhy.com">Wait Buy Why</a>
+                    </li>
+                    <li>
+                      <a href="https://simplysoch.wordpress.com/">Simply Soch</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
     </div>
 
-    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+  </div>
+</div>
 
-    <script>
-      (function(document) {
-        var toggle = document.querySelector('.sidebar-toggle');
-        var sidebar = document.querySelector('#sidebar');
-        var checkbox = document.querySelector('#sidebar-checkbox');
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <p>
+        Some rights reserved.
+      </p>
+      <p>
+        Made with <i class="fa fa-heart"></i> and <a href="https://github.com/jgthms/bulma">Bulma</a>, <a href="https://jekyllrb.com/">Jekyll</a>. Hosted on <a href="https://github.com/">Github</a>
+      </p>
+      <p>
+        <a class="icon" href="https://github.com/abhn">
+          <i class="fa fa-github" title="Github"></i>
+        </a>
+        <a class="icon" href="https://in.linkedin.com/in/AbhishekNagekar">
+          <i class="fa fa-linkedin" title="Linkedin"></i>
+        </a>
+        <a class="icon" href="mailto:abhishek@nagekar.com">
+          <i class="fa fa-envelope" title="Email"></i>
+        </a>
+      </p>
+    </div>
+  </div>
+</footer>
 
-        document.addEventListener('click', function(e) {
-          var target = e.target;
-
-          if(!checkbox.checked ||
-             sidebar.contains(target) ||
-             (target === checkbox || target === toggle)) return;
-
-          checkbox.checked = false;
-        }, false);
-      })(document);
-    </script>
-    <script>
-        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-        ga('create', 'UA-74790644-1', 'auto');
-        ga('send', 'pageview');
-    </script>
-    <script>
-        // stop reading other people's source, dude. That is rude
-        var txtFile = new XMLHttpRequest();
-        txtFile.open("GET", "/quotes.txt", true);
-        txtFile.onreadystatechange = () => {
-          if (txtFile.readyState === 4) {  
-            if (txtFile.status === 200) { 
-              allText = txtFile.responseText; 
-              lines = txtFile.responseText.split("\n");
-              randLine = lines[Math.floor((Math.random() * lines.length) + 1)];
-              document.getElementById('head-quote').innerHTML = '<p class="message" style="font-size: 14px; font-color: grey; text-align: center;">' + randLine + '<small></p>';
-            }
-          }
-        }
-        txtFile.send(null);
-    </script>
-  </body>
+<!-- js -->
+<script src="/public/js/custom.js"></script>
+<script src="/public/js/typewriter.js"></script>
+</body>
 </html>
