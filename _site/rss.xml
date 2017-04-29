@@ -5,10 +5,38 @@
         <description>Abhishek Nagekar&#39;s Blog - Abhishek Nagekar</description>
         <link>https://www.nagekar.com</link>
         <atom:link href="https://www.nagekar.com/rss.xml" rel="self" type="application/rss+xml" />
-        <lastBuildDate>Mon, 17 Apr 2017 01:30:33 +0530</lastBuildDate>
-        <pubDate>Mon, 17 Apr 2017 01:30:33 +0530</pubDate>
+        <lastBuildDate>Sat, 29 Apr 2017 13:28:13 +0530</lastBuildDate>
+        <pubDate>Sat, 29 Apr 2017 13:28:13 +0530</pubDate>
         <ttl>60</ttl>
 
+
+        <item>
+                <title>Book Review - The Third Wave By Steve Case</title>
+                <description>&lt;p&gt;
+	So from the past month onwards, I and Abhishek had decided to read a (non technical) book every month and write a post about it at the end of the month. A good exercise to widen perspective and improve vocabulary.
+&lt;/p&gt;
+&lt;p&gt;
+	So Steve Case is the then CEO of America Online, and a very successful entrepreneur. The book&#39;s entire plot is based on dividing the Internet based industries into three major phases, or &quot;waves&quot;. There was the first wave, when people had started to realize the power of the Internet. In this wave, the task was to convince major players to take risk in the Internet to build infrastructure that would then be used to provide products and services to end users in a way unimaginable before. It was upon this infrastructure of hardware and software, of browsers and portals, or network providers and content providers, that the next wave of the Internet was to surf on.
+&lt;/p&gt;
+&lt;p&gt;
+	The second wave was all about &quot;Internet startups&quot;. Companies that were Internet only. Some of the largest of them, like Uber and Airbnb, which disrupted their entire respective industry, didn&#39;t own a single car or home, and companies like these became common. But just like the first wave, many industries started and only a few survived to see the light at the end. The second wave was about who came to the party first, and who perceived till the end. But, as one can tell, we&#39;re on the flat region of the S curve of the second wave. 
+&lt;/p&gt;
+&lt;p&gt;
+	This is when the third wave comes into picture. A wave that is going to be much similar to the first than it will be to the second wav for a simple reason. The startups of the third wave would need partnerships with people and governments alike, to solve problems and build empires. Elon Musk is a great example of a third wave entrepreneur. More Musks will come into picture as we move more and more into the third wave. Author talks about the 3 P&#39;s that would be critical for any third wave startup; Partnership, Policy and Perseverance.
+&lt;/p&gt;
+&lt;p&gt;
+	The author talks about how, with the rise of third world startups, geographical concentration of companies in Silicon Valley would decrease with new entrepreneurial ecosystems budding where most economic and political benefits exist. He calls this &quot;Rise of the rest&quot;. 
+&lt;/p&gt;
+&lt;p&gt;
+	Finally the author talks a bit more about America&#39;s leadership in the tech industry and how it is losing it&#39;s grip as the leading nation in terms of tech innovation due to a number of reasons, and how to solve those problems on the government as well as organizational level.
+&lt;/p&gt;
+&lt;p&gt;
+	Finally, I would highly recommend this book to anyone who&#39;s interested in having a perspective on the future of the Internet industry. It comes from a person who has seen it all from the beginning, and everything in this book is a first hand experience and not those sugar coated motivational success stories that you can find on Youtube in about 15 seconds. The book has huge failures explained in ways that you find yourself in that time and see each decision in the making, and the rise and fall of the most valuable Internet company of it&#39;s time.
+&lt;/p&gt;</description>
+                <link>https://www.nagekar.com/2017/04/book-review-the-third-wave-steve-case.html</link>
+                <guid>https://www.nagekar.com/2017/04/book-review-the-third-wave-steve-case</guid>
+                <pubDate>Sat, 29 Apr 2017 00:00:00 +0530</pubDate>
+        </item>
 
         <item>
                 <title>Trek To Bramhatal (Uttarakhand)</title>
@@ -992,95 +1020,6 @@ Via:1.1 vegur
                 <link>https://www.nagekar.com/2016/01/exchanging-chikoos-for-friends.html</link>
                 <guid>https://www.nagekar.com/2016/01/exchanging-chikoos-for-friends</guid>
                 <pubDate>Fri, 15 Jan 2016 00:00:00 +0530</pubDate>
-        </item>
-
-        <item>
-                <title>Private Local Cloud Storage Using Raspberrypi - How To</title>
-                <description>&lt;p&gt;
-	Today we&#39;ll see how you can home brew a cloud (in the local sense) storage solution that would be free to use, quite faster than an Internet based one, secure enough from any outside the network intrusion and customizable.
-&lt;/p&gt;
-&lt;p&gt;
-	But why do you need to go to such lengths when you can easily create an account on Google and get 15 gigs of free storage. Well, first of all, data that we generate is increasing significantly each day. We have multiple devices with us, most of them with ~16-64 GB storage, which is not at all good enough. Then while our notebooks are getting faster with solid state drives, they are still costly to use for all of our needs like storing tonnes of movies and music videos, that is, if you are still left with space after cramming up your disk with camera pictures. If you opt for a premium account at Dropbox or Google Drive, it will easily cost you ~$100 a year recurring, the cost which can get you a 2 TB WD external hard disk.
-&lt;/p&gt;
-&lt;p&gt;
-	Then there is the speed issue. At least here in India, we are deprived Internet connection faster than 2-4 mbps. Most of the times even less than that. Even if we considered the option of backing to an online cloud storage, the bandwidth prevents us from efficiently using what already exists for free. When using an local cloud, the bandwidth is only throttled by your equipments, and most of the times you can easily get ~40-60 mbps, which is fine.
-&lt;/p&gt;
-&lt;p&gt;
-	The last issue, depending on how you see it, is the most and the least important. Security. If the files are going to be random movies and music videos, you might not be much worried about some hacker breaking into your cloud storage provider and downloading them, but on the other hand, if the files contain any kind of sensitive personally identifiable information, then you would worry. But having said that, I would always choose a secure storage solution from insecure ones if given an option, even if the data was not at all sensitive.
-&lt;/p&gt;
-&lt;h3&gt;Things you&#39;ll need&lt;/h3&gt;
-&lt;p&gt;
-	Now that we&#39;ve discussed some merits and demerits, lets talk about building the thing. The things you&#39;ll need are,
-	&lt;ul&gt;
-		&lt;li&gt;Raspberry Pi (with all it&#39;s setup accessories), with Ethernet port&lt;/li&gt;
-		&lt;li&gt;Hard disk, any capacity, with SATA to USB converter&lt;/li&gt;
-		&lt;li&gt;Wireless router&lt;/li&gt;
-		&lt;li&gt;Ethernet cable or Wifi adapter&lt;/li&gt;
-		&lt;li&gt;USB power hub [in some cases]&lt;/li&gt;
-	&lt;/ul&gt;
-&lt;/p&gt;
-&lt;h3&gt;Setting up the hardware&lt;/h3&gt;
-&lt;p&gt;
-	&lt;ol&gt;
-		&lt;li&gt;Connect the hard disk to the Raspberrypi&lt;/li&gt;
-		&lt;li&gt;Boot it up and login via ssh&lt;/li&gt;
-		&lt;li&gt;Run &lt;i&gt;sudo fdisk -l&lt;/i&gt; and make sure the hard disk is shown. Note the device name (/dev/sdb or similar)&lt;/li&gt;
-		&lt;li&gt;If not, try usb power adapter&lt;/li&gt;
-		&lt;li&gt;If it is showing, we&#39;ll have to make sure it mounts to the same location each time we boot up.&lt;/li&gt;
-		&lt;li&gt;Create a folder for the mount point. I&#39;ll be using &lt;pre&gt;/var/www&lt;/pre&gt;&lt;/li&gt;
-		&lt;li&gt;It would be advisable to use a separate low privileged user for the process, since we will be changing the user home later on.&lt;/li&gt;
-		&lt;li&gt;&lt;pre&gt;sudo chmod 775 /var/www&lt;/pre&gt; and &lt;pre&gt;sudo chown your_username /var/www&lt;/pre&gt; to set the permissions for reading, writing and executing.&lt;/li&gt;
-		&lt;li&gt;&lt;pre&gt;sudo blkid&lt;/pre&gt; and note the uuid for the external hard disk. Copy it.&lt;/li&gt;
-		&lt;li&gt;Now we need to make the mounting occur each time we boot the pi up. Open the fstab file by &lt;pre&gt;sudo nano /etc/fstab&lt;/pre&gt; and add the following line &lt;pre&gt;UUID=&quot;3b28d90f-8805-4ec4-978d-c53ee397a924&quot; /var/www ext4 defaults,errors=remount-ro 0 1&lt;/pre&gt; by editing the UUID, mount location and file system and keeping other things constant.&lt;/li&gt;
-		&lt;li&gt;Reboot the pi, and your /var/www should now be pointing to the external hard disk. If so, you are done with this part of the tutorial. If not, check what did you miss. Also make sure you are able to read and write files to that directory from your user account. If not, recheck the steps, Google for solutions or comment for help.&lt;/li&gt;
-	&lt;/ol&gt;
-&lt;/p&gt;
-&lt;h3&gt;Setting up the FTP server&lt;/h3&gt;
-&lt;p&gt;
-	&lt;ol&gt;
-		&lt;li&gt;&lt;pre&gt;sudo apt-get install vsftpd&lt;/pre&gt; to install the vsFTP server.&lt;/li&gt;
-		&lt;li&gt;Open the vsftp configuration file by &lt;pre&gt;sudo nano /etc/vsftpd.conf&lt;/pre&gt;&lt;/li&gt;
-		&lt;li&gt;
-			The would be a lot of options. Just go through and make sure the following lines are there and not commented. If not, add them.
-&lt;pre&gt;
-	anonymous_enable=NO
-	local_enable=YES
-	write_enable=YES
-	chroot_local_user=YES
-	force_dot_files=YES
-	local_root=/var/www
-	allow_writable_chroot=YES
-&lt;/pre&gt;
-		&lt;/li&gt;
-		&lt;li&gt;After saving (Ctrl + x and then y) and exiting, restart vsftpd by &lt;pre&gt;sudo service vsftpd restart&lt;/pre&gt;&lt;/li&gt;
-		&lt;li&gt;Lastly, change the user home to the FTP root, so that you&#39;ll directly get into the FTP server&#39;s root on logging into the FTP client. &lt;pre&gt;sudo usermod --home /var/www/ your_username&lt;/pre&gt;&lt;/li&gt;
-	&lt;/ol&gt;
-&lt;/p&gt;
-&lt;p&gt;
-	If all went well, we have a 100% working local cloud storage running off our pi. Now, since not everyone would like to login with terminal each time they wish to access the cloud, I make some customizations to make it easy for even my Mom and Dad to use the cloud.
-&lt;/p&gt;
-&lt;p&gt;
-	On the desktop, download and install filezilla. &lt;pre&gt;sudo apt-get install filezilla&lt;/pre&gt; should do it on deb derivatives. Create a launcher icon that triggers the command &lt;pre&gt;filezilla sftp://myUsername:myPassword@myIP:myPort/my/root&lt;/pre&gt; which in my case became &lt;pre&gt;filezilla sftp://abhishek:password@192.168.1.10:22/var/www&lt;/pre&gt;.
-&lt;/p&gt;
-&lt;center&gt;&lt;img src=&quot;/assets/images/desktop_icon.png&quot; width=&quot;800&quot; height=&quot;600&quot;/&gt;&lt;/center&gt;
-&lt;center&gt;&lt;img src=&quot;/assets/images/filezillapi.png&quot; width=&quot;800&quot; height=&quot;600&quot;/&gt;&lt;/center&gt;
-
-&lt;p&gt;
-	On the mobile phones (we have droids, three of us), I used the &#39;add ftp server&#39; option in the &lt;a href=&quot;https://play.google.com/store/apps/details?id=com.estrongs.android.pop&amp;hl=en&quot; target=&quot;_blank&quot;&gt;ES File Explorer&lt;/a&gt; and created a shortcut on the home screen with the widgets menu. Hence, accessing the cloud was nothing more troublesome than accessing a local folder on the phone.
-&lt;/p&gt;
-&lt;center&gt;&lt;img src=&quot;/assets/images/es1.png&quot; width=&quot;270&quot; height=&quot;480&quot;&gt;&lt;/center&gt;
-&lt;center&gt;&lt;img src=&quot;/assets/images/es2.png&quot; width=&quot;270&quot; height=&quot;480&quot;&gt;&lt;/center&gt;
-&lt;center&gt;&lt;img src=&quot;/assets/images/es3.png&quot; width=&quot;270&quot; height=&quot;480&quot;&gt;&lt;/center&gt;
-&lt;p&gt;
-	Now I have my very own, secure, high speed cloud storage solution for all my devices and also for the family. It is really convenient and building a custom case for the thing, it looks pretty badass.
-&lt;/p&gt;
-&lt;center&gt;&lt;img src=&quot;/assets/images/pisetup.jpg&quot; width=&quot;480&quot; height=&quot;270&quot;&gt;&lt;/center&gt;
-&lt;p&gt;
-	What do you think?
-&lt;/p&gt;</description>
-                <link>https://www.nagekar.com/2016/01/how-to-private-local-cloud-using-raspberrypi.html</link>
-                <guid>https://www.nagekar.com/2016/01/how-to-private-local-cloud-using-raspberrypi</guid>
-                <pubDate>Mon, 11 Jan 2016 00:00:00 +0530</pubDate>
         </item>
 
 
