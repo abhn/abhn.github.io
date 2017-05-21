@@ -61,7 +61,6 @@ post_class: post-template
             <!-- Share links section -->
             {% include share.html %}
 
-
             <section class="PageNavigation">
               {% if page.previous.url %}
                 <a class="prev" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
@@ -83,6 +82,7 @@ post_class: post-template
                 </script>
             </section>
 
+            <hr/>
 
             <!-- Disqus comments -->
             {% include disqus.html %}
