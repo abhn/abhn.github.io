@@ -15,3 +15,5 @@ gems: [jekyll-paginate]
 # Details for the RSS feed generator
 url:            'https://www.nagekar.com'
 author:         'Abhishek Nagekar'
+
+permalink: /:categories/:year/:month/:title.html
