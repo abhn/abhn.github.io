@@ -4,11 +4,16 @@ title: Meta
 ---
 
 <h3 class="nice-title">Greetings!</h3>
+
 <p>I just keep doing stuff I love. I write about what I do, and sometimes, about people who annoy me. For anything, contact me at <b>abhishek[at]nagekar[dot]com</b></p>
-<p>Also, I use <strike><a href="" target="_blank">Facebook</a></strike>, <a href="https://twitter.com/abhisheknagekar" target="_blank">Twitter</a> and <a href="https://plus.google.com/+AbhishekNagekarMe" target="_blank">Google Plus</a>, if you would like to talk. I love to code applications in C++/Qt and sometimes Python. I also love to develop web applications, and use variety of frameworks in many languages which I am not very good at. Anyways, if you love code, you should totally check out my <a href="https://github.com/abhn" target="_blank">Github</a> where I post little projects I do.</p>
-<p>I love science, and I am always looking forward to learn anything that is new. I love sharing ideas, speaking about probability, evolution, future of life on earth and human behaviour. I love astronomy and astrophysics, and chances are, if you start a conversation with me, I will end up draging the topic to one of these. I have also recently started reading on particle physics and evolutionary biology, and consider them of my interest too.</p>
+
+<p>I love to code applications in C++/Qt and sometimes Python. I also love to develop web applications, and use variety of frameworks in many languages which I am not very good at. Anyways, if you love code, you should totally check out my <a href="https://github.com/abhn" target="_blank">Github</a> where I post little projects I do.</p>
+
+<p>I love science, and I am always looking forward to learning anything that is new. I love sharing ideas, speaking about probability, evolution, future of life on earth and human behaviour. I love astronomy and astrophysics, and chances are, if you start a conversation with me, I will end up draging the topic to one of these. I have also recently started reading on particle physics and evolutionary biology, and consider them of my interest too.</p>
+
 <h3 class="nice-title">Reading List</h3>
-<p>I read. A lot. It is part of my quest to seek knowledge, to know how things work. Here is my reading list, the books that I've read or am reading in no particular order.
+
+<p>Books that I've read and highly recommend
 <ul>
   <li>The Grand Design - Leonard Mlodinow</li>
   <li>Relativity: The Special and the General Theory - Albert Einstein</li>
@@ -21,6 +26,7 @@ title: Meta
   <li>Web Development With Node And Express - Ethan Brown (thank you, Kunal!)</li>
   <li>The Alchemist - Paulo Coelho (thank you, Abhinav & Shivangi)</li>
   <li>How To Win Friends And Influence People - Dale Carnegie (thank you, Dhananjay)</li>
+  <li>The Third Wave - Steve Case (thanks, Abhishek)</li>
 </ul>
 </p>
 
