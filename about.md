@@ -1,6 +1,49 @@
 ---
 layout: page
-title: About me 
+title: Meta
 ---
 
-This is a static page. It could be an 'about page' if you'd like.
+<h3 class="nice-title">Greetings!</h3>
+<p>I just keep doing stuff I love. I write about what I do, and sometimes, about people who annoy me. For anything, contact me at <b>abhishek[at]nagekar[dot]com</b></p>
+<p>Also, I use <strike><a href="" target="_blank">Facebook</a></strike>, <a href="https://twitter.com/abhisheknagekar" target="_blank">Twitter</a> and <a href="https://plus.google.com/+AbhishekNagekarMe" target="_blank">Google Plus</a>, if you would like to talk. I love to code applications in C++/Qt and sometimes Python. I also love to develop web applications, and use variety of frameworks in many languages which I am not very good at. Anyways, if you love code, you should totally check out my <a href="https://github.com/abhn" target="_blank">Github</a> where I post little projects I do.</p>
+<p>I love science, and I am always looking forward to learn anything that is new. I love sharing ideas, speaking about probability, evolution, future of life on earth and human behaviour. I love astronomy and astrophysics, and chances are, if you start a conversation with me, I will end up draging the topic to one of these. I have also recently started reading on particle physics and evolutionary biology, and consider them of my interest too.</p>
+<h3 class="nice-title">Reading List</h3>
+<p>I read. A lot. It is part of my quest to seek knowledge, to know how things work. Here is my reading list, the books that I've read or am reading in no particular order.
+<ul>
+  <li>The Grand Design - Leonard Mlodinow</li>
+  <li>Relativity: The Special and the General Theory - Albert Einstein</li>
+  <li>A Brief History of Time - Stephen Hawking</li>
+  <li>The God Delusion - Richard Dawkins</li>
+  <li>Javascript: The Good Parts - Douglas Crockford</li>
+  <li>The C++ Programming Language, 3rd Edition - Bjarne Stroustrup</li>
+  <li>The Linux Cookbook - Michael Stutz</li>
+  <li>And Then I thought I Was A Fish - Peter Welch</li>
+  <li>Web Development With Node And Express - Ethan Brown (thank you, Kunal!)</li>
+  <li>The Alchemist - Paulo Coelho (thank you, Abhinav & Shivangi)</li>
+  <li>How To Win Friends And Influence People - Dale Carnegie (thank you, Dhananjay)</li>
+</ul>
+</p>
+
+<h3 class="nice-title">Terms, Privacy and Affiliates</h3>
+
+<a href="javascript:void(0);" id="show">[show]</a>
+<div id="terms">
+<h4>Affiliations</h4>
+<p>I always like to be transparent with what is content and what not. For example, advertisement banners will never mix with images anywhere on the blog. They will always be separate and distinguishable. Since I use some services that I write about, there may be an occasional affiliate link, which, if you follow and buy something, will earn me a part of the net amount as commission. Affiliate links will be clearly marked 'affiliated' with no exceptions. There would NEVER be an article for the sake of affiliation or marketing, ever, just to make it clear.</p>
+<h4>Adsense</h4>
+<p>My blog displays <a href="http://www.google.com/adsense/start/how-it-works.html" target="_blank">Google Adsense</a> banners at places. These ads collect information about your browsing habits and display relevant advertisements to you. You can <a href="https://support.google.com/adsense/answer/142293?hl=en" target="_blank">opt-out</a> of the network if you wish to, though that won't stop the ads from appearing. You can always use an Adblocker, but then you're not supporting me or those countless publishers who produce good content for others by investing their time, for free.<p>
+
+<h4>Privacy</h4>
+<p>I do not personally collect any information about the viewers, <strike>not even any kind of analytics</strike> I am using <a href="http://www.google.com/analytics/" target="_blank">Google Analytics</a> now. However, <a href="https://disqus.com/" target="_blank">Disqus Commenting System</a> is embedded in the post pages which track it's traffic with Google Analytics.</p>
+<h4>Terms</h4>
+<p>Content of posts is copyrighted under Creative Commons 4.0 license. For more information visit <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">Creative Commons</a>.</p>
+</div>
+<script>
+  var terms = document.getElementById('terms');
+  terms.style.display = "none";
+  document.getElementById('show').onclick = function() { click(); }
+  function click() {
+    terms.style.display = "block";
+    document.getElementById('show').style.display = "none";
+  }
+</script>
