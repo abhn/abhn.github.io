@@ -73,6 +73,10 @@ title: Private Cloud Part 2 | Encrypted Storage With NextCloud
 		<li>The additional (local sync) directory is useful when incremental backups are required and rsync uses this directory to keep track of changes, and only (re)encrypts those files that have been added/changed since last sync. Useful to setup a cron job. At this point, you can delete the files in your <code>/original-dir</code> safely</li>
 		<li>Decryption is just the opposite of this. You supply the location of your <code>/remote-encrypted</code> directory and the script generates a new directory with unencrypted content.</li>
 	</ul>
+	<img src="/assets/images/unenc.png">
+	<center><i>Original directory</i></center>
+	<img src="/assets/images/enc.png">
+	<center><i>Encrypted backup directory</i></center>
 	This does the job for now. Here's the script that I'm currently using. I wanted to enable sync without the need for a helper directory, just like Git does (it stores the changes in the same directory in a .git/ directory). Will update it if I manage to get that done. 
 </p>
 <script src="https://gist.github.com/abhn/032d94b998bbaace5aa3cd2f1be2423d.js"></script>
