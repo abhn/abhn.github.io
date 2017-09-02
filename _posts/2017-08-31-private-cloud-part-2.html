@@ -1,0 +1,91 @@
+---
+layout: post
+title: Private Cloud Part 2 | Encrypted Storage With NextCloud
+---
+
+<p>
+	New cloud setup. YAAY! Self hosted, encrypted and scalable. Plus comes with a nice web interface, native Linux and Android clients and its very own <a href="https://apps.nextcloud.com/">app store</a>. I'll first write about the setup itself, and then some of my personal thoughts over the entire private cloud exercise.
+</p>
+<h3>Features Overview</h3>
+<p>
+	The major components of the setup include the following
+	<ul>
+		<li>NextCloud 11 on Ubuntu using Digital Ocean's <a href="https://www.digitalocean.com/products/one-click-apps/nextcloud/">one click installer</a> on a 5 USD cloud vps</li>
+		<li>Digital Ocean's flexible <a href="https://www.digitalocean.com/products/storage/">block storage</a></li>
+		<li><a href="https://letsencrypt.org/">Let's Encrypt</a> for free TLS</li>
+		<li>NextCloud sync client for Arch and Android on desktop and phone respectively for data sync</li>
+		<li>DavDroid for contacts and calender sync on Android (uses <a href="http://webdav.org/">WebDAV</a>)</li>
+		<li>Optional redundant backup and client side encryption using GnuPG (see below)</li>
+	</ul>
+</p>
+<h3>Pros Vs Cons</h3>
+<p>
+	So I now have a <i>proper</i> private cloud, self hosted, synced across mobile and desktop (including contacts, messages and calender), optional client-side encryption and scalable (&hearts;DigitalOcean&hearts;). What's amazing is that I never had a native Google Drive client on desktop, but now I have a native NextCloud client, and it just works. And yes, it isn't all sunshine and rainbow. There are some serious trade-offs which I should mention at this point, to make this fair. 
+	<ul>
+		<li>No Google Peering, hence backing up media is going to be a struggle on slow connections</li>
+		<li>Google's cloud is without a doubt more securely managed and reliable than my vps.</li>
+		<li>Integration with Android is not as seamless as it was with Google apps, sync is almost always delayed (By 10 minutes. Yes, I'm an impatient (read 'spoiled') Google user)</li>
+		<li>Server maintenance is now my responsibility. Not a huge deal, but just something to keep in mind</li>
+	</ul>
+	Having said that, most of it is just a matter of getting familiar with the new set of tools in the arsenal. I've tried to keep most things minimal. Using few widely adopted technologies and keeping them regularly updated, sticking to the best practices and disabling any unwanted, potentially dangerous defaults and with that the server is secure from most adversaries. Let's first define what "secure" means in the current context using a threat model. 
+</p>
+<h3>Threat Model</h3>
+<blockquote>
+	The only thing worse than no security, is a false sense of security
+</blockquote>
+<p>
+	Instead of securing everything in an ad hoc fashion, I'm using this explicitly defined threat model, which will help me prioritize what assets to secure and the degree of security, and more importantly, what threats I'm NOT secure against.
+	<ul>
+		<li>
+			<b>Compromised end device (Laptop):</b> Since data is present unencrypted on my end, an adversary having access to my computer via say a ssh backdoor can easily get access to all of my (unencrypted) data. Private keys cannot be compromised as they are password protected. A keylogger might be able to sniff out my password which can then be used to decrypt any encrypted data.
+		</li>
+		<li>
+			<b>Compromised end device (Mobile phone):</b> Since data cannot be decrypted on the mobile, all encrypted data would remain secure. Only the unencrypted files will get compromised. However, if an adversary gets access to my unlocked cell phone, securing cloud data would be the least of my worries.
+		</li>
+		<li>
+			<b>Man In The Middle (MITM):</b> As long as Let's Encrypt does it's job, TLS used should be enough to secure the data against most adversaries eavesdropping on my network. It would not protect me if Let's Encrypt (or any other CA) gets compromised and an adversary makes duplicate certificates against my domain and uses it to eavesdrop the traffic, the possibility of which is rare.
+		</li>
+		<li>
+			<b>Server Compromise:</b> If the server is compromised through any server side vulnerability (assume root access) and an attacker gets access to everything on the server, all unencrypted files are compromised, which would include contacts/calender lists. Since the decryption key is never transmitted to the server, encrypted files won't be compromised.
+		</li>
+	</ul>
+</p>
+<h3>Why Client Side Encryption</h3>
+<p>
+	The entire exercise would look pretty pointless if I just took all my data from G Drive and pushed it to NextCloud. And from the <a href="https://www.nagekar.com/2016/01/how-to-private-local-cloud-using-raspberrypi.html">previous cloud server attempt</a>, I know how uncomfortable it is to have your data accessible from the network all the time. Those reasons were more than enough for me to go for an encrypted cloud solution. Although it would still look pointless if you were to ask me why didn't I just encrypt the data and upload it to G Drive again. The answer is simply because I didn't want to.
+</p>
+<p>
+	After some research (being a novice with security, that was a must), I came up with a list of guidelines that I had to write my solution on.
+	<ul>
+		<li>Use of symmetric key cryptography for file encryption, particularly <a href="https://security.stackexchange.com/questions/14068/why-most-people-use-256-bit-encryption-instead-of-128-bit">AES-128</a></li>
+		<li>Memorizing the AES key or using public key cryptography to store the key of file en/decryption on disk. (Not sure which is the proper way of doing it, although I've <a href="https://security.stackexchange.com/questions/168677/securely-storing-aes-key-with-public-key-cryptography">asked the experts for help</a>)</li>
+	</ul>
+</p>
+<h3>Encryption</h3>
+<p>
+	There are a lot of tools one can use for data encryption. I used Gnu's Privacy Guard (GnuPG or simply GPG). It is anything but easy to use. But the nice part is that it just works, is extensively reviewed by experts and has been around since I was 4 years old. So in theory,
+	<ul>
+		<li><a href="https://www.gnupg.org/gph/en/manual.html#AEN26">Generate a public/private key pair</a> in GPG</li>
+		<li>Generate a strong passphrase for the encryption, and encrypt it using the public key you just generated. Store it locally someplace secure</li>
+		<li>Get a list of all files and directories from a specific folder using <code>find</code> (for one time backups), or use <code>rsync</code> with a local sync copy (for incremental backups)</li>
+		<li>Iterate the list (of all or changed files). If item is a directory, create that directory, if item is a file, encrypt the file and push it to that directory.</li>
+		<li>After encryption, you're left with either two or three directories, <code>/original-dir</code>, <code>/remote-encrypted</code> and optionally, <code>/local-unencrypted-sync</code></li>
+		<li>The additional (local sync) directory is useful when incremental backups are required and rsync uses this directory to keep track of changes, and only (re)encrypts those files that have been added/changed since last sync. Useful to setup a cron job. At this point, you can delete the files in your <code>/original-dir</code> safely</li>
+		<li>Decryption is just the opposite of this. You supply the location of your <code>/remote-encrypted</code> directory and the script generates a new directory with unencrypted content.</li>
+	</ul>
+	This does the job for now. Here's the script that I'm currently using. I wanted to enable sync without the need for a helper directory, just like Git does (it stores the changes in the same directory in a .git/ directory). Will update it if I manage to get that done. 
+</p>
+<script src="https://gist.github.com/abhn/032d94b998bbaace5aa3cd2f1be2423d.js"></script>
+<h3>In Closing</h3>
+<p>
+	Eighteen months ago, I wrote on <a href="https://www.nagekar.com/2016/01/how-to-private-local-cloud-using-raspberrypi.html">how to create a 'cloud' storage</a> solution with the Raspberry Pi and half a terabyte hard disk that I had with me. Although it worked well (now that I think about it, it wasn't really a cloud. Just storage attached to a computer accessible over the network. Wait, isn't that a cloud? Damn these terms.), I was reluctant to keep my primary backup disk connected to the network all the time, powered by the tiny Pi, and hence I didn't use it as much I had expected. So what I did then was what any sane person would've anyway done in the first place, connect the disk with a usb cable to the computer for file transfers and backups. 
+</p>
+<p>
+	Earlier this year, I switched ISPs and got this new thing called Google Peering, which enabled me to efficiently backup all my data to the real 'cloud' (Google Drive). That worked, and it was effortless and maintenance free. And although Google doesn't have a native Linux client yet, the web client was good enough for most things. 
+</p>
+<p>
+	And that was the hardest thing to let go. Sync and automatic backups were, for me, the most useful feature of having Google around. And while everything else was easy to replace, the convenience of Drive is something that I'm still looking for in other open source solutions, something I even mentioned in my <a href="https://www.nagekar.com/2017/08/privacy.html">previous post on privacy</a>.
+</p>
+<p>
+	So although I now have this good enough cloud solution, it definitely isn't for everyone. The logical solution for most people (and me) would be to encrypt the data and back it up to Google Drive, Dropbox or others. I haven't tried, but Mega.nz gives 50GB of free tier end to end encrypted storage. Ultimately, it makes much more sense to use a third party provider than doing it all yourself, but then again, where's the fun in that! Thank you for reading.
+</p>
