@@ -1,0 +1,75 @@
+---
+layout: post
+title: Better Web Browsing
+---
+
+
+<p>
+  My web browser is by far the most threat-exposed application that I use on my laptop and mobile phone. Not only does it have to trust web developers and run the scripts they wrote, which probably aren't all that great with respect to user security and privacy, it also has to deal with literally thousands of ad networks and other third party scripts that are <em>specifically</em> designed to invade your privacy by tracking you online.
+</p>
+<p>
+  The people behind these nasty things are not crooks or cyber criminals working from a shady basement, but are very smart people, working for the top Internet companies and making themselves and their employers more money than what you and I can imagine in our humble minds.
+</p>
+
+<p>
+  Given that billions of dollars are at stake, you and me as common Internet users don't have much of a say in this. They will track you, trade your data, make money while you enjoy their 'free' services, and kick you out the moment you don't comply with their policies or stop agreeing to their rules.
+</p>
+
+<p>
+  The only thing that we control is what data are we giving to these Internet giants. While not many people realize or even care about it, there are ways in which we can limit our data leaking to the Internet, and the first step in doing that is hardening your browser. This article is an attempt to cover a number of steps everyday Internet users can take to protect their identity online and improve their information security. I was inspired to take up this topic for writing after a detailed explanation on the same in <a href="https://www.udemy.com/network-security-course/">Nathan House's Network Security course on Udemy</a>. Do check it out.
+</p>
+
+<h3>Know thy browser</h3>
+<p>
+  Your browser is a very powerful piece of software. The level to which it can be fine tuned to serve you the content that you wish to see is huge. The <code><a href="about:config">about:config</a></code> page has some very useful options for both privacy and security. While almost anybody might have a hard time configuring Firefox via the this menu, there's a helpful website called <a href="https://ffprofile.com">ffprofile.com</a> that does a great job at making sense of some of those options and exporting a <code>pref.js</code> file. 
+</p>
+<p>
+  Make sure you read the options and select the ones that you need depending on your privacy and security needs. For example, I deselected the <i>disable auto updates</i> option because the privacy gain from doing it is minimal (for me), while the security trade-off is huge, potentially leaving me unarmed at times. If you, like me and most others, can't go full Stallman-mode anytime soon, make sure you set up an alternate profile in Firefox (<code>firefox -no-remote -ProfileManager</code>) and set up non-secure browsing preferences there, selecting it via <code>firefox -no-remote -P username</code>, or using an addon. Learn more about Firefox profiling <a href="https://developer.mozilla.org/en-US/Firefox/Multiple_profiles">here</a>.
+</p>
+<p>
+  Apart from that, try to use a non-tracking search engine like <a href="https://duckduckgo.com">DuckDuckGo</a>, <a href="http://startpage.com/">StartPage</a> etc, use incognito mode by default (in Preferences > Privacy and Security), and use history saving only when required and on trusted sites. Use HTTPS whenever possible (Check out <a href="https://www.eff.org/https-everywhere">EFF's HTTPS Everywhere</a> addon). There are addons available to notify you of certificate change in HTTPS enabled sites (which can hint a MITM attack), but they are of little practical value as sites update their certificates all the time. There are a bunch of useful addons that will come bundled with ffprofile, but you can also download them manually from Mozilla's addon store.
+</p>
+<img src="/assets/images/addons.png"/>
+<h3>Disable 3rd party cookies</h3>
+<p>
+  3rd party cookies are used for tracking users on third party sites. It is usually harmless to disable them. What might not work after disabling them are your social like/share buttons and commenting platforms like Disqus, but that's what we want in many cases. You can also consider setting up delete all cookies when you close the Firefox window.
+</p>
+
+<h3>Use a VPN</h3>
+<p>
+  VPNs are not really part of browser hardening checklist, but they offer good privacy over any insecure network. A lot of middle men in your Internet packet's journey can potentially know what sites you visit, especially on insecure HTTP connections. Even on HTTPS, your browser's DNS lookup might give away some information about your browsing habits. On insecure HTTP website and a shared Wifi access point, you can assume at all times that the other users connected to that Wifi, the access point and the ISP can literally see each and every request that you make. VPN takes away this data leak by creating a virtual tunnel between your computer or mobile device and the VPN's server. The connection is encrypted and hence sniffing cannot happen in between. All requests, even DNS can be (and should be) configured to use the VPN.
+</p>
+<p>
+  It is important to understand that sniffing can occur on the VPN's end on an insecure connection, and hence you need to select a VPN provider with utmost care. Even after this, there's a bit of trust involved when choosing a provider. Our best bet is to try to opt for a provider that maintains a zero knowledge service.
+</p>
+
+<h3>Use a password manager</h3>
+<p>
+  Although it is an extremely bad practice to write passwords down, another very common mistake we as Internet users do is reuse passwords on many sites (I'm guilty as well), which in some cases is worse than writing down passwords for each individual online account. We know that at least some of the sites store your password in plaintext, while a lot more use weak hashing algorithms. Since we can never be sure, always assume that the password you submit to any site can be accessed by an adversary, and used against you. If you've reused your email provider's password on any other site, the website's admins or any attacker who has/gets access to the website's database might be able to take over your email account and other services connected to that account. It is for this reason that using separate passwords become important.
+</p>
+<a href="https://www.xkcd.com/792/"><img src="https://imgs.xkcd.com/comics/password_reuse.png"/></a>
+<p>
+  However, as human beings, we have more important things to remember than random alphanumeric strings. This is where a password manager comes in. It takes away your responsibility of having to remember 15 different passwords by making you remember one master password. Sweet, huh? This might look like an extra point for failure, but in the broad scheme of things where an attacker might get one of your password and literally own your digital life, this is a much safer option. What's more, the passwords are either never stored on the disk (generated on the fly based on the master password and website's name) or stored in encrypted form on the disk (or in the cloud). On the downside, this also means that if you lose your master key, you lose all your accounts.
+</p>
+
+
+<h3>Use 2 factor authentication. Always.</h3>
+<p>
+  Whenever it is an option, use a second factor of authentication. It can be anything; a phone call, SMS, email, authenticator app (like <a href="https://freeotp.github.io/">freeOTP</a>) or whatever. The increased effort is totally worth it considering the alternative is to risk an asset, possibly an important one. Remember that defense in depth is an effective concept in security, both in the real and digital world, and we must make use of it wherever possible.
+</p>
+
+<h3>For the paranoids amongst us: Use a live operating system</h3>
+<p>
+  A live operating system does not store any data in between sessions. Every time you log into the system, it is like logging into a freshly installed operating system. Naturally, there's not much tracking that can be done, and as nothing is ever written to the disk, this method offers best privacy if done properly. 
+</p>
+<p>
+  Using applications in virtual machines also protect users against sandbox escape vulnerabilities. Since we're here, check out <a href="https://tails.boum.org/">Tails</a> Linux, a gnu+linux distribution that is designed to be used live and offers great tools to aid privacy. Another great live operating system is <a href="https://www.whonix.org/">Whonix</a>, which comes in form of a 'gateway' (connects to the tor network) and a 'workstation' (connects to the gateway). Then depending on your hardware, <a href="https://www.qubes-os.org/">Qubes OS</a> might be a good choice, something that I look forward to trying when I have compatible hardware.
+</p>
+<p>
+  Lastly, remember what Bruce Schneier told us
+  <blockquote>"The question to ask when you look at security is not whether this makes us safer, but whether it's worth the trade-off."</blockquote>
+</p>
+<p>
+  I'll leave you with that TED talk here. Thank you for reading.
+</p>
+<div style="max-width:854px"><div style="position:relative;height:0;padding-bottom:56.25%"><iframe src="https://embed.ted.com/talks/lang/en/bruce_schneier" width="854" height="480" style="position:absolute;left:0;top:0;width:100%;height:100%" frameborder="0" scrolling="no" allowfullscreen></iframe></div></div>
