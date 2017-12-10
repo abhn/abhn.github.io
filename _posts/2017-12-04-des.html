@@ -213,7 +213,7 @@ title: ELi5 DES (kinda)
         Similarly, we take the middle 4 bits (2 to 5), which in our case are 1, 0, 1 and 0, coloured <span style="background-color: lightblue">blue</span>, concatenate them to form a 4 bit number (1 . 0 . 1 . 0 => Binary(1010)) which is 10, and look up the corresponding column label in our S-box 1. 
     </p>
     <p>
-        The number corresponding to row 3 and column 10 is 3, which is <code>0010</code> in 4 bit binary representation. That is the output of S-box 1 for input <code>110101</code>. Similarly do this for S-box 2-8, for each of the 16 rounds of DES.
+        The number corresponding to row 3 and column 10 is 3, which is <code>0010</code> in 4 bit binary representation. That is the output of S-box 1 for input <code>110101</code>. Similarly do this for S-box 2-8, for each of the 16 rounds of DES. The result of the 8 S-boxes (4 bits each) is combined to get a 32 bit output.
     </p>
 
     <h5>Permutation</h5>
