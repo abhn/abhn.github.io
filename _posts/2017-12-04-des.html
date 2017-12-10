@@ -1,0 +1,271 @@
+---
+layout: post
+title: ELi5 DES (kinda)
+---
+
+<p>
+    In my <a href="https://www.nagekar.com/2017/11/book-review-applied-cryptography-cryptography-engineering.html">previous post</a>, which was a review of the book <i>Applied Cryptography</i> and <i>Cryptography Engineering</i>, I wrote that DES, in spite of retiring officially (after numerous successful attacks), is still a great algorithm from an academic perspective to learn and peek into the minds of cryptographers. In this one, I'll try to explain DES in my own words, testing my own understanding and giving you a (hopefully) nice read from a novice perspective. So let's get started with DES, a cipher that was once the standard for government data encryption for the US and many others around the globe, now defunct and only exists, if at all, in form of 3DES. 
+</p>
+<p>
+    Before we begin, let us understand where we are (with DES) in the cryptoverse and then talk about DES itself. In cryptography, <a href="https://en.wikipedia.org/wiki/Encryption">encryption</a> of data can happen in two ways. There's symmetric cryptography, and there's asymmetric cryptography. In symmetric key cryptography, we have block ciphers and stream ciphers. DES is a block cipher.
+</p>
+<h3>A Brief History</h3>
+<p>
+    DES, for Data Encryption Standard, is a symmetric key encryption algorithm proposed by IBM with inputs from the NSA in 1974. Not many details about the development process were shared with the world. It is studied by numerous experts and counts as one of the most studied ciphers of all time. DES was designed to keep government secrets, secrets. 
+</p>
+<p>
+    The 56 bit key size didn't impress anyone back in the day, much less today. In spite of a small key size, there weren't any attacks faster than brute force, both theoretically and practically, until into the late 80s when Adi Shamir and Eli Biham discovered a new kind of attack on block ciphers called differential cryptanalysis. The world then learnt that NSA and IBM knew about this attack since at least 1974, and the algorithm was designed specifically to counter this attack. 
+</p>
+<p>
+    In late 90s DES was practically cracked in a contest and then many times after that. The main weakness in DES was the small key size, and to patch it, 3DES was proposed which is still used today, although not recommended. But from an academic point of view, DES is a gold mine. It is easy to understand, let's us deep dive into the way cryptographers think and learn why certain decisions are made, and most importantly, why the <i>math just works!</i>
+</p>
+
+<h3>DES algorithm from 10,000ft</h3>
+<p>
+    Okay, let's start with a super complex diagram that you probably won't understand without 4 years of formal training in mathematics. Just kidding.
+</p>
+<center><img src="/assets/images/des/top1.png"/></center>
+<br/>
+<p>
+    And for the sake of my love for bullet points,
+</p>
+    <ul>
+        <li>DES is a Feistel cipher, which is a family of ciphers which are iterative in nature (repeat a simple set of instructions several times, called 'rounds') and share many similar properties.</li>
+        <li>DES has a block size of 64 bits, that is, 64 bits of plaintext is converted into 64 bits of ciphertext in one go.</li>
+        <li>The algorithm makes use of a 64 bit key, 56 of which are used by the algorithm and 8 are used for parity check. Effective security is 56 bits.</li>
+        <li>DES has 16 rounds.</li>
+        <li>The encryption and decryption functions are almost similar, which is a great advantage as the implementation and audit has to be done for single function only, simplifying things.</li>
+    </ul>
+<p>
+    So how does the algorithm work? Like any other algorithm, you can put it down as a list of easy to understand steps.
+    <center>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/DES-main-network.png" width="50%"/>
+        <i>https://en.wikipedia.org/wiki/File:DES-main-network.png</i>
+    </center> 
+    <ol>
+        <li>Take input as plaintext block of 64 bits, and key K</li>
+        <li>Apply Initial Permutation (IP) on input plaintext (which shuffles the bits in a predefined manner)</li>
+        <li>Split the input into left half and right half (L<sub>0</sub> and R<sub>0</sub>) (form two equal halves of 32 bits, no tricks)</li>
+        <li>Apply magic function F (not really) on the right half R<sub>0</sub> (32 bits input => 32 bits output)</li>
+        <li>Function F takes R<sub>0</sub> and K<sub>1</sub> as input, where R<sub>0</sub> is the right halve (32 bit) input for the 1<sup>st</sup> round and K<sub>1</sub> is the 1<sup>st</sup> round key. In this step, the key material mixes with the plaintext</li>
+        <li>XOR output of F (32 bits) with L<sub>0</sub> (which is already 32 bits), this is the new R<sub>1</sub> (L<sub>0</sub> ⊕ F(R<sub>0</sub>) => R<sub>1</sub>). R<sub>0</sub> is simply copied to L<sub>1</sub></li>
+        <li>Thus, we've essentially swapped L<sub>0</sub> and R<sub>0</sub> with some pre-processing on R<sub>0</sub>. This completes our round 1. Repeat 4-5-6 16 times and you've done 16 rounds of DES.</li>
+        <li>Apply reverse Initial Permutation (a.k.a. Final Permutation or IP<sup>-1</sup>) and you have your ciphertext. Tadaa!</li>
+    </ol>
+    Yes, I know, that was a mouthful, wasn't it? This slide [<a href="https://courses.cs.washington.edu/courses/cse467/99au/admin/Slides/Week6Lecture1/img005.gif">link here</a>] shows the round key K<sub>i</sub> in action. Now that we have a basic flow, we can take on each of the components and talk about them in detail, in a proper top down approach.
+</p>
+
+<h3>Little aside on confusion and diffusion</h3>
+<p>
+    Confusion and diffusion are exactly what they mean in plain English. They provide confusion and diffusion properties in the ciphertext. They are crucial for the overall security of the DES algorithm. 
+</p>
+<p>
+    <strong>Confusion</strong> means having a non-linear, complex relationship between the key and the ciphertext. In simple words, each bit of the ciphertext has to depend on as many bits in the key as possible, such that even with a choosen ciphertext attack scenario, not much can be known about the key given a practically infinite supply of plaintext-ciphertext pairs.
+</p>
+<p>
+    <strong>Diffusion</strong> means any change in the plaintext should cause an avalanche/snowball effect and change around half of the bits in the ciphertext and vice versa. 
+</p>
+<p>
+    We will talk more about how DES achieves both of these properties when we talk about the F function in detail.
+</p>
+
+<h3>DES algorithm: Major parts</h3>
+<center>
+    <img src="/assets/images/des/top2.png"/>
+    <i>Please take a moment to appreciate the effort I've put into the diagram. Error: The K(i) should be key(i+1)</i>
+</center>
+<br/>
+<p>
+    We have here the following major components to talk about.
+    <ul>
+        <li>Initial permutation, final permutation</li>
+        <li>Round key generator</li>
+        <li>The round function F</li>
+    </ul>
+</p>
+
+<h3>Initial &amp; Final Permutation (IP &amp; FP)</h3>
+<p>
+    The IP accepts the plaintext and the FP returns the ciphertext generated by the algorithm. In decryption, the ciphertext goes into the FP and plaintext leaves through IP, similar but exact opposite of encryption, which is one of the properties of a Feistel cipher. From functionality perspective, it shuffles the 64 bit input block according to a predefined vector, given below. 
+</p>
+<pre>
+<b>IP</b>
+58    50   42    34    26   18    10    2
+60    52   44    36    28   20    12    4
+62    54   46    38    30   22    14    6
+64    56   48    40    32   24    16    8
+57    49   41    33    25   17     9    1
+59    51   43    35    27   19    11    3
+61    53   45    37    29   21    13    5
+63    55   47    39    31   23    15    7</pre>
+<p>
+    The above text is a linear list, or a vector, and not a matrix. What it says is <i>"take the 58th bit and connect it to output bit 1", "take the 50th bit and connect it to output bit 2"</i> and so on. It is basically a one-to-one substitution. So how does it, one might ask, help in adding security if the list is public and it is a simple substitution operation. Well, it does not. To quote wikipedia,
+    <blockquote>
+        IP and FP have no cryptographic significance, but were included in order to facilitate loading blocks in and out of mid-1970s 8-bit based hardware.
+    </blockquote>
+</p>
+
+
+<h3>Round Key generator</h3>
+<center>
+    <img src="http://www.tutorialspoint.com/cryptography/images/key_generation.jpg" width="75%"/>
+    <i>http://www.tutorialspoint.com/cryptography/images/key_generation.jpg</i>
+</center>
+<br/>
+<p>
+    The round key generator function generates a key for each of the 16 rounds of DES. There are a couple of steps involved, as illustrated in the above visual.
+    <ol>
+        <li>Permuted choice 1 (parity drop) - Get the permuted 56 bit key from the input 64 bit key by dropping the parity bits (bit 8, 16...64 are dropped). The permutation is done according to the predefined vector shown below.</li>
+<pre>
+<b>PC-1</b>
+57   49    41   33    25    17    9
+ 1   58    50   42    34    26   18
+10    2    59   51    43    35   27
+19   11     3   60    52    44   36
+63   55    47   39    31    23   15
+ 7   62    54   46    38    30   22
+14    6    61   53    45    37   29
+21   13     5   28    20    12    4</pre>        
+        <li>Split the 56 bit key into two 28 bit halves, and left shift them either by one bit (for round 1, 2, 9 and 16) or by two bits (for every other round).</li>
+        <li>Concatenate the two halves thus returned after left shifting, and apply the permutation table 2 to the concatenated pair.</li>
+<pre>                              
+<b>PC-2</b>
+ 14    17   11    24     1    5
+  3    28   15     6    21   10
+ 23    19   12     4    26    8
+ 16     7   27    20    13    2
+ 41    52   31    37    47   55
+ 30    40   51    45    33   48
+ 44    49   39    56    34   53
+ 46    42   50    36    29   32</pre>
+        <li>Permuted choice 2 (compression p-box) - Takes a 56 bit key and returns a 48 bit round key K<sub>i</sub> after dropping another 8 bits</li>
+        <li>The 48 bit round key is then used by our magic function F (remember that?) to mix key into the plaintext by xoring the plaintext with this 48 bit key. <i>(Wait, but our right input halve R<sub>i</sub> is 32 bits, right? Yes, we'll get to how our input is expanded to 48 bits in the next section)</i></li>
+    </ol>
+</p>
+
+<h3>Round Function</h3>
+<p>
+    We're finally into the meat of this beautiful algorithm. I've mentioned in brief about what the round function consists of. To reiterate,
+    <ul>
+        <li>Split the input into left half and right half (L<sub>i</sub> and R<sub>i</sub>) (form two equal halves of 32 bits, no tricks)</li>
+        <li>Apply magic function F on the right half R<sub>i-1</sub> (F takes 32 bits input and gives 32 bits output),  where R<sub>i-1</sub> is the right halve of the i<sup>th</sup> round and K<sub>i</sub> is the i<sup>th</sup> round key. This is where the key material mixes with the plaintext.</li>
+        <li>XOR output of F (32 bits) with L<sub>i-1</sub> (which is already 32 bits), this is the new R<sub>i</sub> (that is, L<sub>i-1</sub> ⊕ F(R<sub>i-1</sub>) => R<sub>i</sub>). Unaltered R<sub>i-1</sub> is simply copied to L<sub>i</sub></li>
+    </ul>
+    <p>
+        What we haven't talked about is the magic function F itself. The magic function F isn't really magical. It just does 4 neat sub-operations, and does them really well.
+    </p>
+    <center>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/25/Data_Encription_Standard_Flow_Diagram.svg"/>
+    <i>https://upload.wikimedia.org/wikipedia/commons/2/25/Data_Encription_Standard_Flow_Diagram.svg</i>
+    </center>
+    <ol>
+        <li>Expansion function E</li>
+        <li>XOR with round key</li>
+        <li>S box substitution</li>
+        <li>Permutation</li>
+    </ol>
+    <p>
+        Let's look at them one by one and try to see where exactly they fit in and what cryptographic property they give to our ciphertext.
+    </p>
+    <h5>Expansion function</h5>
+<pre>
+<b>E BIT-SELECTION TABLE</b>
+<span style="background-color: pink">32     1</span>    2     3     <span style="background-color: red">4    5
+ 4     5</span>    6     7     <span style="background-color: green">8    9
+ 8     9</span>   10    11    <span style="background-color: olive">12   13
+12    13</span>   14    15    <span style="background-color: maroon">16   17
+16    17</span>   18    19    <span style="background-color: yellow">20   21
+20    21</span>   22    23    <span style="background-color: orange">24   25
+24    25</span>   26    27    <span style="background-color: violet">28   29
+28    29</span>   30    31    <span style="background-color: pink">32    1</pre>
+    <p>
+        As the name might have hinted, the expansion function expands our plaintext input. <b>Expansion gives us diffusion</b>. It <i>diffuses</i> the impact of change of one bit in the input across the block. Remember how the 32 bit R<sub>i</sub> part of the 64 bit input is sent to the F function? E function takes those 32 bits of input and expands them to 48 bits. How it does that? Well, repetition, of course. So it basically takes input as <code>1 2 3 4 5 6 7 8</code> and outputs something like <code>1 2 2 3 4 4 5 6 6 7 8 8</code>, effectively increasing the size by 50% (32 => 48).
+    </p>
+    <h5>XOR with round key</h5>
+    <p>
+        <a href="http://www.cs.umd.edu/class/sum2003/cmsc311/Notes/BitOp/xor.html">XOR</a> is a simple mathematical operation that has a very important property from a cryptographic standpoint. If you XOR a number A with B, you get a new number C. To get A from C, you need B. To get B from C, you need A. Basically, <code>A ⊕ B ⊕ B = A</code>, and <code>A ⊕ B ⊕ A = B</code>. XORing plaintext and key locks them in a interdependent mixture such that to get back the plaintext, you <i>have to have</i> the key with which it was XORed (locked).
+    </p>
+    <h5>S-box substitution</h5>
+    <p>
+        In some ways, this is the heart of the algorithm. <b>S-box substitution gives us confusion</b>. There are eight S-boxes in total, each taking 6 input bits and giving 4 output bits. S-boxes provide DES immunity against <a href="http://www.quadibloc.com/crypto/co040501.htm">differential cryptanalysis</a> which I mentioned at the beginning of this article. Here's S-box number 1.
+    </p>
+    <pre>
+      0  1   2  3   4  5   6  7   8  9  10 11  12 13  14 15
+-------------------------------------------------------------
+  0 | 14  4  13  1   2 15  11  8   3 10   6 12   5  9   0  7
+  1 |  0 15   7  4  14  2  13  1  10  6  12 11   9  5   3  8
+  2 |  4  1  14  8  13  6   2 11  15 12   9  7   3 10   5  0
+  3 | 15 12   8  2   4  9   1  7   5 11   3 14  10  0   6 13</pre>
+    <p>
+        Here's how it works. After the XOR operation, we are left with a cryptic looking 48 bit string. 
+    </p>
+        <pre>say 110010101100101111111100110111101100111010101001</pre> 
+    <p>
+        Now we take this 48 bit string and divide it into 8 equal parts of 6 bits each, and input one of the 8 parts into each S box. 
+    </p>
+        <pre>SB1(110101) SB2(101100) SB3(101111) SB4(111100) SB5(110111) SB6(101100) SB7(111010) SB8(101001)</pre>
+    <p>
+        Now, our S-box 1 receives <code><span style="background-color: yellow">1</span><span style="background-color: lightblue">1010</span><span style="background-color: yellow">1</span></code>. 
+
+        We take the first and last bit (1 and 1 in this case, coloured <span style="background-color: yellow">yellow</span>), concatenate it to form a two bit number (1 . 1 => Binary(11)) which is 3, and look it up in the row labels of our S-box 1.
+    </p>
+    <p>
+        Similarly, we take the middle 4 bits (2 to 5), which in our case are 1, 0, 1 and 0, coloured <span style="background-color: lightblue">blue</span>, concatenate them to form a 4 bit number (1 . 0 . 1 . 0 => Binary(1010)) which is 10, and look up the corresponding column label in our S-box 1. 
+    </p>
+    <p>
+        The number corresponding to row 3 and column 10 is 3, which is <code>0010</code> in 4 bit binary representation. That is the output of S-box 1 for input <code>110101</code>. Similarly do this for S-box 2-8, for each of the 16 rounds of DES.
+    </p>
+
+    <h5>Permutation</h5>
+    <p>
+        The final step of our magic function F is a simple one-to-one permutation, taking 32 bits and returning 32 bits.
+    </p>
+<pre>
+16   7   20  21
+29   12  28  17
+ 1   15  23  26
+ 5   18  31  10
+ 2    8  24  14
+32   27   3   9
+19   13  30   6
+22   11   4  25</pre>
+</p>
+
+<h3>Catch your breath</h3>
+<center>
+    <img src="/assets/images/des/top2.png"/>
+    <i>I'm really too proud of this picture. Edit: Not so much after finding that K(i) => K(i+1) error.</i>
+</center>
+<br/>
+<p>
+    Wake up! Do you even remember that all this was done on R<sub>i</sub>? 
+    <br/>
+    Now, after the F function, which wasn't very magical after all, returns the 32 bit output, we XOR it with L<sub>i</sub>, which gives us our new R<sub>i+1</sub>, while the untouched R<sub>i</sub> is simply copied to L<sub>i+1</sub>'s place. Hence begins a new round of DES, which goes on this way for 15 more rounds.
+</p>
+
+<h3>After 16 rounds</h3>
+<p>
+    Not much is left to be done after the 16 rounds. The two halves are concatenated, the 64 bit cipher block is then passed through our final permutation using FP vector given below, and this gives us our ciphertext. Easy.
+<pre>
+40     8   48    16    56   24    64   32
+39     7   47    15    55   23    63   31
+38     6   46    14    54   22    62   30
+37     5   45    13    53   21    61   29
+36     4   44    12    52   20    60   28
+35     3   43    11    51   19    59   27
+34     2   42    10    50   18    58   26
+33     1   41     9    49   17    57   25 </pre>
+</p>
+
+<h3>Wrapping DES Up</h3>
+<p>
+    So that was DES. I hope you enjoyed reading this article. I'm expecting some mistakes, technical and otherwise, so take everything with a pinch of salt. Some interesting reads are given below for those of you who wish to learn more. I realized that writing this article was a nice way of testing my own understanding of the topic, find holes in it and then study to fix those holes. As always, thank you for reading!  
+</p>
+
+<h3>Further Reading</h3>
+<ul>
+    <li><a href="http://page.math.tu-berlin.de/~kant/teaching/hess/krypto-ws2006/des.htm">DES illustrated</a></li>
+    <li><a href="https://en.wikipedia.org/wiki/DES_supplementary_material">DES supplementary material</a></li>
+    <li><a href="http://www.cs.umd.edu/class/sum2003/cmsc311/Notes/BitOp/xor.html">Magic of XOR</a></li>
+    <li><a href="http://www.quadibloc.com/crypto/co040501.htm">Differential and linear cryptanalysis</a></li>
+</ul>
