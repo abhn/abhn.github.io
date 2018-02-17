@@ -16,14 +16,14 @@ about: 'about.html'
     
 <hr/>
 
- <div class="parent">
+ <main class="parent">
     {% for post in site.posts %}
-        <div>
+        <section>
             <div class="pd">{{ post.date | date: "%m/%Y" }}</div> 
             <a href="{{ post.url }}">
                 {{ post.title }}
             </a>
-        </div>
+        </section>
     {% endfor %}
-</div>
+</main>
 
