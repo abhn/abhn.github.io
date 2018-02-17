@@ -13,52 +13,7 @@
     </title>
 
     <style type="text/css">
-      iframe, img, video {
-        max-width: 100%;
-        word-wrap: break-word;
-      }
-      * {
-        word-wrap: break-word;
-      }
-      .pd {
-        width:5em;
-        text-align:center;
-        flex-shrink:0
-      }
-      .parent div {
-        display:flex
-      }
-      @media screen and (max-width:600px) {
-        .pd { 
-          display:none
-        }
-        .parent div {
-          padding-bottom:1em
-        }
-      }
-      .np {
-        display:flex;
-        flex-direction:row;
-        justify-content:space-between;
-        padding-bottom:.5em;
-        font-style:italic
-      }
-      .np href {
-        flex-grow:1
-      }
-      .prev {
-        width: 50%;
-        float: left;
-      }
-      .next {
-        width: 50%;
-        float: right;
-      }
-      .pagination::after {
-        content:"";
-        clear:both;
-        display:block;
-      }
+      *,iframe,img,video{word-wrap:break-word}iframe,img,video{max-width:100%}.pd{width:5em;text-align:center;flex-shrink:0}.parent div{display:flex}@media screen and (max-width:600px){.pd{display:none}.parent div{padding-bottom:1em}}.np{display:flex;flex-direction:row;justify-content:space-between;padding-bottom:.5em;font-style:italic}.np href{flex-grow:1}.prev{width:50%;float:left}.next{width:50%;float:right}.pagination::after{content:"";clear:both;display:block}
     </style>
 
     <meta name="description" content="{{ site.meta_description}}" />
