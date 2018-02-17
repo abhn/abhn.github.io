@@ -9,7 +9,7 @@ logo: false
 paginate: 15
 baseurl: /
 domain_name: 'https://www.nagekar.com'
-gems: [jekyll-paginate]
+plugins: [jekyll-paginate]
 
 # Details for the RSS feed generator
 url:            'https://www.nagekar.com'
