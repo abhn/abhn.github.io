@@ -5,62 +5,25 @@ cover: false
 about: 'about.html'
 ---
 
-<header class="main-header {% if page.cover %}" style="background-image: url({{ page.cover }}) {%else%}no-cover{% endif %}">
-    <nav class="main-nav overlay clearfix">
-            {% if page.logo %}
-                <a class="blog-logo" href="{{ site.baseurl }}">
-                    <img src="{{ page.logo }}" alt="Blog Logo" />
-                </a>
-            {% endif %}
-        <a class="subscribe-button icon-feed" href="{{ site.baseurl }}feed.xml">Subscribe</a>
-    </nav>
-    <div class="vertical">
-        <div class="main-header-content inner">
-            <h1 class="page-title">{{ site.name }}</h1>
-            <h2 class="page-description">
-                <a href='{{ site.baseurl }}{{ page.about }}'>About</a> | 
-                <a href='https://github.com/abhn'>Github</a> 
-
-            </h2>
-        </div>
-    </div>
-    <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
+<header>
+    <h3>{{ site.name }}</h3>
+    <h4>
+        <a href='{{ site.baseurl }}{{ page.about }}'>About</a> | 
+        <a href='https://github.com/abhn'>Github</a> |
+        <a href="{{ site.baseurl }}feed.xml">Subscribe</a>
+    </h4>
 </header>
+    
+<hr/>
 
-
-<main id="content" class="content" role="main">
-
-
-    <div class="extra-pagination inner">
-        {% include pagination.html %}
-    </div>
-
-    {% for post in paginator.posts %}
-
-    <article class="post">
-        <header class="post-header">
-            <h2 class="post-title"><a href="{{ post.url }}">{{ post.title }}</a></h2>
-        </header>
-        <section class="post-excerpt">
-            {{ post.content | strip_html | truncatewords: 50 }}
-            <a class="read-more" href="{{ post.url }}">Read More</a>
-        </section>
-        <footer class="post-meta">
-            {% if site.author %}
-                <img class="author-thumb" src="/assets/images/profile.jpg" alt="Author's profile picture" nopin="nopin" />
-                {{ site.author }}
-            {% endif %}
-            {% if post.categories.size > 0 %} 
-                {{ post.categories | array_to_sentence_string | prepend: 'on ' }} 
-            {% endif %}
-            <time class="post-date">
-                {{ post.date | date: "%-d %B, %Y. It was a %A." }}
-            </time> 
-        </footer>
-    </article>
-
+ <div class="parent">
+    {% for post in site.posts %}
+        <div>
+            <div class="pd">{{ post.date | date: "%m/%Y" }}</div> 
+            <a href="{{ post.url }}">
+                {{ post.title }}
+            </a>
+        </div>
     {% endfor %}
+</div>
 
-    {% include pagination.html %}
-
-</main>

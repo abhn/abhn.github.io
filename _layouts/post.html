@@ -5,60 +5,25 @@ archive: false
 post_class: post-template
 ---
 
-<header class="main-header post-head {% if page.cover %}" style="background-image: url({{ page.cover }}) {%else%}no-cover{% endif %}">
-    <nav class="main-nav {% if page.cover %} overlay {% endif %} clearfix">
-        <a class="back-button icon-arrow-left" href="/">Home</a>
-        <a class="subscribe-button icon-feed" href="/feed.xml">Subscribe</a>
-    </nav>
+<header>
+    <h3>{{ page.title }}</h3>
+    <header>
+        <time datetime="{{ page.date | date: '%-d %B, %Y. It was a %A.' }}">{{ page.date | date_to_string }}</time>
+    </header>
 </header>
-
-<main class="content" role="main">
-
-    <article class="post">
-
-        <header class="post-header">
-            <h1 class="post-title">{{ page.title }}</h1>
-            <section class="post-meta">
-                <time class="post-date" datetime="{{ page.date | date: '%-d %B, %Y. It was a %A.' }}">{{ page.date | date_to_string }}</time>
-                {% if page.categories.size > 0 %}
-                    {{ page.categories | array_to_sentence_string | prepend: 'on ' }}
-                {% endif %}
-            </section>
-        </header>
         
-        <section class="post-content">
+<hr/>
+
+<main role="main">
+
+    <article>
+        
+        <section>
             {{content}}
         </section>
 
-        {% if page.archive %}
-        <section class="archive">
-            <h5>Archive</h5>
-            <ul>
-                {% for post in site.posts %}
-                    <li><span>{{ post.date | date_to_string }}</span>  <a href="{{ post.url }}">{{ post.title }}</a></li>
-                {% endfor %}
-            </ul>
-        </section>
-        {% endif %}
-
-        <footer class="post-footer">
-            <!-- If we want to display author's name and bio -->
-            {% if site.author %}
-                <figure class="author-image">
-                    <a class="img" href="/" style="background-image: url(/assets/images/profile.jpg)">
-                    <span class="hidden">{{site.author}}'s Picture</span></a>
-                </figure>
-                <section class="author">
-                    <!-- Author Name -->
-                    <h4> {{ site.author }} </h4>
-                    <!-- Author Bio -->
-                    <p>
-                        Huge nerd. Average at life. Codes for a living, as a hobby, as a pastime, as a passion. I sometimes turn into a superhero. Mostly sane.
-                    </p>
-                </section>
-            {% endif %}
-
-            <section class="PageNavigation">
+        <footer>
+            <section class="pagination">
               {% if page.previous.url %}
                 <a class="prev" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
               {% endif %}
