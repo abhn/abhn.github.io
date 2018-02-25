@@ -156,3 +156,11 @@ Master Foo said: “A man who mistakes secrets for knowledge is like a man who, 
 Master Foo turned back to the neophyte. “The housecat may mock the tiger,” said the master, “but doing so will not make his purr into a roar.”
 The ability to simplify is an underrated skill - Dara Khosowshahi, Uber
 The person who says it can't be done shouldn't interrupt the person who's doing it.
+If it looks like a duck, swims like a duck, and quacks like a duck, then it probably is a duck.
+Don’t do things just because everyone is doing them. It’s not worth anything if you finish reading the book just for the sake of telling everyone that you read it, like you have some kind of checklist. Take your time, chill, have fun.
+The best engineering manager I ever saw served often as a giant flywheel, his inertia damping the fluctuations that came from market and management people.
+Plan to throw one away; you will, anyhow.
+The only consistency is change itself.
+Two steps forward one step backward.
+How does a project get to be a year late?...One day at a time.
+Coding, for a counterexample, is "90 percent finished" for half of the total coding time. Debugging is "99 percent complete" most of the time. "Planning complete" is an event one can proclaim almost at will.
