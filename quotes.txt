@@ -166,3 +166,5 @@ How does a project get to be a year late?...One day at a time.
 Coding, for a counterexample, is "90 percent finished" for half of the total coding time. Debugging is "99 percent complete" most of the time. "Planning complete" is an event one can proclaim almost at will.
 Of all the great programmers I can think of, I know of only one who would voluntarily program in Java. And of all the great programmers I can think of who don't work for Sun, on Java, I know of zero.
 Practice is the best of all teachers
+"You're like a mechanical engineer who wants to work on wind turbines."
+"I never trust anyone who's more excited about success than doing the thing they want to be successful at"
