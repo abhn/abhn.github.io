@@ -1,0 +1,63 @@
+---
+layout: post
+title: Myths About Frontend Engineering
+---
+
+<p>
+    I've met a lot of young programmers in the recent past. When I say young, I don't mean by age or accumulated experience, because that way even I am young. I mean the people who're starting out in the world of software development, putting their first few footprints in this virgin new land. I've noticed this one thing in particular, discomfort about working on the frontend of a web/hybrid application, writing Javascript and CSS. 
+</p>
+<p>
+    And if I am completely honest, even I was amongst those people just about a year ago. I consider myself an accidental frontend engineer and now, having worked in that trade for the past 6 months, I feel I'm in a position of debunking some of the myths that I believed in before starting out, and probably help those of you who try to stay away from frontend engineering due to some of these undue fears.
+</p>
+<h3>Myth #1: CSS is difficult</h3>
+<p>
+    This is something that I hear most often. People hate CSS because they feel it is hard/illogical/browser-dependant/just-trial-and-error/not-really-programming and more. In fact, none of that is true in modern browsers. Now since IE has died, and we have build tools for most of the things, any project using a modern build tool like webpack is a joy to work with. We have auto prefixers, polyfills and things that minimize the need for writing browser specific CSS. You spend less time wrestling with your tools and more time solving the actual problem of designing the interface.
+</p>
+<p>
+    Then there are CSS preprocessors that add loops, variables and control statements to vanilla CSS to make it more programming-like and easy to write/maintain. I've not been a huge fan of these, but is definitely something I'd want to checkout. There's also this new shift in style of writing CSS in Javascript itself and there are libraries like styled components that assist you with that. While the correctness of this approach is arguable, I feel writing CSS wrapped in JS has it's own advantages, something you can explore as well. 
+</p>
+
+<h3>Myth #2: Javascript is broken</h3>
+<p>
+    Here's the thing. It is very easy to mess things up with Javascript, or any other forgiving language. And JS is right there at the top in the list of languages that are extremely forgiving, making it very easy to shoot yourself in the foot if you're not careful. And apart from all of that, bashing JS is the part time hobby of half of the Internet, and while there may have been reasons to do that in the past, the current language specification is pretty good and useful. With the new ES6 and upcoming ES7 standard additions to the language, it is very much possible to write good quality tight code that is maintainable for years. 
+</p>
+<p>
+    As the language does not enforce tightness upon you, much of the responsibility of not messing up the codebase falls on your shoulders. There are tonnes of libraries that assist you with immutable data structures, code linting to avoid common coercion bugs, following functional programming paradigms to enforce side-effect free code etc. Once you're comfortable with these good practices, writing clean and maintainable code in JS feels just as natural as writing it in any other language.
+</p>
+
+<h3>Myth #3: There's no logic in frontend</h3>
+<p>
+    Again, this is totally not true. Your typical frontend these days has a lot of business logic thanks to the onset of single page applications. You have persistent storage on the frontend in the form of LocalStorage, you have indexDB for a client side database, you have service workers for hijacking API requests and servicing them right on the client, webworkers for additional computational needs, websockets for real time event based bidirectional communication, libraries like CouchDB and PouchDB which have nice syncing capabilities. 
+</p>
+<p>
+    In short, there's more to do on the frontend than ever, and most of these things involve solving tough challenges, both from an infrastructure and programming perspective, and needless to say, this is apart from the beautiful application that people will use, structured and styled in HTML and CSS respectively, that is also part of the frontend.
+</p>
+
+<h3>Myth #4: There's no computer science in frontend</h3>
+<p>
+    I've spent more time in my current work place not making new features but optimizing the ones that were inefficiently implemented. Computation/memory resources are very precious on the end user devices, given that the application has to run on a wide range of devices, and you cannot just assume what runs smoothly in your desktop browser on your 10 Mbits connection will run just as smoothly on that three generations old phone running a 1 Mbit connection. This particular thought process has embedded a mindset within me that makes me write side effect free functions, save data that comes to the application locally, avoid iterations, think about efficient data structures and about reducing any IO that might cause my application to slow down. If I don't, then my beautiful application goes crashing down in old mobile browsers.
+</p>
+<p>
+    You don't need to know computer science per se, and while you can get away with not knowing where a graph should be used or what tail recursion is in most case, knowing it only helps. And it definitely helps in optimization, if your application is particularly heavy and has to run on mobile phones. I recently fixed a bug that required knowledge of JS event loop and call stack (thanks <a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ">Philip Roberts</a>!) and I would've had a hard time figuring it out had I lacked this particular piece of knowledge. The point is, there's always scope to apply your core knowledge no matter what your profile is.
+</p>
+
+<h3>Myth #5: Libraries/Frameworks on the frontend go extinct fast</h3>
+<p>
+    It feels bad when a framework that you spent a lot of time learning goes out of active development. While that is surely the case with many frameworks/libraries in the Javascript land (new libraries are literally getting written ever other hour), some of the popular ones like React and Angular stay supported for years. And while that still is less compared to Django in Python or Qt in C++, these JS libraries are also relatively easy to pick up and master, requiring fraction of the effort it would take the same engineer to get that kind of confidence in Django. Adaptability is a critical programmer quality, and learning a new framework once every two years is not that bad a deal given how dynamic the frontend web development scene is.
+</p>
+
+<h3>Myth #6: The support tools are not mature</h3>
+<p>
+    I used to argue that there are no good debuggers available for the frontend, that the IDEs are not that great, that CSS debugging is just trial and error and JS debugging is just console.logs all over the place. I was obviously wrong. Our tech lead demonstrated the use of node's debugger which can be integrated into VS Code and WebStorm, setting breakpoints and analysing application state at that point. Then there's Chrome's own developer tools which has this performance tab that you can use to check which part of the code is slowing down the application. Using these tools will probably take up an article of their own, but the point is, like with anything else, you have to look around for new things if you want to master the art, otherwise you don't learn anything new.
+</p>
+
+<h3>In Closing</h3>
+<p>
+    I am convinced that frontend development is nothing less than any other form of software development, with its own set of challenges and perks, and if you have any deeper interests like core computer science, cyber security, distributed computing etc, you can learn those things separately and apply them here. There's always scope for that, like in other developer profiles. Plus, in all the above points, we never mentioned the perks of being a frontend developer. Yes, it is an extremely rewarding profile. Just last week, I was showing off our web application to my mom. She was quite impressed. I went over all the pages, the search design and many other little things that I'm proud of, on my phone. Sometime during this, I noticed that I'm not connected to the Internet, and the application never made me feel like I wasn't, thanks to the amazing browser side technologies like indexDB and service workers that make progressive web apps possible. Now even I was impressed, haha. Also, explaining your work to someone not from the tech background is simple, and 'I create beautiful websites' is a nice description of the kind of work you do, no matter what the audience is.
+</p>
+<p>
+    I don't think an article can change anyone's mind regarding frontend engineering, but at the least, if you were unfriendly towards frontend development, I hope to have given you some content to start considering frontend engineering as one of the profiles that you might want to someday work as.
+</p>
+<p>
+    Thank you for reading.
+</p>
