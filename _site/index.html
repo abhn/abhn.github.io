@@ -6,6 +6,7 @@
     <meta name="description" content="Abhishek Nagekar's Blog" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">    
+    <link rel="manifest" href="/manifest.json">
 
     <title>
       
@@ -693,5 +694,18 @@
         <a>Abhishek Nagekar</a> &copy; 2017
       </section>
     </footer>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js').then(function(registration) {
+            // Registration was successful
+            console.log('ServiceWorker registration successful with scope: ', registration.scope);
+          }, function(err) {
+            // registration failed :(
+            console.log('ServiceWorker registration failed: ', err);
+          });
+        });
+      }
+    </script>
 </body>
 </html>
