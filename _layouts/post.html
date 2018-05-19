@@ -5,19 +5,28 @@ archive: false
 post_class: post-template
 ---
 
+<div class="top-nav">
+  <a href='/'>Home</a> |
+  <a href='/about.html'>About</a> |
+  <a href='https://github.com/abhn'>Github</a> |
+  <a href="/feed.xml">Subscribe</a>
+</div>
+
+<hr/>
+
 <header>
     <h3>{{ page.title }}</h3>
     <header>
-        <time datetime="{{ page.date | date: '%-d %B, %Y. It was a %A.' }}">{{ page.date | date_to_string }}</time>
+        <time datetime="{{ page.date | date: '%-d %B, %Y. It was a %A.' }}">{{ page.date | date: '%-d %B, %Y. It was a %A.' }}</time>
     </header>
 </header>
-        
+
 <hr/>
 
 <main role="main">
 
     <article>
-        
+
         <section>
             {{content}}
         </section>
