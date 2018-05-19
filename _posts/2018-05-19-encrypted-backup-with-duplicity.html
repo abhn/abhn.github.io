@@ -1,0 +1,64 @@
+---
+layout: post
+title: Encrypted Backups Using Duplicity &amp; Google Cloud Storage
+---
+
+<p>
+  I came across this utility called <a href="http://duplicity.nongnu.org/">Duplicity</a> couple of days ago and found it to be very useful. I'll use this little post to write about what it is and how can it be used to create encrypted backups of not so frequently accessed data on servers that you do not trust. If you only care about the tool, jump to the <a href="#usage">Usage</a> section.
+</p>
+
+<h3>Use Case</h3>
+
+<p>
+  I was working on a little project that involved setting RAID 1 using some spare 500 gig drives and Raspberry Pi as the raid controller. My problem was that I only had two drives, say A and B, and I needed to backup the data on one of the drives (say A) before setting up the raid in case something breaks. I tried to use a friend's external hard disk but didn't succeed getting it to work. Finally, I did find another hard disk (say C) in the 'trash' laptop a friend of mine gave me. So now I could get the data off the primary disk (A) onto this new disk (C), and I did manage to succeed in that. But this exposed a deeper question of how am I supposed to take care of around 400 GB of backup data, and is having a single copy of it even safe. Of course not.
+</p>
+
+<p>
+  If you remember my <a href="https://www.nagekar.com/2017/08/private-cloud-part-2.html">NextCloud solution on DigitalOcean</a>, that worked great as a lightweight cloud, for easy backups of current set of camera pictures and maybe contacts and such. But when it comes to archiving data, DigitalOcean would get a bit too expensive (~USD 10 for 100GB and so on with their <a href="https://www.nagekar.com/2017/08/private-cloud-part-2.html">block storage</a>). However, their object store was relatively cheap and costed around USD 5 for 250GB of data per month. I needed something like this.
+</p>
+
+<p>
+  The second problem was speed of upload. I own a modest 2.5Mbps connection, so uploading data off my Internet was out of question. Since I had <a href="https://peering.google.com/">Google Peering</a>, I could make use of that. I looked up Google Cloud's solutions and found Google Cloud Storage, which was AWS S3 like object store. They also offered USD 300 free credits to begin with for a year, so I decided to test it out. It worked great, and I got transfer speeds in excess of 24Mbps, which is what Google Peering does.
+</p>
+
+<p>
+  The last hurdle was finding an automated script to manage sync. I was already a huge fan of rsync and was searching for a way of doing incremental backups (although not strictly required for archiving data) while doing some sort of encryption as well. That is where Duplicity came in.
+</p>
+
+<h3>Enter Duplicity</h3>
+<p>
+  Duplicity is a tool that uses rsync algorithm for incremental bandwidth efficient backups that are compressed into tarballs and encrypted with GPG. The tool supports a wide range of servers and protocols, and will work with anything from AWS S3, Google Drive/Cloud to WebDAV or plain SSH. In the typical *nix fashion, it does a little thing well and the use cases are only limited to your creativity.
+</p>
+
+<h3><a name="usage">Usage</a></h3>
+<img src="/assets/images/duplicity.png"/>
+<p>
+  The setup requires you to install <a href="https://cloud.google.com/sdk/docs/quickstart-linux">Google Cloud SDK</a> and <a href="https://github.com/boto/boto">Python 2's Boto</a> that will serve as an interface to Google Cloud Storage. Then go ahead, sign up with Google Cloud if you haven't already and set up a new cloud storage project (say <code>my_backup</code>). Make sure you enable <b>Interoperable Access</b> in <code>/project/settings/interoperability</code> and create a new <i>access-key/secret-key</i> pair. You'll need to copy these into the <code>~/.boto</code> config file under <i>gs_access_key_id</i> and <i>gs_secret_access_key</i> respectively.
+</p>
+
+<p>
+  The last step is to test drive the entire setup. Create a directory with a couple of sample files (probably a slightly large video file as well), and run duplicity with the following command.
+</p>
+<code>$ duplicity ~/backup_directory gs://my_backup</code>
+<p>
+  Enter the password when prompted. If all goes well, you'll see some transfer stats after the command finishes execution (time taken depending on your transfer speed etc), and in your GC console under your storage project's browser, you'll see something like in the following image (of course, not a hundred difftars like mine. I'm in the process of backing up my archive).
+</p>
+<img src="/assets/images/google-cloud-storage.png"/>
+<p>
+  If you do, then congrats! Those are the encrypted tar volumes of your data. Now just to be sure, make a little change in one of the files and run that command again. You'll see that this time it takes almost no time, and if you refresh the GC storage's browser, you'll see couple of new files over there. Those are I believe the diff files.
+</p>
+
+<img src="/assets/images/duplicity-create.png"/><br/>
+<img src="/assets/images/duplicity-update.png"/><br/>
+<img src="/assets/images/gcs-browser.png"/>
+
+<p>
+  To recover the archived files, just do a reverse of the command above and you'll all your files magically in the <code>~/backup_directory</code> (after you enter the correct password, that is).
+</p>
+<code>$ duplicity gs://my_backup ~/backup_directory</code>
+
+<p>
+  The next step after the initial backup would to be to run this command every hour or so, so that regular backups of our directory keeps happening. I haven't tested it yet but something like <pre>0 * * * *  duplicity /home/abhishek/backup_dir gs://backup_dir >> /dev/null</pre> should do the trick.
+</p>
+
+<p>If you found this article interesting, make sure you read up more about Duplicity on their <a href="http://duplicity.nongnu.org/docs.html">webpage</a> and in the man pages. There are tonnes of config options. Thank you for reading!</p>
