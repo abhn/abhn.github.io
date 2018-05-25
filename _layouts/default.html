@@ -41,5 +41,15 @@
       </section>
     </footer>
   </div>
+  <script>
+    // unregister any of the service workers running. Sorry, my fuckup.
+    if(navigator.serviceWorker) {
+      navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        for(let registration of registrations) {
+          registration.unregister()
+        }
+      })
+    }
+  </script>
 </body>
 </html>
