@@ -38,6 +38,13 @@
     
         <div>
             <div class="pd">05/2018</div> 
+            <a href="/2018/05/banggoods-india-direct-mail-shipping.html">
+                Banggood's India Direct Mail Shipping
+            </a>
+        </div>
+    
+        <div>
+            <div class="pd">05/2018</div> 
             <a href="/2018/05/encrypted-backup-with-duplicity.html">
                 Encrypted Backups Using Duplicity &amp; Google Cloud Storage
             </a>
@@ -726,5 +733,15 @@
       </section>
     </footer>
   </div>
+  <script>
+    // unregister any of the service workers running. Sorry, my fuckup.
+    if(navigator.serviceWorker) {
+      navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        for(let registration of registrations) {
+          registration.unregister()
+        }
+      })
+    }
+  </script>
 </body>
 </html>
