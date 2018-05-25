@@ -1,0 +1,51 @@
+---
+layout: post
+title: Reusing An Old Laptop's LCD Panel
+---
+
+<p>
+  A month ago, my manager from LaughGuru gave me his old non-functional laptop. It was a six year old Dell Inspiron 15R 5520 notebook computer with 2GB ram, third-gen Intel i5 and a 500GB hard disk and weighted slightly less than <a href="https://www.nagekar.com/2018/04/fujitsu-lifebook-a514-review-2.html">Misty</a> and my new <a href="https://www.nagekar.com/2018/05/lenovo-thinkpad-t440-ebay-refurbished-laptop-review.html">Thinkpad</a> combined. I couldn't get the motherboard to boot up so I decided to take it apart (and given the condition of the laptop it made little sense to repair it).
+</p>
+
+<p>
+  I've found some really useful things inside the laptop. The two gig ram chip and the 500 gigs hard disk now sits on another water damaged laptop that my friend gave me a week ago and powers it flawlessly. The CD drive will come in handy someday as an external disk drive. I planned to use the display as an external monitor for my laptop, and that turned out to be a DIY project in itself.
+</p>
+
+<h3>Enter LVDS Connectors</h3>
+<p>
+  So I isolated the LCD and looked very carefully for any hints on what sort of connector was that dangling from behind the panel. It had the word LVDS on it. Some Internet research later, things became clear. As alien as it sounds, LVDS or <a href="https://en.wikipedia.org/wiki/Low-voltage_differential_signaling">Low-voltage differential signaling</a> is a standard that is used for high-speed transfers using very low power. For me, it simply meant that there's no straightforward way of plugging the HDMI or VGA cable from my laptop into the bare LCD panel and start using it.
+</p>
+
+<p>
+  Unfortunately, there's also no easy way of using the laptop's motherboard logic to make the LCD panel work. Searching for a solution made it clear that LCD controller kit is what needs to be used. It is important that the exact spec of the LCD panel is known, as the kits are only compatible with a small range of panels. It might be difficult if the LCD was never working in your possession, as in my case, but this nice website called <a href="http://www.panelook.com/index.php">Panelook</a> makes it easy to get the detailed spec of the panel from just the <a href="http://www.panelook.com/LP156WH4-TLN1_LG%20Display_15.6_LCM_overview_15254.html">serial number</a>. Things to look at are the resolution and the backlight type. The resolution needs to be an exact match and the backlight type is needed to judge if you'll need an inverter with your controller kit. Mine was a WLED panel so no external power source or inverter needed. The next step is searching the serial number on ebay and other local hobby sites. I found a nice kit on <a href="https://www.nagekar.com/2018/05/banggoods-india-direct-mail-shipping.html">Banggood</a> and decided to order it.
+</p>
+
+<h3>Putting It All Together</h3>
+<img src="/assets/images/lcd-controller/3.jpg"/>
+<p>
+    Interfacing was simple, and there are nice videos on the topic on youtube. There's the LVDS connector that goes into your LCD panel. Then there's the controls board that needs to be plugged into the main board. The controls board also has an IR receiver for remote control and can be used to control brightness, contrast, sharpness etc of the panel.
+</p>
+
+<p>
+  The board itself supported inputs through AV connector, HDMI, and VGA. It operates on 12 volts and 4 amps and luckily I had a 5 amps supply with me, so no extra expenditure there. I had to borrow VGA cable from a friend though as my laptop only has VGA and no HDMI.
+</p>
+<p>
+  I used an old Tupperware tiffin box as the LCD's stand to keep the delicate LVDS cables safe and away from physical contact with anything. To avoid physical damage to the panel, I've used the stock display cover of the laptop (the top half) as it was. The added benefit of using the stock plastic cover was that I could drill holes and fix the controller board on the back of the panel like an all in one PC (I could've literally made it an all-in-one PC by docking my raspberry pi back there as well, haha). Overall, I was very happy with the result, and as I write this, I have my editor on my primary screen and the browser on the extended display. <b>Dual monitors at home</b> achievement unlocked!
+</p>
+<style>
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+}
+</style>
+<div class="image-gird">
+  <img src="/assets/images/lcd-controller/4.jpg"/>
+  <img src="/assets/images/lcd-controller/5.jpg"/>
+  <img src="/assets/images/lcd-controller/6.jpg"/>
+  <img src="/assets/images/lcd-controller/1.jpg"/>
+</div>
+<p>
+  Hope you enjoyed reading this article. Thank you for reading!
+</p>
