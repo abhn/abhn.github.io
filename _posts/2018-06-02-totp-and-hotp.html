@@ -1,0 +1,76 @@
+---
+layout: post
+title: Time &amp; Hash Based One Time Passwords
+---
+
+<p>
+  Ever wondered how two factor authentication apps works? I certainly did. One could just guess how SMS based tokens work, that's simple (although they shouldn't be used as per <a href="https://www.schneier.com/blog/archives/2016/08/nist_is_no_long.html">guidelines from NIST</a>). But what about TOTP or Time based One Time Password, the ones in which you scan a QR code and the OTP generator app (like freeOTP and andOTP) gives you a new six digit token every 30 seconds or so?
+</p>
+<p>
+  I was, for quite some time, under the (very misinformed) impression that web servers which implement this method of 2FA expose an API and, by means of the QR code, give you the endpoint with some token and then the OTP generator app polls the server and gets a new ephemeral password which the user enters in the application. Straight forward, but plain wrong.
+</p>
+
+<p>
+  The belief was challenged when I noticed that the OTP generator app works irrespective of network connection, even if both devices are offline (that is, when working on localhost server). HOW? I dug further and I learned some very interesting things, some of which I wanted to write here.
+</p>
+
+<h3>The Name, Dude</h3>
+<p>
+  <i>Time based One Time Password</i>, the name itself gives enough clue to guess that it uses <b>time</b>, and as such is independent of inter-communication as long as the two systems are in time-sync. But an adversary can be assumed to be in time-sync as well, right? Yes, that's where we bring in the <b>secret</b> (a randomly generated token) which is embedded in the QR code that you scan with your smartphone app. So we have the time which is in sync and we've established a way of transferring the secret from the server to the client. Turns out, that's all the data we need to keep generating secrets independently on the client and server side, completely offline once the initial secret sharing happens.
+</p>
+
+<h3>Basic OTP Algorithm</h3>
+<pre>
+  function generate_otp(secret, counter) {
+    h = hmac(key=secret, message=counter, algorithm=sha1)
+    offset = get_last_four_bits(h)
+    pre_opt = get_32_bits_starting_from_offset(h)
+    otp = get_desired_number_of_chars(pre_otp, N)
+  }
+
+  function get_totp(secret) {
+    counter = epoch / 30
+    return generate_otp(secret, counter)
+  }
+
+  global counter; // get from database
+  function get_hotp(secret) {
+    return generate_otp(secret, counter)
+  }
+</pre>
+<p>
+  The basic OTP algorithm (both time and hash based) accept a secret and a counter value. Combining current time and the secret, a new 6 (or <b>N</b>) digit token is generated every 30 (or <b>Ti</b>) seconds. They differ in what the counter value supplied to the algorithm.
+  <ul>
+    <li>
+      <b>TOTP</b>: take the number of times the interval <b>Ti</b> can be fitted in the total number of seconds since epoch. Which is just a weird way of saying that the interval is the quotient when you divide the seconds_since_epoch number by the interval duration (Ti).
+    </li>
+    <li>
+      <b>HOTP</b>: take the current counter stored persistently and use that. After use, increment the counter in the database.
+    </li>
+  </ul>
+  After establishing the counter value, the rest of the steps remain the same in both the cases.
+  <ul>
+    <li>Compute HMAC value of message <b>Ti</b> and key <b>secret</b>, get the hex digest</li>
+    <li>The last 4 bits (last digit in hex) is stored as <b>offset</b></li>
+    <li>Starting from offset<sup>th</sup> bit, take 32 bits (8 hex digits) and discard the first bit (xor with 7ffffffff. This works because f = 1111 and 7 = 0111, so &amp;'ing with 7 (0111) is equal to switching off the first bit)</li>
+    <li>Convert the 32 bits hex to int, then take the least significant 6 bits (or N depending on requirement), and that is your OTP</li>
+    <li>?? Profit!</li>
+  </ul>
+</p>
+
+<h3>Security Consideration</h3>
+<p>
+  The entire security of the OTP lies in the secrecy of the initial secret. If that's compromised, an attacker can easily generate as many OTPs as she wishes. Also, given the keyspace of the OTP, and also that many servers are designed to accept counter+1 and counter-1 OTPs, securing the system against bruteforce is a most.
+</p>
+<p>
+  One important aspect of these 2FA mechanisms is that losing your 2FA device means losing your account. This is especially the case with services like <a href="http://protonmail.com">ProtonMail</a> where the password is used to decrypt client data.
+</p>
+
+<h3>Naive Python Implementation</h3>
+<p>
+  Given how simple this algorithm was, I tried to implement it. The core algorithm was literally less than five lines of python code. Here's a naive implementation of the same, and while it seems to work, I'd not use it anywhere.
+</p>
+<script src="https://gist.github.com/abhn/ef0c45af5cec4a8889bb3925782f14a0.js"></script>
+<p>
+  Thank you for reading! PS Python noob, please don't judge! :P
+</p>
