@@ -178,3 +178,4 @@ They who can give up essential liberty to obtain a little temporary safety, dese
 A proprietary software company harvests personal information from a centralized government database using unaudited technology in a jurisdiction without a proper privacy or data protection law, sounds perfect to me!
 Information is power. But like all power, there are those who want to keep it for themselves.
 He who does not move does not notice his chains.
+A programmer who has never used a debugger to look at the inner workings of a program is like a seventeenth-century doctor who has never used a microscope.
