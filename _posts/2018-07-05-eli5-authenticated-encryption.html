@@ -1,0 +1,50 @@
+---
+layout: post
+title: ELI5 - Authenticated Encryption
+tags:
+- eli5
+- cryptography
+---
+
+<p>
+  The core goals of cryptography and any application of cryptography are confidentiality, integrity, and authenticity. Let's begin with a short one liner on each:
+<ul>
+	<li><b>Confidentiality</b>: No one should be able to read the contents of the message except the intended recipient.</li>
+	<li><b>Integrity</b>: No one should be able to tamper with the message without going unnoticed.</li>
+	<li><b>Authenticity</b>: The recipient should be able to confirm that the message indeed came from the sender.</li>
+</ul>
+	There are other goals that we do not need to touch upon in this article, such as <b>non-repudiation</b> and <b>plausible deniability</b>.
+</p>
+
+<h3>The Problem</h3>
+<p>
+	Now the problem with using just an encryption algorithm like AES with a non-authenticating mode like CBC is that <b>anyone can change the ciphertext during transmission</b>. And while you might think, <i>"but the modified ciphertext, with high probability, will decrypt to something gibberish"</i>, this isn't the right argument because the recipient will have no way of knowing for sure, which is a problem, a huge one.
+</p>
+<p>
+  Secondly, there's also <b>no way of knowing if the message was sent by a person you're expecting it from</b>. It might have come from any middleman intercepting your network and you wouldn't be able to tell a difference. And for this reason, encryption without authentication and integrity completely destroys the purpose of encryption. <b>An example</b> of this in the real world is when you see an error such as the following:
+</p>
+<img src="/assets/images/ssl-error.png"/>
+<small><i>https://support.mozilla.org/en-US/kb/what-does-your-connection-is-not-secure-mean</i></small>
+<p>
+	While this can mean that the encryption mode used by the website is weak, more often than not, this means that the browser was able to establish a secure connection but the identity of the website is unknown. This defeats the purpose of encryption because even if the connection <i>is</i> secure, the fact that you don't know if you're receiving a message from your intended recipient or if the message hasn't tampered with defeats the purpose of using cryptography.
+</p>
+
+<h3>Enter Authenticated Encryption</h3>
+<p>
+	Authenticated encryption solves this problem by introducing authentication and integrity as freebies that you get when you use an authenticated encryption mode along with an encryption cipher such as AES. Examples of authenticated encryption modes include <a href="https://en.wikipedia.org/wiki/Galois/Counter_Mode">GCM</a> and <a href="https://en.wikipedia.org/wiki/CCM_mode">CCM</a>. In fact, if you check the connection info of the site you're reading this on (click the green icon and then select more info or something similar on chrome and firefox) and check the technical details part, you'll see something like this, depending on your browser.
+</p>
+<img src="/assets/images/nagekar-ssl.png"/>
+<small><i>Yes, I'm the most active visitor of my blog</i></small>
+<p>
+	Here, <b><a href="https://en.wikipedia.org/wiki/Pseudo-random_function">AES_128_GCM</a></b> is used for symmetric encryption of the content you exchange with the server with AES providing confidentiality and GCM providing authentication and integrity. <b><a href="https://en.wikipedia.org/wiki/SHA-2">SHA256</a></b> is used to authenticate the initial handshake and as a <a href="https://en.wikipedia.org/wiki/Pseudo-random_function">pseudo-random function (PRF)</a>.
+</p>
+
+<p>
+	In a nutshell, these authenticated encryptions usually take a message, encrypt it, then <a href="https://en.wikipedia.org/wiki/Message_authentication_code">MAC</a> the ciphertext (and IV) and then append the MAC to the ciphertext. This is called <b>Encrypt-then-MAC</b>. Now if the ciphertext is changed, the MAC won't match and the receiver can easily discard such messages without having to touch the contents of ciphertext. There are other variations to this method, namely <b>MAC-then-Encrypt</b> and <b>MAC-and-Encrypt</b>, with benefits of going with each although <a href="https://crypto.stackexchange.com/questions/202/should-we-mac-then-encrypt-or-encrypt-then-mac">most experts recommend doing Encrypt-then-MAC</a>.
+</p>
+<img src="/assets/images/auth-enc.png"/>
+<br/>
+<small><i>From wikipedia page on authenticated encryption. This is Encrypt-then-MAC</i></small>
+<p>
+	As you can imagine, this can be easily done manually (and until some years ago, it was mostly done by developers). But since it is easier (and much more secure) to standardize such modes and leave the secure implementation part to the experts, these 'readymade' modes have picked up wide adoption and as you saw, you're currently using GCM to ensure confidentiality, integrity, and authenticity of this very line. Thank you for reading!
+</p>

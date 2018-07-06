@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Better Web Browsing
+tags:
+- mozilla
+- browsers
 ---
 
 
@@ -21,7 +24,7 @@ title: Better Web Browsing
 
 <h3>Know thy browser</h3>
 <p>
-  Your browser is a very powerful piece of software. The level to which it can be fine tuned to serve you the content that you wish to see is huge. The <code><a href="about:config">about:config</a></code> page has some very useful options for both privacy and security. While almost anybody might have a hard time configuring Firefox via the this menu, there's a helpful website called <a href="https://ffprofile.com">ffprofile.com</a> that does a great job at making sense of some of those options and exporting a <code>pref.js</code> file. 
+  Your browser is a very powerful piece of software. The level to which it can be fine tuned to serve you the content that you wish to see is huge. The <code><a href="about:config">about:config</a></code> page has some very useful options for both privacy and security. While almost anybody might have a hard time configuring Firefox via the this menu, there's a helpful website called <a href="https://ffprofile.com">ffprofile.com</a> that does a great job at making sense of some of those options and exporting a <code>pref.js</code> file.
 </p>
 <p>
   Make sure you read the options and select the ones that you need depending on your privacy and security needs. For example, I deselected the <i>disable auto updates</i> option because the privacy gain from doing it is minimal (for me), while the security trade-off is huge, potentially leaving me unarmed at times. If you, like me and most others, can't go full Stallman-mode anytime soon, make sure you set up an alternate profile in Firefox (<code>firefox -no-remote -ProfileManager</code>) and set up non-secure browsing preferences there, selecting it via <code>firefox -no-remote -P username</code>, or using an addon. Learn more about Firefox profiling <a href="https://developer.mozilla.org/en-US/Firefox/Multiple_profiles">here</a>.
@@ -60,7 +63,7 @@ title: Better Web Browsing
 
 <h3>For the paranoids amongst us: Use a live operating system</h3>
 <p>
-  A live operating system does not store any data in between sessions. Every time you log into the system, it is like logging into a freshly installed operating system. Naturally, there's not much tracking that can be done, and as nothing is ever written to the disk, this method offers best privacy if done properly. 
+  A live operating system does not store any data in between sessions. Every time you log into the system, it is like logging into a freshly installed operating system. Naturally, there's not much tracking that can be done, and as nothing is ever written to the disk, this method offers best privacy if done properly.
 </p>
 <p>
   Using applications in virtual machines also protect users against sandbox escape vulnerabilities. Since we're here, check out <a href="https://tails.boum.org/">Tails</a> Linux, a gnu+linux distribution that is designed to be used live and offers great tools to aid privacy. Another great live operating system is <a href="https://www.whonix.org/">Whonix</a>, which comes in form of a 'gateway' (connects to the tor network) and a 'workstation' (connects to the gateway). Then depending on your hardware, <a href="https://www.qubes-os.org/">Qubes OS</a> might be a good choice, something that I look forward to trying when I have compatible hardware.

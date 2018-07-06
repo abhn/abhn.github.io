@@ -1,0 +1,40 @@
+---
+layout: post
+title: ELI5 - Format Preserving Encryption
+tags:
+- eli5
+- cryptography
+---
+
+<p>
+  Most block ciphers work on the bytes and bits of data. It doesn't matter to them if the data is a video, a phone number, a credit card number or a meme of <a href="https://imgur.com/gallery/2SbvedD">Patrick Star</a>. And that's good. It means that a generic block cipher can handle almost all the traffic encryption over TLS while we're busy browsing Reddit with YouTube playing music in another tab. And since the underlying network handles binary data just as well and efficiently, no one complains.
+</p>
+
+<p>
+	And it is generally a bad practice to write domain-specific encryption algorithms. That is the reason you've never heard of AES Image Encryptors. But sometimes, for very specific use cases, it becomes necessary to have something like that. Something like an AES for images, so to speak.
+</p>
+
+<h3>The Problem</h3>
+<p>
+	What if a legacy application needs to integrate encryption of some of its data but not change any of the existing data structures? AES works on 128-bit blocks of data, DES on 64, so it won't work for phone numbers or credit card numbers. At least, not without changing the underlying data structures required to store the encrypted data. And suppose we cannot change the underlying architecture for various reasons, one of them simply because we do not control some of the machines passing our data. Yes, that's where we need <a href="https://en.wikipedia.org/wiki/Format-preserving_encryption">format preserving encryption (FPE)</a>.
+</p>
+
+<h3>Format Preserving Encryption</h3>
+<p>
+	While researching about this topic, I came across this beautiful construct by cryptographers John Black and Phillip Rogaway. The construct is simple and the best part is that it uses a block cipher as a pseudo-random function (in case of block ciphers with larger block sizes, we truncate their outputs to the desired bit size by taking only the N least significant bits), thus inheriting all the goodies of the underlying block cipher. Let's look at a brief working of this method.
+</p>
+
+<p>
+ 	Let the message space be M. In case of phone numbers, that's from 0 to 9,999,999,999 (that's for India, and while the actual message space is much smaller than that, no harm in assuming for the entire range). The number of bits required to store this information is <code>ln(10^10) = ~24</code>. So we can fit the ciphertext in 24 bits assuming no padding or integrity checks. Now imagine two sets, X and Y. Let X be a superset of Y. In this construct, X represents the set of all possible ciphertexts that we can get on encrypting each <code>M<sub>i</sub></code> with our block cipher. Y represents the set of allowed ciphertext, that is, ciphertexts that are equal to or less than the max value of our message space M (which is 9999999999 in our example).
+</p>
+
+<p>
+	Now, when you encrypt a phone number with a block cipher, there's a good probability that the value would be less than or equal to our phone number block size (10 digits or 24 bits, assuming we're truncating AES output to 24 bits as well). If that's the case, that's our answer. If not, encrypt this ciphertext and check again. Continue this until you reach a number that can fit in 10 integer digits.
+</p>
+
+<p>
+	Now while some of you might think (I certainly did) this would result in a long loop, it would not (with high probability). This solution not only works but works efficiently (on an average, the answer will be found in 2 iterations with 50% plus probability of finding it in each iteration). That's pretty cool if you'd ask me!
+</p>
+<p>
+  In an ideal world, you'd want to rewrite the logic and underlying data structures such that native AES is possible. In this one, format-preserving encryption would work just fine. Thank you for reading.
+</p>

@@ -3,15 +3,25 @@ layout: default
 post_class: post-template page-template
 ---
 
+<div class="top-nav">
+  <a href='/'>Home</a> |
+  <a href='/tags.html'>Tags</a> |
+  <a href='/about.html'>About</a> |
+  <a href='https://github.com/abhn'>Github</a> |
+  <a href="/feed.xml">Subscribe</a>
+</div>
+
+<hr/>
+
 <header>
     <h3>{{ page.title }}</h3>
 </header>
-            
+
 <hr/>
 
 <main role="main">
 
-    <article>        
+    <article>
         {{content}}
     </article>
 

@@ -1,0 +1,42 @@
+---
+layout: post
+title: ELI5 - Deterministic Encryption
+tags:
+- eli5
+- cryptography
+---
+
+<p>
+	Suppose you have a database full of confidential information such as emails of users. As a responsible sysadmin, you'd not let such data exist in plaintext in your systems and therefore you decide to encrypt everything. But now, the application needs a searching functionality where users can see their emails in the system.
+</p>
+
+<p>
+	Essentially, you need to run a <b>where email = ' '</b> query on the encrypted database, get all the rows that match, decrypt them and send the decrypted data to the application layer. With traditional encryption modes like CBC or modern <a href="/2018/07/eli5-authenticated-encryption.html">authenticated encryption</a> modes like GCM, this would be impossible (or extremely inefficient). This is where deterministic encryption comes into the picture.
+</p>
+
+<h3>Deterministic Encryption</h3>
+
+<p>
+	Deterministic encryption is nothing fancy. Instead of using modes like CBC and CTR where each block of the ciphertext is dependent on the previous block or the message counter, in deterministic encryption, data can be imagined to be encrypted in EBC mode or the IV kept constant. No nonce is involved. Basically, <b>a plaintext message M will always map to the same ciphertext C in a given deterministic encryption scheme under a particular key K</b>.
+</p>
+
+<p>
+	Once the data is encrypted into ciphertext, it is sorted and stored. Now, when a search term comes up, it is encrypted using the same key, then the database is queried for this ciphertext which returns all the rows that match. The application can then decrypt these rows with the given key. The search takes logarithmic time (since for the database, this is a normal text search) and the database never sees any data in plaintext.
+</p>
+
+<p>
+	Even with all of this, deterministic encryption faces all the issues that plague encryption modes like EBC. Namely, if two plaintexts are same, their encrypted ciphertexts would be equivalent as well, thus leaking information to an adversary. Formally, we say that deterministic encryption can never be secure under <a href="https://en.wikipedia.org/wiki/Ciphertext_indistinguishability#Indistinguishability_under_chosen-plaintext_attack_(IND-CPA)">chosen ciphertext attack</a>. Although that doesn't diminish its value when we have to deal with searchable encrypted datasets.
+</p>
+<img src="/assets/images/enc-mode-ebc.png"/>
+<small><i>From Wikipedia's encryption modes of block cipher page</i></small>
+<p>
+	This means that deterministic encryption cannot (or rather should not) be used when the message space M is small. It can only be used on unique values such as email address or usernames which are designed to be unique in a database.
+</p>
+
+<p>
+  Further reading: <br/><a href="https://crypto.stackexchange.com/questions/6755/security-of-deterministic-encryption-scheme">https://crypto.stackexchange.com/questions/6755/security-of-deterministic-encryption-scheme</a><br/><a href="https://en.wikipedia.org/wiki/Deterministic_encryption">https://en.wikipedia.org/wiki/Deterministic_encryption</a>
+</p>
+
+<p>
+	Thank you for reading.
+</p>

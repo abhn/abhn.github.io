@@ -1,6 +1,10 @@
 ---
 layout: post
 title: Private Cloud Part 2 | Encrypted Storage With NextCloud
+tags:
+- diy
+- cryptography
+- privacy
 ---
 
 <p>
@@ -20,14 +24,14 @@ title: Private Cloud Part 2 | Encrypted Storage With NextCloud
 </p>
 <h3>Pros Vs Cons</h3>
 <p>
-	So I now have a <i>proper</i> private cloud, self hosted, synced across mobile and desktop (including contacts, messages and calender), optional client-side encryption and scalable (&hearts;DigitalOcean&hearts;). What's amazing is that I never had a native Google Drive client on desktop, but now I have a native NextCloud client, and it just works. And yes, it isn't all sunshine and rainbow. There are some serious trade-offs which I should mention at this point, to make this fair. 
+	So I now have a <i>proper</i> private cloud, self hosted, synced across mobile and desktop (including contacts, messages and calender), optional client-side encryption and scalable (&hearts;DigitalOcean&hearts;). What's amazing is that I never had a native Google Drive client on desktop, but now I have a native NextCloud client, and it just works. And yes, it isn't all sunshine and rainbow. There are some serious trade-offs which I should mention at this point, to make this fair.
 	<ul>
 		<li>No Google Peering, hence backing up media is going to be a struggle on slow connections</li>
 		<li>Google's cloud is without a doubt more securely managed and reliable than my vps.</li>
 		<li>Integration with Android is not as seamless as it was with Google apps, sync is almost always delayed (By 10 minutes. Yes, I'm an impatient (read 'spoiled') Google user)</li>
 		<li>Server maintenance is now my responsibility. Not a huge deal, but just something to keep in mind</li>
 	</ul>
-	Having said that, most of it is just a matter of getting familiar with the new set of tools in the arsenal. I've tried to keep most things minimal. Using few widely adopted technologies and keeping them regularly updated, sticking to the best practices and disabling any unwanted, potentially dangerous defaults and with that the server is secure from most adversaries. Let's first define what "secure" means in the current context using a threat model. 
+	Having said that, most of it is just a matter of getting familiar with the new set of tools in the arsenal. I've tried to keep most things minimal. Using few widely adopted technologies and keeping them regularly updated, sticking to the best practices and disabling any unwanted, potentially dangerous defaults and with that the server is secure from most adversaries. Let's first define what "secure" means in the current context using a threat model.
 </p>
 <h3>Threat Model</h3>
 <blockquote>
@@ -77,15 +81,15 @@ title: Private Cloud Part 2 | Encrypted Storage With NextCloud
 	<center><i>Original directory</i></center>
 	<img src="/assets/images/enc.png">
 	<center><i>Encrypted backup directory</i></center>
-	This does the job for now. Here's the script that I'm currently using. I wanted to enable sync without the need for a helper directory, just like Git does (it stores the changes in the same directory in a .git/ directory). Will update it if I manage to get that done. 
+	This does the job for now. Here's the script that I'm currently using. I wanted to enable sync without the need for a helper directory, just like Git does (it stores the changes in the same directory in a .git/ directory). Will update it if I manage to get that done.
 </p>
 <script src="https://gist.github.com/abhn/032d94b998bbaace5aa3cd2f1be2423d.js"></script>
 <h3>In Closing</h3>
 <p>
-	Eighteen months ago, I wrote on <a href="https://www.nagekar.com/2016/01/how-to-private-local-cloud-using-raspberrypi.html">how to create a 'cloud' storage</a> solution with the Raspberry Pi and half a terabyte hard disk that I had with me. Although it worked well (now that I think about it, it wasn't really a cloud. Just storage attached to a computer accessible over the network. Wait, isn't that a cloud? Damn these terms.), I was reluctant to keep my primary backup disk connected to the network all the time, powered by the tiny Pi, and hence I didn't use it as much I had expected. So what I did then was what any sane person would've anyway done in the first place, connect the disk with a usb cable to the computer for file transfers and backups. 
+	Eighteen months ago, I wrote on <a href="https://www.nagekar.com/2016/01/how-to-private-local-cloud-using-raspberrypi.html">how to create a 'cloud' storage</a> solution with the Raspberry Pi and half a terabyte hard disk that I had with me. Although it worked well (now that I think about it, it wasn't really a cloud. Just storage attached to a computer accessible over the network. Wait, isn't that a cloud? Damn these terms.), I was reluctant to keep my primary backup disk connected to the network all the time, powered by the tiny Pi, and hence I didn't use it as much I had expected. So what I did then was what any sane person would've anyway done in the first place, connect the disk with a usb cable to the computer for file transfers and backups.
 </p>
 <p>
-	Earlier this year, I switched ISPs and got this new thing called Google Peering, which enabled me to efficiently backup all my data to the real 'cloud' (Google Drive). That worked, and it was effortless and maintenance free. And although Google doesn't have a native Linux client yet, the web client was good enough for most things. 
+	Earlier this year, I switched ISPs and got this new thing called Google Peering, which enabled me to efficiently backup all my data to the real 'cloud' (Google Drive). That worked, and it was effortless and maintenance free. And although Google doesn't have a native Linux client yet, the web client was good enough for most things.
 </p>
 <p>
 	And that was the hardest thing to let go. Sync and automatic backups were, for me, the most useful feature of having Google around. And while everything else was easy to replace, the convenience of Drive is something that I'm still looking for in other open source solutions, something I even mentioned in my <a href="https://www.nagekar.com/2017/08/privacy.html">previous post on privacy</a>.

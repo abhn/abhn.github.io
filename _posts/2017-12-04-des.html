@@ -1,20 +1,23 @@
 ---
 layout: post
-title: ELi5 DES (kinda)
+title: ELI5 - DES (kinda)
+tags:
+- eli5
+- cryptography
 ---
 
 <p>
-    In my <a href="https://www.nagekar.com/2017/11/book-review-applied-cryptography-cryptography-engineering.html">previous post</a>, which was a review of the book <i>Applied Cryptography</i> and <i>Cryptography Engineering</i>, I wrote that DES, in spite of retiring officially (after numerous successful attacks), is still a great algorithm from an academic perspective to learn and peek into the minds of cryptographers. In this one, I'll try to explain DES in my own words, testing my own understanding and giving you a (hopefully) nice read from a novice perspective. So let's get started with DES, a cipher that was once the standard for government data encryption for the US and many others around the globe, now defunct and only exists, if at all, in form of 3DES. 
+    In my <a href="https://www.nagekar.com/2017/11/book-review-applied-cryptography-cryptography-engineering.html">previous post</a>, which was a review of the book <i>Applied Cryptography</i> and <i>Cryptography Engineering</i>, I wrote that DES, in spite of retiring officially (after numerous successful attacks), is still a great algorithm from an academic perspective to learn and peek into the minds of cryptographers. In this one, I'll try to explain DES in my own words, testing my own understanding and giving you a (hopefully) nice read from a novice perspective. So let's get started with DES, a cipher that was once the standard for government data encryption for the US and many others around the globe, now defunct and only exists, if at all, in form of 3DES.
 </p>
 <p>
     Before we begin, let us understand where we are (with DES) in the cryptoverse and then talk about DES itself. In cryptography, <a href="https://en.wikipedia.org/wiki/Encryption">encryption</a> of data can happen in two ways. There's symmetric cryptography, and there's asymmetric cryptography. In symmetric key cryptography, we have block ciphers and stream ciphers. DES is a block cipher.
 </p>
 <h3>A Brief History</h3>
 <p>
-    DES, for Data Encryption Standard, is a symmetric key encryption algorithm proposed by IBM with inputs from the NSA in 1974. Not many details about the development process were shared with the world. It is studied by numerous experts and counts as one of the most studied ciphers of all time. DES was designed to keep government secrets, secrets. 
+    DES, for Data Encryption Standard, is a symmetric key encryption algorithm proposed by IBM with inputs from the NSA in 1974. Not many details about the development process were shared with the world. It is studied by numerous experts and counts as one of the most studied ciphers of all time. DES was designed to keep government secrets, secrets.
 </p>
 <p>
-    The 56 bit key size didn't impress anyone back in the day, much less today. In spite of a small key size, there weren't any attacks faster than brute force, both theoretically and practically, until into the late 80s when Adi Shamir and Eli Biham discovered a new kind of attack on block ciphers called differential cryptanalysis. The world then learnt that NSA and IBM knew about this attack since at least 1974, and the algorithm was designed specifically to counter this attack. 
+    The 56 bit key size didn't impress anyone back in the day, much less today. In spite of a small key size, there weren't any attacks faster than brute force, both theoretically and practically, until into the late 80s when Adi Shamir and Eli Biham discovered a new kind of attack on block ciphers called differential cryptanalysis. The world then learnt that NSA and IBM knew about this attack since at least 1974, and the algorithm was designed specifically to counter this attack.
 </p>
 <p>
     In late 90s DES was practically cracked in a contest and then many times after that. The main weakness in DES was the small key size, and to patch it, 3DES was proposed which is still used today, although not recommended. But from an academic point of view, DES is a gold mine. It is easy to understand, let's us deep dive into the way cryptographers think and learn why certain decisions are made, and most importantly, why the <i>math just works!</i>
@@ -41,7 +44,7 @@ title: ELi5 DES (kinda)
     <center>
         <img src="https://upload.wikimedia.org/wikipedia/commons/6/6a/DES-main-network.png" width="50%"/>
         <i>https://en.wikipedia.org/wiki/File:DES-main-network.png</i>
-    </center> 
+    </center>
     <ol>
         <li>Take input as plaintext block of 64 bits, and key K</li>
         <li>Apply Initial Permutation (IP) on input plaintext (which shuffles the bits in a predefined manner)</li>
@@ -57,13 +60,13 @@ title: ELi5 DES (kinda)
 
 <h3>Little aside on confusion and diffusion</h3>
 <p>
-    Confusion and diffusion are exactly what they mean in plain English. They provide confusion and diffusion properties in the ciphertext. They are crucial for the overall security of the DES algorithm. 
+    Confusion and diffusion are exactly what they mean in plain English. They provide confusion and diffusion properties in the ciphertext. They are crucial for the overall security of the DES algorithm.
 </p>
 <p>
     <strong>Confusion</strong> means having a non-linear, complex relationship between the key and the ciphertext. In simple words, each bit of the ciphertext has to depend on as many bits in the key as possible, such that even with a choosen ciphertext attack scenario, not much can be known about the key given a practically infinite supply of plaintext-ciphertext pairs.
 </p>
 <p>
-    <strong>Diffusion</strong> means any change in the plaintext should cause an avalanche/snowball effect and change around half of the bits in the ciphertext and vice versa. 
+    <strong>Diffusion</strong> means any change in the plaintext should cause an avalanche/snowball effect and change around half of the bits in the ciphertext and vice versa.
 </p>
 <p>
     We will talk more about how DES achieves both of these properties when we talk about the F function in detail.
@@ -86,7 +89,7 @@ title: ELi5 DES (kinda)
 
 <h3>Initial &amp; Final Permutation (IP &amp; FP)</h3>
 <p>
-    The IP accepts the plaintext and the FP returns the ciphertext generated by the algorithm. In decryption, the ciphertext goes into the FP and plaintext leaves through IP, similar but exact opposite of encryption, which is one of the properties of a Feistel cipher. From functionality perspective, it shuffles the 64 bit input block according to a predefined vector, given below. 
+    The IP accepts the plaintext and the FP returns the ciphertext generated by the algorithm. In decryption, the ciphertext goes into the FP and plaintext leaves through IP, similar but exact opposite of encryption, which is one of the properties of a Feistel cipher. From functionality perspective, it shuffles the 64 bit input block according to a predefined vector, given below.
 </p>
 <pre>
 <b>IP</b>
@@ -125,10 +128,10 @@ title: ELi5 DES (kinda)
 63   55    47   39    31    23   15
  7   62    54   46    38    30   22
 14    6    61   53    45    37   29
-21   13     5   28    20    12    4</pre>        
+21   13     5   28    20    12    4</pre>
         <li>Split the 56 bit key into two 28 bit halves, and left shift them either by one bit (for round 1, 2, 9 and 16) or by two bits (for every other round).</li>
         <li>Concatenate the two halves thus returned after left shifting, and apply the permutation table 2 to the concatenated pair.</li>
-<pre>                              
+<pre>
 <b>PC-2</b>
  14    17   11    24     1    5
   3    28   15     6    21   10
@@ -197,20 +200,20 @@ title: ELi5 DES (kinda)
   2 |  4  1  14  8  13  6   2 11  15 12   9  7   3 10   5  0
   3 | 15 12   8  2   4  9   1  7   5 11   3 14  10  0   6 13</pre>
     <p>
-        Here's how it works. After the XOR operation, we are left with a cryptic looking 48 bit string. 
+        Here's how it works. After the XOR operation, we are left with a cryptic looking 48 bit string.
     </p>
-        <pre>say 110010101100101111111100110111101100111010101001</pre> 
+        <pre>say 110010101100101111111100110111101100111010101001</pre>
     <p>
-        Now we take this 48 bit string and divide it into 8 equal parts of 6 bits each, and input one of the 8 parts into each S box. 
+        Now we take this 48 bit string and divide it into 8 equal parts of 6 bits each, and input one of the 8 parts into each S box.
     </p>
         <pre>SB1(110101) SB2(101100) SB3(101111) SB4(111100) SB5(110111) SB6(101100) SB7(111010) SB8(101001)</pre>
     <p>
-        Now, our S-box 1 receives <code><span style="background-color: yellow">1</span><span style="background-color: lightblue">1010</span><span style="background-color: yellow">1</span></code>. 
+        Now, our S-box 1 receives <code><span style="background-color: yellow">1</span><span style="background-color: lightblue">1010</span><span style="background-color: yellow">1</span></code>.
 
         We take the first and last bit (1 and 1 in this case, coloured <span style="background-color: yellow">yellow</span>), concatenate it to form a two bit number (1 . 1 => Binary(11)) which is 3, and look it up in the row labels of our S-box 1.
     </p>
     <p>
-        Similarly, we take the middle 4 bits (2 to 5), which in our case are 1, 0, 1 and 0, coloured <span style="background-color: lightblue">blue</span>, concatenate them to form a 4 bit number (1 . 0 . 1 . 0 => Binary(1010)) which is 10, and look up the corresponding column label in our S-box 1. 
+        Similarly, we take the middle 4 bits (2 to 5), which in our case are 1, 0, 1 and 0, coloured <span style="background-color: lightblue">blue</span>, concatenate them to form a 4 bit number (1 . 0 . 1 . 0 => Binary(1010)) which is 10, and look up the corresponding column label in our S-box 1.
     </p>
     <p>
         The number corresponding to row 3 and column 10 is 3, which is <code>0010</code> in 4 bit binary representation. That is the output of S-box 1 for input <code>110101</code>. Similarly do this for S-box 2-8, for each of the 16 rounds of DES. The result of the 8 S-boxes (4 bits each) is combined to get a 32 bit output.
@@ -238,7 +241,7 @@ title: ELi5 DES (kinda)
 </center>
 <br/>
 <p>
-    Wake up! Do you even remember that all this was done on R<sub>i</sub>? 
+    Wake up! Do you even remember that all this was done on R<sub>i</sub>?
     <br/>
     Now, after the F function, which wasn't very magical after all, returns the 32 bit output, we XOR it with L<sub>i</sub>, which gives us our new R<sub>i+1</sub>, while the untouched R<sub>i</sub> is simply copied to L<sub>i+1</sub>'s place. Hence begins a new round of DES, which goes on this way for 15 more rounds.
 </p>
@@ -259,7 +262,7 @@ title: ELi5 DES (kinda)
 
 <h3>Wrapping DES Up</h3>
 <p>
-    So that was DES. I hope you enjoyed reading this article. I'm expecting some mistakes, technical and otherwise, so take everything with a pinch of salt. Some interesting reads are given below for those of you who wish to learn more. I realized that writing this article was a nice way of testing my own understanding of the topic, find holes in it and then study to fix those holes. As always, thank you for reading!  
+    So that was DES. I hope you enjoyed reading this article. I'm expecting some mistakes, technical and otherwise, so take everything with a pinch of salt. Some interesting reads are given below for those of you who wish to learn more. I realized that writing this article was a nice way of testing my own understanding of the topic, find holes in it and then study to fix those holes. As always, thank you for reading!
 </p>
 
 <h3>Further Reading</h3>

@@ -1,0 +1,42 @@
+---
+layout: post
+title: ELI5 - Message Authentication Code
+tags:
+- eli5
+- cryptography
+---
+
+<p>
+  You need some urgent cash to buy today's lunch. You throw a paper chit at your colleague, "Hey, I need you to transfer 100 bucks in my account number 10022, urgent". Eve, a bad actor in your office, intercepts the chit, changes the 10022 to 10033, which is her account number, and forwards it to your friend. Your friend, intending to help you, transfers the amount and you both get duped!
+</p>
+
+<h3>The Problem</h3>
+<p>
+	The above is not a overly rare event, far from it. Such attacks happen all the time on the internet, and the reason is the lack of (cryptographic) authenticity built into core internet protocols. We learned in <a href="/2018/07/eli5-authenticated-encryption.html">Authenticated Encryption</a> that <b>confidentiality alone doesn't mean anything if the attacker can perform active attacks</b> on your communication channel (just like Eve could). We need something better. We need MACs.
+</p>
+
+<h3>Message Authentication Code</h3>
+<p>
+	As the name gives away, a MAC is an authentication code associated with a message which verifies the integrity of the message and, assuming that the key is only known to you and the message's sender, its authenticity. Just like with encryption, you give a MAC algorithm a message and a key, and it gives you a tag. This tag is unique to your message and the key pair, and an attacker shouldn't be able to forge a valid tag for any random message of his choice even if he's given an infinite number of ciphertext-tag pairs to analyze.
+</p>
+<img src="/assets/images/mac-wiki.png"/>
+<small><i>From Wikipedia's MAC page</i></small>
+<p>
+	In concept, a MAC is similar to a hash function, such that given an arbitrary sized input, you get a fixed-sized output (digest) and this can be reproduced ('verified') on other machines as long as one can find the same hash function's implementation. This is how your download manager ensures that the file it has downloaded from the internet is not broken, by calculating the hash digest and comparing it with the one the website claims. A MAC differs from a traditional hash function in that <b>along with a message input, it also takes a key</b> and as such, knowledge of the key as well as the underlying MAC algorithm is needed to verify (or create a new) a tag.
+</p>
+
+<p>
+	In fact, one of the most popular MAC algorithms is based on hash functions. The algorithm is called <a href="https://en.wikipedia.org/wiki/HMAC">HMAC for Hash-based Message Authentication Code</a>. It works by hashing key material with the message while taking preventive measures for popular attacks on hash functions such as length extension attacks. Any reasonable hash function can be used for the purpose of MAC'ing, including SHA-1 and SHA-256, (MD5 isn't recommended).
+</p>
+
+<p>
+	Encryption of the underlying data is not a prerequisite for using MAC, and they can be used irrespective of whether the data being MAC'd needs confidentiality or not. Use MACs whenever data integrity is needed. One caveat to look out for; MAC algorithms by themselves do not prevent <a href="https://en.wikipedia.org/wiki/Replay_attack">replay attacks</a>.
+</p>
+
+<p>
+	<b>Aside on Replay attacks:</b> A replay attack may happen when, say, you owe Eve some money. You send a note with Eve for your bank saying, "Please give Eve Rs.100 from my account, Signed: Bob". Now there's nothing preventing Eve from being greedy and using that same note again some days later.  This is prevented in the real world by making cheques unique and one-time use only. Similarly, ciphertexts must embed information (such as packet number, timestamp, session counter etc) that will expire once received and not let Eve re-send it at a later time.
+</p>
+
+<p>
+  Thank you for reading.
+</p>

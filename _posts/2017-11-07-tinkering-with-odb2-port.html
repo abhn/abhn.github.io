@@ -1,6 +1,9 @@
 ---
 layout: post
 title: Tinkering With OBD-II Port
+tags:
+- diy
+- electronics
 ---
 
 <p>
@@ -35,18 +38,18 @@ title: Tinkering With OBD-II Port
 	<b>- Driving modes</b> So Zacky featured this thing called driving modes. Putting her on "Sports" made the throttle more responsive but reduced fuel economy while putting her in "Eco" did the exact opposite. Now I could've told you that this isn't just marketing and if you test it out, you can even feel a noticeable difference, but that was all I knew. Now, after driving for a while with the boost pressure gauge in front, I made this little observation. When in normal drive mode, the turbo does not spool over 4-6psi boost. But as soon as I go 'sport', the turbo goes well over 10psi, even 12 if the sensor is to be believed, which is pretty fantastic.
 </p>
 <p>
-	- A better understanding of the relationship between torque and horsepower, and what each number actually implies. Yes, power is work done per unit time, but what exactly does that feel like. Why do diesels have same horsepower figures even after having loads of torque. It gets really clear once you see the torque, the rpm and the (thus calculated) horsepower figures side-by-side. 
+	- A better understanding of the relationship between torque and horsepower, and what each number actually implies. Yes, power is work done per unit time, but what exactly does that feel like. Why do diesels have same horsepower figures even after having loads of torque. It gets really clear once you see the torque, the rpm and the (thus calculated) horsepower figures side-by-side.
 </p>
 <img src="http://www.team-bhp.com/forum/attachments/modifications-accessories/1412427d1441794044-race-dynamics-dyno-database-stock-cars-tata-zest.png"/>
 <p>
-	- <b>Torque curve</b> So there's this thing called a torque curve of an engine, which is just a curve with torque on one axis and RPM on the other. For an IC engine, the torque is not linear (as with electric motors), but a curve with a peak at some specific RPM (or RPM range, which is why a torque (or horsepower) figure is always accompanied by a RPM range), and tapering off at both the ends. To get the maximum acceleration, you have to keep this curve in mind when changing gears. 
+	- <b>Torque curve</b> So there's this thing called a torque curve of an engine, which is just a curve with torque on one axis and RPM on the other. For an IC engine, the torque is not linear (as with electric motors), but a curve with a peak at some specific RPM (or RPM range, which is why a torque (or horsepower) figure is always accompanied by a RPM range), and tapering off at both the ends. To get the maximum acceleration, you have to keep this curve in mind when changing gears.
 </p>
 <h3>Now show me some kode!</h3>
 <p>
 	Yeah, right. So while I was on all of that, I thought, why not study the protocol itself and try writing a little script to pull the raw data from the sensors out, just for fun. Right, but how? This thing is running on Bluetooth, and how do you sniff that. Is there something like Wireshark for bluetooth? Googling "Wireshark for bluetooth" reveals that Wireshark is the "Wireshark for bluetooth". Damn!
 </p>
 <p>
-	But before wireshark could sniff, I needed to get thing thing connected to my laptop. That's pretty straightforward. After having it running at <code>/dev/rfcomm0</code>, fire up Wireshark and keep it listening on Bluetooth interface. 
+	But before wireshark could sniff, I needed to get thing thing connected to my laptop. That's pretty straightforward. After having it running at <code>/dev/rfcomm0</code>, fire up Wireshark and keep it listening on Bluetooth interface.
 </p>
 <blockquote>
 	Okay, pause. Here's the funny part. The above text was written some 4 months ago. Then I had to do a lot of physical work to take my laptop into Zacky and do all the research/coding from there. I remember going out at least 3 times, but for some weird reason, never bothered to finish writing this article. I'm putting this out right now so that I will remember to write the part-II for it during the next weekend. Stay tuned.
