@@ -21,6 +21,9 @@
       .title-tags{color:#777;}
       .tag_box{text-transform: capitalize;}
       .nice-title{text-transform: capitalize;}
+      @media screen and (max-width: 370px) {
+        .nav-item{font-size:0.8rem;}
+      }
     </style>
 </head>
 <body>
@@ -28,12 +31,14 @@
   <div class="container">
 
     <div class="top-nav">
-      <a href='/'>Home</a> |
-      <a href='/tags.html'>Tags</a> |
-      <a href='/about.html'>About</a> |
-      <a href='https://github.com/abhn'>Github</a> |
-      <a href="/feed.xml">RSS</a>
-    </div>
+  <a class="nav-item" href='/'>Home</a> |
+  <a class="nav-item" href='/tags'>Tags</a> |
+  <a class="nav-item" href='/about'>About</a> |
+  <a class="nav-item" href='https://github.com/abhn'>Github</a> |
+  <a class="nav-item" href='https://keybase.io/abhn'>Keybase</a> |
+  <a class="nav-item" href="/feed.xml">RSS</a>
+</div>
+
 
     <hr/>
 
@@ -49,6 +54,13 @@
             <div class="pd">07/2018</div>
             <a href="/2018/07/eli5-message-authentication-code.html">
                 ELI5 - Message Authentication Code
+            </a>
+        </div>
+    
+        <div>
+            <div class="pd">07/2018</div>
+            <a href="/2018/07/eli5-key-derivation.html">
+                ELI5 - Key Derivation Function
             </a>
         </div>
     
@@ -793,13 +805,17 @@
     <hr/>
 
     <footer>
-      <section>
-          <a href='/'>Home</a> |
-          <a href='/tags.html'>Tags</a> |
-          <a href='/about.html'>About</a> |
-          <a href='https://github.com/abhn'>Github</a> |
-          <a href="/feed.xml">RSS</a>
-      </section>
+
+      <div class="top-nav">
+  <a class="nav-item" href='/'>Home</a> |
+  <a class="nav-item" href='/tags'>Tags</a> |
+  <a class="nav-item" href='/about'>About</a> |
+  <a class="nav-item" href='https://github.com/abhn'>Github</a> |
+  <a class="nav-item" href='https://keybase.io/abhn'>Keybase</a> |
+  <a class="nav-item" href="/feed.xml">RSS</a>
+</div>
+
+
       <section>
         <a>Abhishek Nagekar</a> &copy; 2018
       </section>

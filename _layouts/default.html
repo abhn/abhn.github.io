@@ -23,19 +23,16 @@
       .title-tags{color:#777;}
       .tag_box{text-transform: capitalize;}
       .nice-title{text-transform: capitalize;}
+      @media screen and (max-width: 370px) {
+        .nav-item{font-size:0.8rem;}
+      }
     </style>
 </head>
 <body>
 
   <div class="container">
 
-    <div class="top-nav">
-      <a href='/'>Home</a> |
-      <a href='/tags.html'>Tags</a> |
-      <a href='/about.html'>About</a> |
-      <a href='https://github.com/abhn'>Github</a> |
-      <a href="/feed.xml">RSS</a>
-    </div>
+    {% include nav.html %}
 
     <hr/>
 
@@ -44,13 +41,9 @@
     <hr/>
 
     <footer>
-      <section>
-          <a href='/'>Home</a> |
-          <a href='/tags.html'>Tags</a> |
-          <a href='/about.html'>About</a> |
-          <a href='https://github.com/abhn'>Github</a> |
-          <a href="/feed.xml">RSS</a>
-      </section>
+
+      {% include nav.html %}
+
       <section>
         <a>{{ site.name }}</a> &copy; {{ site.time | date: '%Y' }}
       </section>

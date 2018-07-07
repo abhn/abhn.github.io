@@ -1,0 +1,37 @@
+---
+layout: post
+title: ELI5 - Key Derivation Function
+tags:
+- eli5
+- cryptography
+---
+
+<p>
+	We've heard that AES and other block ciphers require specific key sizes; 128, 256 and 512 bits. But I don't ever remember having to calculate my password length based on the underlying key size. Never have I read on a website <i>"passwords need to be of 16 ASCII characters, 1 byte each, to make a total of 128 bits of key material"</i>. So what lies between me entering an arbitrarily sized password and the encryption algorithm receiving a 128/256 bit nicely sized key. Let's find that out in this ELI5.
+</p>
+
+<h3>Key Derivation Function</h3>
+<p>
+	A Key Derivation Function (wait for it...) derives cryptographic key(s) from a password. Generally speaking, the passwords we humans come up with are something like "MyAwesomeDog007" which, while long and easy to remember, just don't have enough entropy for cryptographic applications. On the other hand, a key derived from a simple password "ml6xU*dwGS5rvE!dcIg6509w$$" (that's not a real key, a real key would in most cases be binary) is complex and entropy rich. This is the first purpose a KDF serves; to increase the entropy of a password and making it suitable for use in other algorithms such as AES.
+</p>
+
+<p>
+	The second purpose that KDFs serve is that they make brute forcing infeasible. Due to the high computational costs of running a good KDF, brute forcing is typically not achievable for any half decent password. Of course, it won't protect a user from a dictionary attack if she selects a password such as "password123".
+</p>
+
+<h3>Working</h3>
+<p>
+	A KDF takes an arbitrarily sized input that has low entropy (user-supplied password, for example), runs some hash-based algorithms on it, and output a random looking fixed sized cryptographic key (which becomes input key to encryption and <a href="/2018/07/eli5-message-authentication-code.html">MACing</a> algorithms later). A KDF can be thought of as a pseudo-random function (PRF) which maps an input password to an output key. As a PRF, the input and output mappings should look completely random to an attacker and in no circumstance should he be able to get the original password from a cryptographic key (that is, the function should be one way). The high iteration count makes computing KDF an expensive affair. This is acceptable for a legitimate user but will prevent <a href="https://en.wikipedia.org/wiki/Brute_force_attack">brute forcing of the password</a>.
+</p>
+
+<p>
+	Typically, key derivation functions employ keyed hash algorithms or HMAC. <a href="https://en.wikipedia.org/wiki/Salt_(cryptography)">Cryptographic salt</a> is used to prevent <a href="https://en.wikipedia.org/wiki/Rainbow_table">rainbow table attacks</a> (precomputed hash lookups). The number of iterations (in the order of tens to hundreds of thousands) of the hash function is selected to slow down bruteforce attacks.
+</p>
+
+<h3>Implementations</h3>
+<p>
+	A simple key derivation function is <b><a href="https://en.wikipedia.org/wiki/PBKDF2">Password Based Key Derivation Function 2, PBKDF2</a></b>. It takes as input a pseudo-random function (such a SHA-256), user supplied key, salt (64+ bits), number of iterations, length of output key, and outputs a key of specified length.
+</p>
+<p>
+	Although PBKDF2 is still used and recommended, modern alternatives such as <a href="https://en.wikipedia.org/wiki/Scrypt">Scrypt</a> and <a href="https://en.wikipedia.org/wiki/Argon2">Argon2</a> offer much better resistance to bruteforce.
+</p>
