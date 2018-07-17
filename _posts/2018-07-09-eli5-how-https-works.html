@@ -1,0 +1,113 @@
+---
+layout: post
+title: ELI5 - How HTTPS Work
+tags:
+- eli5
+- C
+- programming
+---
+
+<style>
+  img {
+    border: 2px black solid;
+  }
+</style>
+
+<p>
+	Let's start with some basics. Just like when you want to talk to another person, you talk in a language that both of you understand, every system that wants to talk to another system needs to talk in a commonly understood language. Technically, we call it a protocol. <a href="https://en.wikipedia.org/wiki/HTTPS">HTTPS</a> is a protocol, and so is English. Every protocol is designed with some goals in mind. For real-world languages, the goals are simple. They are usually communication, literature and so on. With computer protocols, the goals have to be more stringent. Usually, different computer protocols have very different purposes. For example, File Transfer Protocol (FTP) was (and still is) widely used for transferring files, Secure Shell (SSH) is used for remote administration and so on.
+</p>
+
+<p>
+	Note that we're only talking about application layer protocols in the <a href="https://en.wikipedia.org/wiki/Internet_Protocol">Internet Protocol Suite</a>. Once the appropriate protocol in the application layer creates a packet for transmission, this is encapsulated in many coverings, one by one, by all the layers beneath it. Each layer attaches its own header to the message, which then becomes the message for the next layer to attach its header on. A reverse of this process happens on the recipient's end. It is easier to imagine this process as pealing of layers of an onion.
+</p>
+
+<p>
+	So having that set, we'll start out discussion about HTTPS. HTTPS, or HTTP Secure, is an application layer protocol that provides HTTP traffic encryption using TLS (Transport Layer Security) or its predecessor, SSL. The underlying application doesn't have to worry about HTTP or HTTPS, and once the initial handshake is done, for the most part, it is just an HTTP connection, one that is over a secure tunnel. I've been a frontend engineer and I've never written any specific HTTPS code, ever. That's the magic of TLS.
+</p>
+
+<h3>What's TLS?</h3>
+<p>
+	So HTTP that is encrypted using TLS is HTTPS. Got it. But what about TLS then? For starters, TLS is a hybrid cryptosystem. It uses multiple <a href="https://en.wikipedia.org/wiki/Cryptographic_primitive">cryptographic primitives</a> underneath its hood to achieve its goals.
+</p>
+<p>
+	<b>Aside on cryptographic primitives:</b> Cryptographic primitives, like symmetric encryption, block ciphers and so on are designed by experts who know what they're doing. The role of protocol implementers is to take these primitives and combine them in useful ways to accomplish certain goals.
+</p>
+
+<p>
+	TLS uses symmetric key encryption, asymmetric key encryption, and (sometimes) <a href="/2018/07/eli5-message-authentication-code.html">message authentication code</a> to establish an encrypted bidirectional data tunnel and transfer encrypted bits. We'll try to explore how each primitive is used to attain some goal in a bit. With these primitives, particularly with <a href="https://en.wikipedia.org/wiki/Public_key_infrastructure">public key infrastructure (PKI)</a>, TLS establishes the identity of one or both the parties involved in a communication (your browser and the web server in most cases).  Then, a key is derived at both the ends using another primitive called <a href="https://security.stackexchange.com/questions/45963/diffie-hellman-key-exchange-in-plain-english">Diffie Hellman</a> or <a href="https://en.wikipedia.org/wiki/RSA_(cryptosystem)">RSA</a> which are asymmetric key crypto algorithms. Once the key is derived, this key can be used as the session key to be used in symmetric key algorithms like AES. If an <a href="https://www.nagekar.com/2018/07/eli5-message-authentication-code.html">authenticated encryption</a> mode is not used (such as GCM), then a MAC algorithm might also be needed (such as HMAC). Also, a hashing algorithm (such as <a href="https://en.wikipedia.org/wiki/SHA-2">SHA256</a>) is used to authenticate the initial handshake (and as a PRF if HMAC is used). Let's try to follow a typical HTTPS handshake and see what we learn during it.
+</p>
+
+<h3>In the beginning...</h3>
+<p>
+	In the beginning, there was no connection. You open your browser and type in <b>nagekar.com</b>. The following things will happen in that order, more or less.
+<ul>
+	<li>Your browser send a <b>DNS resolution request</b> for nagekar.com.</li>
+  <img src="/assets/images/https/dns_request.png"/>
+	<li>Your router (or any DNS resolution service) will provide you with the <b>IP address</b> of the host</li>
+  <img src="/assets/images/https/dns_response.png"/>
+  <li>Now the <b><a href="https://en.wikipedia.org/wiki/Handshaking#TCP_three-way_handshake">three way TCP handshake</a></b> that we studied in our networking classes happens (SYN -> SYN/ACK -> ACK).</li>
+  <img src="/assets/images/https/three_way.png"/>
+  <li>Now starts the TLS handshake. First client sends a <b>client hello</b>. It contains the following important pieces of data:
+    <ul>
+      <li>A <b>random 28 byte string</b> (later used for establishing session key).</li>
+      <li><b>Session ID</b> (used for resuming a previously established session and avoiding the entire handshake altogether, 0 here because no previous sessions found).</li>
+      <li><b>Cipher suites</b> supported by the client in order of preference.</li>
+      <li><b>Server name</b> (this enables the server to identify which site's certificate to offer to the client in case multiple websites are hosted from a single IP address, as in the case with most small/medium websites).</li>
+    </ul>
+  </li>
+  <img src="/assets/images/https/client_hello.png"/>
+  <li>Then server sends a <b>server hello</b> which has the following important pieces of data:
+    <ul>
+      <li>Another <b>random 28 byte string</b> (later used for establishing session key)</li>
+      <li>Cipher suite selected by server (in our case, the server selected <b>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</b> which was our most preferred cipher suite)</li>
+    </ul>
+  </li>
+  <img src="/assets/images/https/server_hello.png"/>
+  <li>At this point, both client and server have the necessary information to establish an encrypted tunnel, but one important detail is missing. No party has verified the identity of the other party (and if not done, it really defeats the purpose of whatever came before this since an active man-in-the-middle adversary could easily break this scheme). This is done in the certificate message. In most cases, only the client will verify the identity of the server. Here's how it looks like:</li>
+  <img src="/assets/images/https/server_hello_done.png"/>
+  <li>And this is exactly what you see when you click on the green padlock icon in your address bar and try to see more information about the certificate offered by the website.</li>
+  <img src="/assets/images/https/server_certificate.png"/>
+  <li>At this point, the <b>server hello</b> is done. It is indicated in the message that the server won't be asking the client for a certificate.</li>
+  <li>The server sends one half of the Diffie Hellman key in a separate <b>Server Key Exchange</b> message. Following this, the client sends other half of the Diffie Hellman key exchange. After that, the client sends a <b>Change Cipher Spec</b> message which means any subsequent message from the client will be encrypted with the schemes just negotiated. Lastly, the client sends the first encrypted message, an encrypted handshake.</li>
+  <img src="/assets/images/https/client_key_change.png"/>
+  <li>On similar lines, server issues the client a <b>Session Ticket</b> which the client can then use to resume connections and not go through the entire Diffie Hellman procedure again (although it is valid only for 18 hours in our case). The server sends a <b>Change Cipher Spec</b> message, indicating that no more plaintext messages will be sent by the server. Lastly, the server sends its first encrypted message, an encrypted handshake, just like the client.</li>
+  <img src="/assets/images/https/server_key_change.png"/>
+  <li>That's it. We have established a secure connection to a computer on the other side of the planet and verified its identity. Magic!</li>
+</ul>
+</p>
+
+<h3>Security Considerations</h3>
+<p>
+  <b>About trust:</b> As you might have noticed, all the above steps were essentially so that two random computers can come up with a shared secret session key. The other part to this is Certificate Authorities. Why did we trust the certificate that the server sent us? Because it was signed by someone, whom we trusted. At the end of it all, you still have to implicitly trust someone to verify the identity. In this case, we're trusting COMODO to have only signed one certificate for the domain in question.
+  <img src="/assets/images/https/website_identity.png"/>
+</p>
+
+<p>
+  <b>About browser and updates:</b> If you see the version of TLS that we used, it is 1.2 which is not the latest. The cipher suite is also not the best we could've got. Why did that happen? Simple, because we were using an outdated browser which didn't support the strongest cipher suites and the latest version of TLS. Since that was a test machine, it doesn't matter a lot. On any up to date browser, this is what you should see.
+  <img src="/assets/images/https/updated_browser.png"/>
+</p>
+
+<p>
+  <b>About cryptographic primitives:</b> We saw some of the most understood crypto primitives being used in the handshake. This is a pattern you'll see often while reading about cryptology. It is a sin to implement your own crypto, especially the primitives. Use a library that implements these primitives, or better yet, the entire cryptosystem.
+</p>
+
+<h3>In Closing</h3>
+<p>
+  As you can guess, a lot of important details are skipped in this article. There are two reasons for that. 1. I lack the necessary knowledge to simplify the deeper parts and 2. It would be boring to read if the post felt like a spec. If you wish to read more, refer to the list of references below this section.
+</p>
+
+<h3>References</h3>
+<ul>
+  <li><a href="https://en.wikipedia.org/wiki/HTTPS">https://en.wikipedia.org/wiki/HTTPS</a><br/>
+<li><a href="https://blog.hartleybrody.com/https-certificates/">https://blog.hartleybrody.com/https-certificates/</a><br/>
+<li><a href="https://security.stackexchange.com/questions/45963/diffie-hellman-key-exchange-in-plain-english">https://security.stackexchange.com/questions/45963/diffie-hellman-key-exchange-in-plain-english</a><br/>
+<li><a href="https://en.wikipedia.org/wiki/Public_key_infrastructure">https://en.wikipedia.org/wiki/Public_key_infrastructure</a><br/>
+<li><a href="http://www.moserware.com/2009/06/first-few-milliseconds-of-https.html">http://www.moserware.com/2009/06/first-few-milliseconds-of-https.html</a><br/>
+<li><a href="https://tools.ietf.org/html/rfc5246">https://tools.ietf.org/html/rfc5246</a><br/>
+<li><a href="https://albertx.mx/https-handshake/">https://albertx.mx/https-handshake/</a><br/>
+<li><a href="https://security.stackexchange.com/questions/20803/how-does-ssl-tls-work/20847">https://security.stackexchange.com/questions/20803/how-does-ssl-tls-work/20847</a><br/>
+  <li><a href="https://blog.filippo.io/we-need-to-talk-about-session-tickets/">https://blog.filippo.io/we-need-to-talk-about-session-tickets/</a><br/>
+<li><a href="https://security.stackexchange.com/questions/8343/what-key-exchange-mechanism-should-be-used-in-tls">https://security.stackexchange.com/questions/8343/what-key-exchange-mechanism-should-be-used-in-tls</a><br/>
+</ul>
+
+<p>Thank you for reading!</p>
