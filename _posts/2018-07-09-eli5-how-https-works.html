@@ -44,8 +44,10 @@ tags:
   <img src="/assets/images/https/dns_request.png"/>
 	<li>Your router (or any DNS resolution service) will provide you with the <b>IP address</b> of the host</li>
   <img src="/assets/images/https/dns_response.png"/>
-  <li>Now the <b><a href="https://en.wikipedia.org/wiki/Handshaking#TCP_three-way_handshake">three way TCP handshake</a></b> that we studied in our networking classes happens (SYN -> SYN/ACK -> ACK).</li>
+  <li>Now the <b><a href="https://en.wikipedia.org/wiki/Handshaking#TCP_three-way_handshake">three way TCP handshake</a></b> that we studied in our networking classes happen (SYN -> SYN/ACK -> ACK).</li>
   <img src="/assets/images/https/three_way.png"/>
+  <li>After establishing a TCP connection, your browser makes a request to <b>104.28.11.84</b> for host <b>nagekar.com</b>. The server responds with a <b>301 Moved Permanently</b> as my website is only accessible over HTTPS and with the WWW subdomain.</li>
+  <img src="/assets/images/https/redirect.png"/>
   <li>Now starts the TLS handshake. First client sends a <b>client hello</b>. It contains the following important pieces of data:
     <ul>
       <li>A <b>random 28 byte string</b> (later used for establishing session key).</li>
@@ -75,6 +77,27 @@ tags:
 </ul>
 </p>
 
+<h3>Crypto Primitives</h3>
+<p>
+  Let's discuss what goal of cryptography is achieved by what part of this entire handshake. Remember the cipher suite that the server choose? It was <b>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</b>.
+</p>
+
+<p>
+  <b>ECDHE</b>: <a href="https://www.ecdhe.com/">ephemeral Elliptical Curve Diffie Hellman</a>, as we saw, is used to establish a shared secret session key from the random values our client and the server exchanged (over an insecure channel). It is a key exchange crypto.
+</p>
+
+<p>
+  <b>ECDSA</b>: <a href="https://en.wikipedia.org/wiki/Elliptic_Curve_Digital_Signature_Algorithm">Elliptical Curve Digital Signature Algorithm</a> is used to verify the public key supplied by the server, in our case nagekar.com, issued for Cloudflare by COMODO.
+</p>
+
+<p>
+  <b>AES 128 with GCM</b>: <a href="https://en.wikipedia.org/wiki/Advanced_Encryption_Standard">AES</a> is a block cipher. Being a symmetric key encryption algorithm, it is much faster than the asymmetric key ones, and hence used for encryption of all the data after the initial handshake is done. 128 is the size of the key in bits, which is sufficiently secure. GCM stands for <a href="https://en.wikipedia.org/wiki/Galois/Counter_Mode">Galois/Counter Mode</a>, which is an encryption mode used with AES to provide authentication and integrity along with the <i>regular</i> confidentiality.
+</p>
+
+<p>
+  <b><a href="https://en.wikipedia.org/wiki/SHA-2">SHA256</a></b>: Since we're using AES with GCM, we won't be using this hash function for message authentication. However, since TLS 1.2, SHA256 is used as a PRF. It will also be used to verify that all content exchanged during the handshake were not tampered with.
+</p>
+
 <h3>Security Considerations</h3>
 <p>
   <b>About trust:</b> As you might have noticed, all the above steps were essentially so that two random computers can come up with a shared secret session key. The other part to this is Certificate Authorities. Why did we trust the certificate that the server sent us? Because it was signed by someone, whom we trusted. At the end of it all, you still have to implicitly trust someone to verify the identity. In this case, we're trusting COMODO to have only signed one certificate for the domain in question.
@@ -88,6 +111,10 @@ tags:
 
 <p>
   <b>About cryptographic primitives:</b> We saw some of the most understood crypto primitives being used in the handshake. This is a pattern you'll see often while reading about cryptology. It is a sin to implement your own crypto, especially the primitives. Use a library that implements these primitives, or better yet, the entire cryptosystem.
+</p>
+
+<p>
+  <b>About mathematics:</b> The reason that we think the above scheme is secure, that no data is leaked even though key was generated using the information sent in clear, is because the basis of some of these cryptographic primitives are hard problems in mathematics. For example, since mathematicians believe that discrete logarithms are easy to verify but are hard to calculate the other way, we say that Diffie Hellman (which makes use of discrete logarithms) is secure. Similarly with RSA, mathematicians believe that factoring large prime numbers is a hard problem, hence RSA is considered secure as long as the numbers are large enough. Of course, not always is a mathematical proof available. For example, AES is considered secure, but there's not proof that it is secure. We <i>think</i> it must be secure because the brightest minds in cryptology have spent thousands of man hours trying to break the encryption algorithm but they haven't succeeded (yet?).
 </p>
 
 <h3>In Closing</h3>
