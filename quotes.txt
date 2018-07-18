@@ -180,3 +180,5 @@ Information is power. But like all power, there are those who want to keep it fo
 He who does not move does not notice his chains.
 A programmer who has never used a debugger to look at the inner workings of a program is like a seventeenth-century doctor who has never used a microscope.
 It is not good to drive faster if you can't stay on the road.
+Something that is untested is broken.
+Strong winds make trees take deeper roots.
