@@ -182,3 +182,7 @@ A programmer who has never used a debugger to look at the inner workings of a pr
 It is not good to drive faster if you can't stay on the road.
 Something that is untested is broken.
 Strong winds make trees take deeper roots.
+Don't confuse motion with progress
+The easy way is also the right way
+To me, the extraordinary aspect of martial arts lies in its simplicity
+Forging your tools depending on circumstances.
