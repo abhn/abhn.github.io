@@ -1,0 +1,66 @@
+---
+layout: post
+title: Backend Development With Flask
+---
+
+<h3>Context</h3>
+<p>
+    I distinctly remember how much I liked writing backends (well, <a href="https://github.com/abhn/turnouts">I tried</a>). I also remember thinking, <i>I will never become a frontend engineer. Ever.</i> Like many software developers in my circle, I hated writing CSS, and JS hadn't clicked until then. And these were the days before I knew anything about automated deployments. Deployment, for me, was spinning up a Digital Ocean droplet, installing everything manually, setting up the database (and copy pasting the db creds into code), and then running the development server and keeping it running. Stop laughing, please.
+</p>
+
+<h3>Motivations</h3>
+<p>
+    So I decided to pick up some backend skills again. The main reasons for this were that I'll need a full-time job soon, and it would be much better if I get to write the full stack of the web instead of just the frontend. Secondly, knowing full stack is a superpower that I'd not want to not know. It comes in incredibly handy when working on some personal projects that require the web as an enabler. Thirdly, I wanted to refresh my Python skills. I liked python a lot <a href="/2014/07/starting-with-python.html">back in the day</a>, but I had lost touch since the last couple of years. So with those goals, I started with Python and Flask.
+</p>
+
+<h3>Python &amp; Flask</h3>
+<p>
+    I liked flask, but I'm still struggling with some basics, especially working with app instances for writing tests. Yes, there are a few differences working with the backend this time versus like three years ago. I'm following (or trying to follow) the best practices, writing tests for the code, I have a nice CI pipeline which starts with testing of the code and ends with deploying the app on Heroku. Most importantly, I have an excellent mentor for my backend adventures who's a badass python programmer.
+</p>
+
+<p>
+    Flask is fun to work with. The framework is minimal, kinda like React. There's a lot of support online, and there are great plugins already available for most common functionality. Databases are one of my weakest points in web engineering, and I'm trying to experiment a lot of things on the model layer with SQLAlchemy and Postgres backend. One more novelty for me was asynchronous programming. In Javascript, you had to beg for things to be synchronous. But here you face a different problem; If something is slow, then the entire thread is blocked. For taking care of things that are slow, say sending an email, one could use Celery with RabbitMQ's backend. All of this is given to us ready-made by Heroku. So no more manual DevOps work, and fewer variables to worry about.
+</p>
+
+<p>
+    The other motive was to learn quality Python 3. In python, you have a pythonic and many non-pythonic ways of doing things. There's no point in writing Python like C. I wish to learn the philosophy of the language so that I can make the right choices when deciding how to solve a problem. There's nothing like writing clean and elegant code that others can appreciate. In the last week, I also got exposed to a lot of different data structures that the python library provides for specific use cases. In the right scenario, using an appropriate data structure can be the best optimization you can do to your code. I am looking forward to getting a hold of this as well.
+</p>
+
+<p>
+    Lastly, one thing that I never thought I'd so, but I'm doing, is trying to learn object-oriented programming. I had done some OO python <a href="/2014/07/object-oriented-programming-concepts.html">in the past</a>, but it never clicked. Laster, with JS, it was all about functional programming. Now, I've rediscovered OO programming and wish to relearn it, apply it and try to make it click. I like the contrasts in both paradigms of programming, and it could not be better explained than <a href="https://stackoverflow.com/a/2079678/3549785">this StackOverflow answer</a>.
+</p>
+    <ul>
+        <li>
+            <b>Object-oriented languages</b> are good when you have a fixed set of operations on things, and as your code evolves, you primarily add new things. This can be accomplished by adding new classes which implement existing methods, and the existing classes are left alone.
+        </li>
+        <li>
+            <b>Functional languages</b> are good when you have a fixed set of things, and as your code evolves, you primarily add new operations to existing things. This can be accomplished by adding new functions which compute with existing data types, and the existing functions are left alone.
+        </li>
+    </ul>
+<p>
+    Overall, I feel I'm becoming a little (very little indeed) mature with programming. Instead of sticking to paradigms and trying to defend the one that <i>I'm</i> most comfortable, I'm trying to see why those paradigms exist and what problems are they helping me solve. And since python supports both object-oriented as well as functional programming, it will be fun to work on any such problems.
+</p>
+
+<p>
+    I would write some technical articles on the subject when I feel confident enough in the near future. Just wanted to give you an update on what's happening on my front in this one. Hope you found it useful. I'll leave you with an interesting video about 'Duck typing and asking forgiveness, not permission' which is a design pattern in Python. Thank you for reading.
+</p>
+
+<div class="videoWrapper">
+    <iframe width="560" height="349" src="https://www.youtube.com/embed/x3v9zMX1s4s" frameborder="0" allowfullscreen></iframe>
+</div>
+
+<style>
+.videoWrapper {
+	position: relative;
+	padding-bottom: 56.25%; /* 16:9 */
+	padding-top: 25px;
+	height: 0;
+}
+.videoWrapper iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+</style>
