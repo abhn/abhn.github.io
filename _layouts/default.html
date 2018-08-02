@@ -44,8 +44,10 @@
 
       {% include nav.html %}
 
-      <section>
-        <a>{{ site.name }}</a> &copy; {{ site.time | date: '%Y' }} | Theme: <a href="https://github.com/abhn/Elementary">Elementary</a> | Source: <a href="https://github.com/abhn/abhn.github.io">Github</a>
+      <section class="nav-item">
+        Theme: <a href="https://github.com/abhn/Elementary">Elementary</a> | Source: <a href="https://github.com/abhn/abhn.github.io">Github</a>
+        <br/>
+        <a>{{ site.name }}</a> &copy; {{ site.time | date: '%Y' }}
       </section>
     </footer>
   </div>
