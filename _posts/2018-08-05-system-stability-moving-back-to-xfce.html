@@ -1,0 +1,38 @@
+---
+layout: post
+title: System Stability &amp; Moving Back To XFCE
+tags:
+- linux
+---
+
+<p>
+  One thing that I really <i>hate</i>, and I don't use that word very often while describing my computer preferences, is system crashes. It's one of those things; just unacceptable to me. You're working on something important, and all of a sudden, the DE (Desktop Environment) decides that it needs to restart itself, and you lose all of your windows, terminals and most importantly, context. Coming back from there is a 15-minute process in itself; logging back again, starting the browser, IDE, terminals, entering virtual environments, running test servers and so on. As you can tell, it can escalate from slight inconvenience to very frustrating in little time.
+</p>
+
+<p>
+  When I got my <a href="/2018/05/lenovo-thinkpad-t440-ebay-refurbished-laptop-review.html">new laptop</a> back in May, I decided to switch away from XFCE. To be honest, I did try installing XFCE but couldn't due to some issue starting the DE. Since this was a fancier laptop with better hardware, I assumed I can afford running a somewhat heavier DE for a better user experience (and my colleagues' Macbooks constantly reminded me that I'm using an ancient (looking) DE). I did some research and was split between KDE and GNOME 3.
+</p>
+
+<p>
+  So the initial impressions of GNOME 3 were not very convincing (not that this was the first time I tried GNOME 3 anyway). I never liked the gesture-like way of accessing windows and quick menu. I'm more of a click-click person. But I decided to stick with it and see how it goes, customizing whatever that I can. So after that, things went uphill for a while. The more I used GNOME, the more I started to appreciate it. I brought back the 'conventional' application menu, quick access bar on the left side with an extension called <a href="https://extensions.gnome.org/extension/307/dash-to-dock/">Dash to Dock</a>, Pomodoro and a bunch of widgets for the top bar (which by default is mostly empty).
+</p>
+
+<p>
+  A few issues persisted from the beginning. The most important one was memory and CPU usage. I looked up and concluded that it is a <a href="https://duckduckgo.com/?q=gnome+shell+high+memory+usage&t=ffab&ia=web">general problem</a> and not just my laptop. The problem is not just the high usage of system resources (which is even a good thing if you <a href="https://linux-mm.org/Low_On_Memory">trust the kernel</a>). Problem is when you see <code>gnome-shell</code> constantly use one CPU even while idling and 500MB-1GB of data just after startup. Now, due to this, I was constantly facing situations when the RAM would go over 90% and the system would start to lag. This was serious, but this wasn't the worst part.
+</p>
+
+<p>
+  I could've lived with a (little) laggy system, a system that lags while opening the app drawer, for example (tip: create shortcuts to all the apps that you frequently use to avoid GNOME 3's app drawer altogether), but the DE would also crash all of a sudden, wasting my time re-spawning everything. And it was especially bad when it happened during my work hours. That was a deal breaker. I tried to debug it, but couldn't convince myself to spend more time on it as it wasn't making a lot of sense. I installed XFCE, made it work and it felt like I'm back home to my countryside house from a vacation in the city. Felt good.
+</p>
+
+<p>
+  In conclusion, I think I'm biased here. I had a preconceived notion about GNOME 3, and I might have fallen for that. Maybe GNOME 3 is objectively better at many things that my bias didn't let me see. Don't get me wrong. GNOME 3 is a wonderful DE, and for someone who values the bells and whistles that come with GNOME (I had three finger and four finger gesture support for once in my life. Thanks, GNOME) I think it is a perfect choice. For me, however, system stability is way too important than any secondary convenience feature.
+</p>
+
+<p>
+  An interesting thing I saw Mac OS users do was that they used to always suspend their machines, not shutting them down often. I wanted to do that since forever, just close the lid and be done with it. I never could do that on my old laptop because new issues would creep in after resuming from suspended state (failure to connect to wifi, display staying all black, USB ports not working etc to name a few). No such issue is present on my Thinkpad, and as a result, I suspend it in between use and at night. The system is rock solid, even at heavy loads. As an enthusiast, it gives me a lot of pride in mentioning my last shutdown was nearly ten days ago.
+</p>
+<code> 22:00:09 up 9 days, 11:17,  1 user,  load average: 0.84, 0.58, 0.59 </code>
+<p>
+  I'm sure a lot of you reading this can relate to the pride of showing off uptimes and talking about system stability, or the joy of keeping your car running in top notch condition after years with proper service and care! This is similar. Hope you found this interesting. Thank you for reading.
+</p>
