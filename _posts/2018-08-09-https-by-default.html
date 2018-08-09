@@ -1,0 +1,51 @@
+---
+layout: post
+title: HTTPS By Default
+tags:
+- cryptography
+- privacy
+---
+
+<p>
+  There was a time, not too long ago, that I used to dream of running a website that had HTTPS written in the address bar. Most big websites had it, but very few little ones and personal blogs did. I couldn't because it required a lot of money (for a student, at least). Today, thanks to the efforts by <a href="https://letsencrypt.org/">Let's Encrypt</a>, <a href="https://cloudlfare.com">Cloudflare</a> and many other organizations which gave away basic SSL certificates for free, all of the domains I own are on HTTPS. But that's not even the best part.
+</p>
+
+<p>
+  The best part is that HTTPS is now seen less as a luxury by small website owners and more of a necessity. Part of the reason for this is Google's penalty in terms of search rankings for websites without HTTPS. The other part, and this is more important for the little non-business blog owners who do not care much about traffic and SEO, Google Chrome (>= 68) has started displaying a <b>Not Secure</b> for non-HTTPS websites. I would say that Google is doing a great job at providing people an incentive to switch. I hope Mozilla Firefox follows in Chrome's footsteps in this regard.
+</p>
+<center>
+<img src="/assets/images/no-https-chrome.png"/>
+<br/>
+<small>non-https website on Google Chrome</small>
+<img src="/assets/images/no-https-mozilla.png"/>
+<br/>
+<small>non-https website on Mozilla Firefox</small>
+</center>
+<p>
+  On similar lines, Github now only shows the entire web address (along with the protocol) if it is on HTTP. If the link posted is HTTPS, Github will truncate the protocol part and only show the domain name.
+</p>
+<p>
+  For example, <pre>http://example.com</pre> will be rendered as <pre>http://example.com</pre> while <pre>https://example.com</pre> (notice https) will be rendered as <pre>example.com</pre>If you notice, this is opposite of what happens in browsers today, <code>http</code> is truncated and <code>https</code> is emphasized.
+</p>
+
+<p>
+  I personally hope more and more website and browsers treat HTTPS as the default and HTTP as the exception, and not the other way round. The merits of using HTTP over HTTPS are either obsolete or negligible (read more about HTTPS here: <a href="/2018/07/eli5-how-https-works.html">ELI5 - How HTTPS Works</a>). On the other hand, if done properly, <a href="https://samrueby.com/2015/01/26/why-is-https-faster-than-http/">HTTPS can be much faster than HTTP</a>.
+</p>
+<p>
+  We already know that the more people using encryption, greater will be the overall value of using it. I'll end here with a quote by Bruce Schneier, a cryptology <strike>badas-</strike> expert.
+</p>
+
+<blockquote>
+  <div>
+    Encryption should be enabled for everything by default, not a feature you turn on only if you're doing something you consider worth protecting.
+  </div>
+  <br/>
+  <div>
+    This is important. If we only use encryption when we're working with important data, then encryption signals that data's importance. If only dissidents use encryption in a country, that country's authorities have an easy way of identifying them. But if everyone uses it all of the time, encryption ceases to be a signal. No one can distinguish simple chatting from deeply private conversation. The government can't tell the dissidents from the rest of the population. Every time you use encryption, you're protecting someone who needs to use it to stay alive.
+  </div>
+  <br/>
+  <a href="https://www.schneier.com/blog/archives/2015/06/why_we_encrypt.html">https://www.schneier.com/blog/archives/2015/06/why_we_encrypt.html</a>
+</blockquote>
+<p>
+  Thank you for reading.
+</p>
