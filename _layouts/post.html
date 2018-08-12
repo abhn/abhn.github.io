@@ -12,7 +12,7 @@ post_class: post-template
       <div>
         Posted under <span>
           {% for tag in page.tags %}
-            <a href="/tags#{{ tag }}">{{ tag }}</a>
+            <a class="tags" href="/tags#{{ tag }}">{{ tag }}</a>
           {% endfor %}
         </span>
         &nbsp;

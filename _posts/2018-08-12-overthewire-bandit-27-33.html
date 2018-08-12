@@ -1,0 +1,53 @@
+---
+layout: post
+title: OverTheWire Bandit 27-33 Write-up
+tags:
+- linux
+- ctf
+---
+
+<p>
+  The last part of the Bandit challenges was relatively easy with most of the flags attainable with basic git knowledge, except for the last restricted shell escape. Try them here: <a href="http://overthewire.org/wargames/bandit/bandit28.html">OverTheWire Bandit</a>
+</p>
+
+<h3>Bandit 27-28</h3>
+<p>
+  This is as simple as it can get at this stage. Just clone the repo and <code>cat</code> the README.md file. The flag is in plaintext.
+</p>
+
+<h3>Bandit 28-29</h3>
+<p>
+  In this stage, if you <code>cat</code> the README.md file, you'll find <code>xxxxxxx</code> in the place of the flag. If you do a <code>git log</code>, you'll see that the password was entered and then removed. Just checkout the previous commit with <code>git checkout {hash}</code> and you'll have your flag in the README.md
+</p>
+
+<h3>Bandit 29-30</h3>
+<p>
+  There's no commit history this time, and the README.md file says "no password in production", which is a clue. Do a <code>git branch -r</code> and you'll see a development branch. Checkout into it (<code>git checkout dev</code>). <code>cat README.md</code> in this branch to get the flag.
+</p>
+
+<h3>Bandit 30-31</h3>
+<p>
+  No password in previous commits or branches here. But if you do a <code>git tag</code>, you'll see a tag called "secret". Do a <code>git show secret</code> and you have your flag.
+</p>
+
+<h3>Bandit 31-32</h3>
+<p>
+  Add and commit any random file, remove the wildcard entry from <code>.gitignore</code> and push origin. The flag is in the verbose output of the commit.
+</p>
+
+<h3>Bandit 32-33</h3>
+<p>
+  This is a restricted terminal escape challenge, very interesting. I urge you to think of creative ways of loopholing this before looking at the solution.
+</p>
+<p>
+  So the terminal converts every command into uppercase before executing. So <code>ls</code> becomes <code>LS</code> and <code>cd</code> becomes <code>CD</code> and nothing works.
+</p>
+<p>
+  One way of looping this behavior was symlinking a helper binary to an all caps name. I choose vim for the purpose, but cat, less or more, anything would've worked. Symlink the binary in your temp directory in some all caps name.
+</p>
+<pre>$ ln -s /usr/bin/vim /tmp/mytempdir/VIM</pre>
+<p>
+  Now, simply running <code>./vim</code> will execute VIM and you can then read the flag file with <code>:r /etc/bandit_pass/bandit33</code> in vim.
+</p>
+
+<p>Thank you for reading</p>
