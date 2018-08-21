@@ -1,0 +1,145 @@
+---
+title: 17 Tips After A Year In Javascript Development
+layout: post
+tags:
+- javascript
+---
+
+<p>
+  <i>Long time no see, Javascript. Where had you been, my old friend?</i>
+</p>
+
+<p>
+  Well, not really. I have been writing Javascript more than ever since my <a href="/2016/04/websockets.html">last post about the language</a> on this blog, some 26 months ago. As some of you already know, writing Javascript has become my day job and it is honestly one of the better things that could've happened to me. I've learned a lot of nitty-gritty of the language and surrounding environments (and the web) and gained invaluable insights about software development in general.
+</p>
+
+<p>
+	In this post, I aim to cover some of things I wish I knew as a Javascript newbie (no offense to anyone. I'm a newbie myself in most ways). These aren't supposed to be comprehensive or even correct, for that matter. No particular order is followed. These are just things I feel I could've helped myself with while learning the language and building some initial projects and wish to share with you guys here.
+</p>
+<p>
+  It will be most helpful if you're just finishing learning the core language and want to find out what exists in the world of web development. Feel free to contradict and correct me.
+</p>
+
+<h3>1. All Theory And No Practice</h3>
+<p>
+	Get over with that college student attitude of reading chapter upon chapter of dull text and not writing a single line of code. And by code, I don't mean the example code snippets. Go out there on Github and Reddit and search for beginner problems statements. Creating a simple TODO list or displaying the top posts on Reddit frontpage via their API doesn't require any deep knowledge.
+</p>
+
+<p>
+	The essential skill to learn here is to be able to use a search engine, find relevant documentation, getting passive help from online communities (See <a href="https://stackoverflow.com/questions/tagged/javascript">stackoverflow</a> or Reddit; r/javascript, r/webdev, r/frontend are good places to start looking). You cannot learn cycling by just reading about cycling. You learn cycling by riding a bicycle, by talking to your friends about the dangerous stunt you pulled off, by going offroad on the weekends, by watching the pros ride and then trying those things. That's what makes it fun. Don't make it a job. More often than not, you'll suck at the end of it.
+</p>
+
+<h3>2. Build Tools</h3>
+<p>
+	I made the mistake of assuming I knew everything about the language once I finished my guidebook. The reality was far from it. Language is just one little part of the puzzle of mastering any programming stack. There are many support tools that I didn't care to explore back then. For example, there's something called as a build tool.
+</p>
+<p>
+	In an organizational setting, you don't start a project by creating an <code>index.html</code> and then linking it with your <code>main.js</code>. Instead, you make use of build tools (See Webpack or Grunt) to compile your code into a form understood by new and old browsers alike, bundle all of your code together and make it production ready. A basic understanding of build tools will go a long way and come in handy when making your next hobby project shine.
+</p>
+
+<h3>3. Modularization</h3>
+<p>
+	Modularization, in simple English, means separating parts of your code that work similarly. Just like we sleep in our bedroom, bath in our bathroom and cook food in the kitchen, code the does similar things should be separated into different files and functions/classes. <code>fetch()</code> API calls in one file, little utility functions/hacks in another, DOM manipulation functions in another and event listeners separately. This is one of the many ways of doing it. See what works best for you. Remember that your frustration level two weeks later while finding a bug in your code is inversely proportional to the number of files and functions you separated your source code in.
+</p>
+<p>
+  The importance of modularization strikes only when you feel the pain in your back scrolling up and down and sideways finding a particular section of a function responsible for something. You'll have to take a leap of faith here to learn this lesson the easy way.
+</p>
+
+<h3>4. Consistency</h3>
+<p>
+	You don't have to be collaborating with other humans to follow this. Just pick up a code style and stick to it religiously (see <a href="https://github.com/airbnb/javascript">Airbnb's Javascript style guideline</a> for a starting point). You'd hate yourself if you open your code editor and find things like <code>varNames</code> and <code>var_names</code> mixed all over the place. This is not limited to just syntax or micro stuff. On a broader level, follow the same style for everything. If you return a Promise from an API service function, then stick to that style. Don't interchangeably return promises and data, for example. And don't mix imperative, object-oriented and functional coding styles randomly. Make conscious calls on what is right for the situation, and document appropriately.
+</p>
+
+<p>
+	The less you think about the language semantics, the more you can think about the problem you're trying to solve. And consistency will definitely reduce a lot of the unnecessary load of deciphering your own code.
+</p>
+
+<h3>5. Documentation</h3>
+<p>
+  Another task deserted of any love in the realms of software engineering. No one likes to document code, take it from me. But the difference between a rookie and a master is knowing when and why something must be done irrespective of his affection towards the job. Write comments, doc strings. Decorate your projects with nice READMEs and fancy "build passing" and "codecov" badges. No, you're not doing it for others. You're doing for yourself because you know it is right. You want to know your thought process two months later when you read the code to make some changes. It is like an <i>"enable time machine access to this point in time?"</i> button in your code, which you reply with a "deny" if you decide to not document your code.
+</p>
+
+<h3>6. Think, Think, Think And Then Write Code</h3>
+<p>
+	This is one of my personal favorites. I'll start coding 0.006 seconds  (number might be slightly inaccurate) after hearing the problem statement. Don't do this mistake. Don't fall for your heart saying it has understood it all. Your heart is wrong. Think about the problem. Confirm that you have understood the requirements correctly. Formalize the requirements in your mind, or better yet, in a Github issue or something. Come up with a naive approach to do it. See if you can optimize the code, think about space-time tradeoffs, think if you can use something like a hashmap etc. You'll be surprised how many better solutions you'll come up with after thinking about it for 10 minutes as opposed to jumping right into the code.
+</p>
+
+<h3>7. Tracking Your Project's Progress &amp; Version Control</h3>
+<p>
+	Use git, Github (or any other Git hosting). Use issues to write down what you plan to do for the next iteration. Use PR (pull request) feature to <i>fix</i> that issue. Write down if there were any caveats in the comments below the PR requests. Yes, do it even if you're the only person working on the project. It might seem unnecessary and tedious, but once you get the hang of it, your time will be much better utilized and progress much better tracked.
+</p>
+
+<h3>8. Automate Your Deployment</h3>
+<p>
+	I remember my workflow before starting work. Keep committing to the master branch and testing things out locally. And when things look decent enough, spin up a digital ocean droplet, clone the repository and start the development server there. That was my 'deployment'. If any changes need to be done, commit to master and push from local. Pull them on the server and restart development server.
+</p>
+<p>
+	Now that I know better, I not only make separate branches for each feature, I set up auto deployment on Heroku on particular branches (mostly master and staging/development). It's a one-click affair (assuming you followed the build tools part) and takes away a lot of hassles (and is free as well). Knowing the right tools can make a huge difference, as you just saw.
+</p>
+
+<h3>9. Unit Tests</h3>
+<p>
+	If you've ever worked on a non-trivial project (say around a thousand lines of code), you will recognize the tragedy when you modify your code while adding a new feature and accidentally break a lot of the old code which you realize later when things start going south at which point a lot of git-fu is required to get back to a safe point and not lose any newer work. Let me tell you something. It is all avoidable with simple unit and integration tests. Think of tests as employing a bunch of robots to look over your old code and point out when you're about to break your own (or someone else's) code.
+</p>
+
+<p>
+	It is very hard to convince yourself to write tests even after knowing the pluses, let alone without knowing them. But again, you'll have to take a leap of faith here. Or you can wait until someday while casually refactoring some code you mess something up which you realize only after three days with hours of debugging which could've been avoided by writing a simple test.
+</p>
+
+<h3>10. Use ES6</h3>
+<p>
+	This might be a no-brainer to most of you, but I still find people writing older Javascript syntax even though they know and understand the newer spec. With modern build tools and polyfills, most of the times not writing the latest spec syntax is just laziness. If you find yourself writing things the old way, force yourself to use the newer ways. They are there for a reason.
+</p>
+<p>
+  Let's be honest guys, Javascript is not the most <a href="https://www.destroyallsoftware.com/talks/wat">elegant language</a>. The older versions are riddled with bugs in the spec itself (see function scoping of <b>var</b>, the <b>this</b> keyword, double equals (==) comparison and automatic type coercion). The newer versions of the language are an attempt at fixing things and we should respect that, even if that means going out of your way to follow the newer semantics.
+</p>
+
+<h3>12. Understand What JS Is And What It Isn't</h3>
+<p>
+	Javascript, the core language, is actually a subset of the things we're used to of using in our everyday development on the frontend. The core language is relatively small and simple, but add DOM APIs to it, and suddenly it becomes something slightly bigger and a bit more complex. Javascript is single threaded but DOM APIs like fetch (or xhr) and setTimeout are asynchronous because of the <a href="https://www.youtube.com/watch?v=8aGhZQkoFbQ">browser's magic</a>. Learn to consciously differentiate between them as that will come in handy. As a general rule, DOM is very slow as compared to the Javascript language engine.
+</p>
+
+<h3>13. You Probably Don't Need That Framework</h3>
+<p>
+	This has been repeated enough that I could've skipped it, but I'll still put it out here. If you find yourself importing Lodash or Underscore for simple things like mapping, iterating over objects, filtering objects and things like that, consider looking for equivalent core Javascript alternatives. The latest ECMA spec adds a lot of helpful data structures and utility functions that make writing functional code very easy and pleasant.
+</p>
+
+<p>
+  Similarly, if you are planning to use ReactJS or Vue just because everyone seems to be talking about it, don't. Go read up their introduction and documentation and judge if your project fits the use case that particular framework is build for and the problem it is trying to solve. For learning purposes, you can consider using the frameworks for trivial apps, but for anything else, make decisions on a strictly use case basis.
+</p>
+
+<h3>14. Learn Basics Of CSS</h3>
+<p>
+	While the popular opinion still says that CSS is a pain in the back to master, I'd suggest learning almost 60-80% of it with maybe 20% of the efforts. No need to remember which browser supports what niche attribute. Just the important very-handy-in-real-life parts like flexbox, grids, box model, margins, paddings, positioning related, display related, floating related and so on. You will cover a lot with just these, and they come in super handy for personal projects. (Again) trust me.
+</p>
+
+<h3>15. Explore Web Workers/Service Workers</h3>
+<p>
+	What if I tell you, you can hijack API requests from your webapp and service them without making a roundtrip to the server? You'll say, if the request is serviceable on the frontend itself, why bother making an API call in the first place, and I make a poker face to that. Jokes aside, service workers enable you to handle network connectivity drops and provide a much smoother experience. You can save the data that a client wanted to send the server in the browser while offline and then replay those requests again when network connectivity is recovered.
+</p>
+
+<p>
+	Web workers allow your code to delegate work to another processing thread. This can be any type of work that you would want to unload off the main thread like heavy calculations etc.
+</p>
+
+<h3>16. Explore Browser-Side Databases</h3>
+<p>
+	There's localstorage, there's cache, there's indexDB. This is apart from the cookies and session headers. Basically, there is no shortage of storage options on the client side. Try and use these to cache and store data that need not be sent to the server, or maybe cache in case of uncertain network availability. With service workers and Cache, you can fine tune what gets cached and the behavior when a cache is hit or miss. You can even set up caching strategies with plain Javascript code logic.
+</p>
+<p>
+	There are wrappers such as PouchDB that can sync with the server side CouchDB and provide nice real-time syncing capabilities. Speaking of real-time, you might also want to check out <a href="https://firebase.google.com/">Firebase by Google</a>. I used to use it in the past and it was very easy to set up and work with.
+</p>
+
+<h3>17. Explore Progressive Web Apps</h3>
+<p>
+	Now you can make your website work offline too. Ever seen that "Add to homescreen" button on certain websites? When you add those websites to your homescreen, you can then open them like regular Android apps and if they're built that way, even use them offline (further reading: <a href="https://developers.google.com/web/progressive-web-apps/">developers.google.com/web/progressive-web-apps</a>).
+</p>
+
+<h3>In Closing</h3>
+<p>
+	I hope this article was useful. If you're a beginner with web engineering and have just finished learning the Javascript language, you might want to explore some of the above points in detail. I'm sure you'll have fun building your next awesome project using these guidelines.
+</p>
+
+<p>
+	Thank you for reading.
+</p>
