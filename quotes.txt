@@ -193,3 +193,4 @@ Winning is better than losing, but everyone loses when the war isn't one worth f
 "You only get one shot at life, which is scary. But it sets you free... If our life is all we get to experience, then it's the only thing that matters... If the universe has no purpose, then we get to dictate what that purpose is." — Kurzgesagt 
 Life is a pain, Highness. Anyone who says differently is selling something.
 "jo dikhta hai vohi bikta hai"
+Security isn't really sexy to most companies, so if it can be overlooked, it will be. Rotating token-based authentication isn't something most companies can put on a marketing brochure, so lots of product managers struggle to dedicate resources unless someone is pounding the table saying, "this shit is important."
