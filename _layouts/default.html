@@ -6,6 +6,7 @@
     <meta name="description" content="{{ site.meta_description}}" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <link href="/assets/css/syntax.css" rel="stylesheet">
     <link rel="manifest" href="/manifest.json">
     <link rel="alternate" type="application/rss+xml" title="Abhishek Nagekar's Blog" href="/feed.xml" />
     <title>
@@ -92,7 +93,7 @@
         color: #333;
       }
       code, pre {
-        background-color: #444;
+        background-color: #555;
         color: #fff;
         padding-right: 5px;
         padding-left: 5px;
@@ -126,6 +127,13 @@
         font-size: 18px;
         line-height: 1.6em;
         color: #333;
+      }
+      figure {
+        width: 100%;
+        margin: 0;
+      }
+      figure.highlight pre {
+        border-radius: 3px;
       }
       @media screen and (max-width:600px) {
         .pd {
