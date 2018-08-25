@@ -1,7 +1,7 @@
 title : Abhishek Nagekar's Blog
 name: Abhishek Nagekar
 description: 'Code, Science, Philosophy, Humor'
-meta_description: "Abhishek Nagekar's Blog"
+meta_description: "Abhishek Nagekar's Blog - Essays on programming, web engineering, security and sometimes life"
 
 markdown: kramdown
 highlighter: rouge
