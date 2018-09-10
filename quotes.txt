@@ -196,3 +196,4 @@ Life is a pain, Highness. Anyone who says differently is selling something.
 Security isn't really sexy to most companies, so if it can be overlooked, it will be. Rotating token-based authentication isn't something most companies can put on a marketing brochure, so lots of product managers struggle to dedicate resources unless someone is pounding the table saying, "this shit is important."
 None of us is as smart as all of us.
 If you start a startup, don't design your product to please VCs or potential acquirers. Design your product to please the users. If you win the users, everything else will follow. And if you don't, no one will care how comfortingly orthodox your technology choices were.
+Software is eating the world.
