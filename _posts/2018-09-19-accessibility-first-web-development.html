@@ -1,0 +1,70 @@
+---
+layout: post
+title: Accessibility-First Web Development
+tags:
+- web
+---
+
+<p>
+  When you zoom out a bit and think fundamentally, the web is just an input/output device for the end user. One can send and receive data and...umm? and that's basically all you can do over the internet. When you think about it this way, the web seems like a lab experiment that got out of hand.
+</p>
+<p>
+  Now when I, as a web engineer, think of what the web is, I find myself in midst of complex jargon, standards, protocols, incompatibility and all the bloat surrounding web development these days. But for the end user, it is simply an IO device and that is something we mustn't forget.
+</p>
+<figure>
+  <img src="/assets/images/ipad-stock.jpg"/>
+  <figcaption>https://www.pexels.com/photo/laptop-technology-ipad-tablet-35550/</figcaption>
+</figure>
+<p>
+  So if the web is fundamentally an IO device, shouldn't we spend some time figuring out how to engineer things on top of it such that they are accessible to as many people as possible. I think so, and that is what I've been learning about these days. Without a doubt, the entire software ecosystem is getting more and more complex by the second, the merits and demerits of which are arguable. It gives me immense joy to work on SPAs and PWAs as an engineer. But not every website has to be an SPA. Heck, not every website has to have AJAX or even jQuery. Using plain old <code>&lt;form action=""&gt;</code> does not make you ancient. It makes you more accessible to people who have Javascript disabled.
+</p>
+<p>
+  But don't stop there. Implement AJAX. Think about your use case and if it makes your or your visitors' life easy, go ahead and drop React or any other modern web framework. But do so progressively, making sure your webapp is 'functional' for someone on a 320px wide browser on a slow internet connection as well as for any visitor on the latest iPad and 4G.
+</p>
+
+<p>
+  Let's try to list down some tools and tricks we can keep in mind while developing our next web application to ensure that our web stays the medium it was meant to be; a library open to all, and not a shopping mall for the rich.
+</p>
+
+<h3>Progressive Enhancement</h3>
+<p>
+  <a href="https://en.wikipedia.org/wiki/Progressive_enhancement">Progressive Enhancement</a> is when you start developing a website with focus on core functionality and content accessible to as many users as possible, and then progressively keep on adding features for the modern browsers. That way, you satisfy the requirements <i>and</i> keep your site accessible. I suppose the only downside to this is that it will take more time to develop and build a web app this way, and I agree that time is usually the only commodity that startups and mid-sized companies don't have these days. But most websites are not startup products, they're information portals, personal blogs and wikis. No, I'm not discouraging startups from attempting progressive enhancement, but having worked at a lean-ish startup, I understand that this approach is not for everyone.
+</p>
+
+<h3>Speed</h3>
+<figure>
+  <img src="/assets/images/performance-nagekar.com.png"/>
+  <figcaption>Shameless self-promotion</figcaption>
+</figure>
+<p>
+  Your website has to be fast. It has been <a href="https://blog.codinghorror.com/performance-is-a-feature/">repeated by many industry veterans</a> so you don't have to believe me. We need to take pride not just in the way our websites look, but how quickly it loads. After all, we're engineers.
+</p>
+<p>
+  One approach to this is to understand exactly what is being made. A personal blog does not need analytics code. Static social buttons with hardcoded links are much faster (and better from your user's privacy perspective) than those dynamic ones. Use a CDN and <a href="/2018/08/https-by-default.html">HTTPS certificate</a>, both of which are free.
+</p>
+
+<h3>Mobile Responsiveness</h3>
+
+<p>
+  It really does not take much effort to make a website mobile responsive these days. Native CSS gives you enough tools to create nice grid layouts which respond to the different browser widths. I like to test my websites to a minimum of 320px, and have fixed max-width viewport (purely personal preference). Given the vastness of screen sizes these days, it helps me have a reasonable window for deciding how to collapse sections based on different widths. Responsive web design isn't easy, but not very difficult either. Recommended reading: <a href="https://abookapart.com/products/responsive-web-design">Responsive Web Design - Ethan Marcotte</a>
+</p>
+
+<h3>Content</h3>
+<figure>
+  <img src="/assets/images/news-website.png"/>
+  <figcaption>A major news outlet's homepage - how not to do it</figcaption>
+</figure>
+<p>
+  The content is the heart of your website, and it needs to be treated as such. Check out any popular Indian news website for guidelines on how <i>not</i> to place ads and prioritize content. If your website doesn't resemble that level of junk overload for the user, you're doing better than most.
+</p>
+
+<h3>Text &amp; Colors</h3>
+<p>
+  Text in lighter shades of gray on even lighter gray background look softer to eyes, but care must be taken not to overdo it. Remember that not everyone has a Retina or IPS display that you're using to develop your beautiful webapp. It happened with my in LaughGuru. At some places, the text on the design mockups was so contrast-less, I had to change the angle of my monitor just to be able to read it (I had an old 1024x1280 square TFT LCD display on my desk).
+</p>
+
+<h3>In Closing</h3>
+
+<p>
+  It is always nice to learn something new. I hope this learning continues, and I also hope you found some value in this article. Thank you for reading.
+</p>
