@@ -124,18 +124,18 @@ First they ignore you, then they laugh at you, then they fight you, then you win
 A man is but the product of his thoughts; what he thinks, he becomes.
 The best preparation for tomorrow is doing your best today. H. Jackson Brown, Jr.
 Let us sacrifice our today so that our children can have a better tomorrow. A. P. J. Abdul Kalam
-Nothing is impossible, the word itself says 'I'm possible'! 
-Put your heart, mind, and soul into even your smallest acts. This is the secret of success. 
-No act of kindness, no matter how small, is ever wasted. 
-Insanity: doing the same thing over and over again and expecting different results. 
-Try not to become a man of success, but rather try to become a man of value. 
-Life is like riding a bicycle. To keep your balance, you must keep moving. 
-We cannot solve our problems with the same thinking we used when we created them. 
-A person who never made a mistake never tried anything new. 
-There are two ways to live: you can live as if nothing is a miracle; you can live as if everything is a miracle. 
-I have decided to stick with love. Hate is too great a burden to bear. 
-Life's most persistent and urgent question is, 'What are you doing for others?' 
-Nothing in all the world is more dangerous than sincere ignorance and conscientious stupidity. 
+Nothing is impossible, the word itself says 'I'm possible'!
+Put your heart, mind, and soul into even your smallest acts. This is the secret of success.
+No act of kindness, no matter how small, is ever wasted.
+Insanity: doing the same thing over and over again and expecting different results.
+Try not to become a man of success, but rather try to become a man of value.
+Life is like riding a bicycle. To keep your balance, you must keep moving.
+We cannot solve our problems with the same thinking we used when we created them.
+A person who never made a mistake never tried anything new.
+There are two ways to live: you can live as if nothing is a miracle; you can live as if everything is a miracle.
+I have decided to stick with love. Hate is too great a burden to bear.
+Life's most persistent and urgent question is, 'What are you doing for others?'
+Nothing in all the world is more dangerous than sincere ignorance and conscientious stupidity.
 Where is the wisdom we have lost in knowledge? Where is the knowledge we have lost in information? — T.S. Eliot
 When the student is ready the teacher will appear. When the student is truly ready, the teacher will disappear. — Lao Tzu
 Inevitability Thinking is thinking and acting as if what you are doing is a forgone conclusion because you set up the conditions for it to happen. — Eban Pagan
@@ -190,7 +190,7 @@ I felt that I have been elevated to great spiritual and moral heights by communi
 Winning means being unafraid to lose.
 FOCUS - Follow One Course Until Successful
 Winning is better than losing, but everyone loses when the war isn't one worth fighting
-"You only get one shot at life, which is scary. But it sets you free... If our life is all we get to experience, then it's the only thing that matters... If the universe has no purpose, then we get to dictate what that purpose is." — Kurzgesagt 
+"You only get one shot at life, which is scary. But it sets you free... If our life is all we get to experience, then it's the only thing that matters... If the universe has no purpose, then we get to dictate what that purpose is." — Kurzgesagt
 Life is a pain, Highness. Anyone who says differently is selling something.
 "jo dikhta hai vohi bikta hai"
 Security isn't really sexy to most companies, so if it can be overlooked, it will be. Rotating token-based authentication isn't something most companies can put on a marketing brochure, so lots of product managers struggle to dedicate resources unless someone is pounding the table saying, "this shit is important."
@@ -198,3 +198,4 @@ None of us is as smart as all of us.
 If you start a startup, don't design your product to please VCs or potential acquirers. Design your product to please the users. If you win the users, everything else will follow. And if you don't, no one will care how comfortingly orthodox your technology choices were.
 Software is eating the world.
 "I, a universe of atoms. An atom in the universe"
+Growth mindset: Believing that you can get smarter with practice.
