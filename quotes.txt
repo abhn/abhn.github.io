@@ -199,3 +199,6 @@ If you start a startup, don't design your product to please VCs or potential acq
 Software is eating the world.
 "I, a universe of atoms. An atom in the universe"
 Growth mindset: Believing that you can get smarter with practice.
+"Ships don't sink because of the water around them; ships sink because of the water that gets in them. Don't let what's happening around you get inside you and weigh you down."
+"If you want to build a ship, don't drum up the men to gather wood, divide the work and give orders. Instead, teach them to yearn for the vast and endless sea."
+A society grows great when old men plant trees whose shade they know they shall never sit in
