@@ -211,3 +211,4 @@ The greatest of all weaknesses is the fear of appearing weak.
 Telling your boss “the cat ate my source code” just won’t cut it.
 The cross-pollination of ideas is important; try to apply the lessons you’ve learned to your current project.
 The best way to prevent mistakes is to anticipate them.
+Nothing is more dangerous than an idea if it’s the only one you have.
