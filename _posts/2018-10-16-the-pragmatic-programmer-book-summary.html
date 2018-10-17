@@ -1,0 +1,233 @@
+---
+layout: post
+title: The Pragmatic Programmer Book Summary
+tags:
+- books
+- programming
+---
+
+<p>
+  I completed reading 'The Pragmatic Programmer', probably one of the most recommended piece of literature on software engineering. I'll try to put down some of the quotes and my interpretation of them in the following paragraphs. I'll be coming back to this from time to time. Hope they help you in your next software project.
+</p>
+
+<h3>The Cat Ate My Source Code</h3>
+<blockquote>
+  The greatest of all weaknesses is the fear of appearing weak.
+</blockquote>
+<p>
+  Take responsibility for the code that you write and the decisions that you make, and when things go south, present options to recover from the mess instead of pointing fingers.
+</p>
+
+<h3>Software Entropy</h3>
+
+<blockquote>
+  When disorder increases in software, programmers call it "software rot."
+</blockquote>
+<p>
+  Active efforts have to be made to keep the disorder low and go against the nature's law (of ever-increasing entropy) to keep away from software rot.
+</p>
+<blockquote>
+  Don't Live with Broken Windows 
+</blockquote>
+<p>
+  Once there is a broken window in a building, there will be more broken windows. This is the <a href="https://en.wikipedia.org/wiki/Broken_windows_theory">broken windows theory</a>. Similarly, once a piece of sloppy code enters a codebase, it will attract more sloppiness. Don't be the one to introduce a broken window into your codebase and fix existing ones as soon as feasible.
+</p>
+
+<h3>Stone Soup and Boiled Frogs</h3>
+<blockquote>
+  The frog just doesn't notice the change. Don't be like the frog. Keep an eye on the big picture. Constantly review what's happening around you, not just what you personally are doing. 
+</blockquote>
+<p>  
+  If you throw a frog into boiling water, it will jump out at your face. But if you put the frog in cold water and boil it, it won't notice and get cooked to death. Good software projects die just like that, slowly, without anyone noticing.
+</p>
+
+<h3>Good-Enough Software</h3>
+<blockquote>
+  But artists will tell you that all the hard work is ruined if you don't know when to stop. If you add layer upon layer, detail over detail, the painting becomes lost in the paint. Don't spoil a perfectly good program by overembellishment and over-refinement. 
+</blockquote>
+<p>
+  Know when to stop refining a piece of software. Make tradeoffs if they improve the overall quality of your software.
+</p>
+
+<h3>Your Knowledge Portfolio</h3>
+<ul>
+  <li>Serious investors invest regularly—as a habit. </li>
+  <li>Diversification is the key to long-term success. </li>
+  <li>Smart investors balance their portfolios between conservative and high-risk, high-reward investments. </li>
+  <li>Investors try to buy low and sell high for maximum return. </li>
+  <li>Portfolios should be reviewed and rebalanced periodically. </li>
+</ul>
+<p>
+  Think about your knowledge portfolio as investors think about their investment portfolio.
+</p>
+
+<h3>Communicate!</h3>
+<blockquote>
+  It's not just what you've got, but also how you package it. Having the best ideas, the finest code, or the most pragmatic thinking is ultimately sterile unless you can communicate with other people. A good idea is an orphan without effective communication. 
+</blockquote>
+<p>
+  Learn to communicate with different kinds of people, technical and non-technical alike.
+</p>
+
+<h3>The Evils of Duplication</h3>
+<blockquote>
+  DRY (Don't Repeat Yourself) principle: EVERY PIECE OF KNOWLEDGE MUST HAVE A SINGLE, UNAMBIGUOUS, AUTHORITATIVE REPRESENTATION WITHIN A SYSTEM. 
+</blockquote>
+<p>
+  Documents are no exception. Don't duplicate business logic in code AND documentation. There should be one true source of knowledge (model) and the others should simply be views of that source.
+</p>
+
+<h3>Orthogonality</h3>
+<blockquote>
+  In computing, the term has come to signify a kind of independence or decoupling. Two or more things are orthogonal if changes in one do not affect any of the others. 
+</blockquote>
+<p>
+  The code you write has to be as decoupled from the rest of the project as possible. It makes bugs easier to find. There should never be overlapping functionality or duplicate code (also a violation of the DRY principle).
+</p>
+
+<h3>The Basic Tools</h3>
+<blockquote>
+  Every craftsman starts his or her journey with a basic set of good-quality tools. 
+</blockquote>
+<p>
+  Selecting a good set of tools can greatly improve your productivity and skills.
+</p>
+
+<h3>Source Code Control</h3>
+<blockquote>
+  Always Use Source Code Control 
+</blockquote>
+<p>
+  Even on single person projects that's never going to see the light of the sun.
+</p>
+
+<h3>Debugging</h3>
+<blockquote>
+  Embrace the fact that debugging is just problem solving, and attack it as such. 
+</blockquote>
+<blockquote>
+  The best way to start fixing a bug is to make it reproducible. After all, if you can't reproduce it, how will you know if it is ever fixed? 
+</blockquote>
+<blockquote>
+  "select" Isn't Broken 
+</blockquote>
+<p>
+  If you encounter a bug, always be suspicious of your own code. No, the compiler isn't broken and nor is the CPU. It is your code, fix it.
+</p>
+
+<h3>Pragmatic Paranoia</h3>
+<blockquote>
+  You Can't Write Perfect Software 
+</blockquote>
+<blockquote>
+  But Pragmatic Programmers take this a step further. They don't trust themselves, either. 
+</blockquote>
+<blockquote>
+  When everybody actually is out to get you, paranoia is just good thinking. 
+</blockquote>
+<p>
+  We overestimate our capabilities often. Most people think they're the best drivers out there. Pragmatic programmers understand that everyone, including themselves, make mistakes, and hence keep an eye out for bugs before they creep in.
+</p>
+
+<h3>Dead Programs Tell No Lies</h3>
+<blockquote>
+  When your code discovers that something that was supposed to be impossible just happened, your program is no longer viable. Anything it does from this point forward becomes suspect, so terminate it as soon as possible. A dead program normally does a lot less damage than a crippled one. 
+</blockquote>
+
+<h3>Assertive Programming</h3>
+<blockquote>
+  If It Can't Happen, Use Assertions to Ensure That It Won't 
+</blockquote>
+<blockquote>
+  Turning off assertions when you deliver a program to production is like crossing a high wire without a net because you once made it across in practice. There's dramatic value, but it's hard to get life insurance. 
+</blockquote>
+<p>
+  Always use assertions to make sure things are working well, even in situations when you're sure or things are 'obviously simple'. Detect early and abort.
+</p>
+
+<h3>When to Use Exceptions</h3>
+<blockquote>
+  "Will this code still run if I remove all the exception handlers?" If the answer is "no," then maybe exceptions are being used in nonexceptional circumstances. 
+</blockquote>
+<p>
+  Don't use exception for normal code flow control. Exceptions need to be reserved for 'exceptional' situations.
+</p>
+
+<h3>Decoupling and the Law of Demeter</h3>
+<blockquote>
+    Organize your code into cells (modules) and limit the interaction between them. If one module then gets compromised and has to be replaced, the other modules should be able to carry on. 
+</blockquote>
+
+<h3>Metaprogramming</h3>
+<blockquote>Configure, Don't Integrate</blockquote>
+<blockquote>Our goal is to think declaratively (specifying what is to be done, not how) and create highly dynamic and adaptable programs.</blockquote>
+<blockquote>Program for the general case, and put the specifics somewhere else—outside the compiled code base.</blockquote>
+<blockquote>Put Abstractions in Code, Details in Metadata</blockquote>
+<blockquote>Because business policy and rules are more likely to change than any other aspect of the project, it makes sense to maintain them in a very flexible format.</blockquote>
+
+<h3>It's Just a View</h3>
+<blockquote>The view is an interpretation of the model (perhaps a subset)—it doesn't need to be graphical.</blockquote>
+<blockquote>The controller is more of a coordination mechanism, and doesn't have to be related to any sort of input device.</blockquote>
+<p>
+  Understand what a view really is. Everything revolves around the models, and views are just different ways in which you can represent those models.
+</p>
+
+<h3>While You Are Coding</h3>
+<blockquote>However, good, safe drivers are constantly reviewing the situation, checking for potential problems, and putting themselves into good positions in case the unexpected happens. The same is true of coding—it may be largely routine, but keeping your wits about you could well prevent a disaster.</blockquote>
+
+<h3>Programming by Coincidence</h3>
+<blockquote>Fred doesn't know why the code is failing because he didn't know why it worked in the first place. </blockquote>
+<blockquote>If you don't have fundamentals or infrastructure correct, brilliant bells and whistles will be irrelevant. </blockquote>
+<p>
+  Program consciously. Write code thinking of it as an autonomous task once you have the business requirements and architecture clear is a mistake. There has to be equal involvement during programming.
+</p>
+
+<h3>Refactoring</h3>
+<blockquote>
+  Rather than construction, software is more like gardening—it is more organic than concrete. You plant many things in a garden according to an initial plan and conditions. Some thrive, others are destined to end up as compost. You may move plantings relative to each other to take advantage of the interplay of light and shadow, wind and rain. Overgrown plants get split or pruned, and colors that clash may get moved to more aesthetically pleasing locations. You pull weeds, and you fertilize plantings that are in need of some extra help. You constantly monitor the health of the garden, and make adjustments (to the soil, the plants, the layout) as needed. 
+</blockquote>
+<blockquote>
+  If it hurts now, but is going to hurt even more later, you might as well get it over with. 
+</blockquote>
+
+<h3>Code That's Easy to Test</h3>
+<blockquote>
+  All software you write will be tested—if not by you and your team, then by the eventual users—so you might as well plan on testing 
+</blockquote>
+
+<h3>The Requirements Pit</h3>
+<blockquote>Don't Gather Requirements—Dig for Them</blockquote>
+<blockquote>Work with a User to Think Like a User</blockquote>
+<blockquote>The key to managing growth of requirements is to point out each new feature's impact on the schedule to the project sponsors.</blockquote>
+
+<h3>Ubiquitous Automation</h3>
+<blockquote>Civilization advances by extending the number of important operations we can perform without thinking.</blockquote>
+<p>
+  Automate as much as you can.
+</p>
+
+<h3>Ruthless Testing</h3>
+<blockquote>
+  Most developers hate testing. They tend to test gently, subconsciously knowing where the code will break and avoiding the weak spots. Pragmatic Programmers are different. We are driven to find our bugs now, so we don't have to endure the shame of others finding our bugs later.
+</blockquote>
+<blockquote>
+  Test State Coverage, Not Code Coverage
+</blockquote>
+
+<h3>It's All Writing</h3>
+<blockquote>
+  One of the most important pieces of information that should appear in the source file is the author's name—not necessarily who edited the file last, but the owner. 
+</blockquote>
+
+<h3>Pride and Prejudice</h3>
+<blockquote>
+  We want to see pride of ownership. "I wrote this, and I stand behind my work." Your signature should come to be recognized as an indicator of quality. People should see your name on a piece of code and expect it to be solid, well written, tested, and documented. A really professional job. Written by a real professional. A Pragmatic Programmer. 
+</blockquote>
+<p>
+  Take pride in your work. Don't just assume it will be a small cog in the big wheel and use that as an excuse to write sloppy code.
+</p>
+
+<h3>In Closing</h3>
+<p>
+  That's all. There's a lot more in the book, the stories and the experiences. I highly recommend you give it a try if your day job involves writing computer code. Thanks for reading.
+</p>
