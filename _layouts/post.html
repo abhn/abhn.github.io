@@ -20,7 +20,7 @@ post_class: post-template
   </header>
 </header>
 
-<hr/>
+<hr class="stylish" />
 
 <main role="main">
 
@@ -32,17 +32,20 @@ post_class: post-template
 
         <br/>
 
-        <footer>
-            <section class="pagination">
-              {% if page.previous.url %}
-                <a class="prev" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
-              {% endif %}
-              {% if page.next.url %}
-                <a class="next" href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
-              {% endif %}
-            </section>
+        {% include featured.html %}
 
-        </footer>
+        <br/>
+
+        <section class="pagination">
+          {% if page.previous.url %}
+            <a class="prev" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
+          {% endif %}
+          {% if page.next.url %}
+            <a class="next" href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
+          {% endif %}
+        </section>
+
+        <br/>
 
     </article>
 

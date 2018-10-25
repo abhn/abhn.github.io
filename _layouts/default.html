@@ -16,6 +16,10 @@
     </title>
 
     <style type="text/css">
+      body{
+        font-size: 16px;
+        font-family: Arial, Helvetica, sans-serif;
+      }
       pre{
         white-space:pre-wrap;
         word-wrap:break-word;
@@ -38,7 +42,7 @@
       .parent div {
         display:flex;
         padding-bottom: 0.5em;
-        font-size: 18px;
+        font-size: 1.125rem;
       }
       .np {
         display:flex;
@@ -65,14 +69,11 @@
         clear:both;
         display:block
       }
-      body{
-        font-family: Arial, Helvetica, sans-serif
-      }
       blockquote{
         margin:0;
         padding: 1em;
         border-left: 5px solid black;
-        font-size: 18px;
+        font-size: 1.125rem;
         line-height: 1.6em;
         color: #333;
       }
@@ -86,7 +87,7 @@
         text-transform: capitalize;
       }
       p {
-        font-size: 18px;
+        font-size: 1.125rem;
         line-height: 1.6em;
         color: #333;
       }
@@ -122,7 +123,7 @@
         margin: 10px auto;
       }
       li {
-        font-size: 18px;
+        font-size: 1.125rem;
         line-height: 1.6em;
         color: #333;
       }
@@ -135,6 +136,11 @@
       }
       figcaption {
         text-align: center;
+      }
+      hr.stylish { 
+        border: 0; 
+        height: 1px; 
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.90), rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0)); 
       }
       @media screen and (max-width:600px) {
         .pd {
@@ -158,11 +164,11 @@
 
     {% include nav.html %}
 
-    <hr/>
+    <hr class="stylish"/>
 
     {{ content }}
 
-    <hr/>
+    <hr class="stylish"/>
 
     <footer>
 
