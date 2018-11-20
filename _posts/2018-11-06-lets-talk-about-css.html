@@ -1,0 +1,91 @@
+---
+layout: post
+title: Let's Talk About CSS
+tags:
+- web
+- css
+---
+
+<p>
+    CSS can be deceptively complex. And to most programmers, rightly so. We programmers tend to find patterns that help us relate the new information to what already exists within us, draw parallels and think of real world analogies. That is one reason learning your second or third programming language is much faster than learning the first if they share some paradigms. But with CSS, many of us have a memorize-first approach. While it works, it is more fun (and easier to debug) if we understands a little bit of the under-the-hood stuff.
+</p>
+
+<p>
+    In this post, let's try to demystify some of the aspects of CSS that we as engineers should've asked when we got started with CSS. Better late than never, right? 
+</p>
+
+<h3>Understanding The Browser</h3>
+
+<p>
+    Starting with something basic: When you request a webpage, and it is downloaded to your system (computer, mobile phone etc), it is in the form of HTML code (at the application layer, that is). The browser then parses the html, line by line, downloading any external resources that it finds with separate HTTP requests. The HTML that is parsed is structured as a <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model/Introduction">DOM</a> tree, which can be thought of like a family tree, but with HTML elements. DOM defines the structure of the page; what goes where and what information does each node have.
+</p>
+
+<p>
+    On the side, the browser (in that, the rendering engine) is also processing the CSS files. CSS files are processed, and then styles for each node (HTML element, that is) is calculated, and applied to that node. The end result is 'painted' and rendered to the client's screen.
+</p>
+<p>
+    So as you can tell, it is pretty straightforward. What's interesting is the process of calculating the styles to be applied to each node, and that's what we'll be talking about for the rest of this article.
+</p>
+
+<h3>CSS Parsing</h3>
+
+<p>
+    There are a couple of challenges when deciding what style applies to a particular element. 
+    <ul>
+        <li>The engine has to first parse the CSS and get all the values for each property.</li>
+        <li>Then the engine has to decide what set of properties get applied to each element depending upon the specificity of the selectors, inherited and default values (since each element may have multiple rules that seem to style it).</li>
+        <li>Then the selected styles are converted into pixel values (we may have used rems, ems, percentages or vh/vw in our CSS code) as that's what browsers understand.</li>
+    </ul>
+</p>
+
+<p>
+    In particular, the CSS engine looks for the following when dealing with a style and deciding if it really applies to a given node. 
+</p>
+
+<h4>!important</h4>
+<p>
+    If a property has <code>!important</code> in the value, it is immediately selected for the final processing irrespective of the specificity and code order.
+</p>
+
+<h4>Specificity</h4>
+<p>
+    To put it simply, specificity deals with how 'specific' is the selector (based on concrete rules). For example, if you have some list-items, each with a class selector and CSS <code>background-color: red;</code> and one of them also has an ID selector with the CSS <code>background-color: green;</code>, then which background-color do you think gets applied to that particular list-item? It is the style in the ID selector. 
+</p>
+
+<p>
+    Similarly, if the ID selected list-item had an inline style, the inline style would take precedence. Formally the hierarchy is
+</p>
+<pre>Inline style > ID selector > Class selector > Element selector</pre> 
+<p>
+    Browsers maintain an internal tuple of the form (0,0,0,0) representing the counts of each selector hierarchy viz. (inline-style, ID, class, element). For the selector <code>h1.heading#top-heading</code>, the tuple will look like (0,1,1,1), that is, one for ID, one for class and the last for element selector. 
+</p>
+<p>
+    Suppose you had another selector <code>h1.heading#top-heading#blue-color</code>. Now the tuple for this would look like (0,2,1,1) as there are two ID selectors. If the browser had to choose between the former and this, it would choose this one as it has a higher specificity.
+</p>
+
+
+<h4>Source Order</h4>
+<p>
+    Now what happens if specificity of two selectors match? Simple, the last selector in the source code (even in case of multiple files) gets selected for application.
+</p>
+
+<h4>Cascade</h4>
+<blockquote>
+    Cascade (n): A process whereby something, typically information or knowledge, is successively passed on.
+</blockquote>
+<p>
+    The term Cascading in <i>Cascading Style Sheets</i> says something about the priority scheme that's used to determine what style gets applied to an element when multiple rules match. In simpler words, if body has <code>font-family: Arial;</code> specified and the h1 has <code>font-family: Helvetica;</code>, Helvetica gets applied to the h1. However, if font-family on h1 wasn't explicitly declared, Arial would've been selected by inheritance. <b>This is how inheritance works in CSS.</b>
+</p>
+
+<p>
+    Not every property is inherited. And it doesn't make a lot of sense to inherit everything either. For example, setting <code>margin: 0 10px;</code> on body doesn't automatically apply it to every child of body which doesn't have an explicitly declared margin property. The ones which don't have an explicitly declared margin get a default margin of 0px. <b>This is how default properties work in CSS.</b>
+</p>
+
+<p>
+    The obvious followup question is, how to tell if something will be inherited or default value will be selected? Honestly, I'm not sure. I usually just ask myself if it makes sense to have this property inherited or defaulted. More often than not, that's enough. In case you'd want to explicitly make a property to inherit or default a value, use <code>inherit</code> and <code>initial</code> keyword respectively.
+</p>
+
+<h3>In Closing</h3>
+<p>
+    That's it for this little primer. I hope you found it useful. For a nice illustrated guide on this, check out <a href="https://hacks.mozilla.org/2017/08/inside-a-super-fast-css-engine-quantum-css-aka-stylo/">this article on Mozilla</a>. Thank you for reading.
+</p>
