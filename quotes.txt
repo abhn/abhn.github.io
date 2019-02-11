@@ -226,4 +226,5 @@ Don't ruin a Tuesday wishing it was Friday.
 Saying 'what kind of an idiot doesn't know about the Yellowstone supervolcano' is so much more boring than telling someone about the Yellowstone supervolcano for the first time.
 The art of maximizing the amount of work not done--is essential
 A complex system that works is invariably found to have evolved from a simple system that worked. A complex system designed from scratch never works and cannot be patched up to make it work. You have to start over, beginning with a working simple system.
+You never know when the next person who starts just fixing a misspelling in the documentation ends up implementing the next great feature. But you stand a chance to find out if you smile and say thank you for whatever small contribution that gets the motivation flowing.
 
