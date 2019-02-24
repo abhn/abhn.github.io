@@ -1,0 +1,71 @@
+---
+layout: post
+title: Doing More With Jekyll - CloudCannon And Netlify
+tags:
+- web
+---
+
+<p>
+  I've been using Jekyll for the past couple of years now. I started this blog on <a href="https://ghost.org/">Ghost</a>, but soon <a href="/2014/07/ghost-vs-blogger-view.html">moved it to Blogger</a>. Later, I discovered that I could simply use <a href="https://pages.github.com/">Github Pages</a> for hosting my static site. For someone coming from shared PHP based hostings like 000webhost and what not, this was unreal. I <a href="https://www.nagekar.com/2015/07/blog-moved-to-github.html">moved to Github Pages</a> and have been using Jekyll since then. 
+</p>
+<p>
+  I always liked Jekyll for the simplicity, no-nonsense setup and complete control over what gets served to the visitors. Plus given the nice Github integration, no sysadmin and total control over the content, it is just perfect for personal blogging and simple static sites.
+</p>
+
+<p>
+  But what I recently learned was that the land of static sites isn't all dry. There are some nice tools that one can use to enhance their experience with Jekyll. In this article, I'll be talking about two such tools that I discovered recently and found interesting: CloudCannon CMS and Netlify's Split Testing
+</p>
+
+<h3>CloudCannon</h3>
+<p>
+  CloudCannon is an online CMS for Jekyll sites. If you have ever used a CMS like Wordpress or Joomla, CloudCannon would feel right home. If not, think of it like having a Google Docs-like interface for editing your site (as opposed to writing HTML or Markdown). It is more limited than your traditional CMSs in the sense that you cannot install plugins or change the appearance of your site from the panel (you can, but then you'll have to code that logic yourself into the app and use flags in the frontmatter to selectively display component). But again, since you're using a static site generator, you probably don't plan on having a lot of plugins anyway.
+</p>
+<figure>
+  <img src="/assets/images/cloud-cannon-home.png"/>
+  <figcaption>CloudCannon home</figcaption>
+</figure>
+<p>
+  The interface is simple. You get a WYSIWYG editor, and a sidebar with all the frontmatter fields. Interestingly, you can name the frontmatter fields in a way that CloudCannon recognizes to get more from the CMS. For example, if your field name ends in <code>_html</code>, CloudCannon will make it a WYSIWYG field. Same goes for <code>_time</code>, <code>_image</code> and many others (find them in the <a href="https://docs.cloudcannon.com/editing/interfaces/inputs/">docs</a>).
+</p>
+<figure>
+  <img src="/assets/images/cloud-cannon-content.png"/>
+  <figcaption>Post content view with frontmatter variables in sidebar</figcaption>
+</figure>
+<figure>
+  <img src="/assets/images/cloud-cannon-source.png"/>
+  <figcaption>Post source view</figcaption>
+</figure>
+<p>
+  The advanced configuration options includes free SSL, CDN, hosting, backups and authentication. You might not need it (I use Cloudflare which gives free SSL and CDN, and Github for hosting and backups), but good to have. One complaint I had with CloudCannon was that if a site build failed, CloudCannon wouldn't abort the deploy. It will deploy the failed build and your site would go offline until you revert. I just hope there's a setting for that somewhere, but that it isn't turned on by default is worrying enough. So for now, I'd rather just use CloudCannon for CMS and host my site someplace else.
+</p>
+
+<p>
+  CloudCannon is free for single user sites and syncs well with Github. It sits in a sweet spot between a bloated CMS and simplistic static site generator, and enhances your productivity as a content creator while letting you keep all the control over what gets served to your readers.
+</p>
+
+<h3>Netlify - Split Testing</h3>
+<p>
+  Netlify is a static site hosting service. I like it because of the few but very useful tools they provide. You can host your Jekyll site on Netlify, and it supports Node and Ruby-based build tools (so you can use grunt/webpack for your SPA apps). For quickly hosting a nice website with some frontend framework (say a ReactJS app), Netlify is great (although I've seen it used in production as well).
+</p>
+<p>
+  Netlify provides a rich set of configuration options, including functions, forms and authentication mechanisms. What I really found interesting was their split-testing beta feature. So what is split or A/B testing, you might ask?
+</p>
+<p>
+  If you want to test two versions of your website and see which one do your users prefer (in terms of a goal that can be anything like time spent on your website or product sales), A/B testing can be a good way to do it statistically.
+</p>
+<figure>
+  <img src="/assets/images/netlify-split.png"/>
+  <figcaption>Netlify Split Testing</figcaption>
+</figure>
+<p>
+  In a nutshell, you create different branches with different code and then use a nice slider to adjust the percentage of traffic that would go to each branch. This feature is still in beta, and the split test turns itself off whenever any branch is pushed (which, I was told, is a known bug). A cookie gets set on the client side which can tell you what variant it is, so you can bake some logic around that to get stats and such.
+</p>
+
+<h3>In closing</h3>
+<p>
+  I was pretty excited to find these interesting tools built around our humble Jekyll. If you are a Jekyll user, I'd love to hear about your workflows. I'm planning to bake a little asset pipeline on my blog soon, so any tips for that are welcome!
+</p>
+
+<p>
+  Thank you for reading.
+</p>
