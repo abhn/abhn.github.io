@@ -6,18 +6,61 @@ about: 'about.html'
 ---
 
 <header>
-    <h3>{{ site.name }}</h3>
+  <h3>{{ site.name }}</h3>
 </header>
 
 <hr class="stylish"/>
 
- <main class="parent">
-    {% for post in site.posts %}
-        <div>
-            <div class="pd">{{ post.date | date: "%m/%Y" }}</div>
-            <a class="pl" href="{{ post.url }}">
-                {{ post.title }}
-            </a>
-        </div>
+<section id="introduction">
+  <!-- graphic with me, and a one liner, maybe some  -->
+</section>
+
+{% if site.snippets.size > 0 %}
+<section id="snippets">
+  <h3>Snippets</h3>
+  <main class="parent">
+    {% for post in site.snippets %}
+      <div>
+        <div class="pd">{{ post.date | date: "%m/%Y" }}</div>
+        <a class="pl" href="{{ post.url }}">
+          {{ post.title }}
+        </a>
+      </div>
     {% endfor %}
-</main>
+  </main>
+</section>
+{% endif %}
+
+{% if site.doodles.size > 0 %}
+<section id="art">
+  <h3>Doodles</h3>
+  <main class="parent">
+    {% for doodle in site.doodles %}
+    <div>
+      <div class="pd">{{ doodle.date | date: "%m/%Y" }}</div>
+      <a class="pl" href="{{ doodle.url }}">
+        {{ doodle.title }}
+      </a>
+    </div>
+    {% endfor %}
+  </main>
+</section>
+{% endif %}
+
+{% if site.posts.size > 0 %}
+<section id="posts">
+  <h3>Essays</h3>
+  <main class="parent">
+    {% for post in site.posts %}
+      <div>
+        <div class="pd">{{ post.date | date: "%m/%Y" }}</div>
+        <a class="pl" href="{{ post.url }}">
+          {{ post.title }}
+        </a>
+      </div>
+    {% endfor %}
+  </main>
+</section>
+{% endif %}
+
+

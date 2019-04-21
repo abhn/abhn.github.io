@@ -15,3 +15,15 @@ plugins: [jekyll-paginate]
 url:            'https://www.nagekar.com'
 
 permalink: /:categories/:year/:month/:title.html
+
+collections:
+  snippets:
+    output: true
+    permalink: /snippets/:path
+  doodles:
+    output: true
+    permalink: /doodles/:path
+
+sass:
+  style: compressed
+  sass_dir: _sass
