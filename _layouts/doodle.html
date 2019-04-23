@@ -1,0 +1,10 @@
+---
+layout: post
+---
+
+{% for doodle in page.doodles %}
+  <figure>
+    <img src={{ doodle.img }} />
+    <figcaption>{{ doodle.caption }}</figcaption>
+  </figure>
+{% endfor %}

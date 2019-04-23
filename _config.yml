@@ -19,10 +19,10 @@ permalink: /:categories/:year/:month/:title.html
 collections:
   snippets:
     output: true
-    permalink: /snippets/:path
+    permalink: /snippets/:title.html
   doodles:
     output: true
-    permalink: /doodles/:path
+    permalink: /doodles/:title.html
 
 sass:
   style: compressed

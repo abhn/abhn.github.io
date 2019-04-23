@@ -11,13 +11,9 @@ about: 'about.html'
 
 <hr class="stylish"/>
 
-<section id="introduction">
-  <!-- graphic with me, and a one liner, maybe some  -->
-</section>
-
 {% if site.snippets.size > 0 %}
 <section id="snippets">
-  <h3>Snippets</h3>
+  <h3 class="home-page-heading">Snippets</h3>
   <main class="parent">
     {% for post in site.snippets %}
       <div>
@@ -33,7 +29,7 @@ about: 'about.html'
 
 {% if site.doodles.size > 0 %}
 <section id="art">
-  <h3>Doodles</h3>
+  <h3 class="home-page-heading">Doodles</h3>
   <main class="parent">
     {% for doodle in site.doodles %}
     <div>
@@ -49,7 +45,7 @@ about: 'about.html'
 
 {% if site.posts.size > 0 %}
 <section id="posts">
-  <h3>Essays</h3>
+  <h3 class="home-page-heading">Essays</h3>
   <main class="parent">
     {% for post in site.posts %}
       <div>
