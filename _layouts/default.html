@@ -16,13 +16,15 @@
     {{ page.title }} &middot; {{ site.title }}
     {% endif %}
   </title>
-
+  <script src="https://cdn.jsdelivr.net/algoliasearch/3/algoliasearchLite.min.js"></script>
 </head>
 <body>
 
 <div class="container">
 
   {% include nav.html %}
+
+  {% include search.html %}
 
   <hr class="stylish"/>
 
