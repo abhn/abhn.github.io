@@ -29,5 +29,11 @@ body.dark  {
   hr.stylish {
     background-image: linear-gradient(to right, rgba(255, 255, 255, 0.90), rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0));
   }
-
+  input {
+    background-color: rgb(26, 26, 26);
+    color: rgb(191, 191, 191);
+  }
+  input::placeholder {
+    color: rgb(191, 191, 191);
+  }
 }
