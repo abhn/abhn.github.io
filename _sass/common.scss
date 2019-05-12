@@ -15,7 +15,7 @@ body {
   display: flex;
   flex-direction: column;
   max-width: 700px;
-  margin: 0 auto;
+  margin: 8px auto;
 }
 
 pre {
@@ -183,6 +183,18 @@ hr.stylish {
   height: 1px;
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.90), rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0));
   margin: 5px 0;
+}
+
+.ais-Highlight {
+  background-color: yellow;
+}
+
+.search-list-item, .search-label {
+  font-size: 1.125em;
+}
+
+.search-wrapper {
+  margin: 8px 0;
 }
 
 // media queries

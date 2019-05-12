@@ -27,3 +27,7 @@ collections:
 sass:
   style: compressed
   sass_dir: _sass
+
+algolia:
+  application_id: D5RKJYMID4
+  index_name: abhnblog # You can replace that with whatever name you want
