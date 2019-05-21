@@ -1,0 +1,83 @@
+---
+layout: post
+title: Search On Jekyll Blogs
+tags:
+- jekyll
+- web
+---
+
+<p>
+  Static site generators are great. No fuss, pure purpose. I use Jekyll because that's what Github supports the best. But these days, with services like Netlify, you have many options. <a href="https://www.staticgen.com/">This site</a> aggregates the top ones, so give it a look if you're planning on setting up one for yourself.
+</p>
+<figure>
+  <img src="/assets/images/staticgen.com.png"/>
+  <figcaption>staticgen.com is a nice website to find a static site generator right for you</figcaption>
+</figure>
+<p>
+  One thing that's tricky with static site generators is search functionality. Since there's no backend, whatever you plan on searching has to be generated the same way other content is. Often, that means iterating over all posts and creating a json file which you can fetch in the frontend and do offline search.
+</p>
+
+<p>
+  While that works, it doesn't give you full content search (if you include content in that json blob, it will grow in size and get slower with each new post). But full content search is exactly what you need at times. I needed content search, and I spent sometime researching the options that exist. Below, I'll list a couple of them, not necessarily only the ones that offer full content search but each suited to some specific use case.
+</p>
+
+<h3>Netlify Functions</h3>
+<p>
+  Netlify has managed cloud functions thingy <i>(serverless)</i> and it works on top of AWS Lambda. It is very simple to write a function with netlify, and when you push your code, the functions are deployed as well. It comes with a free tier which runs on a 128mb instance. Pretty low, and would time out in 10 seconds if you give it a lot of work. 
+</p>
+
+<p>
+  Netlify picks functions from a directory and pushes them to aws internally. Now, we need our json file to be present in Netlify lambdas directory before the push happens. We can make use of a simple node module <a href="https://github.com/jxson/front-matter">Front Matter</a> that would take our <code>_posts</code> directory and return a nice json with frontmatter and body parsed. Then we take this json and write it to a file which we can then import from our lambda function.
+</p>
+<script src="https://gist.github.com/abhn/739b0e4fb4555c8971e04f00ed75c247.js"></script>
+<p>
+  Now, for the search function, we can use something like <a href="https://github.com/nextapps-de/flexsearch">FlexSearch</a> that does offline searching. Just that we'll use it in the lambda.
+</p>
+<script src="https://gist.github.com/abhn/f21ca434754a364451060fe16dca0efc.js"></script>
+<p>
+  And you should update your build command in netlify's <code>netlify.toml</code> file (or web interface) to run the node script before the jekyll build step.
+</p>
+<pre>
+  $ npm run create-json && jekyll build
+</pre>
+<p>
+  Keep in mind that the free tier is very low-duty. Try to strip down content by filtering <a href="https://en.wikipedia.org/wiki/Stop_words">stopwords</a> and doing other optimizations. 
+</p>
+<p>
+  On the frontend, you make a GET request with query parameter <i>q</i> to this endpoint like you would with a regular backend search.
+</p>
+
+<h3>Algolia (or any search as a service)</h3>
+<p>
+  I'd start with stating why Algolia didn't fit very well for my use case. Their record (think each individual post text plus metadata) size limit is 10kb, so if your content is frequently more than that, and you want it to be searchable, Algolia might not be the best for you. But if you don't need full content search, or if you write little posts that are usually less than 10kb, it might be a good option to look into. 
+</p>
+<p>
+  Essentially, you create a searchable index on Algolia (simply upload a json file or use their <code>jekyll-algolia</code> gem), and use their client side libraries to query this index. They have a nice and simple web interface to do it manually or just use a script to automate it via their APIs.  
+</p>
+<p>
+  Like mentioned before, you can implement a two step deploy process to Algolia that removes stopwords and duplicate words from the text before pushing the index. That way you can still fit the record in 10kb.
+</p>
+
+<h3>AWS Lambda</h3>
+<p>
+  Netlify search uses AWS Lambda internally, but netlify only offers a couple of tiers ($0, $25 and a custom plan for $500 paying customers). On the other hand, AWS has a wide variety of lambda instance sizes and charge per usage which makes it super cheap.
+</p>
+<p>
+  What you lose in this case (compared to Netlify functions) is that you have to set up the CI pipeline yourself from scratch. So no automated pushing of the functions along with your static site. If you have a lot of searches, or heavy search queries, AWS Lambda is the way to go. For very simple and light weight use cases, Netlify isn't a bad choice. Note that Netlify also deploys to AWS, so your function will work on either service with little to no modifications.
+</p>
+
+<h3>ElasticSearch</h3>
+<p>
+  This is a complex solution when compared to the others on this list. Essentially you create a simple app on, say Heroku with a simple GET and POST interface. You can pair this app with a free <a href="https://app.bonsai.io/signup">Bonsai ElasticSearch</a> instance. The POST will push data to this instance and GET will fetch search results. 
+</p>
+<p>
+  The middleware Heroku app is to simple prevent our Bonsai credentials from getting into the wild. I didn't think this was a good solution for simple use cases because of the maintenance factor. The reason we use Jekyll (or any static site generator) is to keep things simple, and this search solution is hard to sell to people like us. 
+</p>
+
+<h3>In closing</h3>
+<p>
+  As I found out, there are many ways of implementing a good search feature on a Jekyll (or any statically generated site). I've left out details of the implementation as I couldn't find time to do so but what I learned was that just knowing that these options exist helps a lot. So the next time I'm thinking, "hmm, I'd like to have a search here, but not sure how to handle the logistics that come with it", I'd already have a few options!
+</p>
+<p>
+  Thank you for reading.
+</p>
