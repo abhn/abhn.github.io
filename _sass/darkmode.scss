@@ -3,7 +3,11 @@ body.dark  {
   color: rgb(191, 191, 191);
 
   a {
-    color: rgb(140,140,250);
+    color: rgb(191, 191, 191);
+  }
+  a:hover {
+    background-color: rgb(191, 191, 191);
+    color: rgb(26, 26, 26);
   }
   p {
     color: rgb(191, 191, 191);

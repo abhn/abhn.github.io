@@ -39,6 +39,15 @@ footer {
   flex-shrink: 0;
 }
 
+a {
+  color: #333;
+}
+
+a:hover {
+  background-color: #333;
+  color: #eee;
+}
+
 *,iframe,img,video{
   word-wrap: break-word;
   max-width:100%
@@ -69,15 +78,19 @@ footer {
 }
 
 .prev {
-  width:50%;
+  max-width:50%;
   float:left;
   text-align:left
 }
 
 .next {
-  width:50%;
+  max-width:50%;
   float:right;
   text-align:right
+}
+
+.pagination {
+  font-size: 1.25rem;
 }
 
 .pagination::after {
