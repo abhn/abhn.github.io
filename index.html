@@ -15,7 +15,7 @@ about: 'about.html'
 <section id="snippets">
   <h3 class="home-page-heading">Snippets</h3>
   <main class="parent">
-    {% for post in site.snippets %}
+    {% for post in site.snippets reversed %}
       <div>
         <div class="pd">{{ post.date | date: "%m/%Y" }}</div>
         <a class="pl" href="{{ post.url }}">
@@ -31,7 +31,7 @@ about: 'about.html'
 <section id="art">
   <h3 class="home-page-heading">Doodles</h3>
   <main class="parent">
-    {% for doodle in site.doodles %}
+    {% for doodle in site.doodles reversed %}
     <div>
       <div class="pd">{{ doodle.date | date: "%m/%Y" }}</div>
       <a class="pl" href="{{ doodle.url }}">
