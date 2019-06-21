@@ -14,7 +14,7 @@ about: 'about.html'
 {% if site.snippets.size > 0 %}
 <section id="snippets">
   <h3 class="home-page-heading">Snippets</h3>
-  <main class="parent">
+  <div class="parent">
     {% for post in site.snippets reversed %}
       <div>
         <div class="pd">{{ post.date | date: "%m/%Y" }}</div>
@@ -23,14 +23,14 @@ about: 'about.html'
         </a>
       </div>
     {% endfor %}
-  </main>
+    </div>
 </section>
 {% endif %}
 
 {% if site.doodles.size > 0 %}
 <section id="art">
   <h3 class="home-page-heading">Doodles</h3>
-  <main class="parent">
+  <div class="parent">
     {% for doodle in site.doodles reversed %}
     <div>
       <div class="pd">{{ doodle.date | date: "%m/%Y" }}</div>
@@ -39,14 +39,14 @@ about: 'about.html'
       </a>
     </div>
     {% endfor %}
-  </main>
+  </div>
 </section>
 {% endif %}
 
 {% if site.posts.size > 0 %}
 <section id="posts">
   <h3 class="home-page-heading">Essays</h3>
-  <main class="parent">
+  <div class="parent">
     {% for post in site.posts %}
       <div>
         <div class="pd">{{ post.date | date: "%m/%Y" }}</div>
@@ -55,7 +55,7 @@ about: 'about.html'
         </a>
       </div>
     {% endfor %}
-  </main>
+    </div>
 </section>
 {% endif %}
 
