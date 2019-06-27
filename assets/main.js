@@ -6,9 +6,11 @@ document.addEventListener("DOMContentLoaded", event => {
 });
 
 const init = () => {
-  const darkSwitch = document.getElementById('dark-light-switch');
-  darkSwitch.innerHTML = getCookie('nightMode') ? light : dark;
-  darkSwitch.addEventListener('click', handleNightModeToggle);
+  const darkSwitchesArray = document.querySelectorAll('.dark-light-switch');
+  darkSwitchesArray.forEach(darkSwitch => {
+    darkSwitch.innerHTML = getCookie('nightMode') ? light : dark;
+    darkSwitch.addEventListener('click', handleNightModeToggle);
+  });
   const searchInput = document.getElementById('search-field');
   searchInput.addEventListener('change', searchHandler);
   searchInput.addEventListener('keyup', searchHandler);
@@ -31,8 +33,10 @@ const handleNightModeToggle = () => {
 }
 
 const toggle = () => {
-  const darkSwitch = document.getElementById('dark-light-switch');
-  darkSwitch.innerHTML = getCookie('nightMode') ? light : dark;
+  const darkSwitchesArray = document.querySelectorAll('.dark-light-switch');
+  darkSwitchesArray.forEach(darkSwitch => {
+    darkSwitch.innerHTML = getCookie('nightMode') ? light : dark;
+  })
   document.body.classList.toggle('dark');
 }
 
