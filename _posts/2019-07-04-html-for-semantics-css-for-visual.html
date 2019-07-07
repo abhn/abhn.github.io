@@ -1,0 +1,66 @@
+---
+layout: post
+title: HTML For Semantics, CSS For Visual
+tags:
+- web
+- html
+- css
+---
+
+<p>
+  The best way to learn is to teach, they say. I totally agree, and that's one reason I have so many articles on my blog explaining random topics. Part of the goal was always to understand the topic better myself.
+</p>
+<p>
+  I got reminded of it while I was preparing for a workshop on <em>introduction to web technologies</em> for my fellow Berliners who wish to get into tech. Then something interesting happened. I found the root of a problem that I was struggling with for some time at work. I will jot down some notes of this entire experience, and try to tell you about the lessons learned.
+</p>
+
+<h3>Our Styleguide</h3>
+<p>
+  We maintain a frontend styleguide (think: company-specific UI library). We have many HTML elements and CSS classes that make our text, buttons and cards look the way we want them to look across the webapps. There's a little issue. Most textual styles are defined on HTML elements. So to get a large heading styled with our predefined font-size, font-family, color and a bunch of other styles, one would just use <code>h1</code> (notice: no class needed). 
+</p>
+<p>
+  This worked for us until now, and wherever a big heading was required, we would just throw in an <code>h1</code>. Similarly for paragraphs, lists and other textual elements. This made a lot of sense in the past as accessibility or SEO weren't a concern. But things changed.
+</p>
+
+<h3>Multiple h1s</h3>
+<p>
+  It all started when our contracted SEO agency told us that we had two h1s on a page. We looked at the page, and it made total sense. There were two 'headings' of super large size, and our styleguide's h1 made total sense from a purely visual perspective. But the second heading was just a title in large font. It had no semantic significance. Now, our product's main title and some random text have the same precedence on the page. 
+</p>
+<p>
+  This is bad for SEO, no doubt, but this is also bad for screen readers and all mini browsers (like Apple Watch and the like) which rely on the HTML to convey semantic information, and not visual.
+</p>
+
+<h3>Thinking and problem solving</h3>
+<p>
+  I went to our designers and had a discussion. I could just hack and overwrite the styles, but that wasn't the point. I asked what could be done. We could change the design, create a new class the resembles heading-1s and then use that on a span and so on. But we couldn't think of why we've met with this problem. Maybe we're missing something, something obvious, we thought.
+</p>
+
+<h3>Conference on web basics</h3>
+<p>
+  I attended a developer conference a couple of weeks ago. There we had the good fortune of listening to <a href="https://en.wikipedia.org/wiki/H%C3%A5kon_Wium_Lie">Hakun Lie</a> and <a href="https://www.brucelawson.co.uk/">Bruce Lawson</a>. What struck me, apart from how much they cared about web standards and saving the web from the bloat hell that we're hurtling towards, is how much one can accomplish just by sticking to web standards. One of the examples used was of the Apple Watch, and the website in question was developed much before anyone imagined a browser on your wrist. If one just uses semantic HTML, one can be sure that their website would work on any device, whether in existence or yet to arrive. And just like that, millions of well-designed websites started to work on the special Apple Watch browser.
+</p>
+<p>
+  This is important to note because there are usually multiple ways of doing something on the web. More often than not, there are a couple of right and many wrong ways. Part of our job as web developers is to ensure that our website isn't just pretty visually but also correct semantically and structurally. This is to futureproof our creation.
+</p>
+
+<h3>The workshop</h3>
+<p>
+  I was preparing for this workshop and thinking of various ways I could introduce web development to complete beginners. I referred to some nice articles and tried to understand the meaning of HTML and CSS myself. I tried to understand why reset.css and normalize.css are used, even though I've been using them for years. I came up with interesting analogies to explain the basic pillars of the web and as a result, improved my understanding of these constructs.
+</p>
+
+<h3>Lightbulb moment</h3>
+<p>
+  After the workshop, when I went back to my codebase, I could see the problem staring right back at me. We had styled the HTML elements, and not created separate classes that we could then attach to our elements. This is the result of forgetting the basics and doing something the wrong way because it saves you from writing <code>class=""</code> for every HTML element, which to be fair, doesn't seem that bad when you don't differentiate between HTML and CSS and use a combination of the two to get the design right.
+</p>
+
+
+<h3>Conclusion</h3>
+<p>
+  There are a couple of conclusions for me from this article. One is to learn and follow web standards. Semantic HTML is not at all hard, just some 120 tags in total. Then, understand what a markup language means, and how the semantics of a document is different from how it looks or works. Learn that HTML and CSS are declarative, and use them as much as possible. Only where it makes sense, introduce Javascript. In general, keep abstractions to a minimum. 
+</p>
+<p>
+  Thank you for reading.
+</p>
+
+
+
