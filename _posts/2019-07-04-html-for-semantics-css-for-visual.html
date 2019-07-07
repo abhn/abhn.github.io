@@ -11,12 +11,12 @@ tags:
   The best way to learn is to teach, they say. I totally agree, and that's one reason I have so many articles on my blog explaining random topics. Part of the goal was always to understand the topic better myself.
 </p>
 <p>
-  I got reminded of it while I was preparing for a workshop on <em>introduction to web technologies</em> for my fellow Berliners who wish to get into tech. Then something interesting happened. I found the root of a problem that I was struggling with for some time at work. I will jot down some notes of this entire experience, and try to tell you about the lessons learned.
+  I got reminded of it while I was <a href="/snippets/webdev-workshop.html">preparing for a workshop</a> on <em>introduction to web technologies</em> for my fellow Berliners who wish to get into tech. Then something interesting happened. I found the root of a problem that I was struggling with for some time at work. I will jot down some notes of this entire experience, and try to tell you about the lessons learned.
 </p>
 
 <h3>Our Styleguide</h3>
 <p>
-  We maintain a frontend styleguide (think: company-specific UI library). We have many HTML elements and CSS classes that make our text, buttons and cards look the way we want them to look across the webapps. There's a little issue. Most textual styles are defined on HTML elements. So to get a large heading styled with our predefined font-size, font-family, color and a bunch of other styles, one would just use <code>h1</code> (notice: no class needed). 
+  We maintain a frontend styleguide (think: company-specific UI library). We have many HTML elements and <a href="/2015/10/CSS-Crash-Course.html">CSS classes</a> that make our text, buttons and cards look the way we want them to look across the webapps. There's a little issue. Most textual styles are defined on HTML elements. So to get a large heading styled with our predefined font-size, font-family, color and a bunch of other styles, one would just use <code>h1</code> (notice: no class needed). 
 </p>
 <p>
   This worked for us until now, and wherever a big heading was required, we would just throw in an <code>h1</code>. Similarly for paragraphs, lists and other textual elements. This made a lot of sense in the past as accessibility or SEO weren't a concern. But things changed.
@@ -56,7 +56,7 @@ tags:
 
 <h3>Conclusion</h3>
 <p>
-  There are a couple of conclusions for me from this article. One is to learn and follow web standards. Semantic HTML is not at all hard, just some 120 tags in total. Then, understand what a markup language means, and how the semantics of a document is different from how it looks or works. Learn that HTML and CSS are declarative, and use them as much as possible. Only where it makes sense, introduce Javascript. In general, keep abstractions to a minimum. 
+  There are a couple of conclusions for me from this article. One is to learn and follow web standards. Semantic HTML is not at all hard, just some 120 tags in total. Then, understand what a markup language means, and how the semantics of a document is different from how it looks or works. Learn the rules of <a href="/2018/11/lets-talk-about-css.html">CSS selectors</a> and how cascading works. Learn that HTML and CSS are declarative, and use them as much as possible. Only where it makes sense, introduce Javascript. In general, keep abstractions to a minimum. 
 </p>
 <p>
   Thank you for reading.
