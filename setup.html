@@ -1,0 +1,73 @@
+---
+layout: page
+title: Setup
+---
+
+<h1>Technical documentation</h1>
+<p>General notes on how to get up and running with my favourite tools real quick. Also documented here are the common issues that I've faced and their mitigations.</a>
+
+<h3>Unresponsive touchpad after resuming from sleep</h3>
+<p>
+  Create a new file in <code>/lib/systemd/system-sleep/trackpad-restart.sh</code> and add the following to it. Make the file executable. It will run after each resume from suspend.
+</p>
+<pre>
+#!/bin/bash
+
+modprobe -r psmouse
+modprobe psmouse
+</pre>
+
+<h3>Sound and brightness function keys</h3>
+<p>
+  Install xbindkeys, create ~/.xbindkeysrc and do a <code>$ xbindkeys -d > ~/.xbindkeysrc</code>. Also put the following four lines in there.
+</p>
+<pre>
+
+# Increase volume
+"pactl set-sink-volume @DEFAULT_SINK@ +1000"
+   XF86AudioRaiseVolume
+
+# Decrease volume
+"pactl set-sink-volume @DEFAULT_SINK@ -1000"
+   XF86AudioLowerVolume
+
+# Mute volume
+"pactl set-sink-mute @DEFAULT_SINK@ toggle"
+   XF86AudioMute
+
+# Increase backlight
+"light -A 2"
+   XF86MonBrightnessUp
+
+# Decrease backlight
+"light -U 2"
+   XF86MonBrightnessDown
+</pre>
+
+<h3>Sync all terminal histories together</h3>
+<p>
+  <a href="https://unix.stackexchange.com/questions/1288/preserve-bash-history-in-multiple-terminal-windows">https://unix.stackexchange.com/questions/1288/preserve-bash-history-in-multiple-terminal-windows</a>
+</p>
+
+<h3>Bash aliases</h3>
+<pre>
+alias gits="git status"
+alias gitch="git checkout"
+alias gitco="git commit -m"
+alias gita="git add"
+alias gitaa="git add ."
+alias gitph="git push"
+alias gitpl="git pull"
+alias gitpho="git push origin"
+alias gitplo="git pull origin"
+alias gitcp="git cherry-pick"
+alias bejs="bundle exec jekyll serve"
+alias bex="bundle exec"
+alias ls="exa"
+alias venv="source ./venv/bin/activate"
+</pre>
+
+<h3>Misty touchpad issue arch</h3>
+<p>
+  Set the following boot parameter: <code>i8042.noloop i8042.nomux i8042.nopnp i8042.reset</code>
+</p>
