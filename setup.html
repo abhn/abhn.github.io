@@ -71,3 +71,41 @@ alias venv="source ./venv/bin/activate"
 <p>
   Set the following boot parameter: <code>i8042.noloop i8042.nomux i8042.nopnp i8042.reset</code>
 </p>
+
+<h3>Redshift</h3>
+<p>
+  Install redshift (comes with redshift-gtk). Enable redshift service and add redshift-gtk to ~/.xinitrc before dm startup. ~/.config/systemd/user/default.target.wants/redshift.service file to contain the following.
+</p>
+<pre>
+[Unit]
+Description=Redshift display colour temperature adjustment
+Documentation=http://jonls.dk/redshift/
+After=display-manager.service
+
+[Service]
+ExecStart=/usr/bin/redshift -l 52.52:13.37
+Environment=DISPLAY=:0
+Restart=always
+
+[Install]
+WantedBy=default.target
+</pre>
+<p>
+  The /etc/geoclue/geoclue.conf file to contain an additional section for redshift.
+</p>
+<pre>
+[redshift]
+allowed=true
+system=false
+users=
+</pre>
+
+<h3>KDEConnect</h3>
+<p>
+  On android just install the app. On desktop, install kdeconnect, and indicator-kdeconnect (aur) package. Add <code>indicator-kdeconnect &</code> to ~/.xinitrc.
+</p>
+
+<h3>Getting wifi to work</h3>
+<p>
+  Connect to lan and install wpa_supplicant. Use iw to search for wifi and then add in wpa_supplicant config the wifi username and password. This page has everything needed to get up and running with wireless: https://wiki.archlinux.org/index.php/Wireless_network_configuration#WPA2_Personal. Install networkmanager, enable and start networkmanager service. Install nm-applet and add <code>nm-applet &</code> to ~/.xinitrc. 
+</p>
