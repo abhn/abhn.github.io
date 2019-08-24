@@ -18,19 +18,6 @@ body {
   margin: 8px auto;
 }
 
-pre {
-  white-space:pre-wrap;
-  word-wrap:break-word;
-  padding: 5px;
-}
-
-code, pre {
-  background-color: #555;
-  color: #fff;
-  padding: 2px 5px;
-  font-size: 0.9rem;
-}
-
 .container{
   flex: 1 0 auto;
 }
@@ -127,6 +114,15 @@ p {
   line-height: 1.6em;
   color: #333;
   margin: 20px 0;
+
+  code {
+    background-color: #eee;
+    font-family: $font-adobe-garamond;
+    letter-spacing: 1px;
+    font-size: 1.1rem;
+    padding: 5px;
+  }
+
 }
 
 .tags {
