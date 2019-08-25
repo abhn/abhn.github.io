@@ -156,18 +156,13 @@ tags:
 </p>
 
 {% highlight scss %}
-:root {
-  --tablet-min: 450px;
-  --desktop-min: 1000px;
-  --mobile-max: 449px;
-}
-@media only screen and (min-width: var(--mobile-max)) {
+@media only screen and (max-width: 449px) {
   // classes for mobile view
 }
-@media only screen and (min-width: var(--tablet-min)) {
+@media only screen and (min-width: 450px) {
   // classes for tablet view
 }
-@media only screen and (min-width: var(--desktop-min)) {
+@media only screen and (min-width: 768px) {
   // classes for desktop view
 }
 {% endhighlight %}
@@ -177,12 +172,7 @@ tags:
 </p>
 
 {% highlight scss %}
-:root {
-  --tablet-min: 450px;
-  --desktop-min: 1000px;
-  --mobile-max: 449px;
-}
-@media only screen and (min-width: var(--mobile-max)) {
+@media only screen and (max-width: 449px) {
   .col-mobile-1 {
     flex-basis: 8.3333333%;
   }
@@ -197,7 +187,7 @@ tags:
     flex-basis: 100%;
   }
 }
-@media only screen and (min-width: var(--tablet-min)) {
+@media only screen and (min-width: 450px) {
   .col-tablet-1 {
     flex-basis: 8.3333333%;
   }
@@ -206,7 +196,7 @@ tags:
   }
   // col-tablet-3 to col-tablet-12
 }
-@media only screen and (min-width: var(--desktop-min)) {
+@media only screen and (min-width: 768px) {
   .col-desktop-1 {
     flex-basis: 8.3333333%; 
   }
@@ -248,22 +238,17 @@ tags:
 </p>
 
 {% highlight scss %}
-:root {
-  --tablet-min: 450px;
-  --desktop-min: 1000px;
-  --mobile-max: 449px;
-}
-@media only screen and (min-width: var(--mobile-max)) {
+@media only screen and (max-width: 449px) {
   .col-mobile-hidden {
     display: none;
   }
 }
-@media only screen and (min-width: var(--tablet-min)) {
+@media only screen and (min-width: 450px) {
   .col-tablet-hidden {
     display: none;
   }
 }
-@media only screen and (min-width: var(--desktop-min)) {
+@media only screen and (min-width: 768px) {
   .col-desktop-hidden {
     display: none;
   }
@@ -289,9 +274,6 @@ tags:
 {% highlight scss %}
   
 :root {
-  --tablet-min: 450px;
-  --desktop-min: 1000px;
-  --mobile-max: 449px;
   --gutter-half-width: .5rem;
 }
 .row {
@@ -302,7 +284,7 @@ tags:
   margin-left: calc(var(--gutter-half-width) * -1);
   margin-right: calc(var(--gutter-half-width) * -1);
 }
-@media only screen and (min-width: var(--mobile-max)) {
+@media only screen and (max-width: 449px) {
   .col-mobile-1 {
     flex-basis: 8.3333333%;
   }
@@ -314,7 +296,7 @@ tags:
     display: none;
   }
 }
-@media only screen and (min-width: var(--tablet-min)) {
+@media only screen and (min-width: 450px) {
   .col-tablet-1 {
     flex-basis: 8.3333333%;
   }
@@ -326,7 +308,7 @@ tags:
     display: none;
   }
 }
-@media only screen and (min-width: var(--desktop-min)) {
+@media only screen and (min-width: 450px) {
   .col-desktop-1 {
     flex-basis: 8.3333333%; 
   }
