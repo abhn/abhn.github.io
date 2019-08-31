@@ -11,9 +11,6 @@ const init = () => {
     darkSwitch.innerHTML = getCookie('nightMode') ? light : dark;
     darkSwitch.addEventListener('click', handleNightModeToggle);
   });
-  const searchInput = document.getElementById('search-field');
-  searchInput.addEventListener('change', searchHandler);
-  searchInput.addEventListener('keyup', searchHandler);
   checkCookie();
 }
 
@@ -60,45 +57,4 @@ function getCookie(name) {
     if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
   }
   return null;
-}
-
-const searchHandler = event => {
-  const client = algoliasearch('D5RKJYMID4', '51d2bfe4c599bac051fbc7f7dcf25486');
-  const index = client.initIndex('abhnblog');
-
-  const searchResultsContainer = document.getElementById('search-results-container');
-  const query = event.target.value;
-  if(query.length < 3) {
-    searchResultsContainer.innerHTML = '';
-    return;
-  };
-
-  index.search({ query }, (err, { hits } = {}) => {
-
-    if (err) {
-      console.log(err);
-      console.log(err.debugData);
-      return;
-    }
-
-    let results = '';
-    if(hits.length === 0) {
-      results += 'No results found. Try some other keyword';
-    }
-    else {
-      hits.map(hit => {
-        const tags = hit._highlightResult.tags.value.split(', ');
-        const tagsWithoutHighlight = hit.tags.split(', ');
-        results += `
-        <li class="search-list-item">
-          <a href="${hit.url}">${hit._highlightResult.title.value}</a> 
-          in 
-          ${tags.map((tag, i) => {
-            return ` <span class="tags-search-results"><a href='/tags#${tagsWithoutHighlight[i]}'>${tag}</a></span>`;
-          })}
-        </li>`;
-      })
-    }
-    searchResultsContainer.innerHTML = results;
-  }); 
 }
