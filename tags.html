@@ -6,7 +6,7 @@ title: Tags
 <p>
   Articles on similar topics are grouped together by tags. Click on any tag to find all the articles 'tagged' with that tag.
 </p>
-<ul class="tag_box">
+<ul class="tag-box">
   {% assign tags_list = site.tags %}
     {% for tag in tags_list %}
     	<li><a href="#{{ tag[0] }}">{{ tag[0] }} <span>{{ tag[1].size }}</span></a></li>

@@ -3,10 +3,6 @@
   padding: 0;
 }
 
-html {
-  height: 100%;
-}
-
 body {
   height: 100%;
   font-size: 16px;
@@ -18,12 +14,17 @@ body {
   margin: 8px auto;
 }
 
-.container{
+.container {
   flex: 1 0 auto;
 }
 
 footer {
   flex-shrink: 0;
+}
+
+*, iframe, img, video {
+  word-wrap: break-word;
+  max-width:100%
 }
 
 a {
@@ -35,33 +36,15 @@ a:hover {
   color: #eee;
 }
 
-*,iframe,img,video{
-  word-wrap: break-word;
-  max-width:100%
-}
-
-.pd {
+.post-date {
   width: 5em;
-  text-align: center;
   flex-shrink: 0;
 }
 
-.parent div {
+.post-wrapper {
   display: flex;
-  padding-bottom: 0.5em;
+  margin: 0.8em 0;
   font-size: 1.25rem;
-}
-
-.np {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding-bottom: .5em;
-  font-style: italic
-}
-
-.np href {
-  flex-grow:1
 }
 
 .prev {
@@ -96,16 +79,16 @@ blockquote {
   font-style: italic;
 }
 
-.title-tags{
+.title-tags {
   color: #777;
   font-size: 1.125rem;
 }
 
-.tag_box{
+.tag-box {
   text-transform: capitalize;
 }
 
-.nice-title{
+.nice-title {
   text-transform: capitalize;
 }
 
@@ -161,7 +144,7 @@ section h3 {
 }
 
 h3.home-page-heading {
-  margin-top: 10px;
+  margin-top: 35px;
 }
 
 .tags-container {
@@ -183,10 +166,6 @@ figure {
   margin: 0;
 }
 
-figure.highlight pre {
-  border-radius: 3px;
-}
-
 figcaption {
   text-align: center;
   font-size: 1.125rem;
@@ -201,13 +180,13 @@ hr.stylish {
   margin: 5px 0;
 }
 
+.nav-item {
+  border: none;
+}
 // media queries
 
 @media screen and (max-width:600px) {
-  .pd {
-    display:none
-  }
-  .parent div {
+  .post-wrapper {
     padding-bottom: 1em
   }
 }
@@ -219,5 +198,7 @@ hr.stylish {
 }
 
 @media screen and (max-width: 370px) {
-  .nav-item{font-size:0.8rem;}
+  .nav-item{
+    font-size:0.8rem;
+  }
 }

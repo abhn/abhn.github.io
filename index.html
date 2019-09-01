@@ -12,51 +12,49 @@ about: 'about.html'
 <hr class="stylish"/>
 
 {% if site.snippets.size > 0 %}
-<section id="snippets">
-  <h3 class="home-page-heading">Snippets</h3>
-  <div class="parent">
-    {% for post in site.snippets reversed %}
-      <div>
-        <div class="pd">{{ post.date | date: "%m/%Y" }}</div>
-        <a class="pl" href="{{ post.url }}">
-          {{ post.title }}
-        </a>
+  <section id="snippets">
+    <h3 class="home-page-heading">Snippets</h3>
+    <div class="parent">
+      {% for post in site.snippets reversed %}
+        <div class="post-wrapper">
+          <time class="post-date">{{ post.date | date: "%m/%Y" }}</time>
+          <a class="post-link" href="{{ post.url }}">
+            {{ post.title }}
+          </a>
+        </div>
+      {% endfor %}
       </div>
-    {% endfor %}
-    </div>
-</section>
+  </section>
 {% endif %}
 
 {% if site.doodles.size > 0 %}
-<section id="art">
-  <h3 class="home-page-heading">Doodles</h3>
-  <div class="parent">
-    {% for doodle in site.doodles reversed %}
-    <div>
-      <div class="pd">{{ doodle.date | date: "%m/%Y" }}</div>
-      <a class="pl" href="{{ doodle.url }}">
-        {{ doodle.title }}
-      </a>
+  <section id="art">
+    <h3 class="home-page-heading">Doodles</h3>
+    <div class="parent">
+      {% for doodle in site.doodles reversed %}
+      <div class="post-wrapper">
+        <time class="post-date">{{ doodle.date | date: "%m/%Y" }}</time>
+        <a class="post-link" href="{{ doodle.url }}">
+          {{ doodle.title }}
+        </a>
+      </div>
+      {% endfor %}
     </div>
-    {% endfor %}
-  </div>
-</section>
+  </section>
 {% endif %}
 
 {% if site.posts.size > 0 %}
-<section id="posts">
-  <h3 class="home-page-heading">Essays</h3>
-  <div class="parent">
-    {% for post in site.posts %}
-      <div>
-        <div class="pd">{{ post.date | date: "%m/%Y" }}</div>
-        <a class="pl" href="{{ post.url }}">
-          {{ post.title }}
-        </a>
+  <section id="posts">
+    <h3 class="home-page-heading">Essays</h3>
+    <div class="parent">
+      {% for post in site.posts %}
+        <div class="post-wrapper">
+          <time class="post-date">{{ post.date | date: "%m/%Y" }}</time>
+          <a class="post-link" href="{{ post.url }}">
+            {{ post.title }}
+          </a>
+        </div>
+      {% endfor %}
       </div>
-    {% endfor %}
-    </div>
-</section>
+  </section>
 {% endif %}
-
-
