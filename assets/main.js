@@ -70,11 +70,5 @@ if (!('doNotTrack' in navigator) || !(navigator.doNotTrack === '1')) {
   analytics["platform"] = navigator.platform;
   analytics["timestamp"] = (new Date()).getTime();
 
-  fetch('https://us-central1-custom-analytics-8ffa4.cloudfunctions.net/helloWorld', {
-    method: 'post',
-    body: JSON.stringify(analytics)
-  })
-  .catch(err => {
-    // console.log(err);
-  })
+  navigator.sendBeacon('https://us-central1-custom-analytics-8ffa4.cloudfunctions.net/helloWorld', JSON.stringify(analytics));
 }
