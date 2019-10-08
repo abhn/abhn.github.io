@@ -58,17 +58,3 @@ function getCookie(name) {
   }
   return null;
 }
-
-if (!('doNotTrack' in navigator) || !(navigator.doNotTrack === '1')) {
-
-  let analytics = {};
-  analytics["href"] = window.location.href;
-  analytics["userAgent"] = navigator.userAgent;
-  analytics["width"] = window.innerWidth;
-  analytics["height"] = window.innerHeight;
-  analytics["referrer"] = document.referrer;
-  analytics["platform"] = navigator.platform;
-  analytics["timestamp"] = (new Date()).getTime();
-
-  navigator.sendBeacon('https://us-central1-custom-analytics-8ffa4.cloudfunctions.net/helloWorld', JSON.stringify(analytics));
-}
