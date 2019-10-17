@@ -1,10 +1,5 @@
 source "http://rubygems.org"
 
-gem 'github-pages'
-
 group :jekyll_plugins do
-    gem 'jekyll-paginate'
-    gem 'jekyll-sitemap'
-    gem 'jekyll'
-    gem 'jekyll-algolia'
+    gem "jekyll", "~> 4.0"
 end

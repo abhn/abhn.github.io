@@ -5,3 +5,4 @@ _site/*
 .vscode/
 .idea/
 *.log
+.jekyll-cache/

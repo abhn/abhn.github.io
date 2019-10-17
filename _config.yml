@@ -6,10 +6,8 @@ meta_description: "Abhishek Nagekar's Blog - Essays on programming, web engineer
 markdown: kramdown
 highlighter: rouge
 logo: false
-paginate: 15
 baseurl: ''
 domain_name: 'https://www.nagekar.com'
-plugins: [jekyll-paginate]
 
 # Details for the RSS feed generator
 url:            'https://www.nagekar.com'
@@ -28,6 +26,5 @@ sass:
   style: compressed
   sass_dir: _sass
 
-algolia:
-  application_id: D5RKJYMID4
-  index_name: abhnblog # You can replace that with whatever name you want
+exclude:
+  - .jekyll-cache/
