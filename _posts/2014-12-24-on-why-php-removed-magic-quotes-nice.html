@@ -1,13 +1,8 @@
 ---
 layout: post
 title: On why PHP removed magic quotes - Nice explanation
-date: '2014-12-24T21:47:00.001+05:30'
-author: Abhishek Nagekar
 tags:
 - php
-modified_time: '2014-12-28T22:02:08.956+05:30'
-blogger_id: tag:blogger.com,1999:blog-4681403116272313763.post-1708573415686614955
-blogger_orig_url: http://www.nagekar.com/2014/12/on-why-php-removed-magic-quotes-nice.html
 ---
 
 <div dir="ltr" style="text-align: left;" trbidi="on"><div dir="ltr">I am a newbie in PHP, or at least not as good to call myself mature. Recently, PHP announced deprecation for magic_quotes in version 5.3 and complete removal in version 5.4. So there are official docs on why it was removed, but this is what I found written by a contributor and it was perfectly explained. Do check out.</div><div dir="ltr">Link: <a href="http://php.net/manual/en/security.magicquotes.php">http://php.net/manual/en/security.magicquotes.php</a></div><div dir="ltr">Here goes the comment: --&gt;</div><div dir="ltr"><i>The very reason magic quotes are deprecated is that a one-size-fits-all approach to escaping/quoting is wrongheaded and downright dangerous.&nbsp; Different types of content have different special chars and different ways of escaping them, and what works in one tends to have side effects elsewhere.&nbsp; Any sample code, here or anywhere else, that pretends to work like magic quotes --or does a similar conversion for HTML, SQL, or anything else for that matter -- is similarly wrongheaded and similarly dangerous.</i></div><div dir="ltr"><i>Magic quotes are not for security.&nbsp; They never have been.&nbsp; It's a convenience thing -- they exist so a PHP noob can fumble along and eventually write some mysql queries that kinda work, without having to learn about escaping/quoting data properly.&nbsp; They prevent a few accidental syntax errors, as is their job.&nbsp; But they won't stop a malicious and semi-knowledgeable attacker from trashing the PHP noob's database.&nbsp; And that poor noob may never even know how or why his database is now gone, because magic quotes (or his spiffy "i'm gonna escape everything" function) gave him a false sense of security.&nbsp; He never had to learn how to really handle untrusted input.</i></div><div dir="ltr"><i>Data should be escaped where you need it escaped, and for the domain in which it will be used.&nbsp; (mysql_real_escape_string -- NOT addslashes! -- for MySQL (and that's only unless you have a clue and use prepared statements), htmlentities or htmlspecialchars for HTML, etc.)&nbsp; Anything else is doomed to failure.</i></div></div>
