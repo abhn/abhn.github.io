@@ -265,3 +265,8 @@ If your web-app is slow, it’s because of your code, not the DOM.
 We live in a hype-driven economy. No one is doing anything sustainable, and you aren't interesting if you aren't growing 1000% year on year. The goal is the same everywhere, hype yourself up until either investors or one of the major companies is fooled into believing that you have something valuable, and then wait until the money starts flowing in before you scrap the junk you were working on and start over. You survive and create "brand awareness" until you look like a real company, and hopefully don't piss off too many people in the meantime. This is not an environment for honest people who want to make a sustainable business, it is for grifters and idealists who care more about image than substance and will say anything to get their way. - https://www.phoronix.com/forums/forum/software/mobile-linux/1133747-an-interview-with-zlatan-todoric-open-source-developer-former-purism-cto
 You can often view glimpses of ingeniousness not as inexplicable miracles, but as residue of experience. And when you do, the idea of genius goes from being mesmerising to being actively inspirational. - Grant Sanderson
 If liberty means anything at all, it means the right to tell people what they do not want to hear.
+At a certain point, we can assume that making things better will make things better
+Rationality is not about knowing facts, it’s about recognizing which facts are relevant.
+Evidence should not determine beliefs, but update them
+Levels of understanding: What is it saying? Why is it true? When is it useful?
+
