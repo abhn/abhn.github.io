@@ -71,7 +71,6 @@ while 1:
         # Do this till the end of time.
         continue
 serv.close()
-
 {% endhighlight %}
 
 <h4>client.py </h4>
@@ -79,7 +78,8 @@ serv.close()
 # Import the nessary libraries
 import socket
 import string
-import select<br />import sys
+import select
+import sys
 
 # Socket variable declaration
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -89,13 +89,13 @@ s.settimeout(2)
 s.connect(("192.168.1.10", 1356))
 
 # A prompt asking client to enter something.
-sys.stdout.write("&gt;")
+sys.stdout.write(">")
 sys.stdout.flush()
 
 while 1:
   # These are the possible events.
-  # sys.stdin --&gt; Client has typed something through keyboard.
-  # s --&gt; Server has send a new message by some other client you.
+  # sys.stdin --> Client has typed something through keyboard.
+  # s --> Server has send a new message by some other client you.
   streams = [sys.stdin, s]
 
   # Moniter both the streams simultaneously for inputs.
@@ -113,7 +113,7 @@ while 1:
 
         # Write data to stdout and give client prompt back.
         sys.stdout.write(data)
-        sys.stdout.write("&gt;")
+        sys.stdout.write(">")
         sys.stdout.flush()
 
     # No, its not the server. Our client has typed something in.
@@ -122,7 +122,7 @@ while 1:
       # Read message. Send it to server. Give prompt back to client.
       msg = sys.stdin.readline()
       s.send(msg)
-      sys.stdout.write("&gt;")
+      sys.stdout.write(">")
       sys.stdout.flush()
 {% endhighlight %}
 
