@@ -269,4 +269,4 @@ At a certain point, we can assume that making things better will make things bet
 Rationality is not about knowing facts, it’s about recognizing which facts are relevant.
 Evidence should not determine beliefs, but update them
 Levels of understanding: What is it saying? Why is it true? When is it useful?
-
+"that $100 steak dinner you had 18 years ago really cost you $13,000 because you didn't put it into Apple stock"
