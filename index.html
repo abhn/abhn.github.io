@@ -17,7 +17,7 @@ about: 'about.html'
     <div class="parent">
       {% for post in site.snippets reversed %}
         <div class="post-wrapper">
-          <time class="post-date">{{ post.date | date: "%m/%Y" }}</time>
+          <time class="post-date" datetime="{{ post.date }}">{{ post.date | date: "%m/%Y" }}</time>
           <a class="post-link" href="{{ post.url }}">
             {{ post.title }}
           </a>
@@ -33,7 +33,7 @@ about: 'about.html'
     <div class="parent">
       {% for doodle in site.doodles reversed %}
       <div class="post-wrapper">
-        <time class="post-date">{{ doodle.date | date: "%m/%Y" }}</time>
+        <time class="post-date" datetime="{{ doodle.date }}">{{ doodle.date | date: "%m/%Y" }}</time>
         <a class="post-link" href="{{ doodle.url }}">
           {{ doodle.title }}
         </a>
@@ -49,7 +49,7 @@ about: 'about.html'
     <div class="parent">
       {% for post in site.posts %}
         <div class="post-wrapper">
-          <time class="post-date">{{ post.date | date: "%m/%Y" }}</time>
+          <time class="post-date" datetime="{{ post.date }}">{{ post.date | date: "%m/%Y" }}</time>
           <a class="post-link" href="{{ post.url }}">
             {{ post.title }}
           </a>
