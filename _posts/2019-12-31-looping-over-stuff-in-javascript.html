@@ -1,0 +1,185 @@
+---
+layout: post
+title: Looping Over Stuff In Javascript
+tags:
+- javascript
+---
+
+<p>
+  Occasionally, I get stuck wondering what I should use to iterate over a list/collection of items in Javascript. There seem to be a hundred ways of achieving it. To tackle that and have a handy little reference, I'm writing this guide touching all the common ways of iterating that I use and the kind of data they are a good fit for. 
+</p>
+
+<h3>for</h3>
+{% highlight javascript %}
+const arr = ['apple', 'ball', 'cat'];
+for(let i = 0; i < arr.length; i++) {
+  console.log(arr[i]);
+}
+// Output:
+// apple
+// ball
+// cat
+{% endhighlight %}
+<p>
+  The <i>regular</i> for loop (with a loop variable that iterates from some number to some other number with user supplied increments) is the most common form of for loop. I try to use as little of this one as possible as there's usually a better suited loop available for the job. But if nothing else fits, know that the 'regular for' has your back.
+</p>
+
+<h3>for..in</h3>
+
+{% highlight javascript %}
+const obj = {
+  firstName: 'John',
+  lastName: 'Doe'
+}
+for(const prop in obj) {
+  console.log(prop);
+};
+// Output:
+// firstName
+// lastName
+
+const arr = [3, 2, 1];
+for(const prop in obj) {
+  console.log(prop);
+};
+// Output:
+// 0
+// 1
+// 2
+{% endhighlight %}
+
+<p>
+  for..in loop can be used to iterate over properties of an object. Supplying an array to for..in will give the index in the loop variable. In either case, doing a obj[prop] or arr[prop] should enable looping over the object's key values or array items. 
+</p>
+
+<h3>for..of</h3>
+{% highlight javascript %}
+const arr = [3, 2, 1];
+for(const prop in obj) {
+  console.log(prop);
+};
+// Output:
+// 3
+// 2
+// 1
+{% endhighlight %}
+
+<p>
+  for..of loop is useful for linearly looping over iterables like strings and arrays from the first to last item. I often mistake the for..in loop for this, but adding a new loop was how ES6 prevented breaking all the legacy code that depended on for..in to give array indices and not array items.
+</p>
+
+<h3>Array.prototype.forEach</h3>
+{% highlight javascript %}
+const arr = ['World', 'Alice', 'Bob'];
+arr.forEach(word => {
+  console.log('Hello', word);
+});
+// Output:
+// Hello World
+// Hello Alice
+// Hello Bob
+{% endhighlight %}
+<p>
+  Array.prototype.forEach will accept a callback function (say <code>(item [, index, array]) => {}</code>) and call it with each item in that array. An optional second argument will carry the current item's index. Optional third argument passes the reference of the original array if you wish to operate on it inside the callback.
+</p>
+<p>
+  <strong>Note</strong> that Array.prototype.forEach simply means that you can invoke this method directly on an array, like <code>[3, 2, 1].forEach(...)</code>
+</p>
+
+<h3>Array.prototype.map</h3>
+{% highlight javascript %}
+const arr = [10, 20, 30];
+const arr10x = arr.map(item => {
+  return item * 10;
+})
+console.log(arr10x);
+// Output:
+// [100, 200, 300]
+{% endhighlight %}
+<p>
+  Map maps over the items in the array, calls a callback with each item and returns a new array created from the values returned from callback functions.
+</p>
+
+<h3>Array.prototype.filter</h3>
+{% highlight javascript %}
+const arr = [1, 2, 3, 4, 5, 6, 7, 8];
+const onlyEvens = arr.filter(item => {
+  return item % 2 == 0;
+})
+console.log(onlyEvens);
+// Output:
+// [2, 4, 6, 7]
+{% endhighlight %}
+<p>
+  Filter calls a callback function with each item in the array and returns a new array with only the elements for which the callback returns true. In general, the callback function implements the logic to determine if a given element should be present in the resultant filtered array (returns truthy if it should).
+</p>
+
+<h3>Array.prototype.reduce</h3>
+{% highlight javascript %}
+const arr = [1, 2, 3, 4, 5, 6];
+const sum = arr.reduce((accumulator, item) => {
+  return accumulator + item;
+}, 0);
+console.log(sum);
+// Output:
+// 21
+{% endhighlight %}
+<p>
+  It took my a long time to get used to Array.prototype.reduce, most likely because I don't use it often. But it shows up quite often when you're working on functional code, or functional programming languages like Haskell. 
+</p>
+<p>
+  The Array.prototype.reduce method takes two arguments, a reducer function (of the signature <code>(accumulator, curr) => return newAccumulator</code>) and an initial accumulator value. In the first iteration, the accumulator takes the initial value. In the next iterator, the return value of the previous iteration becomes the new accumulator value. After the last iteration, the accumulator value is returned from the Array.prototype.reduce method.
+</p>
+
+<h3>Object.keys() and Object.values()</h3>
+{% highlight javascript %}
+const obj = {'a': 1, 'b': 2};
+const keys = Object.keys(obj);
+console.log(keys);
+// Output:
+// ['a', 'b']
+
+const values = Object.keys(obj);
+console.log(values);
+// Output:
+// [1, 2]
+{% endhighlight %}
+<p>
+  Object.keys() and Object.values() take in an object and return an array of all the keys and values of that object in an array respectively which can then be used with the looping methods discussed above. 
+</p>
+
+<h3>Object.entries()</h3>
+{% highlight javascript %}
+const obj = {'a': 1, 'b': 2};
+const entries = Object.entries(obj);
+console.log(entries);
+// Output:
+// [ ['a', 1], ['b', 2] ]
+{% endhighlight %}
+<p>
+  Object.entries takes in an object and returns a multidimensional array with each item a pair of key-value pair from the object.
+</p>
+
+<h3>while and do..while</h3>
+{% highlight javascript %}
+const arr = [1, 2, 3, 4, 5];
+const index = 0;
+while(arr[index] < 4) {
+  console.log(arr[index]);
+}
+// Output:
+// 1
+// 2
+// 3
+{% endhighlight %}
+<p>
+  while and do..while are the other classics apart from the good 'ol for loop. I don't use while and do..while loops for iteration. They're generally useful when you're repeating a task without knowing in advance the number of times you'll be repeating (for..in and for..of do that) or you'd want to only run the loop until a specific condition holds true (for can do that). 
+</p>
+<p>
+  An interesting use case where while loops shine is when we need to iterate indefinitely (until the given condition is true), which isn't really iteration and hence I have put this section at the end, just as good to stuff. 
+</p>
+
+<h3>In closing</h3>
+<p>
+  That's it. I hope that simplifies iteration for you a bit. It certainly did for me. Did I miss any way of looping over iterables? Do let me know! I hope you learned something from this article. Thank you for reading!
+</p>
