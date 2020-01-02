@@ -1,21 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="description" content="{{ site.description }}" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="EvUc-ku1u8bNUoUrss2IkQOlwT2dvOSXGBbASddC8kM" />
-  <link rel="stylesheet" href="/assets/main.css"/>
-  <link rel="alternate" type="application/rss+xml" title="Abhishek Nagekar's Blog" href="/feed.xml" />
-  <title>
-    {% if page.title == "Home" %}
-    {{ site.title }}
-    {% else %}
-    {{ page.title }} &middot; {{ site.title }}
-    {% endif %}
-  </title>
-</head>
+{% include head.html %}
 <body>
 
 <div class="container">

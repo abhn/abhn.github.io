@@ -9,6 +9,10 @@ logo: false
 baseurl: ''
 domain_name: 'https://www.nagekar.com'
 
+author:
+  name: Abhishek Nagekar
+
+
 # Details for the RSS feed generator
 url:            'https://www.nagekar.com'
 
