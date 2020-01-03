@@ -7,7 +7,8 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="description" content="{{ description | strip_html | strip | truncate: 160 }}" />
+  <meta name="description" content="{{ description | newline_to_br | strip_newlines | replace: '<br />', ' ' | strip_html | strip | truncate: 160 }}" />
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="EvUc-ku1u8bNUoUrss2IkQOlwT2dvOSXGBbASddC8kM" />
   <link rel="stylesheet" href="/assets/main.css"/>
