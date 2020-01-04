@@ -27,8 +27,49 @@ footer {
   max-width:100%
 }
 
-pre {
+code, pre {
+  font-family: var(--typography__default);
+  background-color: #eee;
+  letter-spacing: 1px;
+  font-size: 1.1rem;
+  padding: 5px;
   overflow-x: scroll;
+}
+
+.highlight {
+  position: relative;
+  border-radius: 5px;
+
+  * {
+    font-family: monospace, monospace;
+    background-color: unset;
+    padding: unset;
+    letter-spacing: unset;
+  }
+
+  & > pre {
+    padding: 8px 12px;
+
+    & > code::before {
+      content: attr(data-lang);
+      position: absolute;
+      right: 20px;
+      top: -10px;
+      padding: 0 7.5px;
+      border: 1px solid #828282;
+      border-radius: 5px;
+      text-align: center;
+      color: #8fbc8f;
+      background-color: #1a1a1a;
+    }
+
+    .lineno {
+      color: #608079;
+      padding-right: 5px;
+      margin-right: 10px;
+      border-right: 1px solid #656565;
+    }
+  }
 }
 
 a {
@@ -101,13 +142,6 @@ p {
   line-height: 1.6em;
   color: #333;
   margin: 20px 0;
-
-  code {
-    background-color: #eee;
-    letter-spacing: 1px;
-    font-size: 1.1rem;
-    padding: 5px;
-  }
 }
 
 .tags {

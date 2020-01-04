@@ -10,7 +10,7 @@ tags:
 </p>
 
 <h3>for</h3>
-{% highlight javascript %}
+{% highlight javascript linenos %}
 const arr = ['apple', 'ball', 'cat'];
 for(let i = 0; i < arr.length; i++) {
   console.log(arr[i]);
@@ -26,7 +26,7 @@ for(let i = 0; i < arr.length; i++) {
 
 <h3>for..in</h3>
 
-{% highlight javascript %}
+{% highlight javascript linenos %}
 const obj = {
   firstName: 'John',
   lastName: 'Doe'
@@ -53,7 +53,7 @@ for(const prop in obj) {
 </p>
 
 <h3>for..of</h3>
-{% highlight javascript %}
+{% highlight javascript linenos %}
 const arr = [3, 2, 1];
 for(const prop in obj) {
   console.log(prop);
@@ -69,7 +69,7 @@ for(const prop in obj) {
 </p>
 
 <h3>Array.prototype.forEach</h3>
-{% highlight javascript %}
+{% highlight javascript linenos %}
 const arr = ['World', 'Alice', 'Bob'];
 arr.forEach(word => {
   console.log('Hello', word);
@@ -87,7 +87,7 @@ arr.forEach(word => {
 </p>
 
 <h3>Array.prototype.map</h3>
-{% highlight javascript %}
+{% highlight javascript linenos %}
 const arr = [10, 20, 30];
 const arr10x = arr.map(item => {
   return item * 10;
@@ -101,7 +101,7 @@ console.log(arr10x);
 </p>
 
 <h3>Array.prototype.filter</h3>
-{% highlight javascript %}
+{% highlight javascript linenos %}
 const arr = [1, 2, 3, 4, 5, 6, 7, 8];
 const onlyEvens = arr.filter(item => {
   return item % 2 == 0;
@@ -115,7 +115,7 @@ console.log(onlyEvens);
 </p>
 
 <h3>Array.prototype.reduce</h3>
-{% highlight javascript %}
+{% highlight javascript linenos %}
 const arr = [1, 2, 3, 4, 5, 6];
 const sum = arr.reduce((accumulator, item) => {
   return accumulator + item;
@@ -132,7 +132,7 @@ console.log(sum);
 </p>
 
 <h3>Object.keys() and Object.values()</h3>
-{% highlight javascript %}
+{% highlight javascript linenos %}
 const obj = {'a': 1, 'b': 2};
 const keys = Object.keys(obj);
 console.log(keys);
@@ -149,7 +149,7 @@ console.log(values);
 </p>
 
 <h3>Object.entries()</h3>
-{% highlight javascript %}
+{% highlight javascript linenos %}
 const obj = {'a': 1, 'b': 2};
 const entries = Object.entries(obj);
 console.log(entries);
@@ -161,7 +161,7 @@ console.log(entries);
 </p>
 
 <h3>while and do..while</h3>
-{% highlight javascript %}
+{% highlight javascript linenos %}
 const arr = [1, 2, 3, 4, 5];
 const index = 0;
 while(arr[index] < 4) {
