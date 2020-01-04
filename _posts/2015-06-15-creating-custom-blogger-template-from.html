@@ -23,9 +23,33 @@ tags:
 <p>
   These few lines make up a basic web page. You will see that this is quite similar to what we're doing.
 </p>
-<pre>&lt;!DOCTYPE html&gt;<br /><br />&lt;html&gt;<br /><br />&nbsp; &lt;head&gt;<br /><br />&nbsp;&nbsp;&nbsp; &lt;title&gt;&lt;/title&gt;<br /><br />&nbsp; &lt;head&gt;<br /><br /><br />&nbsp; &lt;body&gt;<br /><br />&nbsp; &lt;/body&gt;<br /><br />&lt;/html&gt;&nbsp;&nbsp; <br /><br /></pre>
+{% highlight html %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+  <head>
+
+  <body>
+
+  </body>
+</html>
+{% endhighlight %}
 <p>And this is how a basic blogger template looks like.</p>
-<pre>&lt;?xml version="1.0" encoding="UTF-8" ?&gt;<br /><br />&lt;!DOCTYPE html&gt;<br /><br />&lt;html b:version='2' class='v2' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'&gt;<br /><br />&lt;head&gt;<br /><br />&lt;title&gt;&lt;data:blog.pageTitle/&gt;&lt;/title&gt;<br /><br />&lt;b:skin&gt;&lt;![CDATA[ /* CSS here */ ]]&gt;&lt;/b:skin&gt;<br /><br />&lt;/head&gt; <br /><br />&lt;body&gt;<br /><br />&lt;!-- Blog elements here --&gt; <br /><br />&lt;/body&gt;<br /><br />&lt;/html&gt;<br /></pre>
+{% highlight html %}
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:version='2' class='v2' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+  <head>
+    <title><data:blog.pageTitle/></title>
+    <b:skin><![CDATA[ /* CSS here */ ]]></b:skin>
+  </head>
+
+  <body>
+    <!-- Blog elements here -->
+  </body>
+</html>
+{% endhighlight %}
 <p>
   Pretty neat, isn't it? Now, the elements of a blogger blog.  Blogger is built upon XHTML, and uses the same for retrieving and displaying data from the database. A basic block of a blogger template is called a section. So all of these are sections.
 </p>
@@ -34,12 +58,16 @@ tags:
 <p>
   And you have to define each <i>section</i> before you add '<i>widgets</i>' to them. A basic section block looks like this.
 </p>
-<pre>&lt;b:section id=' ' class=' ' maxwidgets=' ' showaddelement=' '&gt;&lt;/b:section&gt;<br /></pre>
+{% highlight html %}
+<b:section id=' ' class=' ' maxwidgets=' ' showaddelement=' '></b:section>
+{% endhighlight %}
 <p>
   where <i>id</i> is any unique identifier (for CSS and JS later) and <i>class</i> value is used to tell blogger where do we plan to place this section. <i>Maxelements</i> is the maximum number of 'widgets' we can add to this section. Generally, it is useful to limit the number of widgets in header and footer to one. <i>Showaddelement </i>is that 'Add gadget' link you see in the layout window. It takes boolean value 'true' or 'false'.    Now there are '<i>widgets</i>' that go into these sections. Every separate component that you see on your blog is a widget. The 'blog posts' is one widget, 'blog archive' is another, and so on. These widgets can be directly added from the graphical layout tab in the control panel of your blog, but it doesn't hurt to know how to add them manually, does it?
 </p>
 
-<pre>&lt;b:widget id="HTML2" locked="false" title="Some Title" type="HTML" /&gt;<br /></pre>
+{% highlight html %}
+<b:widget id="HTML2" locked="false" title="Some Title" type="HTML" />
+{% endhighlight %}
 
 <p>Similarly here,
 <ul>
@@ -47,23 +75,98 @@ tags:
   <li><b>locked</b> - can the widget be moved around, in the layout tab? (yes or no)</li>
   <li><b>title</b> - The title that will be displayed on top of the widget</li>
   <li><b>type</b> - One of the many basic types that blogger supports (html, blog, feed, header etc)</li>
-</ul>&nbsp;
+</ul>
 <p>
   For example, your 'blog posts' widget will be something like this
 </p>
-  <pre>&lt;b:widget id='blog1' locked='true' title='' type='Blog' /&gt;</pre>
 
-<p>That's it. Add it to the template and blogger will fill it with auto-generated code you need not care about. This was all for the basics. Let's start with some code now. I am using <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>&nbsp; to save myself from writing unnecessary CSS. First thing you do here is enclose the entire body in either <i>container</i> or <i>container-fluid</i> div.
+{% highlight html %}
+<b:widget id='blog1' locked='true' title='' type='Blog' />
+{% endhighlight %}
+
+<p>
+  That's it. Add it to the template and blogger will fill it with auto-generated code you need not care about. This was all for the basics. Let's start with some code now. I am using <a href="http://getbootstrap.com/" target="_blank">Bootstrap</a>&nbsp; to save myself from writing unnecessary CSS. First thing you do here is enclose the entire body in either <i>container</i> or <i>container-fluid</i> div.
+<p>
 <ul><li><b>container</b> - for fixed width layout</li><li><b>container-fluid</b> - for dynamic body width</li></ul>
 <p>
-I personally prefer fixed. This is the code so far. I added container class to the &lt;b:skin&gt; which we can (and will) customize later.
-<pre>&lt;?xml version="1.0" encoding="UTF-8" ?&gt; <br />&lt;!DOCTYPE html&gt; <br />&lt;html b:version='2' class='v2' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'&gt; <br />&lt;head&gt; <br />&lt;title&gt;&lt;data:blog.pageTitle/&gt;&lt;/title&gt; <br />&lt;b:skin&gt;&lt;![CDATA[ .container { }&nbsp; ]]&gt;&lt;/b:skin&gt; <br />&lt;/head&gt; <br />&lt;body&gt; <br />&lt;div class='container'&gt; <br />&lt;/div&gt; <br />&lt;/body&gt; <br />&lt;/html&gt;&nbsp;</pre><br /><br />
+  I personally prefer fixed. This is the code so far. I added container class to the &lt;b:skin&gt; which we can (and will) customize later.
+</p>
+
+{% highlight html %}
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html>
+<html b:version='2' class='v2' expr:dir='data:blog.languageDirection' xmlns='http://www.w3.org/1999/xhtml' xmlns:b='http://www.google.com/2005/gml/b' xmlns:data='http://www.google.com/2005/gml/data' xmlns:expr='http://www.google.com/2005/gml/expr'>
+  <head>
+    <title><data:blog.pageTitle/></title>
+    <b:skin><![CDATA[ .container { }  ]]></b:skin>
+  </head>
+  <body>
+    <div class='container'>
+    </div>
+  </body>
+</html>
+{% endhighlight %}
+
 <p>
   Now add the divs for header, post area, right sidebar and footer and corresponding CSS classes. Code trimmed for brivity.
 </p>
-<pre>&lt;head&gt;<br /><br />&lt;title&gt;&lt;data:blog.pageTitle/&gt;&lt;/title&gt;<br /><br />&lt;link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css' rel='stylesheet'/&gt;<br /><br />&lt;b:skin&gt;&lt;![CDATA[ <br /><br />#container {<br /><br />&nbsp; max-width: 960px;<br /><br />&nbsp; margin: 0 auto; <br /><br />} <br /><br />#main-wrapper {<br /><br />&nbsp; width: 710px;<br /><br />&nbsp; float: left; <br /><br />}<br /><br />#sidebar-wrapper {<br /><br />&nbsp; width: 250px;<br /><br />&nbsp; float: right;<br /><br />}<br /><br />#footer-widgets {<br /><br />&nbsp; padding: 0px 0px 5px 0px;<br /><br />}<br /><br />&nbsp;]]&gt;&lt;/b:skin&gt;<br /><br />&lt;/head&gt; <br /><br />&lt;body&gt;<br />&lt;div id='container'&gt;<br /><br /><br />&nbsp;&lt;!-- Header --&gt; <br /><br />&nbsp;&lt;b:section class='header' id='header' maxwidgets='1' showaddelement='yes'&gt;<br />&nbsp;&nbsp;&nbsp; &lt;b:widget id='Header1' locked='true' title='Blog title' type='Header' /&gt;<br /><br />&nbsp;&lt;/b:section&gt;<br /><br /><br /><br />&nbsp;&lt;div id='main-wrapper'&gt;<br /><br />&nbsp;&lt;!-- Blog posts area --&gt;<br /><br />&nbsp;&lt;b:section class='main' id='main' maxwidgets='' showaddelements='yes' /&gt;<br /><br />&nbsp;&nbsp;&nbsp; &lt;b:widget id='Blog1' locked='false' title='Blog Posts' type='Blog' /&gt;<br /><br />&nbsp;&lt;/b:section&gt; <br /><br />&nbsp;&lt;/div&gt;<br /><br /><br /><br />&nbsp;&lt;div id='sidebar-wrapper'&gt;<br /><br />&nbsp;&lt;!-- Right sidebar --&gt;<br /><br />&nbsp;&lt;b:section class='sidebar' id='sidebar' maxwidgets='' showaddelements='yes'&gt;<br /><br />&nbsp;&nbsp; &lt;!-- Widgets can be added from layout page --&gt;<br /><br />&nbsp;&lt;/b:section&gt; <br /><br />&nbsp;&lt;/div&gt;<br /><br /><br /><br /><br />&nbsp;&lt;div id='footer-widgets'&gt;<br /><br />&nbsp;&lt;!-- Footer --&gt;<br /><br />&nbsp;&lt;b:section class='footer' id='footer' maxwidgets='' showaddelements='yes'&gt;<br /><br />&nbsp;&nbsp; &lt;b:widget id='Attribution1' locked='false' title='' type='Attribution' /&gt;<br /><br />&nbsp;&lt;/b:section&gt;<br /><br />&nbsp;&lt;/div&gt; <br /><br /><br /><br />&lt;/div&gt;<br /><br />&lt;/body&gt; </pre>
-<p>The above code should look like this on any blogger blog.</p><img src="http://4.bp.blogspot.com/-mhjlclELQ1g/VXG8gN1UNgI/AAAAAAAAH9Q/ELu1NPjCcn4/s400/Screenshot%2B-%2BFriday%2B05%2BJune%2B2015%2B-%2B07%253A45%253A18%2B%2BIST.png"  />
+
+{% highlight html %}
+<head>
+  <title><data:blog.pageTitle/></title>
+  <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css' rel='stylesheet'/>
+  <b:skin><![CDATA[
+    #container {
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    #main-wrapper {
+      width: 710px;
+      float: left;
+    }
+    #sidebar-wrapper {
+      width: 250px;
+      float: right;
+    }
+    #footer-widgets {
+      padding: 0px 0px 5px 0px;
+    }
+  ]]></b:skin>
+</head>
+<body>
+  <div id='container'>
+   <!-- Header -->
+   <b:section class='header' id='header' maxwidgets='1' showaddelement='yes'>
+      <b:widget id='Header1' locked='true' title='Blog title' type='Header' />
+   </b:section>
+   <div id='main-wrapper'>
+     <!-- Blog posts area -->
+     <b:section class='main' id='main' maxwidgets='' showaddelements='yes' />
+        <b:widget id='Blog1' locked='false' title='Blog Posts' type='Blog' />
+     </b:section>
+   </div>
+   <div id='sidebar-wrapper'>
+     <!-- Right sidebar -->
+     <b:section class='sidebar' id='sidebar' maxwidgets='' showaddelements='yes'>
+       <!-- Widgets can be added from layout page -->
+     </b:section>
+   </div>
+   <div id='footer-widgets'>
+     <!-- Footer -->
+     <b:section class='footer' id='footer' maxwidgets='' showaddelements='yes'>
+       <b:widget id='Attribution1' locked='false' title='' type='Attribution' />
+     </b:section>
+   </div>
+  </div>
+</body>
+{% endhighlight %}
+
+<p>The above code should look like this on any blogger blog.</p>
+
+<img src="http://4.bp.blogspot.com/-mhjlclELQ1g/VXG8gN1UNgI/AAAAAAAAH9Q/ELu1NPjCcn4/s400/Screenshot%2B-%2BFriday%2B05%2BJune%2B2015%2B-%2B07%253A45%253A18%2B%2BIST.png"  />
+
 <p>
-  The mobile site, I must say, would look horrible. Extra efforts are needed to make the template responsive. Since we already have Bootstrap, that is not a big deal either. I must conclude this post now, and for mobile friendly site, I may write an article soon.    Also, there is no SEO in this template. You must add relevant <i>&lt;meta&gt;</i> tags to make your blog more search engine friendly. You can always override CSS rules of bootstrap by writing your own in the <i>&lt;b:skin&gt;</i> section.</p>
-<p>Thank you for reading!
+  The mobile site, I must say, would look horrible. Extra efforts are needed to make the template responsive. Since we already have Bootstrap, that is not a big deal either. I must conclude this post now, and for mobile friendly site, I may write an article soon.    Also, there is no SEO in this template. You must add relevant <i>&lt;meta&gt;</i> tags to make your blog more search engine friendly. You can always override CSS rules of bootstrap by writing your own in the <i>&lt;b:skin&gt;</i> section.
 </p>
+
+<p>Thank you for reading!</p>
