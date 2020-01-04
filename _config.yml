@@ -34,3 +34,6 @@ exclude:
   - .jekyll-cache/
   - .idea
   - '*.log'
+
+plugins:
+  - jekyll-sitemap
