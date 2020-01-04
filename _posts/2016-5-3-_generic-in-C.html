@@ -17,8 +17,9 @@ tags:
 <p>
 	To put it simply, compare it to the switch statement for type detection. For example,
 </p>
-<pre>
-#include &lt;stdio.h&gt;
+
+{% highlight c %}
+#include <stdio.h>
 int main() {
   char *teststring = "my char array"; // target object
   char *type = _Generic(
@@ -33,15 +34,18 @@ int main() {
   printf("%s", type);
   return 0;
 }
-
-~$ gcc main.c
-~$ ./a.out
+{% endhighlight %}
+<br/>
+{% highlight bash %}
+$ gcc main.c
+$ ./a.out
 char *
-</pre>
+{% endhighlight %}
+
 <p>
 	The _Generic macro can be wrapped around in a nice looking function call, say detect_type(). Compare this to a (pseudo) switch statement which evaluates the case that matches the switch params
 </p>
-<pre>
+{% highlight c %}
 // Pseudocode may resemble Javascript. Reader discretion advised
 var someobj = "text here"; // target object
 var type; // to store the typename
@@ -58,7 +62,8 @@ type_switch(someobj) {
     type = "default";
 }
 print(type)
-</pre>
+{% endhighlight %}
+
 <p>
 	So that is it. A compile time type identification in C with a simple macro. We can do pretty amazing stuff with it using pointers to functions. For example, a generic print function, that can take in any type of argument and print it. I have added cases for integers, characters and string, but others can be added just as easily.
 </p>
@@ -78,30 +83,29 @@ print(type)
   </div>
 </p>
 <p>
-	To compile it, run <pre>~$ gcc main.c linkedlist.c -o linkedlist</pre> on any machine with GCC installed (I've tested it on version &gt;4.9). Run it with <pre>~$ ./linkedlist</pre> and you should see the different elements that we've added printed on the standard out. You may also pack the linkedlist into a statically linked library, by running.
+	To compile it, run <code>~$ gcc main.c linkedlist.c -o linkedlist</code> on any machine with GCC installed (I've tested it on version &gt;4.9). Run it with <code>~$ ./linkedlist</code> and you should see the different elements that we've added printed on the standard out. You may also pack the linkedlist into a statically linked library, by running.
 </p>
-<pre>
+{% highlight bash %}
 ~$ gcc -c linkedlist.c -o linkedlist.o
 ~$ ar rcs linkedlist.a linkedlist.o
 ~$ gcc main.c linkedlist.a
-</pre>
+{% endhighlight %}
 <p>
   Interesting, isn't it? Want to thank him, or have any comments or improvements? Drop them into the comment box. Thank you for reading.
 </p>
-<p>
-  <h4>External Links</h4>
-  <ul>
-    <li>
-      <a href="https://www.ibm.com/support/knowledgecenter/SSGH2K_13.1.0/com.ibm.xlc131.aix.doc/language_ref/genericselection.html">IBM KB article on generic selector</a>
-    </li>
-    <li>
-      <a href="http://www.robertgamble.net/2012/01/c11-generic-selections.html?m=1">Robert Gamble's blog post: c11 generic selections</a>
-    </li>
-    <li>
-      <a href="http://stackoverflow.com/questions/9804371/syntax-and-sample-usage-of-generic-in-c11">Stackoverflow question: syntax and sample usage of generic in c11</a>
-    </li>
-  </ul>
-</p>
+
+<h3>External Links</h3>  
+<ul>
+  <li>
+    <a href="https://www.ibm.com/support/knowledgecenter/SSGH2K_13.1.0/com.ibm.xlc131.aix.doc/language_ref/genericselection.html">IBM KB article on generic selector</a>
+  </li>
+  <li>
+    <a href="http://www.robertgamble.net/2012/01/c11-generic-selections.html?m=1">Robert Gamble's blog post: c11 generic selections</a>
+  </li>
+  <li>
+    <a href="http://stackoverflow.com/questions/9804371/syntax-and-sample-usage-of-generic-in-c11">Stackoverflow question: syntax and sample usage of generic in c11</a>
+  </li>
+</ul>
 <script>
   document.getElementById('vector').style.display = 'none';
   document.getElementById('btn').addEventListener('click', function showVec() {
