@@ -220,6 +220,18 @@ hr.stylish {
 .nav-item {
   border: none;
 }
+
+button {
+  padding: 5px 10px;
+  color: white;
+  background: black;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  &:hover {
+    opacity: 0.7;
+  }
+}
 // media queries
 
 @media screen and (max-width:600px) {
