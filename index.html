@@ -9,50 +9,64 @@ cover: false
 
 <hr class="stylish"/>
 
-{% if site.snippets.size > 0 %}
-  <section id="snippets">
-    <h3 class="home-page-heading">Snippets</h3>
-    <div class="parent">
-      {% for post in site.snippets reversed %}
-        <div class="post-wrapper">
-          <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%m/%Y" }}</time>
-          <a class="post-link" href="{{ post.url }}">
-            {{ post.title }}
-          </a>
+<main class="home-main">
+  {% if site.snippets.size > 0 %}
+    <section id="snippets">
+      <details>
+        <summary>
+          <h3 class="home-page-heading">Snippets</h3>
+        </summary>
+        <div class="parent">
+          {% for post in site.snippets reversed %}
+            <div class="post-wrapper">
+              <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%m/%Y" }}</time>
+              <a class="post-link" href="{{ post.url }}">
+                {{ post.title }}
+              </a>
+            </div>
+          {% endfor %}
         </div>
-      {% endfor %}
-      </div>
-  </section>
-{% endif %}
+      </details>
+    </section>
+  {% endif %}
 
-{% if site.doodles.size > 0 %}
-  <section id="art">
-    <h3 class="home-page-heading">Doodles</h3>
-    <div class="parent">
-      {% for doodle in site.doodles reversed %}
-      <div class="post-wrapper">
-        <time class="post-date" datetime="{{ doodle.date | date_to_xmlschema }}">{{ doodle.date | date: "%m/%Y" }}</time>
-        <a class="post-link" href="{{ doodle.url }}">
-          {{ doodle.title }}
-        </a>
-      </div>
-      {% endfor %}
-    </div>
-  </section>
-{% endif %}
-
-{% if site.posts.size > 0 %}
-  <section id="posts">
-    <h3 class="home-page-heading">Essays</h3>
-    <div class="parent">
-      {% for post in site.posts %}
-        <div class="post-wrapper">
-          <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%m/%Y" }}</time>
-          <a class="post-link" href="{{ post.url }}">
-            {{ post.title }}
-          </a>
+  {% if site.doodles.size > 0 %}
+    <section id="art">
+      <details>
+        <summary>
+          <h3 class="home-page-heading">Doodles</h3>
+        </summary>
+        <div class="parent">
+          {% for doodle in site.doodles reversed %}
+          <div class="post-wrapper">
+            <time class="post-date" datetime="{{ doodle.date | date_to_xmlschema }}">{{ doodle.date | date: "%m/%Y" }}</time>
+            <a class="post-link" href="{{ doodle.url }}">
+              {{ doodle.title }}
+            </a>
+          </div>
+          {% endfor %}
         </div>
-      {% endfor %}
-      </div>
-  </section>
-{% endif %}
+      </details>
+    </section>
+  {% endif %}
+
+  {% if site.posts.size > 0 %}
+    <section id="posts">
+      <details open>
+        <summary>
+          <h3 class="home-page-heading">Essays</h3>
+        </summary>
+        <div class="parent">
+          {% for post in site.posts %}
+            <div class="post-wrapper">
+              <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%m/%Y" }}</time>
+              <a class="post-link" href="{{ post.url }}">
+                {{ post.title }}
+              </a>
+            </div>
+          {% endfor %}
+        </div>
+      </details>
+    </section>
+  {% endif %}
+</main>

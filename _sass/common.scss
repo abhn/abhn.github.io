@@ -3,8 +3,11 @@
   padding: 0;
 }
 
-body {
+html, body {
   height: 100%;
+}
+
+body {
   font-size: 16px;
   font-family: var(--typography__default);
   font-weight: 400;
@@ -181,7 +184,8 @@ section h3 {
 }
 
 h3.home-page-heading {
-  margin-top: 35px;
+  margin: 5px 0;
+  display: inline-block;
 }
 
 .tags-container {
@@ -232,14 +236,19 @@ button {
     opacity: 0.7;
   }
 }
-// media queries
-
-@media screen and (max-width:600px) {
-  .post-wrapper {
-    padding-bottom: 1em
-  }
+details[open] summary ~ * {
+  animation: sweep .4s ease-in-out;
+}
+@keyframes sweep {
+  0%    {opacity: 0; margin-top: -10px}
+  100%  {opacity: 1; margin-top: 0px}
 }
 
+.home-main {
+  margin: 1rem 0;
+}
+
+// media queries
 @media screen and (max-width: 700px) {
   body {
     margin: 8px;
@@ -247,7 +256,7 @@ button {
 }
 
 @media screen and (max-width: 370px) {
-  .nav-item{
-    font-size:0.8rem;
+  .nav-item {
+    font-size: 0.8rem;
   }
 }
