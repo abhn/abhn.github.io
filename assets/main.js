@@ -58,3 +58,13 @@ function getCookie(name) {
   }
   return null;
 }
+
+let scrollPercent;
+let scrollListener = () => {
+  let scrollTop = document.documentElement["scrollTop"] || document.body["scrollTop"];
+  let scrollBottom = (document.documentElement["scrollHeight"] ||
+    document.body["scrollHeight"]) - document.documentElement.clientHeight;
+  scrollPercent = scrollTop / scrollBottom * 100 + "%";
+  document.getElementById("_progress").style.setProperty("--scroll", scrollPercent);
+};
+document.addEventListener("scroll", scrollListener, { passive: true });
