@@ -37,3 +37,5 @@ exclude:
 
 plugins:
   - jekyll-sitemap
+
+theme: elementary
