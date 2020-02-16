@@ -1,3 +1,9 @@
+PATH
+  remote: elementary
+  specs:
+    elementary (0.1.0)
+      jekyll (~> 4.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -61,6 +67,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  elementary!
   jekyll (~> 4.0)
   jekyll-sitemap
 
