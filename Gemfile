@@ -5,3 +5,4 @@ group :jekyll_plugins do
 end
 gem 'jekyll-sitemap'
 gem 'elementary', path: 'elementary'
+gem 'jekyll-feed'
