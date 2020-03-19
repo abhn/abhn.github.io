@@ -26,6 +26,19 @@ collections:
     output: true
     permalink: /doodles/:title.html
 
+featured_posts_title: Unrelated
+featured_posts:
+  - url: '/2017/02/trip-to-brahmatal-uttarakhand.htm'
+    title: 'Trek To Bramhatal (Uttarakhand)'
+  - url: '/2017/08/privacy.html'
+    title: 'Privacy - How I Converted'
+  - url: '/2018/01/jagriti-yatra.html'
+    title: 'Jagriti Yatra 2017'
+  - url: '/2017/08/private-cloud-part-2.html'
+    title: 'Private Cloud Part 2 | Encrypted Storage With NextCloud'
+  - url: '/2018/07/eli5-how-https-works.html'
+    title: 'ELI5 - How HTTPS Works'
+
 sass:
   style: compressed
   sass_dir: _sass
