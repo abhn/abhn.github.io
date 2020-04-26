@@ -12,6 +12,7 @@ domain_name: 'https://www.nagekar.com'
 author:
   name: Abhishek Nagekar
 
+javascript_enabled: true
 
 # Details for the RSS feed generator
 url:            'https://www.nagekar.com'
