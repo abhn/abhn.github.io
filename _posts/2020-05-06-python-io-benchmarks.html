@@ -1,0 +1,247 @@
+---
+title: Concurrency In Python For Network I/O - Synchronous, Threading, Multiprocessing and Asynchronous IO
+layout: post
+tags:
+- python
+---
+
+<p>
+  In this article, let's look at some of the ways to do batch HTTP requests in Python and some of the tools at our disposal. Mainly, we'll look at the following ways:
+</p>
+<ol>
+  <li>Synchronous with <code>requests</code> module</li>
+  <li>Parallel with <code>multiprocessing</code> module</li>
+  <li>Threaded with <code>threading</code> module</li>
+  <li>Event loop based with <code>asyncio</code> module</li>
+</ol>
+
+<p>
+  I was inspired to do this because I had a task at hand which required me to write code for a superset of this problem. As someone who can write basic Python, I implemented the most straightforward solution with <code>for</code> loops and <code>requests</code> module. The task was to perform HTTP HEAD requests on a bunch of URLs, around 20,000 of them. The goal was to figure out which of URLs are non-existent (404s, timeouts and so on) in a bunch of markdown files. Averaging a couple of URLs a second on my home network and my personal computer, it would've taken a good 3-5 hours.
+</p>
+
+<p>
+  I knew there had to be a better way. The search for one lead to me learning a few things and this blog post. So let's get started with each solution. Do note that depending on the hardware and network, it might go up and down quite a bit, but what's interesting is the relative improvements we make going from one method to the next.
+</p>
+
+<h3>Synchronous code with <code>requests</code> module</h3>
+
+{% highlight python linenos %}
+import time
+from helper.urls import urls
+import requests
+
+
+def make_request(url):
+    try:
+        res = requests.head(url, timeout=3)
+        print(res.status_code)
+    except Exception as e:
+        print(e.__class__.__name__)
+
+
+def driver():
+    for url in urls:
+        make_request(url)
+
+
+def main():
+    start = time.perf_counter()
+    driver()
+    end = time.perf_counter()
+    print(f'Synchronous: {end - start:.2f}')
+
+
+if __name__ == '__main__':
+    main()
+{% endhighlight %}
+
+<p>
+  If you try to think what you'd do if you had to check 10 URLs if they work, and write that process down in pseudocode form, this approach is pretty much what you'd get. Single threaded and synchronous, just like a human.
+</p>
+
+<p>
+  This script fetches 800 random URLs from a different file, makes an HTTP HEAD request to each, and then times the whole operation using <code>time.perf_counter()</code>.
+</p>
+
+<p>
+  I ran all the tests on a Raspberry Pi 3 running freshly installed Ubuntu 20.04 LTS, but I don't intend on making this scientific or reproducible, so don't take the results at face value and test it yourself. Better yet, correct me and tell me how I could've done it better!
+</p>
+
+<figure>
+  <img src="/assets/images/python_network_io/synchronous.png"/>
+  <figcaption>Synchronous code took 536 seconds to hit 800 URLs</figcaption>
+</figure>
+
+<p>
+  With that we have our baseline. 536 seconds for 800  URLs that we can use to compare our other methods against.
+</p>
+
+<h3>Multiprocessing with <code>multiprocessing</code> module</h3>
+
+{% highlight python linenos %}
+import time
+from helper.urls import urls
+import requests
+from multiprocessing import Pool
+from multiprocessing import cpu_count
+
+
+def make_request(url):
+    try:
+        res = requests.head(url, timeout=3)
+        print(res.status_code)
+    except Exception as e:
+        print(e.__class__.__name__)
+
+
+def driver():
+    with Pool(cpu_count()) as p:
+        p.map(make_request, urls)
+
+
+def main():
+    start = time.perf_counter()
+    driver()
+    end = time.perf_counter()
+    print(f'Multiprocessing: {end - start:.2f}')
+
+
+if __name__ == '__main__':
+    main()
+{% endhighlight %}
+
+<p>
+  My Raspberry Pi is a quad core board, so it can have 4 processes running in parallel. Python conveniently provides us with a <code>multiprocessing</code> module that can help us do exactly that. Theoretically, we should see everything done in about 25% of the time (4x the processing power).
+</p>
+
+<figure>
+  <img src="/assets/images/python_network_io/multiprocessing.png"/>
+  <figcaption>Multiprocessing solution took 121 seconds</figcaption>
+</figure>
+
+<p>
+  So a bit less than 25% but if I run both the scripts over and over again, the average converges to a ratio of roughly 4:1 as we'd expect.
+</p>
+
+
+<h3>Threading with <code>threading</code> module</h3>
+{% highlight python linenos %}
+import time
+from helper.urls import urls
+import requests
+import threading
+
+
+def make_request(url):
+    try:
+        res = requests.head(url, timeout=3)
+        print(res.status_code)
+    except Exception as e:
+        print(e.__class__.__name__)
+
+
+def driver():
+    threads = []
+    for url in urls:
+        t = threading.Thread(target=make_request, args=(url,))
+        threads.append(t)
+
+    for t in threads:
+        t.start()
+
+    for t in threads:
+        t.join()
+
+
+def main():
+    start = time.perf_counter()
+    driver()
+    end = time.perf_counter()
+    print(f'Threading: {end - start:.2f}')
+
+
+if __name__ == '__main__':
+    main()
+{% endhighlight %}
+<p>
+  With threading, we essentially use just one process but offload the work to a number of thread that run concurrently (along with each other but not technically parallel).
+</p>
+
+<figure>
+  <img src="/assets/images/python_network_io/threading.png"/>
+  <figcaption>Threading code runs in 41 seconds</figcaption>
+</figure>
+
+<p>
+  Threading runs much faster than the multiprocessing, but that's expected as threading is the right tool for network and I/O bound workload while multiprocessing suits CPU intensive workloads better.
+</p>
+
+<h3>Short detour: visualizing threading and multiprocessing</h3>
+<p>
+  If you look into your system monitor, or use <a href="https://hisham.hm/htop/">htop</a> like I have in the following images, you'll see how multiprocessing differs from threading. On my dual core (with 4 threads) <a href="/2020/04/thinkpad-x230-in-2020.html">personal computer</a>, <strong>multiprocessing creates four processes (with only the default one thread per process)</strong>, while <strong>threading solution creates a much larger number of threads all spawned from one process</strong>.
+</p>
+
+<figure>
+  <img src="/assets/images/python_network_io/multiprocessing-htop.png"/>
+  <img src="/assets/images/python_network_io/threading-htop.png"/>
+  <figcaption>Code running the multiprocessing [above] and threading [below] solution as viewed through htop</figcaption>
+</figure>
+
+<p>
+  This helped me better understand the difference between threads and processes on a high level and why threading solution is much faster for this particular workload.
+</p>
+
+<h3>Asynchronous code with <code>asyncio</code> module</h3>
+
+{% highlight python linenos %}
+import time
+from helper.urls import urls
+import httpx
+import asyncio
+
+async_client = httpx.AsyncClient()
+
+async def make_request(url):
+    try:
+        res = await async_client.head(url, timeout=3)
+        print(res.status_code)
+    except Exception as e:
+        print(e.__class__.__name__)
+
+
+async def driver():
+    await asyncio.gather(*[make_request(url) for url in urls])
+
+
+def main():
+    start = time.perf_counter()
+    asyncio.run(driver())
+    end = time.perf_counter()
+    print(f'Async IO: {end - start:.2f}')
+
+
+if __name__ == '__main__':
+    main()
+{% endhighlight %}
+
+<p>
+  Finally, we reach Async IO, sort of the right tool for the job given its event driven nature. It was also what sparked my curiosity in the subject in the first place as it is quite fascinating, coming from the event driven JavaScript land, to find an event loop in Python. [Read: <a href="/2016/02/callbacks-eventloop-in-javascript-explained.html">Callbacks And Event Loop Explained</a> and <a href="/2016/04/event-driven-programming.html">Event Driven Programming</a>]
+</p>
+
+<figure>
+  <img src="/assets/images/python_network_io/asyncio.png" />
+  <figcaption>Asynchronous IO code ran in 11 seconds</figcaption>
+</figure>
+
+<p>
+  Clearly this task is made for this approach, and the code looks surprisingly simple to understand which is a plus.
+</p>
+
+<h3>In closing</h3>
+<p>
+  That's it for this little adventure in Python land 🐍 I sincerely hope you enjoyed it. If you find any corrections and improvements in the above text, please write them to me. It will help me get better at Python (and writing 💪)
+</p>
+
+<p>
+  Thank you for reading 👋
+</p>
