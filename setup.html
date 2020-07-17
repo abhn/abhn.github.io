@@ -3,7 +3,24 @@ layout: page
 title: Setup
 ---
 
-<h1>Technical documentation</h1>
+<h1>Technical documentation (x230 -- currently Ubuntu)</h1>
+<h3>Logitech g305 mouse buttons bind to workspace shift right and left</h3>
+<p>First install xdotool</p>
+<pre>
+  # in .xbindkeysrc
+  "xdotool set_desktop --relative -- -1"
+  b:9
+
+  "xdotool set_desktop --relative 1"
+    b:8
+</pre>
+
+<h3>Bind thinkvantage to gnome-terminal</h3>
+<pre>gnome-terminal --window-with-profile=default</pre>
+
+<h3>Bind thinkvantage key to </h3>
+
+<h1>Technical documentation (T440, now sold, but kept here for anyone else's reference)</h1>
 <p>General notes on how to get up and running with my favourite tools real quick. Also documented here are the common issues that I've faced and their mitigations. Current setup is Thinkpad T440 running Arch and i3</p>
 
 <h3>Unresponsive touchpad after resuming from sleep</h3>
@@ -107,7 +124,7 @@ users=
 
 <h3>Getting wifi to work</h3>
 <p>
-  Connect to lan and install wpa_supplicant. Use iw to search for wifi and then add in wpa_supplicant config the wifi username and password. This page has everything needed to get up and running with wireless: https://wiki.archlinux.org/index.php/Wireless_network_configuration#WPA2_Personal. Install networkmanager, enable and start networkmanager service. Install nm-applet and add <code>nm-applet &</code> to ~/.xinitrc. 
+  Connect to lan and install wpa_supplicant. Use iw to search for wifi and then add in wpa_supplicant config the wifi username and password. This page has everything needed to get up and running with wireless: https://wiki.archlinux.org/index.php/Wireless_network_configuration#WPA2_Personal. Install networkmanager, enable and start networkmanager service. Install nm-applet and add <code>nm-applet &</code> to ~/.xinitrc.
 </p>
 
 <h3>Get git and other autocomplete</h3>
