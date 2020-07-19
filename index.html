@@ -10,25 +10,6 @@ cover: false
 <hr class="stylish"/>
 
 <main class="home-main">
-  {% if site.snippets.size > 0 %}
-    <section id="snippets">
-      <details>
-        <summary>
-          <h3 class="home-page-heading">Snippets</h3>
-        </summary>
-        <div class="parent">
-          {% for post in site.snippets reversed %}
-            <div class="post-wrapper">
-              <time class="post-date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%m/%Y" }}</time>
-              <a class="post-link" href="{{ post.url }}">
-                {{ post.title }}
-              </a>
-            </div>
-          {% endfor %}
-        </div>
-      </details>
-    </section>
-  {% endif %}
 
   {% if site.doodles.size > 0 %}
     <section id="art">

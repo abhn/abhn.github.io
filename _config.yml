@@ -20,9 +20,6 @@ url:            'https://www.nagekar.com'
 permalink: /:categories/:year/:month/:title.html
 
 collections:
-  snippets:
-    output: true
-    permalink: /snippets/:title.html
   doodles:
     output: true
     permalink: /doodles/:title.html
