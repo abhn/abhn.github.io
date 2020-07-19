@@ -1,0 +1,55 @@
+---
+layout: post
+title: Logitech G305 Gaming Mouse Review
+tags:
+- review
+---
+
+<p>
+  I was looking for an ergonomic mouse for my workstation upgrade (this mouse is one of the many things I'm adding to my work/hobby setup) and stumbled upon a lot of expensive gaming mice with RGB, scroll wheel and other fancy stuff. But I wanted none of that, just a mouse that's good to hold, wireless but not Bluetooth, and is fairly accurate with a couple of extra buttons that can be customized to custom actions. I stumbled upon G305 from Logitech which had their premium HERO sensor with 12,000 DPI and good battery life. It has good reviews on <a href="https://www.youtube.com/results?search_query=logitech+g305">Youtube</a> and <a href="https://www.amazon.de/Logitech-Kabellose-Gaming-Maus-Hero-Sensor-programmierbaren/dp/B07CGNDZR3/">Amazon DE</a> and was fairly cheap at EUR 43.
+</p>
+
+<h3>Initial impressions and build</h3>
+<figure>
+  <img src="/assets/images/logitech-mouse-contents.jpg"/>
+</figure>
+<p>
+  In a nice little box, we find the mouse itself along with colorful paperwork, a Logitech sticker, USB-A extension and a Duracell AA battery. The mouse had the USB receiver inside it. After inserting the battery into the mouse, it does become a bit heavy. I like how solid it feels, but apparently more weight is bad when it comes to gaming mice. I've been away from both, gaming and physical mice for about 7 years now, so it was good to know, and is something to consider if you're actually going to game with it.
+</p>
+
+<h3>No RGB</h3>
+<p>
+  Another thing to note is that many gaming mice, even the ones half the price of this (albeit from no-name brands), come with RGB lighting. This one doesn't but that's not a problem for me.
+</p>
+
+<h3>Pointer speed toggle</h3>
+<figure>
+  <img src="/assets/images/logitech-mouse-light.jpg"/>
+</figure>
+<p>
+  There's a button right behind the scroll wheel that changes the speed of the mouse pointer speed. It has four levels, and each level has a different colored LED indicator that lights up when it is toggled. Pretty sleek and handy.
+</p>
+
+<h3>Utility buttons</h3>
+<figure>
+  <img src="/assets/images/logitech-mouse-top-view.jpg"/>
+</figure>
+<p>
+  There are two utility buttons on the side which don't do anything by default on Ubuntu (they did navigate to the next/previous tab in Chromium by default though). I used <code>xev</code> to find their button codes and then xbindkeys to bind them to toggle previous/next workspace in Ubuntu with the following
+</p>
+<pre>
+# in .xbindkeysrc
+"xdotool set_desktop --relative -- -1"
+  b:9
+
+"xdotool set_desktop --relative 1"
+  b:8
+</pre>
+<p>
+  Install <code>xdotool</code> if you don't have it already.
+</p>
+
+<h3>In closing</h3>
+<p>
+  I am really enjoying this mouse, and have no problems so far. It is nice to have the Thinkpad clit mouse when typing/working and using the mouse when casually surfing the web (like browsing Youtube). I'll post a little review of the new keyboard soon and if you'd like to know when I do, you might want to subscribe to the RSS feeds of my blog.
+</p>
