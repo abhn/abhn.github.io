@@ -1,0 +1,37 @@
+---
+layout: page
+title: Quotes
+---
+
+<h3>from ./quotes.txt</h3>
+<div id="quotes-container"></div>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        populateQuotes();
+    });
+
+    const populateQuotes = () => {
+        console.log('hello')
+        if(window.location.href.includes('quotes')) {
+            fetch('/quotes.txt')
+                .then(res => res.text())
+                .then(data => {
+                    let quoteElem = document.querySelector('#quotes-container');
+                    let quoteArr = data.split('\n');
+                    quoteArr.forEach((item, i) => {
+                        let b = document.createElement('blockquote');
+                        let nl = document.createElement('p');
+                        if(item) {
+                            b.innerText = item;
+                            quoteElem.appendChild(b);
+                            if ((i + 1 !== quoteArr.length))
+                                quoteElem.appendChild(nl);
+                        }
+                    })
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+        }
+    }
+</script>
