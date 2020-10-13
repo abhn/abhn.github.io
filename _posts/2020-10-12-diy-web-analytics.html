@@ -1,0 +1,172 @@
+---
+title: DIY Web Analytics
+layout: post
+tags:
+- web
+- javascript
+- python
+---
+
+<p>
+  I've long established that adding heavy duty analytics and tracking scripts to my blog pages isn't the right thing to do. Personally, it is also a bit liberating to not know which article of mine is getting a lot of traffic and which isn't, because then I'm not biased by what the internet is searching for and can write about pretty much anything that I feel like writing about. <q>10 programming languages you should learn in 2020</q> has exactly the same weight as <q>Let me tell you a funny story from last night</q>, so which one do think I'd write about?
+</p>
+<p>
+  The analytics and tracking world has come a long way and is viewed very negatively in the light of recent internet incidents. But it started off very simple and had a very simple and non-malicious idea at its core: Getting to know your user better so that you can serve them better.
+</p>
+
+<p>
+  That thought made me search for a simple analytics solution that I could run on my blog for a couple of weeks and get enough insights to make informed decisions regarding the frontend design changes while not compromising on the privacy of the visitors. If I'm completely honest, I was also just curious to know these things with no agenda behind it.
+</p>
+<p>
+  I looked into <a href="https://simpleanalytics.com/">Simple Analytics</a>, a nice solution that does exactly what I needed (perhaps a bit more than that), but a little expensive for me at USD 19 a month. There are also self hosted analytics solutions like <a href="https://plausible.io/">Plausible</a>, but that was too much work for realizing this simple thought. So I decided to put something together quickly and the following is what I ended up implementing.
+</p>
+
+<h3>Client side JavaScript</h3>
+<p>
+  On the client side, I needed to get the data that interested me. It was details like the browsers used by my visitors, platform, width of their screens etc. More technically, the user agent, platform, screen width, referrer and the current page's url (although I don't plan on using it for this article. Spoiler: One of my lowest effort articles is pulling more than half of all pageviews which is a bit saddening).
+</p>
+
+{% highlight javascript linenos %}
+if (!('doNotTrack' in navigator) || !(navigator.doNotTrack === '1')) {
+  let analytics = {};
+
+  analytics["href"] = window.location.href;
+  analytics["userAgent"] = navigator.userAgent;
+  analytics["width"] = window.innerWidth;
+  analytics["referrer"] = document.referrer;
+  analytics["platform"] = navigator.platform;
+
+  navigator.sendBeacon(ANALYTICS_ENDPOINT, JSON.stringify(analytics));
+}
+{% endhighlight %}
+
+<p>
+  There's not much happening here. Just checking if the user prefers to not be tracked, else get the desired data and POST it to our analytics endpoint using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/sendBeacon">navigator.sendBeacon</a> API.
+</p>
+
+<h3>Server</h3>
+<p>
+  We need to implement the endpoint that's listening for the POST requests from our client browsers. I decided to go with Firebase's functions for handling the request and Firebase's realtime database to store the data.
+</p>
+
+{% highlight javascript linenos %}
+const functions = require('firebase-functions');
+const admin = require('firebase-admin');
+
+admin.initializeApp();
+
+const cors = require('cors')({
+  origin: true,
+});
+
+exports.handler = functions.https.onRequest(async (req, res) => {
+  if(req.method === 'POST') {
+    const snapshot = await admin.database().ref('/hit').push(JSON.parse(req.body));
+    return cors(req, res, () => {
+      res.json({ message: 'success' });
+    });
+  }
+  else {
+    res.json({ message: 'have a good day!' });
+  }
+});
+{% endhighlight %}
+
+<p>
+  Now this is super bad code for a variety of reasons, but it worked for my temporary needs. I deployed this, waited for a couple of weeks and had some data to answer some basic questions about my blog's visitors.
+</p>
+
+<h3>Parsing data</h3>
+<p>
+  So at this point I had let this code run long enough to have accumulated couple of hundred entries. It was time to analyze. Firebase allows you to easily export the database in JSON format. Using some basic Python-fu, I created lists of each dimension and passed these lists to Python's builtin <code>collections.Counter</code> (which is perfect since I'm only interested in aggregated stats), and then take the top 5 most frequent items using the <code>.most_common</code> method. Finally, we plot bar charts for these top 5 values across each dimension using Matplotlib to visualize the results.
+</p>
+
+{% highlight python linenos %}
+import json
+from collections import Counter, defaultdict
+from user_agents import parse
+import matplotlib.pyplot as plt
+
+analytics_data = defaultdict(list)
+
+
+def plot_chart_from_ctr(ctr):
+    most_common = ctr.most_common(5)
+    x, y = [item[0] for item in most_common], [item[1] for item in most_common]
+    x = [str(i) for i in x]
+    plt.bar(x, y)
+    plt.show()
+
+
+def driver():
+    with open('export.json', 'r') as output:
+        data = json.load(output)
+        hit = data['hit']
+        entries = []
+        for item in hit:
+            entries.append(hit[item])
+
+        analytics_data['height'] = []
+        for item in entries:
+            analytics_data['width'].append(item['width'])
+            analytics_data['href'].append(item['href'])
+            analytics_data['platform'].append(item['platform'])
+            analytics_data['referrer'].append(item['referrer'])
+            analytics_data['userAgent'].append(item['userAgent'])
+
+    browser_family = []
+    for agent in analytics_data['userAgent']:
+        user_agent = parse(agent)
+        browser_family.append(user_agent.browser.family)
+
+    ctr_browser_family = Counter(browser_family)
+    plot_chart_from_ctr(ctr_browser_family)
+
+    ctr_platform = Counter(analytics_data['platform'])
+    plot_chart_from_ctr(ctr_platform)
+
+    ctr_referrer = Counter(analytics_data['referrer'])
+    plot_chart_from_ctr(ctr_referrer)
+
+    ctr_width = Counter(analytics_data['width'])
+    plot_chart_from_ctr(ctr_width)
+
+
+if __name__ == '__main__':
+    driver()
+{% endhighlight %}
+
+<h3>The questions</h3>
+
+<h4>What are the most common browsers?</h4>
+<figure>
+  <img src="/assets/images/analytics-browser.png"/>
+  <figcaption>I would've guessed this to be the case for browsers, but not in Chrome's favour to this extent :(</figcaption>
+</figure>
+
+<h4>What are the most common platforms?</h4>
+<figure>
+  <img src="/assets/images/analytics-platform.png"/>
+  <figcaption>Win32 is still the majority platform among my visitors and there's some Apple action going on. There's also a healthy chunk of Linux X86_64 visitors. The armv7l and armv8l may contain Android devices but hard to tell.</figcaption>
+</figure>
+
+<h4>What are the most common referrers?</h4>
+<figure>
+  <img src="/assets/images/analytics-referrer.png"/>
+  <figcaption>Unsurprisingly, most of the traffic comes through Google.</figcaption>
+</figure>
+
+<h4>What are the most common screen widths?</h4>
+<figure>
+  <img src="/assets/images/analytics-width.png"/>
+  <figcaption>There's a healthy mix of screen resolutions with the most frequent being 360px.</figcaption>
+</figure>
+
+<h3>In closing</h3>
+<p>
+  So that's it for this little article. I'm happy with the outcome given how little effort went into this whole assignment. I hope you enjoyed reading it. As always, write me an email in case you have any comments!
+</p>
+
+<p>
+  Thank you for reading.
+</p>
