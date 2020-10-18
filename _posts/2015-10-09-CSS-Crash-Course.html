@@ -10,37 +10,38 @@ tags:
 
 <h3>A thing or two about CSS</h3>
 <p>CSS isn't a markup language. It is a styling language, and hence, it won't really work if you have no document in the first place. Creating a document simply means adding some data to HTML tags in a web page. Here onwards, document would mean the HTML page that we are working on. Let us create one as an example.</p> 
-<code>
-  &lt;!DOCTYPE html&gt;<br/>
-  &lt;head&gt;<br/>
-  &nbsp;&nbsp;&lt;title&gt;Testing&lt;/title&gt;<br/>
-  &lt;/head&gt;<br/>
-  &lt;body&gt;<br/>
-  &nbsp;&nbsp;&lt;h1&gt;Awesome Site&lt;/h1&gt;<br/>
-  &nbsp;&nbsp;&lt;h3&gt;A little heading&lt;/h3&gt;<br/>
-  &nbsp;&nbsp;&lt;p&gt;A paragraph containing some text&lt;/p&gt;<br/>
-  &nbsp;&nbsp;&lt;h3&gt;Some information&lt;/h3&gt;<br/>
-  &nbsp;&nbsp;&lt;p&gt;More text...&lt;/&gt;<br/>
-  &lt;/body&gt;<br/>
-  &lt;/html&gt;<br/>
-</code>
+{% highlight html %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Testing</title>
+</head>
+<body>
+  <h1>Awesome Site</h1>
+  <h3>A little heading</h3>
+  <p>A paragraph containing some text</p>
+  <h3>Some information</h3>
+  <p>More text...</p>
+</body>
+</html>
+{% endhighlight %}
 <p>This is a very basic example that would display something like the following. You can guess what each tag stands for here, if not, 'h' tag stands for heading, 'h1' being the largest to 'h6' being the smallest. 'p' stands for paragraph, and there are many <a href="http://www.w3schools.com/html/" target="_blank">such tags</a>, which are used as and when required.</p>
 <iframe src="{{ BASE_PATH }}/assets/css_files/test1.html" width="100%" height="auto"></iframe>
 <p>Now it is time to style our document. I will place all the CSS styling in a <code>&lt;style&gt;</code> tag, which I will be placing into the <code>&lt;head&gt;</code> of the document. Now you must know that I could do the exact same thing by using an external CSS file and linking it, or by styling individual elements using inline CSS. We will see what those are later. I think the main heading should be red, the subordinate headings should be green and the paragraphs should be orange. I also think the background should be a little off white. Let's see how that translates into CSS.</p>
-<code>
- body {<br/>
-    &nbsp;&nbsp;background-color: #eee;<br/>
-  }<br/>
-  h1 {<br/>
-    &nbsp;&nbsp;color: red;<br/>
-  }<br/>
-  h3 {<br/>
-    &nbsp;&nbsp;color: green;<br/>
-  }<br/>
-  p {<br/>
-    &nbsp;&nbsp;color: orange;<br/>
-  }
-</code>
+{% highlight css %}
+body {
+  background-color: #eee;
+}
+h1 {
+  color: red;
+}
+h3 {
+  color: green;
+}
+p {
+  color: orange;
+}
+{% endhighlight %}
 <p>Now that we have styled our page, let's take another look at it.<p>
 <iframe src="{{ BASE_PATH }}/assets/css_files/test2.html" width="100%" height="auto"></iframe>
 
@@ -52,67 +53,67 @@ tags:
 
 <p>Now we shall rewrite the document adding an id attribute to each tag name.</p>
 
-<code>
-&lt;body&gt;<br/>
-  &nbsp;&nbsp;&lt;h1 id=&quot;logo&quot;&gt;Awesome Site&lt;/h1&gt;<br/>
-  &nbsp;&nbsp;&lt;h3 id=&quot;heading&quot;&gt;A little heading&lt;/h3&gt;<br/>
-  &nbsp;&nbsp;&lt;p id=&quot;content&quot;&gt;A paragraph containing some text&lt;/p&gt;<br/>
-  &nbsp;&nbsp;&lt;h3 id=&quot;other-heading&quot;&gt;Some information&lt;/h3&gt;<br/>
-  &nbsp;&nbsp;&lt;p id=&quot;other-content&quot;&gt;More text...&lt;/&gt;<br/>
-&lt;/body&gt;<br/>
-</code>
+{% highlight html %}
+<body>
+  <h1 id="logo">Awesome Site</h1>
+  <h3 id="heading">A little heading</h3>
+  <p id="content">A paragraph containing some text</p>
+  <h3 id="other-heading">Some information</h3>
+  <p id="other-content">More text...</p>
+</body>
+{% endhighlight %}
 
 <p>and we shall change the CSS accordingly</p>
 
-<code>
-  #logo {<br/>
-    &nbsp;&nbsp;color: red;<br/>
-  }<br/>
-  #heading {<br/>
-    &nbsp;&nbsp;color: green;<br/>
-  }<br/>
-  #other-heading {<br/>
-    &nbsp;&nbsp;color: olive;<br/>
-  }<br/>
-  #content {<br/>
-    &nbsp;&nbsp;color: orange;<br/>
-  }<br/>
-  #other-content {<br/>
-    &nbsp;&nbsp;color: purple;<br/>
-  }
-</code>
+{% highlight css %}
+#logo {
+  color: red;
+}
+#heading {
+  color: green;
+}
+#other-heading {
+  color: olive;
+}
+#content {
+  color: orange;
+}
+#other-content {
+  color: purple;
+}
+{% endhighlight %}
 
 <p>The resulting page looks something like this, with each of the individual elements appearing in different color.</p>
 
 <iframe src="{{ BASE_PATH }}/assets/css_files/test3.html" width="100%" height="auto"></iframe>
 
-<p>Note that we could have well written 'class' instead of 'id' in our document, but then instead of <code>#logo</code> it would have been <code>.class</code>, which is the class selector. Having learnt two selectors, we can now combine them to get the desired result. For example, <code>h3#heading { color: blue; }</code> would turn <span style="color: blue;">blue</span> all the h3 tags that have a <i><b>id="heading"</b></i> attribute declared. Similarly, <code>h3.heading { color: blue; }</code> would result in the same thing to all the h3 tags with <i><b>class="heading"</b></i>.</p>
+<p>Note that we could have well written 'class' instead of 'id' in our document, but then instead of <code>#logo</code> it would have been <code>.logo</code>, which is the class selector. Having learnt two selectors, we can now combine them to get the desired result. For example, <code>h3#heading { color: blue; }</code> would turn <span style="color: blue;">blue</span> all the h3 tags that have a <i><b>id="heading"</b></i> attribute declared. Similarly, <code>h3.heading { color: blue; }</code> would result in the same thing to all the h3 tags with <i><b>class="heading"</b></i>.</p>
 
 <h3>Group selectors</h3>
 
 <p>Group selectors are used to apply properties to multiple elements at once. Multiple elements are separated by commas.</p>
 
-<code>
-  #logo {<br/>
-    &nbsp;&nbsp;color: red;<br/>
-  }<br/>
-  #heading {<br/>
-    &nbsp;&nbsp;color: green;<br/>
-  }<br/>
-  #other-heading {<br/>
-    &nbsp;&nbsp;color: olive;<br/>
-  }<br/>
-  #content {<br/>
-    &nbsp;&nbsp;color: orange;<br/>
-  }<br/>
-  #other-content {<br/>
-    &nbsp;&nbsp;color: purple;<br/>
-  }<br/>
-  /* Selecting all three tag names at once. */<br/>
-  h1, h3, p {<br/>
-    &nbsp;&nbsp;background-color: yellow;<br/>
-  }<br/>
-</code>
+{% highlight css %}
+#logo {
+  color: red;
+}
+#heading {
+  color: green;
+}
+#other-heading {
+  color: olive;
+}
+#content {
+  color: orange;
+}
+#other-content {
+  color: purple;
+}
+/* Selecting all three tag names at once. */
+h1, h3, p {
+  background-color: yellow;
+}
+{% endhighlight %}
 
 <p>Which will look like</p>
 
@@ -122,30 +123,31 @@ tags:
 
 <p>Sometimes, CSS properties needs to be applied only to tags within a specific tag or id. In such situations, the descendant selector comes in handy.</p>
 
-<code>
-&lt;!DOCTYPE html&gt;<br/>
-&lt;head&gt;<br/>
-  &nbsp;&nbsp;&lt;title&gt;Testing&lt;/title&gt;<br/>
-  &nbsp;&nbsp;&lt;style&gt;<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;ul em {<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;font-size: 1.25em;<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
-  &nbsp;&nbsp;&lt;/style&gt;<br/>
-&lt;/head&gt;<br/>
-&lt;body&gt;<br/>
-  &nbsp;&nbsp;&lt;p&gt;Look what I&apos;ve &lt;em&gt;got for ya!&lt;/em&gt;&lt;/p&gt;<br/>
-  &nbsp;&nbsp;&lt;p&gt;<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;&lt;ul&gt;<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;item 1&lt;/li&gt;<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;item 2&lt;/li&gt;<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;item 3&lt;/li&gt;<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;&lt;em&gt;this looks abnormal&lt;/em&gt;&lt;/li&gt;<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;li&gt;item 5&lt;/li&gt;<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;&lt;/ul&gt;<br/>
-  &nbsp;&nbsp;&lt;p&gt;<br/>
-&lt;/body&gt;<br/>
-&lt;/html&gt;<br/>
-</code>
+{% highlight html %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Testing</title>
+  <style>
+    ul em {
+      font-size: 1.25em;
+    }
+  </style>
+</head>
+<body>
+  <p>Look what I've <em>got for ya!</em></p>
+  <p>
+    <ul>
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>item 3</li>
+      <li><em>this looks abnormal</em></li>
+      <li>item 5</li>
+    </ul>
+  <p>
+</body>
+</html>
+{% endhighlight %}
 
 <p>And this will render</p>
 
@@ -159,49 +161,48 @@ tags:
 
 <p>I will write the 4 sections of a website I mentioned earlier, using divs. Read the code and you would understand what is happening.</p>
 
-<code>
-
-&lt;!DOCTYPE html&gt;<br/>
-&lt;head&gt;<br/>
-  &nbsp;&nbsp;&lt;title&gt;Testing&lt;/title&gt;<br/>
-  &nbsp;&nbsp;&lt;style&gt;<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;* {<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;text-align: center; <br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;#header {<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background-color: red;<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;height: 50px;<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;#container {<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: auto;<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;margin: 0 auto;<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;#body {<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: 75%;<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float: left;<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background-color: grey;<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;#side {<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;width: 25%;<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;float: right;<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background-color: blue;<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;#footer {<br/>
-      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;background-color: green;<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
-  &nbsp;&nbsp;&lt;/style&gt;<br/>
-&lt;/head&gt;<br/>
-&lt;body&gt;<br/>
-  &nbsp;&nbsp;&lt;div id=&quot;header&quot;&gt;&lt;h3&gt;Header Text&lt;/h3&gt;&lt;/div&gt;<br/>
-  &nbsp;&nbsp;&lt;div id=&quot;container&quot;&gt;<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div id=&quot;body&quot;&gt;&lt;p&gt;Content goes here&lt;/p&gt;&lt;/div&gt;<br/>
-    &nbsp;&nbsp;&nbsp;&nbsp;&lt;div id=&quot;side&quot;&gt;&lt;p&gt;Sidebar&lt;/p&gt;&lt;/div&gt;<br/>
-  &nbsp;&nbsp;&lt;/div&gt;<br/>
-  &nbsp;&nbsp;&lt;div id=&quot;footer&quot;&gt;&lt;p&gt;Copyrights&lt;/p&gt;&lt;/div&gt;<br/>
-&lt;/body&gt;<br/>
-&lt;/html&gt;<br/>
-
-</code>
+{% highlight html %}
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Testing</title>
+  <style>
+    * {
+      text-align: center; 
+    }
+    #header {
+      background-color: red;
+      height: 50px;
+    }
+    #container {
+      width: auto;
+      margin: 0 auto;
+    }
+    #body {
+      width: 75%;
+      float: left;
+      background-color: grey;
+    }
+    #side {
+      width: 25%;
+      float: right;
+      background-color: blue;
+    }
+    #footer {
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+  <div id="header"><h3>Header Text</h3></div>
+  <div id="container">
+    <div id="body"><p>Content goes here</p></div>
+    <div id="side"><p>Sidebar</p></div>
+  </div>
+  <div id="footer"><p>Copyrights</p></div>
+</body>
+</html>
+{% endhighlight %}
 
 <p>This sure looks beautiful, doesn't it?</p>
 
