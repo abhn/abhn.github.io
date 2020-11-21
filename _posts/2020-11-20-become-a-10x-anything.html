@@ -1,0 +1,145 @@
+---
+layout: post
+title: 'Become A 10x &lt;anything&gt; [fail]'
+tags:
+- web
+---
+
+<blockquote>
+  Beware the barrenness of a busy life.
+  <br/>
+  - Socrates (from my <a href="/quotes">quotes</a> file)
+</blockquote>
+
+<p>
+  Today, we're going to learn how to be a 10x anything. We're going to do that by putting slack on mute. But not the simple way. That works, but don't expect 10x results. Also, this guide assumes that the most distraction during worktime comes from Slack. If that's not the case for you, you might end up with ~4.5x results (scientific).
+</p>
+
+<p>
+  What we'll essentially be doing is:
+</p>
+
+<ul>
+  <li>Set up Pi-hole on our home network. Pi-hole is a DNS based ad blocker which sinks requests if they're for ad network.</li>
+  <li>Use Pomodoro app on KDE to trigger scripts when the focus session starts and ends. If you haven't heard about Pomodoro technique, read up more here: <a href="https://en.wikipedia.org/wiki/Pomodoro_Technique">https://en.wikipedia.org/wiki/Pomodoro_Technique</a>.</li>
+  <li>The scripts themselves will block any website / app that you don't want distracting you when the focus time is on.</li>
+</ul>
+
+<h3>Pi-hole</h3>
+<img src="/assets/images/pi-hole.png"/>
+<p>
+  Pi-hole is amazing! No, seriously. It blocks all ads and tracking, has a very good interface which supports custom rules for each device, groups and more. All of this is free, open source and pure. Did you star the <a href="https://github.com/pi-hole/pi-hole">repository</a> already?
+</p>
+
+<p>
+  Pi hole can not only block DNS queries for ads/tracking networks, but also anything you ask it to. We'll use it to block Slack on our network.
+</p>
+
+
+<h3>Raspberry Pi</h3>
+<p>
+  We need something to run the Pi-hole, so grab a Pi zero or a normal Raspberry Pi. A virtual machine / docker would work but then you need that the running 24/7.
+</p>
+
+<h3>Pomodoro app that supports scripts</h3>
+<p>
+  I'm sure your operating system of choice has a Pomodoro app made for it. The trick here is to find one that supports executing scripts on certain events like focus time start and end.
+</p>
+<img src="/assets/images/fokus.png"/>
+<p>
+  As you can see, <a href="https://store.kde.org/p/1308861/">Fokus</a> on the KDE store supports this functionality and is perfect for me since I'm already on KDE.
+</p>
+
+<h3>Router with custom DNS setting</h3>
+<p>
+  We need to change the DNS settings in our router and point it to our Raspberry Pi's IP address. As a backup, we still keep 1.1.1.1. Most routers support this setting. If for some reason you're not able to do it at the router level, you can still set custom DNS on each of your device, which is a bit more work.
+</p>
+
+<img src="/assets/images/router-dns.png"/>
+
+<h3>Ability to not overthink</h3>
+<p>
+  Given how futile this whole exercise is, if you start questioning yourself <q>why am I even doing any of this when you could just mute Slack?</q>, this exercise (or this blog) is not for you.
+</p>
+
+<h3>Tutorial (kinda)</h3>
+<p>
+  The initial setup is very standard. Install Pi-hole on your Raspberry pi by following their <a href="https://github.com/pi-hole/pi-hole/#one-step-automated-install">official guide</a>. Get the Pomodoro app up and running.
+</p>
+
+<p>
+  Once that's done, we create a directory on our computer and create two files in it: focus-start.sh and focus-end.sh and mark them executable
+</p>
+
+{% highlight sh %}
+$ mkdir hackerman && cd hackerman
+$ touch focus-start.sh focus-end.sh
+$ chmod +x focus-start.sh focus-end.sh
+{% endhighlight %}
+
+<p>
+  As the file names suggest, the focus-start.sh will execute when our focus time starts and focus-end.sh executes when our focus time ends. It should look like this in Fokus, our pomodoro app.
+</p>
+
+<img src="/assets/images/fokus-script.png"/>
+
+<p>
+  So now that this is configured, we need to enable passwordless ssh access to our Raspberry Pi. I followed <a href="https://www.raspberrypi.org/documentation/remote-access/ssh/passwordless.md">this guide here</a>. What that enables is just typing <code>ssh pi@raspberrypi.local</code> will log us into the Pi without a password.
+</p>
+
+<p>
+  Next, we open our files and add the commands to enable and disable Slack's domain using a wildcard blacklist/whitelist entry.
+</p>
+
+{% highlight sh %}
+# focus-start.sh
+ssh pi@raspberrypi.local "pihole --wild 'slack.com'"
+{% endhighlight %}
+<br/>
+{% highlight sh %}
+# focus-start.sh
+ssh pi@raspberrypi.local "pihole --wild 'slack.com' -d"
+{% endhighlight %}
+
+<p>
+  The focus-end.sh command is only different in that has the -d flag, which removes the wildcard domain from the blacklist. We can even try running that command on the terminal and verifying if it creates an entry in Pi-hole. Remember to substitute <code>raspberrypi.local</code> with your Raspberry Pi's hostname / IP address.
+</p>
+
+<figure>
+  <img src="/assets/images/add-slack-pi-hole.png"/>
+</figure>
+<br/>
+<figure>
+  <img src="/assets/images/blacklist.png"/>
+</figure>
+
+<p>
+  That's it. The other command works as expected too, removing the slack.com's wildcard entry at our discretion.
+</p>
+
+<h3>So, how does it (not) work?</h3>
+
+<p>
+  Theoretically, we're sinking any DNS query for slack.com and any of its subdomain meaning the APIs won't work once the blacklist entry has been created. But there are a couple of problems with our approach.
+</p>
+
+<p>
+  One, Slack's messages are transferred over Websocket and once that's established (when you open the website / app), it doesn't need DNS to work (resolve) for sending and receiving messages.
+</p>
+
+<p>
+  Even if it did, DNS queries are cached (by a variety of entities like browsers, operating systems etc), so it isn't like this is fool proof and starts working the second it is turned on.
+</p>
+
+<p>
+  Third, many apps use their own DNS and have little regard for your home DNS. For example, I tried to block Whatsapp this way (using <a href="https://github.com/ukanth/afwall/wiki/HOWTO-blocking-WhatsApp">this list</a>) and it just doesn't work, at least on Android.
+</p>
+
+<h3>A complete fail then?</h3>
+<p>
+  Not exactly. You can still block websites that you open in browsers, like reddit.com and youtube.com if you spend too much time on those like me. In any case, it is a fun way to learn about how web apps, DNS and ad blocking work and involves a lot of trial and error to get things to work. Oh and yes, we do have a network wide ad blocker which is what Pi-hole does best, so there's also that.
+</p>
+
+<p>
+  That's it for this one. Thank you for reading.
+</p>
