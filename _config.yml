@@ -52,4 +52,3 @@ plugins:
   - jekyll-feed
 
 remote_theme: abhn/elementary
-theme: elementary
